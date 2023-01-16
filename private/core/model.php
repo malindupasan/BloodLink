@@ -19,7 +19,7 @@ class Model extends Database
         $column = addslashes($column);
 
         $query = "select * from $this->table where $column=:value";
-        echo $query;
+        // echo $query;
         return $this->query($query, [
             
             'value' => $value,
