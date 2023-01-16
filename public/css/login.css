@@ -1,6 +1,9 @@
 body {
-    background-image: url("../images/background.jpg");
+    background-image: url("images/sign_back.png");
     background-color: #cccccc;
+}
+html{
+    font-family: Poppins;
 }
 
 .main {
@@ -20,16 +23,16 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-left: 40px;
-    margin-bottom: 40px;
+    margin-left: 2rem;
+    margin-bottom: 4rem;
    
-    width: 554px;
-    height: 659.18px;
+    width: 34rem;
+    height: 80rem;
     left: calc(50% - 724px/2 - 387px);
     top: calc(50% - 769.18px/2 + 56.09px);
 
     background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(16.9423px);
+    backdrop-filter: blur(50.9423px);
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 45.1794px;
 }
@@ -37,7 +40,7 @@ body {
 
 
 .logo-1 {
-    width: 205px;
+    width: 190px;
     height: 215px;
     
 }
@@ -53,17 +56,26 @@ body {
 .input {
     border-radius: 15px;
     
-    margin-bottom: 10px;
-    height: 65px;
-    width: 400px;
+    /* margin-bottom: 2rem; */
+    height: 3.5rem;
+    width: 25rem;
+    border: none;
+}
+.in1{
+    margin-top: 2rem;
+}
+em{
+    margin-bottom: 1rem;
 }
 
+a{text-decoration: none;}
 .login-button {
     margin-top: 10px;
     background-color: #FF8080;
     border-radius: 15px;
-    height: 65px;
+    height: 3.5rem;
     width: 400px;
+    border: none;
 }
 
 .login-to-your-account {
@@ -83,6 +95,9 @@ body {
     align-items: center;
 }
 
+input{
+    padding-left: 1rem;
+}
 
 
 
