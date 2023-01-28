@@ -158,5 +158,8 @@ body {
 	border: 10px solid;
 	border-color: transparent transparent rgb(254, 254, 254) transparent;
 }
-
+a{
+    color: inherit; 
+    text-decoration: none;
+}
 /* .............................. */

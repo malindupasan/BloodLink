@@ -16,7 +16,7 @@ class Changepic extends Controller
            if($image->pic_validate()){
                 $id = Auth::getid();
                 $filename = $image->pic_validate();
-                $arr['profile_pic'] = $filename;
+                $arr['profile_img'] = $filename;
                 $user->update($id, $arr);
                 $this->redirect('profile');
            }

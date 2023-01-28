@@ -12,13 +12,25 @@ class Editprofile extends Controller
         $user = $this->load_model('User');
 
         $id=Auth::getid();    
-        $data = $user->where("id", $id);
-
+        
+        if($_POST){
+            $id=Auth::getid(); 
+            
+            $arr['fullname']=$_POST['name3'];
+          
+            $arr['mobile']=$_POST['phone'];
+            $arr['city']=$_POST['city'];
+            $arr['address']=$_POST['address'];
+            $user->update($id,$arr);
+            header("Location:http://localhost:8888/Bloood%20Link%202/public/profile");
+            
+        }
         
 
-
+        $data = $user->where("id", $id);
 
         // $data=$user->where('id', 1);
+        $data = $data[0];
         $this->view('editprofile', ['rows' => $data]);
         // $this->view('home');
     }
