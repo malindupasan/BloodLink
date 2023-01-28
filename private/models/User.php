@@ -11,7 +11,7 @@
 
   
 
-   protected $allowedColumns = ['fullname','email','nic','mobile','city','address','password'];
+   protected $allowedColumns = ['fullname','email','nic','mobile','city','address','password','profile_img'];
    protected $beforeInsert = ['hash_password'];
 
 

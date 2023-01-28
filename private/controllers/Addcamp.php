@@ -1,25 +1,18 @@
 <?php
-class Profile extends Controller
+class Addcamp extends Controller
 {
     function index($id = '')
     {
 
-
+        $user = $this->load_model('User');
         if(!Auth::logged_in()){
             $this->redirect('login');
         }
 
-        $user = $this->load_model('User');
-
         $id=Auth::getid();    
         $data = $user->where("id", $id);
 
-
-
-
-
         
-        $this->view('profile', ['rows' => $data[0]]);
-        
+        $this->view('addcamp', ['rows' => $data[0]]);
     }
 }

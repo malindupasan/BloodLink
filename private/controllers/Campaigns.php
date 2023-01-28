@@ -1,5 +1,5 @@
 <?php
-class Profile extends Controller
+class Campaigns extends Controller
 {
     function index($id = '')
     {
@@ -14,12 +14,9 @@ class Profile extends Controller
         $id=Auth::getid();    
         $data = $user->where("id", $id);
 
-
-
-
-
         
-        $this->view('profile', ['rows' => $data[0]]);
+        $this->view('campaigns', ['rows' => $data[0]]);
+       
         
     }
 }

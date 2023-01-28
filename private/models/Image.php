@@ -45,7 +45,7 @@ class Image extends model {
             if ($_FILES['file']['type'] == "image/jpeg") {
                 $max_size = 1024 * 1024 * 8;
                 if ($_FILES['file']['size'] <= $max_size) {
-                    $filename = 'uploads/' . $_FILES['file']['name'];
+                    $filename = 'images/uploads/' . $_FILES['file']['name'];
                     move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
                     $image = new Image();
