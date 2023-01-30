@@ -27,8 +27,7 @@ class Campaigns extends Controller
         // $id=Auth::getid();    
         
         // $data = $camp->query($query,['cName'=>'dcs%']);
-        // echo "<pre>";
-        // print_r($data);
+       
         
         $this->view('campaigns', [$data]);
        
