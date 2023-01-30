@@ -2,22 +2,23 @@
 <?php $i=0 ?>
 
     <link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/campaigns.css">
- 
+    <title>Campaigns</title>
 
     <div class="sec1">
         <h2 class="sec1-h">campaigns</h2>
         <div class="sec1-sub">
-        <form action="" class="searchfrom"> 
-         <input type="text">   
-        <button class="search-btn">Search</button>
+        <form method="get" class="searchfrom"> 
+         <input type="text" value="<?=isset($_GET['find'])?$_GET['find']:''?>" name="find">   
+        <button class="search-btn" type="submit">Search</button>
         </form>   
-        <button class="post-btn">Post</button>
+       <a href="<?=ROOT.'/addcamp'?>"> <button  class="post-btn">Post</button></a>
        
     </div>
     </div>
     <div class="sec2">
-        <button class="progress-btn">In Progress</button>
-        <button class="upcoming-btn">Upcoming</button>
+        <button class="progress-btn">Upcoming</button>
+        <button class="upcoming-btn">In Progress</button>
+        <button class="mycamps-btn">MyCampaigns</button>
     </div>
      <div class="sec3"> 
         
@@ -29,10 +30,13 @@
         <?php endif ?>
         <a href="<?=ROOT?>/camppage?id=<?=$data[0][$i]->campID?>">
         <div class="card">
-            <div class="c-top"></div>
+            <div class="c-top">
+                <img class="cimg" src="<?=ROOT.'/'.$data[0][$i]->camp_img?>" alt="">
+            </div>
             <div class="c-bottom">
                 <h3 class="cheading"><?= $data[0][$i]->cName?></h3>
-                <?= $data[0][$i]->description?>
+                <p class="desctxt">
+                <?php $marks=strlen($data[0][$i]->description); echo ($marks<255) ? $data[0][$i]->description : substr($data[0][$i]->description,0,250.)."...";?>          </p>
 
             </div>
         </div>

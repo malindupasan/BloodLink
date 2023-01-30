@@ -12,9 +12,21 @@ class Campaigns extends Controller
       
 
         $camp = new Camp();
+        $query = "select * from campaign where cName like :cName"; 
+        $data = $camp->findAll();
+        
+        if(isset($_GET['find'])){
+            $find=$_GET['find'].'%';
+           
+            $query = "select * from campaign where cName like :cName "; 
+            
+            $arr = ['cName' => $find];
+            $data = $camp->query($query,$arr);
 
+        }
         // $id=Auth::getid();    
-         $data = $camp->findAll();
+        
+        // $data = $camp->query($query,['cName'=>'dcs%']);
         // echo "<pre>";
         // print_r($data);
         
