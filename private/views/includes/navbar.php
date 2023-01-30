@@ -2,7 +2,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<?php
+ 
+$user=new User();
+$id2=Auth::getid();   
 
+ 
+$data = $user->where("id", $id2);
+// $data = $data[0];
+
+        ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,13 +50,13 @@
             </div>
 <!-- submeny dropdown -->
             <div class="nav-i">
-                <img src="<?php echo "http://localhost:8888/Bloood%20Link%202/public/" .$data['rows']->profile_img ?>" alt="" class="nav-user-icon" onclick="toggleMenu() ">
+                <img src="<?php echo "http://localhost:8888/Bloood%20Link%202/public/" .$data[0]->profile_img ?>" alt="" class="nav-user-icon" onclick="toggleMenu() ">
             </div>
             <div class="sub-menu-wrapper" id="subMenu">
                 <div class="sub-menu">
                     <div class="user-info">
-                        <img src="<?php echo "http://localhost:8888/Bloood%20Link%202/public/" . $data['rows']->profile_img ?>" alt="">
-                        <h3><?php echo  $data['rows']->fullname ?></h3>
+                        <img src="<?php echo "http://localhost:8888/Bloood%20Link%202/public/" . $data[0]->profile_img ?>" alt="">
+                        <h3><?php echo  $data[0]->fullname ?></h3>
                     </div>
                     <hr>
 
@@ -57,7 +66,7 @@
                         <span>></span>
                     </a>
 
-                    <a href="../public/logout" class="sub-menu-link">
+                    <a href="logout" class="sub-menu-link">
                         <img src="images/logout.png" alt="">
                         <p>Logout</p>
                         <span>></span>

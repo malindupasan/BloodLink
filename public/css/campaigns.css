@@ -69,6 +69,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 4rem;
 }
 .card{
 width: 24rem;
@@ -107,4 +108,8 @@ background-color:#565656
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+.cheading{
+    height: 0.7rem;
+    font-size: 1.5rem;
 }

@@ -41,12 +41,20 @@ class Image extends model {
 
     public function pic_validate(){
         if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != "") {
-                
+                 
             if ($_FILES['file']['type'] == "image/jpeg") {
                 $max_size = 1024 * 1024 * 8;
                 if ($_FILES['file']['size'] <= $max_size) {
-                    $filename = 'images/uploads/' . $_FILES['file']['name'];
-                    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
+                    $imgname=$_FILES['file']['name'];
+                    $extinction = pathinfo($imgname, PATHINFO_EXTENSION);
+                    $randomno=rand(0,1000000);
+                    // $rename ='Upload'.date('Ymd').$randomno ;
+                    // $newname = $rename . '.' . $extinction;
+                    $filename = "images/uploads/" . 'Upload' . date('Ymd')  .$randomno. '.' . $extinction;
+                //    echo $filename ;
+                    // echo "fuck";
+                    
+                    move_uploaded_file($_FILES['file']['tmp_name'],$filename);
 
                     $image = new Image();
                     $image->crop_image($filename, $filename, 800, 800);
@@ -69,3 +77,6 @@ class Image extends model {
         }
     }
 }
+
+
+

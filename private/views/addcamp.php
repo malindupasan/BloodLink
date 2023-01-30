@@ -6,59 +6,54 @@
 </div>
 <div class="sec2">
     <div class="sec2-1">
-        <form action="">
+        <form action="" enctype="multipart/form-data" method="post"class="file_form" id="addpic">
 
 
 
             <div class="form-item">
-                <label for="campName" class="label1">Campaign Name</label><br>
-                <input type="text" class="inp1"><br>
+                <label for="cName" class="label1">Campaign Name</label><br>
+                <input type="text" class="inp1" id="cName" name="cName" ><br>
             </div>
 
             <div class="form-item">
-                <label for="campName" class="label1">Date</label><br>
-                <input type="text" class="inp1"><br>
+                <label for="date" class="label1">Date</label><br>
+                <input type="date" class="inp1" id="date" name="date"><br>
             </div>
             <div class="form-item">
-                <label for="campName" class="label1">Venue</label><br>
-                <input type="text" class="inp1"><br>
+                <label for="venue" class="label1">Venue</label><br>
+                <input type="text" class="inp1" id="venue" name="venue"><br>
             </div>
             <div class="form-item">
-                <label for="campName" class="label1">Email</label><br>
-                <input type="text" class="inp1"><br>
+                <label for="email" class="label1">Email</label><br>
+                <input type="text" class="inp1" id="email" name="email"><br>
             </div>
             <div class="form-item">
-                <label for="campName" class="label1">Phone NO</label><br>
-                <input type="text" class="inp1"><br>
+                <label for="phone" class="label1">Phone NO</label><br>
+                <input type="text" class="inp1" name="phone" id="phone"><br>
             </div>
             <div class="form-item">
-                <label for="campName" class="label1">Starting Time</label><br>
-                <input type="text" class="inp1"><br>
+                <label for="time" class="label1">Starting Time</label><br>
+                <input type="time" class="inp1" name="time" id="time"><br>
             </div>
             <div class="form-item">
-                <label for="campName" class="label1">Blood Bank</label><br>
-                <input type="text" class="inp1"><br>
+                <label for="bloodBank" class="label1">Blood Bank</label><br>
+                <input type="text" class="inp1" id="bloodBank" name="bloodBank"><br>
             </div>
             <div class="form-item">
-                <label for="campName" class="label1">Description</label><br>
-                <textarea class="inp2"></textarea>
+                <label for="description" class="label1">Description</label><br>
+                <textarea class="inp2" id="description" name="description"></textarea>
             </div>
 
 
-        </form>
+       
     </div>
     <div class="sec2-2">
         
         <div class="add_camp_pic">
 
-            <!-- <p class="heading">Change profile pic</p> -->
+            
 
-            <!-- <div class="visible">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <small>error message</small>
-            </div> -->
-
-            <form method="post" enctype="multipart/form-data" class="file_form" id="addpic">
+            <div class="file_form" >
 
               
                   
@@ -66,8 +61,8 @@
                 </label>
                 <br>
 
-                <button type="submit" class="save" name=submit>Add Photo</button>
-
+                <!-- <button type="submit" class="save" name=submit>Add Photo</button> -->
+            </div>
             </form>
 
         </div>

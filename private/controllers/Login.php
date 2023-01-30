@@ -13,12 +13,12 @@ class Login extends Controller
 
                 if (password_verify($_POST['password'], $row->password)) {
                     Auth::authenticate($row);
-                    $this->redirect('/home');
+                    $this->redirect('home');
                 }
-            } 
-                $errors['email'] = "wrong Email or Password";
+            }
+            $errors['email'] = "wrong Email or Password";
 
-            
+
 
         }
 

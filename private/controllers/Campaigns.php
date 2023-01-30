@@ -9,13 +9,16 @@ class Campaigns extends Controller
             $this->redirect('login');
         }
 
-        $user = $this->load_model('User');
+      
 
-        $id=Auth::getid();    
-        $data = $user->where("id", $id);
+        $camp = new Camp();
 
+        // $id=Auth::getid();    
+         $data = $camp->findAll();
+        // echo "<pre>";
+        // print_r($data);
         
-        $this->view('campaigns', ['rows' => $data[0]]);
+        $this->view('campaigns', [$data]);
        
         
     }
