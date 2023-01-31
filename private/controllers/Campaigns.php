@@ -9,13 +9,27 @@ class Campaigns extends Controller
             $this->redirect('login');
         }
 
-        $user = $this->load_model('User');
+      
 
-        $id=Auth::getid();    
-        $data = $user->where("id", $id);
-
+        $camp = new Camp();
+        $query = "select * from campaign where cName like :cName"; 
+        $data = $camp->findAll();
         
-        $this->view('campaigns', ['rows' => $data[0]]);
+        if(isset($_GET['find'])){
+            $find=$_GET['find'].'%';
+           
+            $query = "select * from campaign where cName like :cName "; 
+            
+            $arr = ['cName' => $find];
+            $data = $camp->query($query,$arr);
+
+        }
+        // $id=Auth::getid();    
+        
+        // $data = $camp->query($query,['cName'=>'dcs%']);
+       
+        
+        $this->view('campaigns', [$data]);
        
         
     }
