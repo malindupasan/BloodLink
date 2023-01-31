@@ -16,9 +16,9 @@
     </div>
     </div>
     <div class="sec2">
-        <button class="progress-btn">Upcoming</button>
-        <button class="upcoming-btn">In Progress</button>
-        <button class="mycamps-btn">MyCampaigns</button>
+        <button id="progress-btn" type="button" class="upcoming-btn">Upcoming</button>
+        <button id="upcoming-btn" class="progress-btn">In Progress</button>
+        <button id="mycamps-btn" class="mycamps-btn">MyCampaigns</button>
     </div>
      <div class="sec3"> 
         
@@ -48,6 +48,6 @@
     </div>
 
 
-    
+    <script src="<?=ROOT?>/js/campaigns.js"></script>
 </body>
 </html>
