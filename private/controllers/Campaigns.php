@@ -5,32 +5,42 @@ class Campaigns extends Controller
     {
 
 
-        if(!Auth::logged_in()){
+        if (!Auth::logged_in()) {
             $this->redirect('login');
         }
 
-      
+
 
         $camp = new Camp();
-        $query = "select * from campaign where cName like :cName"; 
-        $data = $camp->findAll();
-        
-        if(isset($_GET['find'])){
-            $find=$_GET['find'].'%';
-           
-            $query = "select * from campaign where cName like :cName "; 
+        $query = "select * from campaign where date >= :date";
+        // $data = $camp->findAll();
+        $date = date("Y-m-d");
+        $arr = ['date' => $date];
+        if (isset($_GET['find'])) {
+            $find = $_GET['find'] . '%';
+            $query = "select * from campaign where (date >= :date) && (cName like :cName) ";
             
             $arr = ['cName' => $find];
-            $data = $camp->query($query,$arr);
 
         }
-        // $id=Auth::getid();    
-        
-        // $data = $camp->query($query,['cName'=>'dcs%']);
-       
-        
+        if (isset($_GET['prog'])) {
+            
+            $query = "select * from campaign where date = :date ";
+
+        }
+
+        if (isset($_GET['mycamps'])) {
+
+            $NIC = 20001551; //AUTH::getNIC();
+            $query = "select * from campaign where  NIC = :NIC ";
+            $arr = ['NIC' => $NIC];
+
+        }
+
+
+        $data = $camp->query($query, $arr);
         $this->view('campaigns', [$data]);
-       
-        
+
+
     }
 }
