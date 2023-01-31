@@ -13,13 +13,13 @@ function uclick(){
     ubtn.style.background='#FFB4B4';
     pbtn.style.background='#eeeaea';
     mbtn.style.background='#eeeaea';
-    //window.location.href = "www.mysite.com/page2.php"; 
+    window.location.href = "http://localhost:8888/Bloood%20Link%202/public/campaigns?upcoming=true"; 
 }
 function mclick(){
     mbtn.style.background='#FFB4B4';
     ubtn.style.background='#eeeaea';
     pbtn.style.background='#eeeaea';
-    //window.location.href = "www.mysite.com/page2.php"; 
+    window.location.href = "http://localhost:8888/Bloood%20Link%202/public/campaigns?mycamps=true"; 
 }
 pbtn.addEventListener("click", pclick);
 ubtn.addEventListener("click", uclick);

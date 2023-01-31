@@ -16,8 +16,8 @@
     </div>
     </div>
     <div class="sec2">
-        <button id="progress-btn" type="button" class="upcoming-btn">Upcoming</button>
-        <button id="upcoming-btn" class="progress-btn">In Progress</button>
+        <button id="upcoming-btn" type="button" class="upcoming-btn">Upcoming</button>
+        <button id="progress-btn" class="progress-btn">In Progress</button>
         <button id="mycamps-btn" class="mycamps-btn">MyCampaigns</button>
     </div>
      <div class="sec3"> 
