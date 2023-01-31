@@ -43,6 +43,9 @@ class Database
                 }
                 
             }
+            else{
+                echo "problem in chk";
+            }
         } 
         return false;
     }

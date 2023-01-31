@@ -8,6 +8,7 @@
         <h2 class="sec1-h">campaigns</h2>
         <div class="sec1-sub">
         <form method="get" class="searchfrom"> 
+            <input name="date" value="<?=isset($_GET['date'])?$_GET['date']:''?>" type="date">
          <input type="text" value="<?=isset($_GET['find'])?$_GET['find']:''?>" name="find">   
         <button class="search-btn" type="submit">Search</button>
         </form>   
