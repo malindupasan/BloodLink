@@ -15,14 +15,32 @@ class Campaigns extends Controller
         $query = "select * from campaign where date >= :date";
         // $data = $camp->findAll();
         $date = date("Y-m-d");
-        $arr = ['date' => $date];
-        if (isset($_GET['find'])) {
-            $find = $_GET['find'] . '%';
-            $query = "select * from campaign where (date >= :date) && (cName like :cName) ";
-            
-            $arr = ['cName' => $find];
+        $arr = ['date' => $date];   
 
+        if((isset($_GET['date'])&&strlen($_GET['date']))&&(isset($_GET['find'])&&strlen($_GET['find']))){
+            $find = $_GET['find'] . '%';
+            $query = "select * from campaign where (cName like :cName) &&  date = :date";
+            $arr['date'] = $_GET['date'];
+            $arr['cName'] = $find;
+        } else {
+
+
+
+            if (isset($_GET['find']) && strlen($_GET['find'])) {
+                $find = $_GET['find'] . '%';
+                $query = "select * from campaign where (cName like :cName) &&  date >= :date";
+                $arr['cName'] = $find;
+
+
+
+            }
+            if (isset($_GET['date']) && strlen($_GET['date'])) {
+                $query = "select * from campaign where date = :date";
+                $arr['date'] = $_GET['date'];
+            }
         }
+
+
         if (isset($_GET['prog'])) {
             
             $query = "select * from campaign where date = :date ";
@@ -36,9 +54,9 @@ class Campaigns extends Controller
             $arr = ['NIC' => $NIC];
 
         }
+        // $query = "select * from campaign where (cName like 'd%') &&  date >= 2023-01-10";
 
-
-        $data = $camp->query($query, $arr);
+        $data = $camp->query($query,$arr);
         $this->view('campaigns', [$data]);
 
 
