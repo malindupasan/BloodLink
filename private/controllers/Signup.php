@@ -8,8 +8,8 @@ class Signup extends Controller
         if (count($_POST) > 0) {
             $errors = array();
 
-            $user = $this->load_model('User');
-            // $user=new User();
+            // $user = $this->load_model('User');
+            $user=new User();
             if ($user->validate($_POST)) {
 
                 $_POST['fullname'] = $_POST['name'];

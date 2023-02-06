@@ -1,4 +1,5 @@
 <?php $this->view("includes/navbar", ); ?>
+<title>Where to Donate?</title>
 <?php $i=0?>
 <link rel="stylesheet" href="<?= ROOT ?>/css/wheretodonate.css">
 

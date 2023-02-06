@@ -24,7 +24,7 @@ $is_invalid = false;
         <div class="logo"><img class="logo-1" src="images/Logo.png" alt=""></div>
 
         <div class="rectangle">
-            <div class="Dont-have-an-account">Don't have an account ? <a href="../SignUp/signup.html" class="">Sign Up!</a> </div>
+            <div class="Dont-have-an-account">Don't have an account ? <a href="<?=ROOT?>/signup" class="">Sign Up!</a> </div>
             <div class="item-2">
                 <div class="welcome-back">Welcome Back</div>
                 <div class="login-to-your-account">Login into your account</div>

@@ -1,6 +1,6 @@
 <?php $this->view("includes/navbar", ); ?>
 <link rel="stylesheet" href="<?= ROOT ?>/css/amieligible.css">
-
+<title>Am I Eligible?</title>
 <div class="sec1">
     <h1>Become a Donor</h1>
 </div>

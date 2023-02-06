@@ -25,25 +25,25 @@ $data = $user->where("id", $id2);
 <nav class="navbar">
         <div class="left">
             <div class="nav-i-logo">
-                <a href="http://localhost:8888/Bloood%20Link%202/public/home">   <img src="./images/Logo.png" alt="" class="nav-logo"></a> 
+                <a href="<?=ROOT?>/home">   <img src="./images/Logo.png" alt="" class="nav-logo"></a> 
             </div>
             <div class="nav-i-1">
-                Become a Donor
+               <a href="<?=ROOT?>/becomeadonor"> Become a Donor</a>
             </div>
             <div class="nav-i">
-                Give blood
+               <a href="<?=ROOT?>">Give blood</a> 
             </div>
             <div class="nav-i">
-                News
+              <a href=""> News</a> 
             </div>
             <div class="nav-i">
-               <a href="http://localhost:8888/Bloood%20Link%202/public/campaigns"> Campaigns</a>
+               <a href="<?=ROOT?>/campaigns"> Campaigns</a>
             </div>
         </div>
         <div class="right">
 
             <div class="nav-i">
-                Contact
+               <a href="<?=ROOT?>/contactus"> Contact</a>
             </div>
             <div class="nav-i">
                 About

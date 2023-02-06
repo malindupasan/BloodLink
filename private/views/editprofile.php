@@ -1,4 +1,5 @@
 <?php $this->view("includes/navbar",$data);?>
+<title>Edit profile</title>
 <link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/editprofile.css">
    
     <div class="section1">
