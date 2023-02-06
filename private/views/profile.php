@@ -1,10 +1,11 @@
 <?php $this->view("includes/navbar",$data);?>
-<link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/profile.css">
+<title>Profile</title>
+<link rel="stylesheet" href="<?=ROOT?>/css/profile.css">
 
     <div class="section1">
         <div class="section1-1">
             <div class="sec1-prof">
-            <div class="section1-1-1"><img src="<?php echo("http://localhost:8888/Bloood%20Link%202/public/".$data['rows']->profile_img)?>" alt=""
+            <div class="section1-1-1"><img src="<?php echo(ROOT."/".$data['rows']->profile_img)?>" alt=""
                     class="profilepic"></div>
                     <a href="./change_profile_img.php"><button class="section1-1-1-btn">change Profile picture</button></a>
             <div class="section1-1-2">
@@ -14,7 +15,7 @@
         </div>
     </div>
         <div class="section1-2">
-            <div class="section1-1-1"><img src="http://localhost:8888/Bloood%20Link%202/public/images/backlogo.png" alt="" class="backlogo"></div>
+            <div class="section1-1-1"><img src="<?=ROOT?>/images/backlogo.png" alt="" class="backlogo"></div>
 
         </div>
 

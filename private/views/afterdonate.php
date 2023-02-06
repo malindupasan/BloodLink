@@ -1,7 +1,7 @@
 <?php $this->view("includes/navbar", ); ?>
 <?php $i=0?>
 <link rel="stylesheet" href="<?= ROOT ?>/css/wheretodonate.css">
-
+<title>After Donate</title>
 <div class="sec1">
     <h1>Become a Donor</h1>
 </div>

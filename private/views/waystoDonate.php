@@ -1,4 +1,5 @@
 <?php $this->view("includes/navbar", ); ?>
+<title>Ways to Donate</title>
 <link rel="stylesheet" href="<?= ROOT ?>/css/waystoDonate.css">
 
 <div class="sec1">
