@@ -8,7 +8,7 @@
     <title>sign up</title>
     <script src="https://kit.fontawesome.com/1a2c8fa8df.js" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/signup.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/signup.css">
 </head>
 
 <body>

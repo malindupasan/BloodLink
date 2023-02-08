@@ -1,7 +1,7 @@
 <?php $this->view("includes/navbar",); ?>
 <?php $i=0 ?>
 
-    <link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/campaigns.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/campaigns.css">
     <title>Campaigns</title>
 
     <div class="sec1">

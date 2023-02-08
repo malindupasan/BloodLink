@@ -13,7 +13,7 @@ $is_invalid = false;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/login.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/login.css">
 </head>
 
 <body>

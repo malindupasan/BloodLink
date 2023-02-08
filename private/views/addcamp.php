@@ -1,5 +1,5 @@
 <?php $this->view("includes/navbar",$data);?>
-<link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/addcamp.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/addcamp.css">
 <title>Add camp</title>
 <div class="sec1">
     <h2 class="sec1-h">Campaigns</h2>

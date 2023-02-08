@@ -2,11 +2,12 @@
  <?php $this->view("includes/navbar",); ?>
 
 
-    <link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/camppage.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/camppage.css">
     <title><?= $data['rows']->cName?></title>
 
     <div class="sec1">
         <h2 class="sec1-h"><?= $data['rows']->cName?></h2>
+         <a href="<?=ROOT?>/campqr?id='<?=$data['rows']->campID?>'" class="qrbtn">GET QR</a>
      
     </div>
 

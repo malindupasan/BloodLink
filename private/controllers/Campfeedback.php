@@ -5,27 +5,32 @@ class Campfeedback extends Controller
     {
 
         $campfb = new Campfeedback2();
-        // $campfb = $this->load_model('Campfeedback');
-        // $data = $camp->where("campID", $id);
-        echo $id;
         
 
-       
+        if (isset($_GET['id'])) {
 
-        if(count($_POST)>2){
-            $_POST['campId'] = "C001";
-            // $arr['rate'] = $_POST['rate'];
-            // $arr['email'] = $_POST['email'];
-            // $arr['feedback'] = $_POST['feedback'];
-            print_r($_POST);
-            $campfb->insert($_POST);
+
+            if (count($_POST) > 2) {
+                $_POST['campId'] = $_GET['id'];
+                // $arr['rate'] = $_POST['rate'];
+                // $arr['email'] = $_POST['email'];
+                // $arr['feedback'] = $_POST['feedback'];
+                // print_r($_POST);
+                $_POST['date'] = date("Y-m-d");
+                $campfb->insert($_POST);
+            }else if(count($_POST) <= 2&&isset($_POST['email'])){
+                echo "please fill all the options";
+            }
+
+
+
+
+
+            $this->view('campfeedback');
         }
-        
-
-
-
-        
-        $this->view('campfeedback');
+        else{
+            $this->view('404');
+        }
         
     }
 }

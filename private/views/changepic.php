@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1a2c8fa8df.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/change_pic.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/change_pic.css">
     <title>upload pic</title>
 </head>
 
