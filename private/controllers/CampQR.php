@@ -3,10 +3,11 @@ class CampQR extends Controller
 {
     function index($id='')
     {
-        echo $id;
-        $campqr = new QR();
+        if (isset($_GET['id'])) {
+            $campqr = new QR();
 
-        $campqr->DownloadQR("hi");
+            $campqr->DownloadQR($_GET['id']);
+        }
         // echo $qr;
         // echo "<img src=" . ROOT . "/" . $qrcode;
         $this->view('campqrcode');

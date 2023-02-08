@@ -14,7 +14,8 @@ class QR extends model
         $path = $dir . "/public/images/qrcodes/";
         $filename = time() . rand(1, 10000) . ".jpeg";
         $qrcode = $path . $filename;
-        QRcode::png("test".$campID."mm", $qrcode, 'H', 16, 16);
+        // echo $campID;
+        QRcode::png(ROOT."/campfeedback"."?id=".trim($campID,"'"), $qrcode, 'H', 16, 16);
         // echo "<img src=" . ROOT . "/" . $qrcode;
         return $filename;
     }
