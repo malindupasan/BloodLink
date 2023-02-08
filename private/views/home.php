@@ -1,6 +1,6 @@
 <?php $this->view("includes/navbar",$data);?>
 <title>Home</title>
-<link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/home.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/home.css">
  <div class="part1">
  <div class="sec1">
     <div class="sec1-1">

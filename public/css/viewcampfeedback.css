@@ -1,0 +1,29 @@
+@import "./navbar.css";
+
+
+.sec1{
+height: 5rem;
+width: 60rem;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+margin-right: 30rem;
+margin-top: 3rem;
+
+
+}
+.sec2{
+    height: 17rem;
+    width: 80rem;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card{
+    height: 14rem;
+    width: 30rem;
+    background-color:  #F3F3F3;
+    border-radius: 1.3rem;
+}

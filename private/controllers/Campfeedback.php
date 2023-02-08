@@ -16,6 +16,7 @@ class Campfeedback extends Controller
                 // $arr['email'] = $_POST['email'];
                 // $arr['feedback'] = $_POST['feedback'];
                 // print_r($_POST);
+                $_POST['date'] = date("Y-m-d");
                 $campfb->insert($_POST);
             }else if(count($_POST) <= 2&&isset($_POST['email'])){
                 echo "please fill all the options";

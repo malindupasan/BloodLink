@@ -1,5 +1,5 @@
 <?php $this->view("includes/navbar",); ?>
-<link rel="stylesheet" href="http://localhost:8888/Bloood%20Link%202/public/css/contactus.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/contactus.css">
 <title>Contact Us</title>
 <?php
  
