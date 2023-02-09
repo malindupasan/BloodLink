@@ -50,12 +50,12 @@ $data = $user->where("id", $id2);
             </div>
 <!-- submeny dropdown -->
             <div class="nav-i">
-                <img src="<?php echo "http://localhost:8888/Bloood%20Link%202/public/" .$data[0]->profile_img ?>" alt="" class="nav-user-icon" onclick="toggleMenu() ">
+                <img src="<?php echo ROOT."/" .$data[0]->profile_img ?>" alt="" class="nav-user-icon" onclick="toggleMenu() ">
             </div>
             <div class="sub-menu-wrapper" id="subMenu">
                 <div class="sub-menu">
                     <div class="user-info">
-                        <img src="<?php echo "http://localhost:8888/Bloood%20Link%202/public/" . $data[0]->profile_img ?>" alt="">
+                        <img src="<?php echo ROOT. "/" . $data[0]->profile_img ?>" alt="">
                         <h3><?php echo  $data[0]->fullname ?></h3>
                     </div>
                     <hr>

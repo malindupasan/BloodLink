@@ -7,6 +7,13 @@
     justify-content: space-between;
     align-items: center;
 }
+.div-a{
+    height: 6rem;
+    width: 25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
 
 .sec1-h{
     font-size: 3rem;
@@ -15,6 +22,16 @@
     font-weight: 400;
     text-decoration:underline;
     
+}
+
+.qrbtn{
+    height: 2rem;
+    width: 150px;
+    background-color: #FF8080;
+    margin-right: 5rem;
+    text-align: center;
+    padding-top: 1rem;
+    border-radius: 1.5rem;
 }
 .sec2{
     margin-top: -6rem;
@@ -55,6 +72,7 @@
     margin-left:7rem;
 }
 
+
 .ftext{
     font-size: 1.4rem;
     font-weight: bolder;
@@ -89,12 +107,3 @@
     border-radius: 1rem;
 }
 
-.qrbtn{
-    height: 2.6rem;
-    width: 6rem;
-    background-color: #FF8080;
-    margin-right: 5rem;
-    text-align: center;
-    padding-top: 1rem;
-    border-radius: 1.5rem;
-}
