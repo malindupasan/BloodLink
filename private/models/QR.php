@@ -32,7 +32,7 @@ class QR extends model
         // $html .= "<p>$filepath</p><img src=" .'"'.ROOT."/images/qrcodes/". $filepath .'"';
         $pdf->Image(ROOT . "/images/qrcodes/" . $filepath,2,20,200,200);
        
-        $pdf->Output('output.pdf', 'I');
+        $pdf->Output('output.pdf', 'D');
 
     }
 }

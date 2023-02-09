@@ -15,9 +15,7 @@ class Camppage extends Controller
 
         if ($id) {
             $data = $camp->where("campID",$id);
-            // echo "<pre>";
-            // print_r($data);
-            // print_r($data[0]);
+            
             $this->view('camppage', ['rows' =>$data[0]]);
         }
         else{

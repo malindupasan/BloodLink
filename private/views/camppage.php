@@ -7,10 +7,12 @@
 
     <div class="sec1">
         <h2 class="sec1-h"><?= $data['rows']->cName?></h2>
+        <div class="div-a">
+        <?php if(($data['rows']->date)<=date("Y-m-d")):?> <a href="<?=ROOT?>/viewcampfeedback?id=<?=$data['rows']->campID?>" class="qrbtn">Feedback</a><?php endif;?>
          <a href="<?=ROOT?>/campqr?id='<?=$data['rows']->campID?>'" class="qrbtn">GET QR</a>
-     
+        
     </div>
-
+</div>
 
     <div class="sec2">
         <div class="sec2-1">
