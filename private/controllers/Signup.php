@@ -13,6 +13,7 @@ class Signup extends Controller
             if ($user->validate($_POST)) {
 
                 $_POST['fullname'] = $_POST['name'];
+                $_POST['role'] = "donor";
 
                 $user->insert($_POST);
 

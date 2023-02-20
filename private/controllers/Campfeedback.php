@@ -21,13 +21,9 @@ class Campfeedback extends Controller
                 $this->view('thanksfeedback');
             }else if(count($_POST) <= 2&&isset($_POST['email'])){
                 echo "please fill all the options";
-            }
-
-
-
-
-
+            }else{
             $this->view('campfeedback');
+            }
         }
         else{
             $this->view('404');

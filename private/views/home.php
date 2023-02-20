@@ -34,7 +34,7 @@
 </div> 
 <div class="sec3">
     <div class="sec3_1">
-        <div class="sec3_1_1"><img class="sec3img" src="images/nurse2_result.webp" alt=""></div>
+        <div class="sec3_1_1"><img class="sec3img" src="<?=ROOT?>/images/nurse.png" alt=""></div>
     </div>
     <div class="sec3_1">
         <div class="sec3_1_2">

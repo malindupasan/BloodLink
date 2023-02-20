@@ -24,7 +24,7 @@
             </div>
             <div class="rating"><div class="stars">
                 <?php for ($j = 0; $j < 5; $j++): ?>
-                <?php if($j<$data[0][$i]->date):?> <span class="t1">★</span>
+                <?php if($j<$data[0][$i]->rate):?> <span class="t1">★</span>
                 <!-- <span class="t2">★</span> -->
                 <?php else:?> <span class="t2">★</span>
                 <?php endif;?>
@@ -32,7 +32,7 @@
             </div></div>
         </div>
         <div class="cs-2">
-           <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut et sapiente veniam quaerat dolore odit magni voluptas quas error, eius totam natus ad, dolores voluptatibus expedita sunt recusandae, alias itaque!</p>
+           <p> <?=$data[0][$i]->feedback?></p>
         </div>
 
     </div>

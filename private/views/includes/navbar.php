@@ -34,7 +34,7 @@ $data = $user->where("id", $id2);
                <a href="<?=ROOT?>">Give blood</a> 
             </div>
             <div class="nav-i">
-              <a href=""> News</a> 
+              <a href="<?=ROOT?>/newsfeed"> Feed</a> 
             </div>
             <div class="nav-i">
                <a href="<?=ROOT?>/campaigns"> Campaigns</a>
@@ -45,8 +45,8 @@ $data = $user->where("id", $id2);
             <div class="nav-i">
                <a href="<?=ROOT?>/contactus"> Contact</a>
             </div>
-            <div class="nav-i">
-                About
+            <div class="nav-i"> 
+            <a href="<?=ROOT?>/aboutbl"> About</a>
             </div>
 <!-- submeny dropdown -->
             <div class="nav-i">
