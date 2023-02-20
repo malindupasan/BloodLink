@@ -34,9 +34,9 @@ class Main extends Controller
             $data2= $bdc->paginall($thispagefirstres,$resultsperpage);
         
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
 
         // $bdc = $this->load_model('Bdcreq');
 

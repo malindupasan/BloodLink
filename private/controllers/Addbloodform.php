@@ -27,9 +27,9 @@ class Addbloodform extends Controller
 
         }
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
 
         // $user = $this->load_model('User');
 

@@ -13,6 +13,7 @@ class Addusrform extends Controller
             $arr['email'] = $_POST['email'];
             $arr['tel'] = $_POST['pno'];
             $arr['password'] =password_hash($_POST['psswrd'],PASSWORD_DEFAULT);
+            $arr['role'] = $_POST['role'];
             // $arr['nic'] = $_POST['nic'];
             // $arr['bloodbank'] = $_POST['bbank'];
             
@@ -27,9 +28,9 @@ class Addusrform extends Controller
 
         }
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
 
         // $user = $this->load_model('User');
 

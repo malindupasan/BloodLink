@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="<?=ROOT?>/bbbsmanagestyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/bbbsmanagestyle.css">
     <style>
        
     </style>
@@ -20,7 +20,12 @@
 <body>
     <div class="sidebar">           
     <div class="l1">
-        <a href="<?=ROOT?>/dashboard"><div class="l11 active">
+    <?php if($_SESSION['USER']->role=="Admin"){?>
+            <a href="<?=ROOT?>/bsmanage">
+        <?php } else { ?>
+            <a href="<?=ROOT?>/dashboard">
+        <?php }?>
+        <div class="l11 active">
             <div class="l11img"><img src="./img/dash.png" class="dasimg"></div>
             <div class="das actve">Dashboard</div>
         </div></a>
@@ -28,18 +33,27 @@
             <div class="l12img"><img src="./img/userg.png" class="ugimg"></div>
             <div class="das">Campaigns</div>
         </div></a>
-        <a href="<?=ROOT?>/"><div class="l13">
+        <?php if($_SESSION['USER']->role!="Admin"){?>
+            <a href="<?=ROOT?>/viewdonblood"><div class="l13">
             <div class="l13img"><img src="./img/gluco.png" class="bdimg"></div>
             <div class="das">Donations</div>
         </div></a>
+        <?php } ?>
         <a href="<?=ROOT?>/bbbsmanage"><div class="l14">
             <div class="l14img"><img src="./img/bld.png" class="blimg"></div>
             <div class="das">Blood Stock Management</div>
         </div></a>
-        <a href="<?=ROOT?>/complaints"><div class="l14">
+        <?php if($_SESSION['USER']->role=="Admin"){?>
+            <a href="<?=ROOT?>/complaints"><div class="l14">
+            <div class="l14img"><img src="./img/review.png" class="blimg"></div>
+            <div class="das">Customer Complaints</div>
+        </div></a>
+        <?php } else {?>
+            <a href="<?=ROOT?>/complaints"><div class="l14">
             <div class="l14img"><img src="./img/review.png" class="blimg"></div>
             <div class="das">User Reviews</div>
         </div></a>
+        <?php } ?>
     </div>
     <div class="l2">
         <a href="<?=ROOT?>/users"><div class="l21">
@@ -61,14 +75,14 @@
                 <div class="blinkphi">
 
                     <div class="blink">BloodLink</div>
-                    <div class="phi"><u>PHI</u></div>
+                    <div class="phi"><u><?=$_SESSION['USER']->role;?></u></div>
 
                 </div>
             </div>
 
             <div class="nright">
                 <div class="icon"><a href="logout" ><img src="./img/Shutdown.png" class="shut"></a></div>
-                <div class="name"><h4>Welcome! </h4></div>
+                <div class="name"><h4>Welcome! <?=$_SESSION['USER']->uid;?> </h4></div>
             </div>
 
         </div>

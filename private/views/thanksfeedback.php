@@ -16,7 +16,10 @@
 
     <div class="main">
         <div class="card">
-            <h1>Thank You!</h1>
+        <div class="div2">
+        <h1>Thank You!</h1>
+            <h2>See you again </h2>
+        </div>   
         </div>
     </div>
 

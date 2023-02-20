@@ -5,9 +5,9 @@ class Brkbldform extends Controller
     {
 
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
 
         // $bdc = $this->load_model('Bdcreq');
 

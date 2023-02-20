@@ -68,9 +68,11 @@ class Dashboard extends Controller
         $plt = new Platelettes(); //model instantiated
         $data4 = $plt->findAll();
             $this->view('dashboard', ['rbc' => $data1,'wbc' => $data2,'plsm' => $data3,'plt' => $data4]);        }
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+
+            
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
 
         // $bdc = $this->load_model('Bdcreq');
 

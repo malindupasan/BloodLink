@@ -5,9 +5,9 @@ class Reqdetails extends Controller
     {
 
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $id=$_GET['id'];
         // print_r($id);
 

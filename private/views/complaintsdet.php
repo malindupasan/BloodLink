@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="<?=ROOT?>/boostyle.css">    
+    <link rel="stylesheet" href="<?=ROOT?>/css/boostyle.css">    
 
     <title>Document</title>
 </head>
@@ -21,14 +21,14 @@
                 <div class="blinkphi">
 
                     <div class="blink">BloodLink</div>
-                    <div class="phi"><u>PHI</u></div>
+                    <div class="phi"><u><?=$_SESSION['USER']->role;?></u></div>
 
                 </div>
             </div>
 
             <div class="nright">
-                <div class="icon"><a href="logout.php" ><img src="./img/shut.png" class="shut"></a></div>
-                <div class="name"><h4>Dr.K.Perera</h4></div>
+                <div class="icon"><a href="logout" ><img src="./img/shut.png" class="shut"></a></div>
+                <div class="name"><h4>Welcome! <?=$_SESSION['USER']->uid;?></h4></div>
             </div>
 
         </div>

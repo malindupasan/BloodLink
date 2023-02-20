@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="styles2.css"> -->
-    <link rel="stylesheet" href="reqdetailsstyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/reqdetailsstyle.css">
 
 
     <title>Review Details</title>
@@ -34,8 +34,8 @@
             </div>
 
             <div class="nright">
-                <div class="icon"><a href="logout.php" ><img src="./img/shut.png" class="shut"></a></div>
-                <div class="name"><h4>Dr.K.Perera</h4></div>
+                <div class="icon"><a href="logout" ><img src="./img/shut.png" class="shut"></a></div>
+                <div class="name"><h4>Welcome! <?=$_SESSION['USER']->uid;?></h4></div>
             </div>
 
         </div>

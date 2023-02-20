@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/1a2c8fa8df.js" crossorigin="anonymous"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="<?=ROOT?>/brkbldstyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/brkbldstyle.css">
     <style>
        
     </style>
@@ -26,14 +26,14 @@
                 <div class="blinkphi">
 
                     <div class="blink">BloodLink</div>
-                    <div class="phi"><u>PHI</u></div>
+                    <div class="phi"><u><?=$_SESSION['USER']->role;?></u></div>
 
                 </div>
             </div>
 
             <div class="nright">
-                <div class="icon"><a href="logout.php" ><img src="./img/shut.png" class="shut"></a></div>
-                <div class="name"><h4>Welcome! <?php echo $_SESSION["uname"]?></h4></div>
+                <div class="icon"><a href="logout" ><img src="./img/shut.png" class="shut"></a></div>
+                <div class="name"><h4>Welcome! <?=$_SESSION['USER']->uid;?></h4></div>
             </div>
 
         </div>

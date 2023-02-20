@@ -5,9 +5,9 @@ class Complaintsdet extends Controller
     {
 
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $rid=$_GET['rid'];
         // print_r($id);
 
