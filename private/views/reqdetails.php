@@ -1,46 +1,9 @@
+    <?php $this->view('pageinit'); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <!-- <link rel="stylesheet" href="styles2.css"> -->
+    <?php $this->view('navup'); ?>
+    
     <link rel="stylesheet" href="<?=ROOT?>/css/reqdetailsstyle.css">
 
-
-    <title>Review Details</title>
-   
-</head>
-<!-- <?php
-    echo "<pre>";
-    print_r($rows->id);
-?> -->
-<body>
-    <div class="nav">
-        <div class="navbar">
-
-            <div class="nleft">
-
-                <div class="imge"><img src="./img/Logo.png" class="logo"></div>
-                <div class="vbar"></div>
-                <div class="blinkphi">
-
-                    <div class="blink">BloodLink</div>
-                    <div class="phi"><u>PHI</u></div>
-
-                </div>
-            </div>
-
-            <div class="nright">
-                <div class="icon"><a href="logout" ><img src="./img/shut.png" class="shut"></a></div>
-                <div class="name"><h4>Welcome! <?=$_SESSION['USER']->uid;?></h4></div>
-            </div>
-
-        </div>
-    </div>
-   
      <div class="campname" ><u><?php echo $rows->name; ?></u></div>
 
     <div class="splits">
