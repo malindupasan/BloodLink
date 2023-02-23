@@ -44,14 +44,25 @@
     <div class="exnav">
         
         <div class="formpt">
-            <form method="post" id=
+            <form method="post" id="form">
+                <div class="formpt1">
                 <div class="formcontrol">
-                    <div class="q"><label for="">Doctor Name:</label></div>
+                    <div class="q"><label for="">Doctor ID:</label></div>
                     <div class="in"><input type="text" name="location" id="loc" value="<?php $_SESSION['USER']->name?>"><i class="fa-solid fa-circle-check"></i><i class="fa-solid fa-circle-exclamation"></i></div>
                     <div class="sma"><small>ss</small></div>
 
                 </div>
+                <div class="formcontrol">
+                    <div class="q"><label for="">Blood Bank:</label></div>
+                    <div class="in"><input type="text" name="location" id="loc" value="<?php $_SESSION['USER']->name?>"><i class="fa-solid fa-circle-check"></i><i class="fa-solid fa-circle-exclamation"></i></div>
+                    <div class="sma"><small>ss</small></div>
+
+                </div>
+                </div>
+                <br>
+            </form>
         </div>
+        
         
     </div>
 

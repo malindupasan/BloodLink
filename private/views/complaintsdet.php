@@ -1,38 +1,9 @@
+    <?php $this->view('pageinit'); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <?php $this->view('navup'); ?>
+
     <link rel="stylesheet" href="<?=ROOT?>/css/boostyle.css">    
 
-    <title>Document</title>
-</head>
-<body>
-    <div class="nav">
-        <div class="navbar">
-
-            <div class="nleft">
-
-                <div class="imge"><img src="./img/Logo.png" class="logo"></div>
-                <div class="vbar"></div>
-                <div class="blinkphi">
-
-                    <div class="blink">BloodLink</div>
-                    <div class="phi"><u><?=$_SESSION['USER']->role;?></u></div>
-
-                </div>
-            </div>
-
-            <div class="nright">
-                <div class="icon"><a href="logout" ><img src="./img/shut.png" class="shut"></a></div>
-                <div class="name"><h4>Welcome! <?=$_SESSION['USER']->uid;?></h4></div>
-            </div>
-
-        </div>
-    </div>
     <div class="exnav">
         
         <div class="rtitle">

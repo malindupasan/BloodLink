@@ -1,3 +1,5 @@
+/* ----------brkbld------------ */
+
 div.heading {
     font-size: 2rem;
     padding-bottom: 2rem;
@@ -28,7 +30,7 @@ div.in {
 }*/
 
 input {
-    width: 100%;
+    width: 40rem;
     padding: 0.4rem;
     border: 0.1rem solid #ccc;
     border-radius: 0.5rem;
@@ -93,14 +95,14 @@ div.imgbox {
 } */
 
 
-/* ----------brkbld------------ */
+
 
 div.lblninp{
     display: flex;
     flex-direction: row;
 }
 
-/* from styles2.css */
+/* --------------------navbar and stuff-------------------- */
 
 body {
     display: flex;
@@ -160,7 +162,7 @@ img.shut {
 
 }
 
-/* valid */
+/* -----------------------------validation------------------------ */
 
 .formcontrol.error input{
     border-color: rgb(250, 7, 7);
@@ -200,4 +202,19 @@ img.shut {
     visibility: visible;
     color:red;
     /* padding-left:-2rem; */
+}
+
+
+/* -------------formpt1-------------- */
+
+div.formpt1{
+    display: flex;
+    flex-direction: row;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
 }

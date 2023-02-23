@@ -43,8 +43,16 @@ div.sidebar {
     background-color: #FD9F9F;          
     width: 15rem;
     height: 100vh;
+    /* transition:  0.5s; */
+    transition:  0.2s ;
+
+    /* transition-property: left; */
 
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
    /* display: flex;
     height: 1117px;
     width: 330px; */
@@ -57,7 +65,10 @@ div.exsdbar {
     display: flex;
     flex-direction: column;
     margin-left: 15rem;
+    transition: 0.2s;
+
    /* height: 173px;
+   
     width: 1398px;*/
 
 }
@@ -317,12 +328,7 @@ button.bdcvbtn{
     background-color: #FD9F9F; 
 }
 
-div.sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
-}
 
 div.l1 {
     margin-top: 6rem;
@@ -358,6 +364,8 @@ div.l14{
     height: 4rem;
 }
 /* other */
+
+button
 
 /* div.sidebar {
     width:14rem;
@@ -544,6 +552,51 @@ a:hover{
     font-size: 1.2rem;
 
 }
+
+
+/* -----------view don blood----------- */
+
+.prt{
+    font-family: "Poppins" !important;
+    height: 2rem;
+    width: 9rem;
+    border-radius: 0.7rem;
+    /* margin-right: 6rem; */
+    border: none;
+    background-color: #FD9F9F;
+}
+
+
+/* -----------------hide side bar------------- */
+
+label #sidebar_btn{
+    z-index: 1;
+    color: #000000;
+    position: fixed;
+    cursor: pointer;
+    margin-top: 1.9rem;
+    margin-left: 1rem;
+    font-size: 2rem;
+    
+}
+
+#check:checked ~ .sidebar{
+    margin-left: -15rem;
+    /* transform: translateX(-15rem); */
+}
+
+
+
+#check:checked ~ .exsdbar{
+    margin-left: 0rem;
+
+
+}
+
+#check:checked ~ .nleft{
+    margin-left: 4rem;
+}
+
 
 
   
