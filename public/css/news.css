@@ -4,6 +4,33 @@ body{
     flex-direction: column;
     align-items: center;
 }
+.sec1{
+    margin-top: 6rem;
+    width: 24rem;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.news-btn {
+
+    /* margin-left: 31%; */
+    width: 12rem;
+    height: 3rem;
+    border: none;
+    background: #FFB4B4;
+    border-radius: 0.3rem;
+}
+
+.posts-btn {
+    /* margin-right: 38%; */
+    width: 12rem;
+    height: 3rem;
+    border: none;
+    background: #eeeaea;
+    border-radius: 0.3rem;
+}
 .div1{
   
     display: flex; 
