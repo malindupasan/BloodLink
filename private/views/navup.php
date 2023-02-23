@@ -12,15 +12,19 @@
                 </div>
                 <div class="blinkphi">
 
+
                     <div class="blink"><a href="whatisBL">BloodLink</a></div>
+
                     <div class="phi"><u>PHI</u></div>
 
                 </div>
             </div>
 
             <div class="nright">
+
                 <div class="icon"><a href="<?=ROOT?>/logout" ><img src="./img/Shutdown.png" class="shut"></a></div>
                 <div class="name"><h4>Welcome! <?= $_SESSION['USER']->name?> </h4></div>
+
             </div>
 
         </div>

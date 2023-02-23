@@ -7,7 +7,9 @@ div.navbar {
 }
 
 div.nleft {
+
     margin-left: 1rem;
+
     display: flex;
     height: 6rem;
     align-items: center;
@@ -78,6 +80,7 @@ div.camptitle {
 div.imge {
     padding-right:1rem;
 
+
 }
 
 
@@ -85,3 +88,4 @@ div.imge {
     font-size: 2.2rem;
 
 } */
+
