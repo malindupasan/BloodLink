@@ -1,18 +1,24 @@
 div.tbl{
     width: 90%;
-    margin-left: 4rem;
-    margin-top: 2rem;
+    margin: auto;
+    margin-top: 1rem;
+    /* margin-left: 4rem;
+    margin-top: 1rem; */
     box-shadow: 0px 3px 10px grey;
     background-color: #ffffff;
-
+    /* opacity: 90%; */
+    /* overflow: hidden; */
     border-radius: 1rem;
-    height: 27rem;
+    /* height: 27rem; */
+    min-height: 20rem;
 
 }
+
 
 table {
     width:96%;
     margin:25px auto;
+    border-collapse: collapse;
 }
 
 th {
@@ -20,10 +26,22 @@ th {
     margin-bottom: 1.5rem;
     font-size:1.4rem;
 }
+
+tr{
+    height: 2rem;
+}
 td {
     text-align:center;
     padding:5px;
 }
+
+tr.hov:hover{
+    background-color: #efe8e8;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }
 
 
 
@@ -35,6 +53,7 @@ body {
     padding: 0;
     background-color: #e1dfdf;
     font-family: "Poppins";
+    
 }
 
 
@@ -43,6 +62,7 @@ div.sidebar {
     background-color: #FD9F9F;          
     width: 15rem;
     height: 100vh;
+    margin-left: -15rem;
     /* transition:  0.5s; */
     transition:  0.2s ;
 
@@ -64,7 +84,10 @@ div.exsdbar {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: 15rem;
+    margin-left: 0rem;
+    
+    /* opacity: 50%; */
+    /* margin-left: 15rem; */
     transition: 0.2s;
 
    /* height: 173px;
@@ -287,14 +310,31 @@ div.camptitle {
     align-items: center;
 }
 
+div.camptitleimg {
+    margin-top: 0.5rem;
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
 div.campaign {
     font-size:2rem;
     font-weight: bolder;
-    margin-left: 3rem;
+    margin-left: 1rem;
+}
+
+div.campaignimg {
+    font-size:2rem;
+    font-weight: bolder;
+    margin-left: 1rem;
 }
 
 button.btn {
     font-family: "Poppins" !important;
+    transition: background-color 0.5s ease;
+
 
     height: 2rem;
     width: 6rem;
@@ -344,8 +384,8 @@ div.l11,div.l12, div.l13,div.l14,div.l21 {
     align-items: center;
     height: 3rem;
     transition: background-color 0.5s ease;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
+    border-radius: 0.5rem;
+    /* border-bottom-left-radius: 1rem; */
 }
 
 /* .l11:hover {
@@ -356,9 +396,9 @@ div.das {
     font-size: 1.3rem;
 }
 
-div.das:hover {
+/* div.das:hover {
     font-size: 1.6rem;
-}
+} */
 
 div.l14{
     height: 4rem;
@@ -548,10 +588,10 @@ div.actve{
 
 
 
-a:hover{
+/* a:hover{
     font-size: 1.2rem;
 
-}
+} */
 
 
 /* -----------view don blood----------- */
@@ -581,14 +621,14 @@ label #sidebar_btn{
 }
 
 #check:checked ~ .sidebar{
-    margin-left: -15rem;
+    margin-left: 0rem;
     /* transform: translateX(-15rem); */
 }
 
 
 
 #check:checked ~ .exsdbar{
-    margin-left: 0rem;
+    margin-left: 15rem;
 
 
 }
@@ -599,4 +639,110 @@ label #sidebar_btn{
 
 
 
-  
+/* --------------------------viewdonations page--------------------------------- */
+
+div.navlinks{
+    width: 90%;
+    margin-left: 4rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    /* overflow: hidden; */
+    
+}
+
+div.tocheck,div.checked,div.rejected{
+    width: 7rem;
+    height: 3rem;
+    /* box-shadow: 0px 3px 10px grey; */
+    background-color: #ffffff;
+    /* overflow: hidden; */
+    border-radius: 0.7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+div.activenav{
+    background-color: #fb7e7e;
+    font-size: 1.2rem;
+}
+
+
+
+/* --------------------------viewbldrequests page------------------ */
+
+div.vreq,div.sreq,div.sendreq{
+    width: 8rem;
+    height: 3.5rem;
+    /* box-shadow: 0px 3px 10px grey; */
+    background-color: #ffffff;
+    /* overflow: hidden; */
+    border-radius: 0.7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+div.cont{
+    text-align: center;
+}
+
+
+/* ----------------------------back arrow-------------------------- */
+/* div.backarr{
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+ } */
+
+ img.barr{
+    padding-top: 0.5rem;
+    height: 2rem;
+    /* width: 2rem; */
+ }
+
+ /* ------------------------onetimeui--------------------- */
+
+ img.onetimg{
+    height: 2rem;
+    padding-right: 0.5rem;
+ }
+ 
+ div.newbtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+
+ button.btnonet {
+    font-family: "Poppins" !important;
+    transition: background-color 0.5s ease;
+
+
+    height: 2rem;
+    width: 6rem;
+    border-radius: 0.7rem;
+    margin-right: 2rem;
+    border: none;
+    background-color: #FD9F9F;
+    
+}
+.btnonet:hover {
+    background-color:rgb(246, 41, 41);
+    color:white;
+}
+
+ 
+
+
+
+
+
+
+
+

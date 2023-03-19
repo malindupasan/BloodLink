@@ -102,10 +102,12 @@ body {
 
 
 div.sidebar {
+    margin-left: -15rem;
     background-color: #FD9F9F;          
     width: 15rem;
     height: 100vh;
     position: fixed;
+    transition:  0.2s ;
    /* display: flex;
     height: 1117px;
     width: 330px; */
@@ -117,7 +119,10 @@ div.exsdbar {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: 15rem;
+    margin-left: 0rem;
+
+    /* margin-left: 15rem; */
+    transition:  0.2s ;
    /* height: 173px;
     width: 1398px;*/
 
@@ -135,7 +140,7 @@ div.navbar {
 div.section {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
 }
 
 div.nleft {
@@ -239,9 +244,9 @@ div.das {
     font-size: 1.3rem;
 }
 
-div.das:hover {
+/* div.das:hover {
     font-size: 1.6rem;
-}
+} */
 
 a{
     text-decoration: none;
@@ -316,8 +321,8 @@ div.l11,div.l12, div.l13,div.l14,div.l21 {
     align-items: center;
     height: 3rem;
     transition: background-color 0.5s ease;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
+    border-radius: 0.5rem;
+    /* border-bottom-left-radius: 1rem; */
 }
 
 div.l14{
@@ -380,6 +385,38 @@ div.canarea {
     /* background-color: lightgray; */
   }
 
+  div.canarea2 {
+    width:90%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* padding: 1rem; */
+    gap: 2rem;
+    margin: auto;
+    text-align: center;
+    /* background-color: lightgray; */
+  }
+
+  canvas#chartpie, canvas#chartpie2{
+    background-color: #ffffff;
+    box-shadow: 0px 3px 10px grey;
+    border-radius: 1rem;
+  }
+
+  div.p1,div.p2{
+    width: 35rem;
+    height:400px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.pttl{
+    font-size: x-large;
+    font-weight: bolder;
+  }
 
   div.searcharea{
     display: flex;
@@ -526,6 +563,7 @@ div.dash{
 
 div.thismdet{
     /* margin-bottom: 2rem; */
+    width: 85%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -547,6 +585,9 @@ div.numofcamp,div.numofdon,div.numofdonor{
 div.numofnum{
     font-size: 2.5rem;
     color: red;
+}
+div.rep{
+    width: 90%;
 }
 
 div.repfrm{
@@ -602,20 +643,71 @@ label #sidebar_btn{
 }
 
 #check:checked ~ .sidebar{
-    margin-left: -15rem;
+    margin-left: -0rem;
     /* transform: translateX(-15rem); */
 }
 
 
 
 #check:checked ~ .exsdbar{
-    margin-left: 0rem;
+    margin-left: 15rem;
 
 
 }
 
 #check:checked ~ .nleft{
     margin-left: 4rem;
+}
+
+
+
+/* -----------------------------------------bbbsmanage boxes---------------------------------- */
+
+div.rwppbox{
+    width: 85%;
+    /* height: 15rem; */
+    /* background-color: #000000; */
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.boxupper{
+    width: 90%;
+    /* height: 10rem; */
+    display: flex;
+    margin-top: 2rem;
+
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: #dd2525; */
+
+}
+
+div.rbcbox, div.wbcbox,div.pltbox,div.plsmbox{
+    margin-top: 1rem;
+    border-radius: 1rem;
+    width: 12rem;
+    height: 12rem;
+    box-shadow: 0px 3px 10px grey;
+
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.btamount{
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 4rem;
+    color: red;
+}
+
+button.sp{
+    width: 60%;
 }
 
 

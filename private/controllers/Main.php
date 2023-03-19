@@ -5,28 +5,23 @@ class Main extends Controller
     {       
         
             if(!Auth::logged_in()){
-            $this->redirect('login');
-            if(!($_SESSION['USER']->role=='PHI')){
-                $this->redirect('login');
-               }
-
+            $this->redirect('adminlogin');
             }
-           if(!($_SESSION['USER']->role=='PHI')){
-            $this->redirect('home');
-           }
 
+// ----------------------------------pagination-----------------------
+            $data2=array();
 
             $essentials=array();
             $resultsperpage= 8;
             
             $bdc = new Bdcreq();
             $data = $bdc->findAll();
+
+            if($data!=NULL){
             $numofresults=count($data);
             $numofpages= ceil($numofresults/$resultsperpage);
 
             $essentials['noofpgs']=$numofpages;
-
-            // echo $numofpages;
 
             if(!isset($_GET['page']) or $_GET['page']> $numofpages or $_GET['page']< 1){
                 $page=1;
@@ -36,12 +31,14 @@ class Main extends Controller
 
             $thispagefirstres=($page-1)*$resultsperpage;
 
-            // $sql="select * from bdcreq order by id desc limit $thispagefirstres,$resultsperpage";
-
-            $data2= $bdc->paginall($thispagefirstres,$resultsperpage);
+            $data2= $bdc->paginwhere("status",0,$thispagefirstres,$resultsperpage);
+        }
+// ----------------------------------pagination end----------------------
         
 
-      
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
 
         // $bdc = $this->load_model('Bdcreq');
 

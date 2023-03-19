@@ -130,3 +130,21 @@ img.shut {
     margin-right: 1rem;
 
 }
+
+button.btnonet {
+    font-family: "Poppins" !important;
+    transition: background-color 0.5s ease;
+
+
+    height: 2rem;
+    width: 6rem;
+    border-radius: 0.7rem;
+    margin-left: 85rem;
+    border: none;
+    background-color: #FD9F9F;
+    
+}
+.btnonet:hover {
+    background-color:rgb(246, 41, 41);
+    color:white;
+}

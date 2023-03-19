@@ -6,12 +6,49 @@
 
  class Bdcreq extends Model
  {
-    protected $table = "bdcreq";
+    protected $table = "donation_camp_request";
 
-    public function paginall($fpage,$off){
-      $sql="select * from $this->table order by id desc limit $fpage,$off";
+    
+
+    public function paginall($fpage,$off){ //-------------for all pagination
+      $sql="select * from $this->table where bloodbank='Matara' order by id desc limit $fpage,$off";
 
       return $this->query($sql);
+    }
+
+
+    public function paginwhere($column, $value,$fpage,$off) //-------------------for where pagination
+    {
+
+        $column = addslashes($column);
+
+        $query = "select * from $this->table where $column=:value limit $fpage,$off" ;
+        // echo $query;
+        return $this->query($query, [
+            
+            'value' => $value,
+        ]);
+    }
+
+
+
+    public function updatestatus($id,$data) //-----------------------update request status
+    {
+
+       
+        $str="";
+        foreach($data as $key => $val){
+            $str .= $key."=:".$key.",";
+        }
+
+        $str=trim($str,",");
+        
+        $data['camp_request_id']=$id;
+
+        $query = "update $this->table set $str where camp_request_id = :camp_request_id";
+        
+       
+        return $this->query($query,$data);
     }
 
   
