@@ -11,12 +11,12 @@ class Reqdetails extends Controller
         $id=$_GET['id'];
         // print_r($id);
 
-        $bdr=new Bdcreq();
+        $bdc=new BLBdc();
 
         if($id){
-            $data=$bdr->where("id",$id);
+            $data=$bdc->where("camp_id",$id);
             // echo "<pre>";
-            // print_r($data[0]);
+            // print_r($data);
         }
 
 

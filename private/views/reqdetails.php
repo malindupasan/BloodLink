@@ -1,34 +1,35 @@
 <?php $this->view('includes/pageinit'); ?>
 
-
 <?php $this->view('includes/navup'); ?>
-    
-    <link rel="stylesheet" href="<?=ROOT?>/css/reqdetailsstyle.css">
 
-     <div class="campname" ><u><?php echo $rows->name; ?></u></div>
+<link rel="stylesheet" href="<?=ROOT?>/css/reqdetailsstyle.css">
 
-    <div class="splits">
+ <div class="campname" ><u><?php echo $rows->camp_name; ?></u></div>
+
+<div class="splits">
+   
+    <div class="splitleft">
        
-        <div class="splitleft">
-           
-            <div class="imgplc">
-                <div class="imgg"></div>
-            </div>
-
-            <div class="det">
-                <div class="place"><b>Place: </b><?=$rows->location;?>   </div>
-                <div class="time"><b>Time: </b><?=$rows->date;?></div>
-                <div class="date"><b>Date: </b><?=$rows->date;?>      </div>
-                <div class="bbank"><b>BloodBank: </b><?=$rows->bloodbank;?></div>
-                <div class="orgby"><b>Organized by: </b><?=$rows->location;?></div>
-                <div class="pno"><b>Phone No: </b><?=$rows->date;?></div>
-            </div>
+        <div class="imgplc">
+            <div class="imgg"></div>
         </div>
-        <div class="splitright"> 
-        <div class="desc"><p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, nibh sed dictum porta, justo sem efficitur massa, vitae porta metus nibh ac quam. Sed convallis tincidunt lorem sed dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer a arcu ac orci ultrices dapibus. Phasellus feugiat mauris nunc,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, nibh sed dictum porta, justo sem efficitur massa, vitae porta metus nibh ac quam. Sed convallis tincidunt lorem sed dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer a arcu ac orci ultrices dapibus. Phasellus feugiat mauris nunc,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, nibh sed dictum porta, justo sem efficitur massa, vitae porta metus nibh ac quam. Sed convallis tincidunt lorem sed dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer a arcu ac orci ultrices dapibus. Phasellus feugiat mauris nunc</p></div>     
+
+        <div class="det">
+            <div class="place"><b>Place: </b><?=$rows->address;?>   </div>
+            <div class="time"><b>Time: </b><?=$rows->start_time;?></div>
+            <div class="date"><b>Date: </b><?=$rows->date;?>      </div>
+            <div class="orgby"><b>Organized by: </b><?=$rows->date;?></div>
+            <div class="pno"><b>Phone No: </b><?=$rows->date;?></div>
         </div>
     </div>
-    
-   
+    <div class="splitright"> 
+    <div class="desc"><p align="justify"><?=$rows->description;?>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, nibh sed dictum porta, justo sem efficitur massa, vitae porta metus nibh ac quam. Sed convallis tincidunt lorem sed dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer a arcu ac orci ultrices dapibus. Phasellus feugiat mauris nunc,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, nibh sed dictum porta, justo sem efficitur massa, vitae porta metus nibh ac quam. Sed convallis tincidunt lorem sed dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer a arcu ac orci ultrices dapibus. Phasellus feugiat mauris nunc,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, nibh sed dictum porta, justo sem efficitur massa, vitae porta metus nibh ac quam. Sed convallis tincidunt lorem sed dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer a arcu ac orci ultrices dapibus. Phasellus feugiat mauris nunc</p></div>     
+    </div>
+</div>
+<div class="onetimebtn">
+<a href="<?=ROOT?>/onetimeui?id=<?=$rows->camp_id;?>"><button class="btnonet">Start BDC</button>
+</div>
+
+
 </body>
 </html>

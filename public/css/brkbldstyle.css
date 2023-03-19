@@ -29,8 +29,8 @@ div.in {
 
 }*/
 
-input {
-    width: 40rem;
+input,select {
+    width: 20rem;
     padding: 0.4rem;
     border: 0.1rem solid #ccc;
     border-radius: 0.5rem;
@@ -73,7 +73,7 @@ button:hover {
 
 div.exnav {
     display: flex;
-    flex-direction:row;
+    flex-direction:column;
 }
 
 /* div.formpt {
@@ -168,7 +168,15 @@ img.shut {
     border-color: rgb(250, 7, 7);
 }
 
+.formcontrol.error select{
+    border-color: rgb(250, 7, 7);
+}
+
 .formcontrol.success input{
+    border-color: rgb(7, 250, 7);
+}
+
+.formcontrol.success select{
     border-color: rgb(7, 250, 7);
 }
 
@@ -180,7 +188,8 @@ img.shut {
 
 .formcontrol.error small {
     visibility:visible;
-    padding-left:1rem;
+    padding-top: 0.2rem;
+    padding-left:2.5rem;
     color:red;
 }
 
@@ -188,7 +197,7 @@ img.shut {
     visibility: hidden;
     position:absolute;
     /* right:10px; */ 
-    padding-top:0.5rem;
+    padding-top:0.2rem;
     padding-left:0.1rem
 }
 
@@ -207,14 +216,45 @@ img.shut {
 
 /* -------------formpt1-------------- */
 
-div.formpt1{
+div.formcontrol{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 form{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    
 
+}
+
+
+
+
+
+div.upper{
+    width: 90%;
+    /* padding-left: 1.5rem; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+div.lower{
+    padding-top: 2rem;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    margin-left: 60rem;
+}
+
+
+div.dashline{
+    border-bottom: 1px dashed black;
+    width: 90%;
+    margin-left: 4rem;
 }

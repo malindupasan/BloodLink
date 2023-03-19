@@ -33,9 +33,7 @@
 
             <div class="nright">
                 <div class="icon"><a href="logout" ><img src="./img/shut.png" class="shut"></a></div>
-
                 <div class="name"><h4>Welcome! <?=$_SESSION['USER']->name;?></h4></div>
-
             </div>
 
         </div>
@@ -45,40 +43,34 @@
 
     <div class="exnav">
         <div class="backarr">
-        <img class="barr" src="./img/back.png" alt="">
+        <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><img class="barr" src="./img/back.png" alt="">
 
-        </div>
+        </div></a>
     <div class="boxes r1">
-
-            <a href="<?=ROOT?>/campaigns"><div class="b1">
+            <a href="<?=ROOT?>/upbdconly"><div class="b1">
                 <div class="imgb">
                     <img class="bimg" src="./img/up.jpg" alt="">
-
                 </div>
                 <div class="data">
                     Upcoming Blood Donation Camps 
                 </div>
-
             </div></a>
             
             <?php if ($_SESSION['USER']->role=="PHI") {?>
-                <a href="<?=ROOT?>/bdcreqonly"><div class="b1">
+                <a href="<?=ROOT?>/main"><div class="b1">
                 <div class="imgb">
                     <img class="bimg" src="./img/acc.jpg" alt="">
-
                 </div>
                 <div class="data">
                     View Requests
                 </div>
-
             </div></a>
             <?php } ?>
             
 
-            <a href="<?=ROOT?>/main"><div class="b1">
+            <a href="<?=ROOT?>/bdchistory"><div class="b1">
                 <div class="imgb">
                     <img class="bimg" src="./img/his.png" alt="">
-
                 </div>
                 <div class="data">
                     View History

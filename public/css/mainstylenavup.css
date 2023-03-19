@@ -7,9 +7,7 @@ div.navbar {
 }
 
 div.nleft {
-
     margin-left: 1rem;
-
     display: flex;
     height: 6rem;
     align-items: center;
@@ -80,7 +78,6 @@ div.camptitle {
 div.imge {
     padding-right:1rem;
 
-
 }
 
 
@@ -89,3 +86,11 @@ div.imge {
 
 } */
 
+
+/* body {
+   
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: "Poppins";
+} */

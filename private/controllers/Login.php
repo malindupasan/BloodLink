@@ -7,8 +7,11 @@ class Login extends Controller
         $errors = array();
 
         if (count($_POST) > 0) {
+            $docuser = new BLDoc();
+            $phiuser = new BLPHI();
+            $labuser = new BLLab();
             $user = new User();
-            $usr = new Sysusers();
+
 
             if ($row = $user->where('email', $_POST['email'])) {
                 $row = $row[0];
@@ -28,21 +31,60 @@ class Login extends Controller
             }
 
            
-            else if ($row = $usr->where('email', $_POST['email'])) {
+            else if ($row = $docuser->where('email', $_POST['email'])) {
                 $row = $row[0];
-                $errors['nikn'] = $_POST['password'];
-                $errors['nikn2'] = $row->password;
+                // $errors['nikn'] = $_POST['password'];
+                // $errors['nikn2'] = $row->password;
                 // $this->redirect('home');
 
                 if (password_verify($_POST['password'], $row->password)) {
                     
-                    $errors['nikn3'] = "pass eka hri";
+                    // $errors['nikn3'] = "pass eka hri";
                      Auth::authenticate($row);
+                     $_SESSION['USER']->role="Doctor";
+
                     $this->redirect('dashboard');
                 }else{
                     $errors['nikn4'] = "pass 1 wrdi"; 
                 }
             } 
+
+            else if ($row = $phiuser->where('email', $_POST['email'])) {
+                $row = $row[0];
+                // $errors['nikn'] = $_POST['password'];
+                // $errors['nikn2'] = $row->password;
+                // $this->redirect('home');
+
+                if (password_verify($_POST['password'], $row->password)) {
+                    
+                    // $errors['nikn3'] = "pass eka hri";
+                     Auth::authenticate($row);
+                     $_SESSION['USER']->role="PHI";
+
+                    $this->redirect('dashboard');
+                }else{
+                    $errors['nikn4'] = "pass 1 wrdi"; 
+                }
+            } 
+
+            else if ($row = $labuser->where('email', $_POST['email'])) {
+                $row = $row[0];
+                // $errors['nikn'] = $_POST['password'];
+                // $errors['nikn2'] = $row->password;
+                // $this->redirect('home');
+
+                if (password_verify($_POST['password'], $row->password)) {
+                    
+                    // $errors['nikn3'] = "pass eka hri";
+                     Auth::authenticate($row);
+                     $_SESSION['USER']->role="Lab";
+
+                    $this->redirect('dashboard');
+                }else{
+                    $errors['nikn4'] = "pass 1 wrdi"; 
+                }
+            } 
+
             $errors['email'] = "wrong Email or Password";
 
 

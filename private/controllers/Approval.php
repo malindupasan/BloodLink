@@ -2,14 +2,16 @@
 class Approval extends Controller
 {
     function index($id = '')
-    {
+    {   
+        $pid=$_SESSION['USER']->id;
         $id=$_GET['id'];
         // print_r($id);
 
         $st=$_GET['stat'];
         // print_r($st);
 
-        $arr=['accrej'=>$st];
+        $arr['status']=$st;
+        $arr['phi_id']=$pid;//check!!!!
 
         // echo "<pre>";
         // print_r($arr['nnn']);
@@ -17,7 +19,7 @@ class Approval extends Controller
         $bdapp=new Bdcreq();
 
         if($id){
-            $bdapp->update($id,$arr);
+            $bdapp->updatestatus($id,$arr);
             $this->redirect('main');
 
             // $data=$bdr->where("id",$id);

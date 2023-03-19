@@ -1,106 +1,70 @@
-        <?php $this->view('pageinit'); ?>
+<?php $this->view('includes/pageinit'); ?>
 
-        <?php $this->view('nav'); ?>
-        <?php $this->view('navup'); ?>
+<?php $this->view('includes/nav'); ?>
+<?php $this->view('includes/navup'); ?>
+<script src="<?=ROOT?>/js/ajscriptbbbs.js"></script>
 
-        <link rel="stylesheet" href="<?=ROOT?>/css/bbbsmanagestyle.css">
 
-        <div class="section">           <!--main section except sidebar & navbar-->
-            <!-- <div class="back">
-                <div class="backimg"><img class="backimg" src="back.png" ></div>
-            </div> -->
-            <div class="namearea">
-                <div class="nmandreq">
-                    <div class="nm"><b>Blood Stock</b></div>
-                    <?php if ($_SESSION['USER']->role=="Doctor"){ ?>
-                        <div class="reqbt">
-                        <a href="<?=ROOT?>/reqbloodform"><button class="reqbt"><b>Request Blood</b></button></a>
-                        </div>
-                    <?php }?>
-                    
+<link rel="stylesheet" href="<?=ROOT?>/css/bbbsmanagestyle.css">
+
+<div class="section">           <!--main section except sidebar & navbar-->
+    <!-- <div class="back">
+        <div class="backimg"><img class="backimg" src="back.png" ></div>
+    </div> -->
+    <div class="namearea">
+        <div class="nmandreq">
+            <div class="nm"><b>Blood Stock</b></div>
+            <?php if ($_SESSION['USER']->role=="Doctor"){ ?>
+                <div class="reqbt">
+                <a href="<?=ROOT?>/bldrequestform"><button class="reqbt"><b>Request Blood</b></button></a>
                 </div>
-            </div>
-            <div class="chrtarea">
-                <div class="canarea">
-                    <canvas id="chart" ></canvas>
-                </div>
-            </div>
-            <div class="searcharea">
-                <div class="typ">
-                    <b>Type:</b>
-                        <select class="tselect" name="ts" id="t" >
-                            <option class="topt1" value="def"></option>
-                            <option class="topt" value="saab">RBC</option>
-                            <option class="topt" value="mercedes">WBC</option>
-                            <option class="topt" value="audi">Plasma</option>
-                            <option class="topt" value="audi">Platelettes</option>
-
-                          </select>
-                </div>
-                <div class="btyp">
-                    <b>Blood Group:</b>
-                        <select class="bselect" name="bs" id="b" >
-                            <option class="bopt1" value="def"></option>
-                            <option class="bopt" value="saab">A-</option>
-                            <option class="bopt" value="mercedes">A+</option>
-                            <option class="bopt" value="audi">B+</option>
-                            <option class="bopt" value="audi">B-</option>
-                            <option class="bopt" value="audi">AB+</option>
-                            <option class="bopt" value="audi">AB-</option>
-                            <option class="bopt" value="audi">O+</option>
-                            <option class="bopt" value="audi">O-</option>
-
-
-
-                          </select>
-                </div>
-                <div class="exdate">
-                    <b>EXP Date:</b>
-                    <input type="date" value="ExpDate">
-                </div>
-                <div class="srch">
-                    <button class="btsearch" ><b>Search</b></button>
-                </div>
-
-
-
-            </div>
-            <div class="tblarea">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Blood Group</th>
-                            <th>Donated Date</th>
-                            <th>EXP Date</th>
-                            <th>Amount</th>
-                            
-    
-                        </tr>
-                    <thead>
-                    <?php foreach($rows as $row):?> 
-                        <tr>
-                        
-                        <td><?=$row->bloodtype ?></a></td>
-                        <td><?=$row->bloodgroup ?></td>
-                        <td><?=$row->donateddate ?></td>
-                        <td><?=$row->expdate ?></td>
-                        <td><?=$row->amount ?></td>
-                        </tr>
-                        
-
-                    <?php endforeach; ?>
-
-                
-                </table>
-                
-            </div>
-
-            <!-- <div class="addb">
-                <button class="addb">Add Blood</button>
-            </div> -->
+            <?php }?>
+            
         </div>
+    </div>
+    <div class="chrtarea">
+        <div class="canarea">
+            <canvas id="chart" ></canvas>
+        </div>
+    </div>
+    
+   <div class="rwppbox">
+    <div class="boxupper">
 
- <script src="<?=ROOT?>/scripts/bbbsscript.js"></script>  
+        <a href="<?=ROOT?>/rbcdetails"><div class="rbcbox">
+            <div class="btname">RBC</div>
+            <div class="btamount"><?=$rows['rbc']?></div>
+        </div></a>
+
+        <a href="<?=ROOT?>/wbcdetails"><div class="wbcbox">
+            <div class="btname">WBC</div>
+            <div class="btamount"><?=$rows['wbc']?></div>
+
+        </div></a>
+        <a href="<?=ROOT?>/pltdetails"><div class="pltbox">
+            <div class="btname">Platelettes</div>
+            <div class="btamount"><?=$rows['plt']?></div>
+
+        </div></a>
+
+        <a href="<?=ROOT?>/plsmdetails"><div class="plsmbox">
+            <div class="btname">Plasma</div>
+            <div class="btamount"><?=$rows['plsm']?></div>
+
+        </div></a>
+
+    </div>
+   
+   </div>
+   
+
+    <!-- <div class="addb">
+        <button class="addb">Add Blood</button>
+    </div> -->
+</div>
+<?php $this->view('staff/footer'); ?>
+
+
+
 </body>
 </html>
