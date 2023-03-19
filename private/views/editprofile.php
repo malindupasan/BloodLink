@@ -5,11 +5,11 @@
     <div class="section1">
         <div class="section1-1">
             <div class="sec1-prof">
-            <div class="section1-1-1"><img src="<?= "<?=ROOT?>/".$data['rows']->profile_img ?>" alt=""
+            <div class="section1-1-1"><img src="<?php echo(ROOT."/".$data['rows']->profile_img)?>" alt=""
                     class="profilepic"></div>
                     <a href="./changepic"><button class="section1-1-1-btn">add new</button></a>
             <div class="section1-1-2">
-                <?= $data['rows']->fullname ?>
+                <?= $data['rows']->name ?>
             </div>
             <div class="section1-1-3">B+</div>
         </div>
@@ -31,7 +31,7 @@
 
     <div class="sec2f-1-1">
         <label for="name">Name</label>
-        <input class="inputsec2-1" type="text"  name="name3" value="<?= $data['rows']->fullname ?>">
+        <input class="inputsec2-1" type="text"  name="name3" value="<?= $data['rows']->name ?>">
         <button type="submit" class="editbtn">Save</button>
     </div>
     <div class="sec2f-1">
@@ -58,25 +58,21 @@
     </div>
 
     <div class="sec2f-1">
-        <label for="address">Address</label>
-        <input class="inputsec2" type="text" name="address" 
-            value="<?= $data['rows']->address  ?>">
+        <label for="address">Street</label>
+        <input class="inputsec2" type="text" name="street" 
+            value="<?= $data['rows']->street  ?>">
     </div>
 
+    <div class="sec2f-1">
+        <label for="age">House No</label>
+        <input class="inputsec2" type="text"  name="houseno" value="<?= $data['rows']->houseno  ?>" >
+    </div>
     <div class="sec2f-1">
         <label for="age">Age</label>
-        <input class="inputsec2" type="text" readonly name="age">
+        <input class="inputsec2" type="text" readonly name="age" value="<?= $data['rows']->age  ?>" >
     </div>
 
-    <div class="sec2f-1">
-        <label for="weight">weight</label>
-        <input class="inputsec2" type="text" readonly name="name">
-    </div>
-
-    <div class="sec2f-1">
-        <label for="bloodgroup">BloodGroup</label>
-        <input class="inputsec2" type="text" name="bloodgroup" readonly>
-    </div>
+  
 
 
 

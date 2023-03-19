@@ -16,7 +16,7 @@
 
     <div class="main">
 
-        <div class="logo"><img class="logo-1" src="../../public/images/Logo.png" alt=""></div>
+        <div class="logo"><img class="logo-1" src="<?=ROOT?>/images/Logo.png" alt=""></div>
 
         <div class="rectangle">
 
@@ -57,7 +57,13 @@
                         <small>error message</small>
                     </div>
                     <div class="f"><label for="address"></label>
-                        <input class="input" type="text" placeholder="Address" name="address" id="address">
+                        <input class="input" type="text" placeholder="Street" name="street" id="street">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>error message</small>
+                    </div>
+                    <div class="f"><label for="houseno"></label>
+                        <input class="input" type="text" placeholder="House No" name="houseno" id="houseno">
                         <i class="fa-solid fa-circle-check"></i>
                         <i class="fa-solid fa-circle-exclamation"></i>
                         <small>error message</small>

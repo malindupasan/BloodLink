@@ -50,7 +50,7 @@
         </div>
     <div class="boxes r1">
 
-            <a href="<?=ROOT?>/upbdconly"><div class="b1">
+            <a href="<?=ROOT?>/campaigns"><div class="b1">
                 <div class="imgb">
                     <img class="bimg" src="./img/up.jpg" alt="">
 

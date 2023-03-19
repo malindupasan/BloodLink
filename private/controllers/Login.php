@@ -18,6 +18,14 @@ class Login extends Controller
                     $this->redirect('home');
                 }
             }
+            else if ($row = $user->where('nic', $_POST['email'])) {
+                $row = $row[0];
+
+                if (password_verify($_POST['password'], $row->password)) {
+                    Auth::authenticate($row);
+                    $this->redirect('home');
+                }
+            }
 
            
             else if ($row = $usr->where('email', $_POST['email'])) {

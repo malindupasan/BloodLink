@@ -12,14 +12,14 @@ class Campaigns extends Controller
 
 
         $camp = new Camp();
-        $query = "select * from campaign where date >= :date";
+        $query = "select * from blood_donation_camp where date >= :date";
         // $data = $camp->findAll();
         $date = date("Y-m-d");
         $arr = ['date' => $date];   
 
         if((isset($_GET['date'])&&strlen($_GET['date']))&&(isset($_GET['find'])&&strlen($_GET['find']))){
             $find = $_GET['find'] . '%';
-            $query = "select * from campaign where (cName like :cName) &&  date = :date";
+            $query = "select * from blood_donation_camp where (cName like :cName) &&  date = :date";
             $arr['date'] = $_GET['date'];
             $arr['cName'] = $find;
         } else {
@@ -28,14 +28,14 @@ class Campaigns extends Controller
 
             if (isset($_GET['find']) && strlen($_GET['find'])) {
                 $find = $_GET['find'] . '%';
-                $query = "select * from campaign where (cName like :cName) &&  date >= :date";
+                $query = "select * from blood_donation_camp where (cName like :cName) &&  date >= :date";
                 $arr['cName'] = $find;
 
 
 
             }
             if (isset($_GET['date']) && strlen($_GET['date'])) {
-                $query = "select * from campaign where date = :date";
+                $query = "select * from blood_donation_camp where date = :date";
                 $arr['date'] = $_GET['date'];
             }
         }
@@ -43,14 +43,14 @@ class Campaigns extends Controller
 
         if (isset($_GET['prog'])) {
             
-            $query = "select * from campaign where date = :date ";
+            $query = "select * from blood_donation_camp where date = :date ";
 
         }
 
         if (isset($_GET['mycamps'])) {
 
             $NIC = 20001551; //AUTH::getNIC();
-            $query = "select * from campaign where  NIC = :NIC ";
+            $query = "select * from blood_donation_camp where  NIC = :NIC ";
             $arr = ['NIC' => $NIC];
 
         }

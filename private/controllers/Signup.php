@@ -11,10 +11,12 @@ class Signup extends Controller
             // $user = $this->load_model('User');
             $user=new User();
             if ($user->validate($_POST)) {
+                
+                $age=date("Y")-substr($_POST['nic'],0,4);
 
-                $_POST['fullname'] = $_POST['name'];
-                $_POST['role'] = "donor";
-
+                $_POST['age']=$age;
+                
+                $_POST['is_registered']=1;
                 $user->insert($_POST);
 
 

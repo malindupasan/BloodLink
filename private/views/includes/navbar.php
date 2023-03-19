@@ -25,13 +25,13 @@ $data = $user->where("id", $id2);
 <nav class="navbar">
         <div class="left">
             <div class="nav-i-logo">
-                <a href="<?=ROOT?>/home">   <img src="./images/Logo.png" alt="" class="nav-logo"></a> 
+                <a href="<?=ROOT?>/home">   <img src="<?=ROOT?>/images/Logo.png" alt="" class="nav-logo"></a> 
             </div>
             <div class="nav-i-1">
                <a href="<?=ROOT?>/becomeadonor"> Become a Donor</a>
             </div>
-            <div class="nav-i">
-               <a href="<?=ROOT?>">Give blood</a> 
+            <div class="nav-i-org">
+               <a href="<?=ROOT?>/Viewcampreqstatus">Organize a Camp</a> 
             </div>
             <div class="nav-i">
               <a href="<?=ROOT?>/newsfeed"> Feed</a> 
@@ -56,7 +56,7 @@ $data = $user->where("id", $id2);
                 <div class="sub-menu">
                     <div class="user-info">
                         <img src="<?php echo ROOT. "/" . $data[0]->profile_img ?>" alt="">
-                        <h3><?php echo  $data[0]->fullname ?></h3>
+                        <h3><?php echo  $data[0]->name ?></h3>
                     </div>
                     <hr>
 
