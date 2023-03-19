@@ -8,7 +8,7 @@ class News extends Controller
 
 
         
-        $this->view('news');
+        $this->view('newsfeed');
         
     }
 }

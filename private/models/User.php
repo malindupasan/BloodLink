@@ -6,12 +6,12 @@
 
  class User extends Model
  {
-    protected $table = "userbl3";
+    protected $table = "donor";
 
 
   
 
-   protected $allowedColumns = ['fullname','email','nic','mobile','city','address','password','profile_img','role'];
+   protected $allowedColumns = ['name','email','nic','mobile','age','city','street','houseno','is_registered','is_defect','password','profile_img'];
    protected $beforeInsert = ['hash_password'];
 
 

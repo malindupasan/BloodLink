@@ -28,7 +28,7 @@ if (Auth::logged_in()) {
 <div class="sec3">
     <form method="post" class="contact-form">
         <div class="formitem"><label for="fname">Full Name</label><br>
-        <input class="inp1" type="text" name="fullname" id="fname" value="<?php echo (Auth::logged_in()) ? $data[0]->fullname : ""; ?>"><br></div>
+        <input class="inp1" type="text" name="fullname" id="fname" value="<?php echo (Auth::logged_in()) ? $data[0]->name : ""; ?>"><br></div>
        
         <div class="formitem"><label for="fname">Phone Number</label><br>
         <input class="inp1" type="text" name="phone" id="fname" value="<?php echo (Auth::logged_in()) ? $data[0]->mobile : "";?>"><br></div>

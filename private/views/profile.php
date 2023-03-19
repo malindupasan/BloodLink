@@ -9,7 +9,7 @@
                     class="profilepic"></div>
                     <a href="./change_profile_img.php"><button class="section1-1-1-btn">change Profile picture</button></a>
             <div class="section1-1-2">
-            <?= $data['rows']->fullname  ?>
+            <?= $data['rows']->name  ?>
             </div>
             <div class="section1-1-3">B+</div>
         </div>
@@ -31,7 +31,7 @@
             <div class="sec2f-1-1">
                 <label for="name">Name</label>
                 <input class="inputsec2-1" type="text" readonly name="name"
-                    value="<?= $data['rows']->fullname ?>">
+                    value="<?= $data['rows']->name ?>">
                 <button type="submit" class="editbtn">edit</button>
             </div>
             <div class="sec2f-1">
@@ -58,25 +58,25 @@
             </div>
 
             <div class="sec2f-1">
-                <label for="address">Address</label>
+                <label for="address">street</label>
                 <input class="inputsec2" type="text" name="address" readonly
-                    value="<?= $data['rows']->address ?>">
+                    value="<?= $data['rows']->street ?>">
+            </div>
+
+            <div class="sec2f-1">
+                <label for="address">House No</label>
+                <input class="inputsec2" type="text" name="address" readonly
+                    value="<?= $data['rows']->houseno ?>">
             </div>
 
             <div class="sec2f-1">
                 <label for="age">Age</label>
-                <input class="inputsec2" type="text" readonly name="age">
+                <input class="inputsec2" type="text" value="<?= $data['rows']->age ?>" readonly name="age">
             </div>
 
-            <div class="sec2f-1">
-                <label for="weight">weight</label>
-                <input class="inputsec2" type="text" readonly name="name">
-            </div>
+           
 
-            <div class="sec2f-1">
-                <label for="bloodgroup">BloodGroup</label>
-                <input class="inputsec2" type="text" name="bloodgroup">
-            </div>
+           
 
 
 

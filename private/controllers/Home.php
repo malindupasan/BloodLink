@@ -11,8 +11,8 @@ class Home extends Controller
 
         $user = $this->load_model('User');
 
-        $id=Auth::getid();    
-        $data = $user->where("id", $id);
+        $email=Auth::getemail();    
+        $data = $user->where("email", $email);
 
         
         $this->view('home', ['rows' => $data[0]]);

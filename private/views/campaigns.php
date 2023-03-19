@@ -3,7 +3,7 @@
 
     <link rel="stylesheet" href="<?=ROOT?>/css/campaigns.css">
     <title>Campaigns</title>
-
+    <div class="sec0"> <div class="org-button">Wanna organize a blood donation camp ?</div> </div>
     <div class="sec1">
         <h2 class="sec1-h">campaigns</h2>
         <div class="sec1-sub">

@@ -1,0 +1,119 @@
+@import "./navbar.css";
+
+.sec1{
+    width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-start;
+    
+
+}
+.sec1>h1{
+    margin-left: 2rem;
+    
+
+}
+.sec2{
+    height: 70rem;
+    width: 80rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+   
+}
+
+.form-item{
+    height: 4rem;
+    width: 75rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.form-item-c{
+    height: 4rem;
+    width: 75rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.subform-item{
+    height: 4rem;
+    width: 37.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.label1{
+    font-size: 1.5rem;
+    width: 15rem;
+}
+.labels{
+    font-size: 1.5rem;
+    width: 5rem;
+}
+.labels1{
+    font-size: 1.5rem;
+    width: 5rem;
+    margin-right: 9.5rem;
+    
+}
+.labels2{
+    font-size: 1.5rem;
+    width: 5rem;
+    margin-left: 7rem;
+    
+}
+.inp1{
+    width: 65rem;
+    height: 2rem;
+    padding-left:1rem;
+
+    background: #F3F3F3;
+    border-radius: 10px;
+    border: none;
+}
+.inps{
+    width: 25rem;
+    padding-left:1rem;
+    height: 2rem;
+    background: #F3F3F3;
+    border-radius: 10px;
+    border: none;
+    
+}
+.location{
+    height: 40rem;
+    width: 75rem;
+    display: flex;
+}
+
+.map{
+    height: 35rem;
+    width: 65rem;
+    background: #F3F3F3;
+    border-radius: 0.4rem;
+}
+.btn{
+    height: 2.5rem;
+    width: 7rem;
+    background: #FF8E8E;
+    border: none;
+    margin-top: -3rem;
+    margin-bottom: 4rem;
+    border-radius: 2rem;
+}
+.locationinp{
+    height: 2rem;
+    width: 10rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    border-radius: 0.7rem;
+    padding-left: 0.9rem;
+    border:none;
+}

@@ -6,12 +6,12 @@
 
 class Camp extends Model
 {
-    protected $table = "campaign";
+    protected $table = "blood_donation_camp";
 
 
 
 
-    protected $allowedColumns = ['campID','cName', 'description', 'date', 'venue', 'bloodBank', 'email', 'phone','camp_img'];
+    protected $allowedColumns = ['camp_id','camp_name', 'description', 'date', 'latitude','longitude', 'bloodBank', 'start_time', 'rating','camp_img','doctor_id','camp_name','blood_bank_id','house_no'];
     
 
 
@@ -33,3 +33,4 @@ class Camp extends Model
         return false;
     }
 }
+?>

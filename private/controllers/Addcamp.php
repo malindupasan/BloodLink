@@ -9,10 +9,19 @@ class Addcamp extends Controller
             $this->redirect('login');
         }
 
-        $id=Auth::getid();    
-        $data = $user->where("id", $id);
+        // $id=Auth::getid();    
+        // $data = $user->where("id", $id);
+        $cmpreq=new Campreq();
+        $arr = ['id' => $id];  
 
+        $query="select * from donation_camp_request where camp_request_id=:id";
 
+        $reqdata=$cmpreq->query($query,$arr);
+        $did=$reqdata[0]->bloo;
+        $q2="select email from donor where id=:id";
+        
+
+        // $reqdata=$reqdata;
        
         $image=new Image();
 
@@ -50,7 +59,9 @@ class Addcamp extends Controller
       
 
         
-        
-        $this->view('addcamp', ['rows' => $data[0]]);
+        // print_r($reqdata);
+        $this->view('addcamp',['reqdata'=>$reqdata]);
     }
 }
+
+?>

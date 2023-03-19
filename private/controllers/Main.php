@@ -4,9 +4,16 @@ class Main extends Controller
     function index($id = '')
     {       
         
-            // if(!Auth::logged_in()){
-            // $this->redirect('adminlogin');
-            // }
+            if(!Auth::logged_in()){
+            $this->redirect('login');
+            if(!($_SESSION['USER']->role=='PHI')){
+                $this->redirect('login');
+               }
+
+            }
+           if(!($_SESSION['USER']->role=='PHI')){
+            $this->redirect('home');
+           }
 
 
             $essentials=array();
@@ -34,9 +41,7 @@ class Main extends Controller
             $data2= $bdc->paginall($thispagefirstres,$resultsperpage);
         
 
-        if(!Auth::logged_in()){
-            $this->redirect('login');
-        }
+      
 
         // $bdc = $this->load_model('Bdcreq');
 

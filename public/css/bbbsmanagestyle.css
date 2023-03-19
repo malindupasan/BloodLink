@@ -587,3 +587,35 @@ div.actve{
     font-size: 1.6rem;
 
 }
+
+/* -----------------hide side bar------------- */
+
+label #sidebar_btn{
+    z-index: 1;
+    color: #000000;
+    position: fixed;
+    cursor: pointer;
+    margin-top: 1.9rem;
+    margin-left: 1rem;
+    font-size: 2rem;
+    
+}
+
+#check:checked ~ .sidebar{
+    margin-left: -15rem;
+    /* transform: translateX(-15rem); */
+}
+
+
+
+#check:checked ~ .exsdbar{
+    margin-left: 0rem;
+
+
+}
+
+#check:checked ~ .nleft{
+    margin-left: 4rem;
+}
+
+
