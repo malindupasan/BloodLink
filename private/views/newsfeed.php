@@ -8,44 +8,61 @@
 </div>
 <div class="sec2">
     <h1>Community Post</h1>
-    <button class="post-btn">Post</button>
+    <a href="community_posts"><button class="post-btn">Add +</button></a>
 </div>
 
 <div class="sec3">
+   <?php $i=0;?>
+   <?php if($data1):?>
+   <?php foreach ($data1 as $d):?>
     <div class="card">
         <div class="c-sec">
-            <div class="c-sec-h"> <h1> <u> Title </u></h1>
-            <small>2023-04-02</small>
+            <div class="c-sec-h"> <h1> <u> <?=$data1[$i]->title?> </u></h1>
+            <small>Posted by <b><?=$data1[$i]->name?></b> on <?=$data1[$i]->date?> </small>
             </div>
-            <div class="c-sec-cont"> <p>Lorem ips um dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing vitae proin sagittis nisl rhoncus. Nisi porta lorem mollis aliquam ut. Id diam vel quam elementum pulvinar. Pharetra vel turpis nunc eget lorem dolor sed. Vulputate sapien nec sagittis aliquam malesuada Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> </div>
+            <div class="c-sec-cont"> <p> <?=$data1[$i]->description?></p> </div>
         </div>
         <div class="c-img">
-            <img src="" alt="">
+            <img src=" <?=$data1[$i]->image?>" alt="">
         </div>
     </div>
+    <?php $i++;?>
+    <?php endforeach;?>
+    <?php endif ?>
 
+    <?php if($data2):?>
+   <?php foreach ($data2 as $d):?>
     <div class="card">
         <div class="c-sec">
-            <div class="c-sec-h"> <h1> <u> Title </u></h1>
-            <small>2023-04-02</small>
+            <div class="c-sec-h"> <h1> <u> <?=$data2[$i]->title?> </u></h1>
+            <small>Posted by <b><?=$data2[$i]->name?></b> on <?=$data2[$i]->date?> </small>
             </div>
-            <div class="c-sec-cont"> <p>Lorem ips um dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing vitae proin sagittis nisl rhoncus. Nisi porta lorem mollis aliquam ut. Id diam vel quam elementum pulvinar. Pharetra vel turpis nunc eget lorem dolor sed. Vulputate sapien nec sagittis aliquam malesuada Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> </div>
+            <div class="c-sec-cont"> <p> <?=$data2[$i]->description?></p> </div>
         </div>
         <div class="c-img">
-            <img src="" alt="">
+            <img src=" <?=$data2[$i]->image?>" alt="">
         </div>
     </div>
+    <?php $i++;?>
+    <?php endforeach;?>
+    <?php endif ?>
+
+    <?php if($data3):?>
+   <?php foreach ($data3 as $d):?>
     <div class="card">
         <div class="c-sec">
-            <div class="c-sec-h"> <h1> <u> Title </u></h1>
-            <small>2023-04-02</small>
+            <div class="c-sec-h"> <h1> <u> <?=$data3[$i]->title?> </u></h1>
+            <small>Posted by <b><?=$data3[$i]->name?></b> on <?=$data3[$i]->date?> </small>
             </div>
-            <div class="c-sec-cont"> <p>Lorem ips um dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing vitae proin sagittis nisl rhoncus. Nisi porta lorem mollis aliquam ut. Id diam vel quam elementum pulvinar. Pharetra vel turpis nunc eget lorem dolor sed. Vulputate sapien nec sagittis aliquam malesuada Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> </div>
+            <div class="c-sec-cont"> <p> <?=$data3[$i]->description?></p> </div>
         </div>
         <div class="c-img">
-            <img src="" alt="">
+            <img src=" <?=$data3[$i]->image?>" alt="">
         </div>
     </div>
+    <?php $i++;?>
+    <?php endforeach;?>
+    <?php endif ?>
+    
 
 </div>
-

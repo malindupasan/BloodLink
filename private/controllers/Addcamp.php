@@ -55,13 +55,15 @@ class Addcamp extends Controller
                $_POST['city']=$reqdata[0]->city;
                $_POST['latitude']=$reqdata[0]->latitude;
                $_POST['longitude']=$reqdata[0]->longitude;
+               $_POST['blood_bank_id']=$reqdata[0]->blood_bank;
+               $_POST['donor_id']=$reqdata[0]->donor_id;
 
-print_r($_POST);
+
 
                 $cmp->insert($_POST);
 
 
-                // header("location:campaigns");
+               $this->redirect('campaigns');
             
         }
 

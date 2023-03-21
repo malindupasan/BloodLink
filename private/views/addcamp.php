@@ -20,7 +20,7 @@
 
             <div class="form-item">
                 <label for="cName" class="label1">Campaign Name</label><br>
-                <input type="text" class="inp1" id="cName" name="name" value="<?=$reqdata[0]->name?>"><br>
+                <input type="text" class="inp1" id="cName" name="camp_name" value="<?=$reqdata[0]->name?>"><br>
             </div>
 
            
@@ -39,7 +39,7 @@
             </div>
             <div class="form-item">
                 <label for="time" class="label1">Starting Time</label><br>
-                <input type="time" class="inp1" name="time" id="time"><br>
+                <input type="time" class="inp1" name="start_time" id="time"><br>
             </div>
            
             <div class="form-item">
