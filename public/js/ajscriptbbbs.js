@@ -2,7 +2,7 @@
 var res;
 window.addEventListener("load", ()=>{
     var ajax = new XMLHttpRequest();
-    ajax.open('POST', 'http://localhost/Bloood%20Link%202/public/bbbsmanage', true);
+    ajax.open('POST', 'http://localhost:8888/Bloood%20Link%202/public/bbbsmanage', true);
   
     ajax.send();
   

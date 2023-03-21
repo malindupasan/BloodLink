@@ -11,7 +11,7 @@ class Camp extends Model
 
 
 
-    protected $allowedColumns = ['camp_id','camp_name', 'description', 'date', 'latitude','longitude', 'bloodBank', 'start_time', 'rating','camp_img','doctor_id','camp_name','blood_bank_id','house_no'];
+    protected $allowedColumns = ['camp_id','address','house_no','city','camp_name', 'description', 'date', 'latitude','longitude', 'blood_bank_id', 'start_time', 'rating','camp_img','doctor_id','camp_name','blood_bank_id'];
     
 
 

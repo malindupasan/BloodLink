@@ -1,11 +1,11 @@
 
 <link rel="stylesheet" href="<?=ROOT?>/css/mainstylenav.css">
 
-<!-- <input class="chk" type="checkbox" id="check">
+<input class="chk" type="checkbox" id="check">
 
 <label for="check">
                 <i class="fas fa-bars" id="sidebar_btn"></i>
-            </label> -->
+            </label>
     <div class="sidebar"> 
                  
 

@@ -60,13 +60,13 @@ $data = $user->where("id", $id2);
                     </div>
                     <hr>
 
-                    <a href="../public/profile" class="sub-menu-link">
+                    <a href="<?=ROOT?>/profile" class="sub-menu-link">
                         <img src="images/profile 2.png" alt="">
                         <p>Edit Profile</p>
                         <span>></span>
                     </a>
 
-                    <a href="logout" class="sub-menu-link">
+                    <a href="<?=ROOT?>/logout" class="sub-menu-link">
                         <img src="images/logout.png" alt="">
                         <p>Logout</p>
                         <span>></span>

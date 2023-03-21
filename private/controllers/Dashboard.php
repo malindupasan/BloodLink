@@ -39,7 +39,7 @@ class Dashboard extends Controller
 
 
             $rbc = new Rbc(); //model instantiated
-            $q1="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM rbc where blood_bank_id=$bbid AND exp_date>CURDATE() GROUP BY blood_group";
+            $q1="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM rbc where blood_bank_id=$bbid  GROUP BY blood_group";
             $data1 = $rbc->query($q1);
         //     echo "<pre>";
         // print_r($data1);
@@ -50,11 +50,11 @@ class Dashboard extends Controller
         
 
         $plsm = new Plasma(); //model instantiated
-        $q3="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM plasma where blood_bank_id=$bbid AND exp_date>CURDATE() GROUP BY blood_group";
+        $q3="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM plasma where blood_bank_id=$bbid GROUP BY blood_group";
         $data3 = $plsm->query($q3);
 
         $plt = new Platelettes(); //model instantiated
-        $q4="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM platelets where blood_bank_id=$bbid AND exp_date>CURDATE() GROUP BY blood_group";
+        $q4="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM platelets where blood_bank_id=$bbid GROUP BY blood_group";
         $data4 = $plt->query($q4);
 
 
