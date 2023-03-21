@@ -131,7 +131,7 @@
 .cheading {
     height: 0.7rem;
     padding-left: 0.7rem;
-    margin-bottom: 2.1rem;
+    margin-bottom: 1.1rem;
     font-size: 1.5rem;
 }
 
@@ -148,4 +148,9 @@
     height: 15rem;
     width:100%;
      
+}
+.datesmall{
+    font-size: 0.8rem;
+    padding-left: 0.7rem;
+    /* margin-top: -10.8rem; */
 }

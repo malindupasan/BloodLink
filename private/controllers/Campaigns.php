@@ -49,9 +49,9 @@ class Campaigns extends Controller
 
         if (isset($_GET['mycamps'])) {
 
-            $NIC = 20001551; //AUTH::getNIC();
-            $query = "select * from blood_donation_camp where  NIC = :NIC ";
-            $arr = ['NIC' => $NIC];
+            $id=AUTH::getid(); //AUTH::getNIC();
+            $query = "select * from blood_donation_camp where  donor_id = :id ";
+            $arr = ['id' => $id];
 
         }
         // $query = "select * from campaign where (cName like 'd%') &&  date >= 2023-01-10";

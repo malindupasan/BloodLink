@@ -18,6 +18,7 @@ class Login extends Controller
 
                 if (password_verify($_POST['password'], $row->password)) {
                     Auth::authenticate($row);
+                    $_SESSION['USER']->role="Donor";
                     $this->redirect('home');
                 }
             }
@@ -26,6 +27,7 @@ class Login extends Controller
 
                 if (password_verify($_POST['password'], $row->password)) {
                     Auth::authenticate($row);
+                    $_SESSION['USER']->role="Donor";
                     $this->redirect('home');
                 }
             }

@@ -3,7 +3,7 @@
 
     <link rel="stylesheet" href="<?=ROOT?>/css/campaigns.css">
     <title>Campaigns</title>
-    <div class="sec0"> <div class="org-button">Wanna organize a blood donation camp ?</div> </div>
+    <!-- <div class="sec0"> <div class="org-button">Wanna organize a blood donation camp ?</div> </div> -->
     <div class="sec1">
         <h2 class="sec1-h">campaigns</h2>
         <div class="sec1-sub">
@@ -29,13 +29,14 @@
                 </div>
                 <div class="sec3"> 
         <?php endif ?>
-        <a href="<?=ROOT?>/camppage?id=<?=$data[0][$i]->campID?>">
+        <a href="<?=ROOT?>/camppage?id=<?=$data[0][$i]->camp_id?>">
         <div class="card">
             <div class="c-top">
                 <img class="cimg" src="<?=ROOT.'/'.$data[0][$i]->camp_img?>" alt="">
             </div>
             <div class="c-bottom">
-                <h3 class="cheading"><?= $data[0][$i]->cName?></h3>
+                <h3 class="cheading"><?= $data[0][$i]->camp_name?></h3>
+                <small class="datesmall"><?= $data[0][$i]->date?></small>
                 <p class="desctxt">
                 <?php $marks=strlen($data[0][$i]->description); echo ($marks<255) ? $data[0][$i]->description : substr($data[0][$i]->description,0,250.)."...";?>          </p>
 
