@@ -99,7 +99,16 @@ class Model extends Database
        
         return $this->query($query,$data);
     }
+    public function verify($code, $email)
+    {
 
+        $fcolumn = addslashes($email);
+        $query = "select * from $this->table where code =:code && email=:email";
+        return $this->query($query, [
+            'code' => $code,
+            'email' => $email,
+        ]);
+    }
   
 
 

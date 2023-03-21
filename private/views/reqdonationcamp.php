@@ -33,24 +33,14 @@
 <div class="form-item-c">
                <div class="subform-item">
                 <label for="cName" class="labels1">Phone</label><br>
-                <input type="text" class="inps inps1" id="cName" name="telephone"><br>
+                <input type="text"  class="inps inps1" id="cName" name="telephone"><br>
                 </div>
                 <div class="subform-item">
                 <label for="cName" class="labels2">Date</label><br>
                 <input type="date" class="inps" id="cName" name="date"><br>
                 </div>
 </div>
-<div class="form-item">
-                <label for="cName" class="label1">Blood Bank</label><br>
-                <!-- <input type="text" class="inps" id="cName" name="street"><br> -->
-                <select name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
 
-</div>
 <input type="text"  id="locationInp" class="locationinp">
 <input type="text" class="inp1" id="p-latitude" name="latitude" hidden>
  <input type="text" class="inp1" id="p-longitude" name="longitude" hidden>

@@ -37,7 +37,7 @@ $is_invalid = false;
                 <form class="login" action="" method="post">
                     <div><input class="input" name="email" type="text" placeholder="Username / Email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>"></div>
                     <div><input class="input in1" name="password" type="password" placeholder="Password" id="password" ></div>
-                    <div class="forget-password"><a href="">Reset Password</a> </div>
+                    <div class="forget-password"><a href="<?=ROOT?>/forgot_password">Reset Password</a> </div>
                     <div><button class="login-button">Log In</button></div>
                 </form>
             </div>

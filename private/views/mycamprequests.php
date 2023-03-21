@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-
+       
         <?php foreach ($data[0] as $value) : ?>
                 <tr>
                     <td><?=$value->camp_request_id?></td>

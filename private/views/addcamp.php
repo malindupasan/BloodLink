@@ -44,7 +44,7 @@
            
             <div class="form-item">
                 <label for="bloodBank" class="label1">Blood Bank</label><br>
-                <input type="text" class="inp1" id="bloodBank" name="bloodBank" ><br>
+                <input type="text" class="inp1" value="<?=$reqdata['bloodbank_name']?>" id="blood_bank" name="bloodBank" readonly><br>
             </div>
             <div class="form-item">
                 <label for="description" class="label1">Description</label><br>
