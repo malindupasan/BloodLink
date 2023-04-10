@@ -54,10 +54,11 @@ $data = $user->where("id", $id2);
             </div>
             <div class="sub-menu-wrapper" id="subMenu">
                 <div class="sub-menu">
-                    <div class="user-info">
+                  <a href="<?=ROOT?>/archievements"> <div class="user-info">
                         <img src="<?php echo ROOT. "/" . $data[0]->profile_img ?>" alt="">
                         <h3><?php echo  $data[0]->name ?></h3>
                     </div>
+                    </a> 
                     <hr>
 
                     <a href="<?=ROOT?>/profile" class="sub-menu-link">

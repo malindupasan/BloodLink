@@ -14,9 +14,14 @@ class Camppage extends Controller
         $camp = new Camp();
 
         if ($id) {
-            $data = $camp->where("campID",$id);
+            $arr=array();
+            $arr['id'] = $id;
+            $qry="select * from campDetails where camp_id = :id";
+            $reqdata=$camp->query($qry,$arr);
+
+            // $data = $camp->where("camp_id",$id);
             
-            $this->view('camppage', ['rows' =>$data[0]]);
+            $this->view('camppage', ['rows' =>$reqdata[0]]);
         }
         else{
             print_r($id);
