@@ -19,17 +19,17 @@ class Campaigns extends Controller
 
         if((isset($_GET['date'])&&strlen($_GET['date']))&&(isset($_GET['find'])&&strlen($_GET['find']))){
             $find = $_GET['find'] . '%';
-            $query = "select * from blood_donation_camp where (cName like :cName) &&  date = :date";
+            $query = "select * from blood_donation_camp where (camp_name like :camp_name) &&  date = :date";
             $arr['date'] = $_GET['date'];
-            $arr['cName'] = $find;
+            $arr['camp_name'] = $find;
         } else {
 
 
 
             if (isset($_GET['find']) && strlen($_GET['find'])) {
                 $find = $_GET['find'] . '%';
-                $query = "select * from blood_donation_camp where (cName like :cName) &&  date >= :date";
-                $arr['cName'] = $find;
+                $query = "select * from blood_donation_camp where (camp_name like :camp_name) &&  date >= :date";
+                $arr['camp_name'] = $find;
 
 
 
@@ -54,7 +54,7 @@ class Campaigns extends Controller
             $arr = ['id' => $id];
 
         }
-        // $query = "select * from campaign where (cName like 'd%') &&  date >= 2023-01-10";
+        // $query = "select * from campaign where (camp_name like 'd%') &&  date >= 2023-01-10";
 
         $data = $camp->query($query,$arr);
         $this->view('campaigns', [$data]);
