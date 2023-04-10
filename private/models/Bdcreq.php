@@ -8,6 +8,40 @@
  {
     protected $table = "donation_camp_request";
 
+    public function bdcwhere($column1, $value1,$column2, $value2)
+    {
+
+        $column1 = addslashes($column1);
+        $column2 = addslashes($column2);
+
+
+        $query = "select * from $this->table where $column1=:value1 AND $column2=:value2";
+        // echo $query;
+        return $this->query($query, [
+            
+            'value1' => $value1,
+            'value2' => $value2,
+
+        ]);
+    }
+
+    public function paginbdcwhere($column1, $value1,$column2, $value2,$fpage,$off)
+    {
+
+        $column1 = addslashes($column1);
+        $column2 = addslashes($column2);
+
+
+        $query = "select * from $this->table where $column1=:value1 AND $column2=:value2 limit $fpage,$off";
+        // echo $query;
+        return $this->query($query, [
+            
+            'value1' => $value1,
+            'value2' => $value2,
+
+        ]);
+    }
+
     
 
     public function paginall($fpage,$off){ //-------------for all pagination

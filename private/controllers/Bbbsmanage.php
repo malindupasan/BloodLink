@@ -59,29 +59,89 @@ class Bbbsmanage extends Controller
         //    ----------------------------chart data-------------------
 
         $rbc = new Rbc(); //model instantiated
-        $q1="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM rbc where blood_bank_id=$bbid AND exp_date>CURDATE() GROUP BY blood_group";
-        $dat1 = $rbc->query($q1);
-    //     echo "<pre>";
-    // print_r($data1);
+            $dat1=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
+            $dat2=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
+            $dat3=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","B+");
+            $dat4=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","B-");
+            $dat5=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","AB+");
+            $dat6=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","AB-");
+            $dat7=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","O+");
+            $dat8=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","O-");
 
-    $wbc = new Wbc(); //model instantiated
-    $q2="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM wbc where blood_bank_id=$bbid GROUP BY blood_group";
-    $dat2 = $wbc->query($q2);
-    
+            $rbcarray['Ap']=$dat1[0]->sum;
+            $rbcarray['An']=$dat2[0]->sum;
+            $rbcarray['Bp']=$dat3[0]->sum;
+            $rbcarray['Bn']=$dat4[0]->sum;
+            $rbcarray['ABp']=$dat5[0]->sum;
+            $rbcarray['ABn']=$dat6[0]->sum;
+            $rbcarray['Op']=$dat7[0]->sum;
+            $rbcarray['On']=$dat8[0]->sum;
 
-    $plsm = new Plasma(); //model instantiated
-    $q3="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM plasma where blood_bank_id=$bbid AND exp_date>CURDATE() GROUP BY blood_group";
-    $dat3 = $plsm->query($q3);
+        //     echo "<pre>";
+        // print_r($data1);
 
-    $plt = new Platelettes(); //model instantiated
-    $q4="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM platelets where blood_bank_id=$bbid AND exp_date>CURDATE() GROUP BY blood_group";
-    $dat4 = $plt->query($q4);
+        $wbc = new Wbc(); //model instantiated
+        $dat1=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
+        $dat2=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
+        $dat3=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","B+");
+        $dat4=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","B-");
+        $dat5=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","AB+");
+        $dat6=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","AB-");
+        $dat7=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","O+");
+        $dat8=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","O-");
+
+        $wbcarray['Ap']=$dat1[0]->sum;
+        $wbcarray['An']=$dat2[0]->sum;
+        $wbcarray['Bp']=$dat3[0]->sum;
+        $wbcarray['Bn']=$dat4[0]->sum;
+        $wbcarray['ABp']=$dat5[0]->sum;
+        $wbcarray['ABn']=$dat6[0]->sum;
+        $wbcarray['Op']=$dat7[0]->sum;
+        $wbcarray['On']=$dat8[0]->sum;
+
+        $plsm = new Plasma(); //model instantiated
+        $dat1=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
+        $dat2=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
+        $dat3=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","B+");
+        $dat4=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","B-");
+        $dat5=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","AB+");
+        $dat6=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","AB-");
+        $dat7=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","O+");
+        $dat8=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","O-");
+
+        $plsmarray['Ap']=$dat1[0]->sum;
+        $plsmarray['An']=$dat2[0]->sum;
+        $plsmarray['Bp']=$dat3[0]->sum;
+        $plsmarray['Bn']=$dat4[0]->sum;
+        $plsmarray['ABp']=$dat5[0]->sum;
+        $plsmarray['ABn']=$dat6[0]->sum;
+        $plsmarray['Op']=$dat7[0]->sum;
+        $plsmarray['On']=$dat8[0]->sum;
+
+        $plt = new Platelettes(); //model instantiated
+        $dat1=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
+        $dat2=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
+        $dat3=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","B+");
+        $dat4=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","B-");
+        $dat5=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","AB+");
+        $dat6=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","AB-");
+        $dat7=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","O+");
+        $dat8=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","O-");
+
+        $pltarray['Ap']=$dat1[0]->sum;
+        $pltarray['An']=$dat2[0]->sum;
+        $pltarray['Bp']=$dat3[0]->sum;
+        $pltarray['Bn']=$dat4[0]->sum;
+        $pltarray['ABp']=$dat5[0]->sum;
+        $pltarray['ABn']=$dat6[0]->sum;
+        $pltarray['Op']=$dat7[0]->sum;
+        $pltarray['On']=$dat8[0]->sum;
     // -----------------------------------chart data end-----------------------
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {//-----------------ajax start
         
 
-        $response = array("rbc" => $dat1, "wbc" => $dat2,"plt" => $dat3,"plsm" => $dat4);
+        $response = array("rbc" => $rbcarray, "wbc" => $wbcarray,"plt" => $pltarray,"plsm" => $plsmarray);
 
         echo json_encode($response);
     } else {

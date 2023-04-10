@@ -55,13 +55,7 @@
                     <td><?=$row->donor_id ?></td>
                     <td><?=$row->date ?></td>
                     <td><?=$row->blood_bank_id ?></td>
-                    
-                    
-                    
-
-
-
-                
+                    <td><a href="<?=ROOT?>/reportui3?id=<?php echo $row->defect_id; ?>"><button class="btn">View</button></td>
                 </tr>
                 </div>
             <?php endforeach; } ?>

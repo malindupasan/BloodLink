@@ -5,6 +5,25 @@
  {
     protected $table = "blood_donation_camp";
 
+    public function updatedoc($id,$data) //-----------------------update request status
+    {
+
+       
+        $str="";
+        foreach($data as $key => $val){
+            $str .= $key."=:".$key.",";
+        }
+
+        $str=trim($str,",");
+        
+        $data['camp_id']=$id;
+
+        $query = "update $this->table set $str where camp_id = :camp_id";
+        
+       
+        return $this->query($query,$data);
+    }
+
     public function thismonthcamps($column1, $value1,$column2, $value2,$value3)
     {
 

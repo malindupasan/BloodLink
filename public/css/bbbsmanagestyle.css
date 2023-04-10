@@ -513,6 +513,8 @@ div.addb{
 }
 
 button.addb {
+    margin-top: 3rem;
+    font-size: 1.3rem;
     height: 2rem;
     width: 10rem;
     border-radius: 0.7rem;

@@ -3,6 +3,7 @@ class Viewdonations extends Controller
 {
     function index($id = '')
     {   
+        $bbid=$_SESSION['USER']->blood_bank_id;
         if(!Auth::logged_in()){
             $this->redirect('login');
         }
@@ -11,7 +12,8 @@ class Viewdonations extends Controller
         $resultsperpage= 8;
 
         $bp = new Rawblood();
-        $data = $bp->findAll();
+        $q1="SELECT * FROM raw_blood_packet WHERE blood_bank_id=$bbid AND status=0";
+        $data = $bp->query($q1);
 
         if($data!=NULL){
             $numofresults=count($data);
@@ -26,8 +28,9 @@ class Viewdonations extends Controller
             }
 
             $thispagefirstres=($page-1)*$resultsperpage;
+            $q2="SELECT * FROM raw_blood_packet WHERE blood_bank_id=$bbid AND status=0 limit $thispagefirstres,$resultsperpage";
+            $data2 = $bp->query($q2);
 
-            $data2= $bp->paginall($thispagefirstres,$resultsperpage);
 
         }
 

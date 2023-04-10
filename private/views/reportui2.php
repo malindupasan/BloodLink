@@ -1,6 +1,6 @@
 <?php $this->view('includes/pageinit'); ?>
 <link rel="stylesheet" href="<?=ROOT?>/css/reportstyle.css">
-<script src="<?=ROOT?>/js/ajscriptreport.js"></script>
+<script src="<?=ROOT?>/js/ajscriptreport2.js"></script>
 
 
 <script src="<?=ROOT?>/scripts/genrep2.js"></script>  
@@ -31,60 +31,54 @@
         </div>
     </div>
     <div class="content">
-        <div class="ttlmain">
-            Blood Donation Camp Report-Year <?=date('Y')?>
+        <div class="ttl">
+            Blood Stock Report-Year <?=date('Y')?>
+        </div>
+        <div class="ttl">
+            Blood Bank
         </div>
         <div class="dash">
 
         </div>
         <div class="campname g">
             <div class="name">
-            camp name
+            Blood Bank Id
             </div>
             <div class="colon">
                 :
             </div>
-            <div class="val"><?= $bdc->camp_name?></div>
+            <div class="val"><?= $bb->blood_bank_id?></div>
         </div>
         <div class="campdate g">
             <div class="name">
-            camp date
+            Contact No
             </div>
             <div class="colon">
                 :
             </div>
-            <div class="val"><?= $bdc->date?></div>
+            <div class="val"><?= $bb->telephone?></div>
         </div>
         <div class="location g">
             
             <div class="name">
-            location
+            Location
             </div>
             <div class="colon">
                 :
             </div>
-            <div class="val"><?= $bdc->address?></div>
+            <div class="val"><?= $bb->street?>, <?= $bb->city?></div>
         </div>
         <div class="bloodbank g">
             
             <div class="name">
-            bloodbank
+            Bloodbank
             </div>
             <div class="colon">
                 :
             </div>
             <div class="val"><?= $bb->name?></div>
         </div>
-        <div class="docid g">
-            
-            <div class="name">
-            assigned doctor
-            </div>
-            <div class="colon">
-                :
-            </div>
-            <div class="val"><?= $doc->name?></div>
-        </div>
+       
         <div class="stat">
             Statistics
         </div>
@@ -142,24 +136,16 @@
             </div>
             <div class="val">cccccccc</div>
 
-            
-
         </div>
-        <div class="stat">
-            Amount of Blood
-        </div>
-        <div class="dash">
-            
-        </div>
-        <!-- <div class="chrtarea">
+        <div class="chrtarea">
                 <div class="canarea">
                     <canvas id="chart" ></canvas>
                 </div>
-            </div> -->
+            </div>
 
-            <div class="bldtypeamnts">
+        <div class="bldtypeamnts">
             <div class="btypes">
-                <div class="btype"><u>RBC</u></div>
+                <div class="btype">RBC</div>
                     <div class="amnts">
                         <div class="type">A+</div>
                         <div class="val"><?= $rbc['Ap']?></div>
@@ -195,7 +181,7 @@
             </div>
 
             <div class="btypes">
-                <div class="btype"><u>WBC</u></div>
+                <div class="btype">WBC</div>
                 <div class="amnts">
                         <div class="type">A+</div>
                         <div class="val"><?= $wbc['Ap']?></div>
@@ -232,7 +218,7 @@
 
             </div>
             <div class="btypes">
-                <div class="btype"><u>Platelettes</u></div>
+                <div class="btype">Platelettes</div>
                 <div class="amnts">
                         <div class="type">A+</div>
                         <div class="val"><?= $plt['Ap']?></div>
@@ -268,7 +254,7 @@
 
             </div>
             <div class="btypes">
-                <div class="btype"><u>Plasma</u></div>
+                <div class="btype">Plasma</div>
                 <div class="amnts">
                         <div class="type">A+</div>
                         <div class="val"><?= $plsm['Ap']?></div>
@@ -314,19 +300,18 @@
         </div>
         <div class="signs">
             <div class="dashsign">
-            PHI
+            PHI Signature
             </div>
             <div class="dashsign">
-            Doctor
+            Doctor Signature
             </div>
             <div class="dashsign">
-            Date
+            Date 
             </div>
         </div>
 
 
     </div>
-                <!-- <button  class="subbtn sp" onclick="genPDF()">pdf</button> -->
 
 </div>
 
