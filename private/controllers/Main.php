@@ -3,19 +3,20 @@ class Main extends Controller
 {
     function index($id = '')
     {       
-        
             if(!Auth::logged_in()){
             $this->redirect('adminlogin');
             }
+
+            $bbid=$_SESSION['USER']->blood_bank_id;
 
 // ----------------------------------pagination-----------------------
             $data2=array();
 
             $essentials=array();
-            $resultsperpage= 8;
+            $resultsperpage= 15;
             
             $bdc = new Bdcreq();
-            $data = $bdc->findAll();
+            $data = $bdc->bdcwhere("status",0,"blood_bank",$bbid);
 
             if($data!=NULL){
             $numofresults=count($data);
@@ -31,7 +32,7 @@ class Main extends Controller
 
             $thispagefirstres=($page-1)*$resultsperpage;
 
-            $data2= $bdc->paginwhere("status",0,$thispagefirstres,$resultsperpage);
+            $data2= $bdc->paginbdcwhere("status",0,"blood_bank",$bbid,$thispagefirstres,$resultsperpage);
         }
 // ----------------------------------pagination end----------------------
         

@@ -35,7 +35,7 @@
             $cdate=date("y-m-d");
             ?>
 
-            <tr>
+            <tr class="hov">
                 
                
                 <td><?=$row->donor_id ?></td>

@@ -5,7 +5,7 @@
 <?php $this->view('includes/nav'); ?>
 <?php $this->view('includes/navup'); ?>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/bdchistorystyle.css">
 
 
 
@@ -29,12 +29,12 @@
                 </tr>
             <thead>
             <?php foreach($rows as $row):
-                $cdate=date("y-m-d");
-                 if((strtotime($cdate)>(strtotime($row->date))) && ($_SESSION['USER']->blood_bank_id)==($row->blood_bank_id)) { ?>
+                $cdate=date("y-m-d");?>
+                 
                     <div class="trows">
-                    <tr>
+                    <tr class="hov">
                         <td><?=$row->camp_name ?></td>
-                        <td><?=$row->address ?></td>
+                        <td><?=$row->street ?>, <?=$row->city ?></td>
                         <td><?=$row->date ?></td>
                         <td><?=$row->start_time ?></td>
                         
@@ -46,7 +46,7 @@
                     
                     </tr>
                     </div>
-                    <?php }?>
+                    
                 
             <?php endforeach; ?>
         </table>

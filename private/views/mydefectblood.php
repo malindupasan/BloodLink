@@ -1,7 +1,4 @@
-
-
 <?php $this->view('includes/pageinit'); ?>
-
 <?php $this->view('includes/nav'); ?>
 <?php $this->view('includes/navup'); ?>
 
@@ -16,7 +13,6 @@
             
             <div class="backarr">
             <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><img class="barr" src="./img/back.png" alt=""></a>
-
             </div>
             <div class="campaignimg">My Defects</div>
         </div>
@@ -51,7 +47,7 @@
             <?php if($rows!=NULL) {
              foreach($rows as $row):?>
                 <div class="trows">
-                <tr>
+                <tr class="hov">
                     
                     <td><?=$row->donor_id ?></td>
                     <td><?=$row->date ?></td>

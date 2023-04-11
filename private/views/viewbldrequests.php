@@ -33,13 +33,11 @@
         <table>
             <thead>
                 <tr>
-                    <th>PacketID</th>
-                    <th>Amount</th>
-                    <th>Date Collected</th>
-                    <th>BloodBankID</th>
-                    <th>BDCampID</th>
+                    <th>BloodBank</th>
+                    <th>Doctor</th>
+                    <th>Date </th>
                     <th></th>
-
+                    
                 </tr>
             <thead>
                

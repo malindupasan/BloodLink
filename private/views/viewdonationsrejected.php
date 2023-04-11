@@ -47,14 +47,14 @@
             <?php if($rows!=NULL) {
              foreach($rows as $row):?>
                 <div class="trows">
-                <tr>
+                <tr class="hov">
                     <td><?=$row->packet_id ?></td>
                     <td><?=$row->amount ?></td>
                     <td><?=$row->collected_date ?></td>
                     <td><?=$row->blood_bank_id ?></td>
                     <td><?=$row->blood_donation_camp_id ?></td>
                     <?php if($_SESSION['USER']->role=='Doctor'){?>
-                        <td><a href="<?=ROOT?>/addtodefect?id=<?php echo $row->camp_request_id; ?>&stat=1"><button class="btn">Add Defect</button></td>
+                        <td><a href="<?=ROOT?>/addtodefect?id=<?php echo $row->packet_id; ?>"><button class="btn">Add Defect</button></td>
 
                     <?php }?>
 

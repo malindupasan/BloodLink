@@ -35,7 +35,7 @@
             $cdate=date("y-m-d");
             ?>
 
-            <tr>
+            <tr class="hov">
                 
                
                 <td><?=$row->camp_name ?></td>

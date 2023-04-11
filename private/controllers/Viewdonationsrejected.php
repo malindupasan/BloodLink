@@ -7,7 +7,7 @@ class Viewdonationsrejected extends Controller
         $bbid=$_SESSION['USER']->blood_bank_id;
 
         $essentials=array();
-        $resultsperpage= 8;
+        $resultsperpage= 15;
 
         $bp = new Rawblood();
         $data = $bp->findrejected("status",2,"blood_bank_id",$bbid);
@@ -27,8 +27,7 @@ class Viewdonationsrejected extends Controller
         $thispagefirstres=($page-1)*$resultsperpage;
 
         $data2= $bp->paginallrejected("status",2,"blood_bank_id",$bbid,$thispagefirstres,$resultsperpage);
-        // echo "<pre>";
-        // print_r($data2);
+        
 
     }
         if(!Auth::logged_in()){

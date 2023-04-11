@@ -18,6 +18,10 @@
            unset($_SESSION['USER']);
  
        }
+       if(isset($_SESSION['cart'])) {
+        unset($_SESSION['cart']);
+
+    }
 
     }
 
