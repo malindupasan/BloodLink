@@ -100,10 +100,27 @@
     border:none;
    
 }
+.lnk{
+    margin-top: -55rem;
+   
+    border:none;
+}
+.btndisabled{
+    
+
+    background-color: rgb(205, 203, 198);
+    /* visibility: hidden; */
+}
 .s2pic{
     height:28rem;
     width: 28rem;
     
     border-radius: 1rem;
 }
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.3;
+    
+  }
 
