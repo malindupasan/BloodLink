@@ -1,5 +1,6 @@
 @import "./navbar.css";
 
+
 .sec1{
     margin-top: 5rem;
     width: 100%;
@@ -38,7 +39,7 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #ddd;
     border: 1px solid #B4B4B4;
-    box-shadow: 0px 5px 12px rgba(23, 9, 9, 0.25);
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.25);
     border-radius: 0.5rem;
 }
 
@@ -52,7 +53,7 @@ div.table {
     height: 2rem;
     width:5rem;
     border:none;
-    border-radius: 1.4rem;
+    border-radius: 0.4rem;
     background-color: transparent;
 }
 
@@ -62,4 +63,38 @@ div.table {
 }
 .accepted:hover{
     background-color: green;
+}
+.viewcampbtn{
+    height: 1.5rem;
+    width: 1.3rem;
+    background-color: red;
+}
+.registered{
+    background-color: rgb(3, 248, 3);
+    
+}
+.completed{
+    background-color: rgb(123, 122, 122);
+}
+.Unavailable{
+    background-color: rgb(237, 106, 106);
+}
+
+/* .unregister:hover{
+    background-color: green;
+} */
+.btn2{
+    margin-left: 5rem;
+    visibility: hidden;
+}
+
+.viewimg{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: coral;
+    border-radius: 0.3rem;
+    visibility:hidden;
+}
+.visiblebtn{
+    visibility:visible;
 }

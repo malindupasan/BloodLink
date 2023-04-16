@@ -70,6 +70,31 @@
        return $arr;
    }
 
+   //funtion to check weather a donor is eligible to register for a blood donation camp
+   public function isEligible($id)
+   {    $arr=array();
+        $arr['id']=$id;
+        
+        $q2="select is_defect,last_donated from donor where id=:id";
+        $res=$this->query($q2,$arr);
+       
+       $res=$res[0];
+        $lastDonated=$res->last_donated;
+        $isbanned=$res->is_defect;
+
+       $inputDate = new DateTime($lastDonated);
+       $daysAgo90 = (new DateTime())->modify('-90 days');
+       
+       // check if input date is more than 90 days ago
+       if ($inputDate < $daysAgo90 && !$isbanned) {
+          return true;
+       } else {
+           return false;
+       }
+
+
+   }
+
 
 
  }

@@ -33,7 +33,7 @@
             <div class="sec2Desc">
             <?= $data['rows']->description?>
             </div>
-            <button class="btn">Register</button>
+            <a class="lnk " href="<?=ROOT?>/regtoacamp?id=<?=$data['rows']->camp_id?>&click=true"><button class="btn btndisabled" >Register</button></a>
         </div>
     </div>
 

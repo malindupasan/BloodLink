@@ -61,6 +61,11 @@ $data = $user->where("id", $id2);
                     </a> 
                     <hr>
 
+                    <a href="<?=ROOT?>/myregisteredcamps" class="sub-menu-link">
+                        <img src="images/profile 2.png" alt="">
+                        <p>Registered Camps</p>
+                        <span>></span>
+                    </a>
                     <a href="<?=ROOT?>/profile" class="sub-menu-link">
                         <img src="images/profile 2.png" alt="">
                         <p>Edit Profile</p>
