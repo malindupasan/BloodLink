@@ -134,6 +134,7 @@ class Rawblood extends Model
         ]);
     }
 
+
     public function check3years($arr)
     {
         $size = count($arr); //size of array
@@ -156,6 +157,79 @@ class Rawblood extends Model
         }
 
     }
+
+
+    public function thismonthdefect($column1, $value1,$column2, $value2,$value3)
+    {
+
+        $column1 = addslashes($column1);
+        $column2 = addslashes($column2);
+
+
+        $query = "SELECT IFNULL(COUNT(packet_id),0) AS count from $this->table where $column1=:value1 AND MONTH($column2)=:value2 AND YEAR($column2)=:value3 AND status>1";
+        // echo $query;
+        return $this->query($query, [
+            
+            'value1' => $value1,
+            'value2' => $value2,
+            'value3' => $value3,
+
+        ]);
+    }
+
+    public function thismonthnondefect($column1, $value1,$column2, $value2,$value3)
+    {
+
+        $column1 = addslashes($column1);
+        $column2 = addslashes($column2);
+
+
+        $query = "SELECT IFNULL(COUNT(packet_id),0) AS count from $this->table where $column1=:value1 AND MONTH($column2)=:value2 AND YEAR($column2)=:value3 AND status<2";
+        // echo $query;
+        return $this->query($query, [
+            
+            'value1' => $value1,
+            'value2' => $value2,
+            'value3' => $value3,
+
+        ]);
+    }
+
+    public function thisyeardefect($column1, $value1,$column2, $value2)
+    {
+
+        $column1 = addslashes($column1);
+        $column2 = addslashes($column2);
+
+
+        $query = "SELECT IFNULL(COUNT(packet_id),0) AS count from $this->table where $column1=:value1 AND YEAR($column2)=:value2 AND status>1";
+        // echo $query;
+        return $this->query($query, [
+            
+            'value1' => $value1,
+            'value2' => $value2,
+
+        ]);
+    }
+
+    public function thisyearnondefect($column1, $value1,$column2, $value2,)
+    {
+
+        $column1 = addslashes($column1);
+        $column2 = addslashes($column2);
+
+
+        $query = "SELECT IFNULL(COUNT(packet_id),0) AS count from $this->table where $column1=:value1 AND YEAR($column2)=:value2 AND status<2";
+        // echo $query;
+        return $this->query($query, [
+            
+            'value1' => $value1,
+            'value2' => $value2,
+
+        ]);
+    }
+
+  
 
 
 

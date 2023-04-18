@@ -8,15 +8,17 @@ class Upbdconly extends Controller
         if(!Auth::logged_in()){
             $this->redirect('login');
         }
+        $bbid=$_SESSION['USER']->blood_bank_id;
 
         // ----------------------------------pagination-----------------------
         $data2=array();
 
         $essentials=array();
-        $resultsperpage= 8;
+        $resultsperpage= 15;
         
         $bdc = new BLBdc();
-        $data = $bdc->findAll();
+        $q1="SELECT * FROM blood_donation_camp WHERE blood_bank_id=$bbid AND date>=CURDATE()";
+        $data = $bdc->query($q1);
 
         if($data!=NULL){
         $numofresults=count($data);
@@ -32,7 +34,9 @@ class Upbdconly extends Controller
 
         $thispagefirstres=($page-1)*$resultsperpage;
 
-        $data2= $bdc->paginall($thispagefirstres,$resultsperpage);
+        $q2="SELECT * FROM blood_donation_camp WHERE blood_bank_id=$bbid AND date>=CURDATE() limit $thispagefirstres,$resultsperpage";
+
+        $data2= $bdc->query($q2);
     }
 // ----------------------------------pagination end----------------------
 

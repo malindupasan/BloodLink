@@ -17,7 +17,13 @@ class Dashboard extends Controller
             $bdc=new BLBdc();
        
             $data=$bdc->thismonthcamps("blood_bank_id",$bbid,"date",$month,$year);
-            $essentials['bdccount']=count($data);
+            if ($data!=NULL){
+                $essentials['bdccount']=count($data);
+
+            }else{
+                $essentials['bdccount']=0;
+
+            }
 
         // -------------------------------------this month bdc end-----------------------------
 
@@ -25,37 +31,121 @@ class Dashboard extends Controller
         $bdc=new Rawblood();
        
         $data=$bdc->thismonthdonations("blood_bank_id",$bbid,"collected_date",$month,$year);
-        $essentials['donationcount']=count($data);
+        if ($data!=NULL){
+            $essentials['donationcount']=count($data);
+
+        }else{
+            $essentials['donationcount']=0;
+
+        }
 
     // -------------------------------------this month donations end-----------------------------
 
     // ---------------------------------this month donors-------------------------------
-    $bdc=new Rawblood();
+    
        
     $data=$bdc->thismonthdonors("blood_bank_id",$bbid,"collected_date",$month,$year);
-    $essentials['donorcount']=count($data);
+    if ($data!=NULL){
+        $essentials['donorcount']=count($data);
+
+    }else{
+        $essentials['donorcount']=0;
+
+    }
 
 // -------------------------------------this month donors end-----------------------------
 
 
+    $datdef=$bdc->thismonthdefect("blood_bank_id",$bbid,"collected_date",$month,$year);
+    $thismonthrej['rej']=$datdef[0]->count;
+
+    $datnondef=$bdc->thismonthnondefect("blood_bank_id",$bbid,"collected_date",$month,$year);
+    $thismonthrej['nonrej']=$datnondef[0]->count;
+
+    $datdef=$bdc->thisyeardefect("blood_bank_id",$bbid,"collected_date",$year);
+    $thisyearrej['rej']=$datdef[0]->count;
+
+    $datnondef=$bdc->thisyearnondefect("blood_bank_id",$bbid,"collected_date",$year);
+    $thisyearrej['nonrej']=$datnondef[0]->count;
+
             $rbc = new Rbc(); //model instantiated
-            $q1="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM rbc where blood_bank_id=$bbid  GROUP BY blood_group";
-            $data1 = $rbc->query($q1);
+            $data1=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
+            $data2=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
+            $data3=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","B+");
+            $data4=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","B-");
+            $data5=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","AB+");
+            $data6=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","AB-");
+            $data7=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","O+");
+            $data8=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","O-");
+
+            $rbcarray['Ap']=$data1[0]->sum;
+            $rbcarray['An']=$data2[0]->sum;
+            $rbcarray['Bp']=$data3[0]->sum;
+            $rbcarray['Bn']=$data4[0]->sum;
+            $rbcarray['ABp']=$data5[0]->sum;
+            $rbcarray['ABn']=$data6[0]->sum;
+            $rbcarray['Op']=$data7[0]->sum;
+            $rbcarray['On']=$data8[0]->sum;
+
         //     echo "<pre>";
         // print_r($data1);
 
         $wbc = new Wbc(); //model instantiated
-        $q2="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM wbc where blood_bank_id=$bbid GROUP BY blood_group";
-        $data2 = $wbc->query($q2);
-        
+        $data1=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
+        $data2=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
+        $data3=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","B+");
+        $data4=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","B-");
+        $data5=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","AB+");
+        $data6=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","AB-");
+        $data7=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","O+");
+        $data8=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","O-");
+
+        $wbcarray['Ap']=$data1[0]->sum;
+        $wbcarray['An']=$data2[0]->sum;
+        $wbcarray['Bp']=$data3[0]->sum;
+        $wbcarray['Bn']=$data4[0]->sum;
+        $wbcarray['ABp']=$data5[0]->sum;
+        $wbcarray['ABn']=$data6[0]->sum;
+        $wbcarray['Op']=$data7[0]->sum;
+        $wbcarray['On']=$data8[0]->sum;
 
         $plsm = new Plasma(); //model instantiated
-        $q3="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM plasma where blood_bank_id=$bbid GROUP BY blood_group";
-        $data3 = $plsm->query($q3);
+        $data1=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
+        $data2=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
+        $data3=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","B+");
+        $data4=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","B-");
+        $data5=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","AB+");
+        $data6=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","AB-");
+        $data7=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","O+");
+        $data8=$plsm->getbgrp("blood_bank_id",$bbid,"blood_group","O-");
+
+        $plsmarray['Ap']=$data1[0]->sum;
+        $plsmarray['An']=$data2[0]->sum;
+        $plsmarray['Bp']=$data3[0]->sum;
+        $plsmarray['Bn']=$data4[0]->sum;
+        $plsmarray['ABp']=$data5[0]->sum;
+        $plsmarray['ABn']=$data6[0]->sum;
+        $plsmarray['Op']=$data7[0]->sum;
+        $plsmarray['On']=$data8[0]->sum;
 
         $plt = new Platelettes(); //model instantiated
-        $q4="SELECT IFNULL(SUM(amount), 0) AS sum,blood_group FROM platelets where blood_bank_id=$bbid GROUP BY blood_group";
-        $data4 = $plt->query($q4);
+        $data1=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
+        $data2=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
+        $data3=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","B+");
+        $data4=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","B-");
+        $data5=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","AB+");
+        $data6=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","AB-");
+        $data7=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","O+");
+        $data8=$plt->getbgrp("blood_bank_id",$bbid,"blood_group","O-");
+
+        $pltarray['Ap']=$data1[0]->sum;
+        $pltarray['An']=$data2[0]->sum;
+        $pltarray['Bp']=$data3[0]->sum;
+        $pltarray['Bn']=$data4[0]->sum;
+        $pltarray['ABp']=$data5[0]->sum;
+        $pltarray['ABn']=$data6[0]->sum;
+        $pltarray['Op']=$data7[0]->sum;
+        $pltarray['On']=$data8[0]->sum;
 
 
             
@@ -103,7 +193,7 @@ class Dashboard extends Controller
             // $data3 = array('key1' => 'value1', 'key2' => 'value2');
             // $data4 = array('key3' => 'value3', 'key4' => 'value4');
 
-            $response = array("rbc" => $data1, "wbc" => $data2,"plt" => $data3,"plsm" => $data4);
+            $response = array("rbc" => $rbcarray, "wbc" => $wbcarray,"plt" => $pltarray,"plsm" => $plsmarray,'rejthismonth'=>$thismonthrej,'rejthisyear'=>$thisyearrej);
                 
             // $response2 = array("data3" => $data3, "data4" => $data4);
 

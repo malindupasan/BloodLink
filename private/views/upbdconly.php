@@ -27,19 +27,27 @@
                     <th>Location</th>
                     <th>Date</th>
                     <th>Start Time</th>
-                    
+                    <th>DocID</th>
 
                 </tr>
             <thead>
             <?php foreach($rows as $row):
-                $cdate=date("y-m-d");
-                 if((strtotime($cdate)<(strtotime($row->date))) && ($_SESSION['USER']->blood_bank_id)==($row->blood_bank_id)) { ?>
+                $cdate=date("y-m-d");?>
                     <div class="trows">
-                    <tr>
+                    <tr class="hov">
                         <td><?=$row->camp_name ?></td>
-                        <td><?=$row->address ?></td>
+                        <td><?=$row->street ?>, <?=$row->city ?></td>
                         <td><?=$row->date ?></td>
                         <td><?=$row->start_time ?></td>
+                        <?php if($row->doctor_id!=NULL){?>
+                            <td><?=$row->doctor_id ?></td>
+                        <?php }else{?>
+                            <?php if($_SESSION['USER']->role==PHI){?>
+                                <td><a  href="<?=ROOT?>/reqdetails?id=<?=$row->camp_id?>"><button class="btn">Assign</button></a></td>
+                            <?php }?>
+                        
+
+                        <?php }?>
                         
                         
                         <td><a  href="<?=ROOT?>/reqdetails?id=<?=$row->camp_id?>"><button class="bdcvbtn"><i class="fas fa-eye" id="view_btn"></i></button></a></td>
@@ -49,7 +57,7 @@
                     
                     </tr>
                     </div>
-                    <?php }?>
+                    
                 
             <?php endforeach; ?>
         </table>

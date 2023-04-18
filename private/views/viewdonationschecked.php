@@ -47,7 +47,7 @@
             <?php if($rows!=NULL) {
              foreach($rows as $row):?>
                 <div class="trows">
-                <tr>
+                <tr class="hov">
                     <td><?=$row->packet_id ?></td>
                     <td><?=$row->packet_id ?></td>
                     <td><?=$row->collected_date ?></td>

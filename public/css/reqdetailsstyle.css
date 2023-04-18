@@ -22,11 +22,16 @@ div.imgg {
     /* border-style:dashed; */
     border-color:grey;
     background-color: lightgray;
-    background-image: url("./images/backlogo.png");
+    /* background-image: url("./images/backlogo.png"); */
     background-size: cover;
     /* padding-top:1rem; */
 
     
+}
+
+.imgg img{
+    width: 100%;
+
 }
 div.splits {
     display:flex;
@@ -139,12 +144,29 @@ button.btnonet {
     height: 2rem;
     width: 6rem;
     border-radius: 0.7rem;
-    margin-left: 85rem;
+    margin-top:1.5rem ;
+    margin-left: 2rem;
     border: none;
     background-color: #FD9F9F;
     
 }
-.btnonet:hover {
+.btnonet:hover,.btn1:hover {
     background-color:rgb(246, 41, 41);
     color:white;
+}
+
+button.btn1{
+    font-family: "Poppins" !important;
+    transition: background-color 0.5s ease;
+
+    margin-top: 1.5rem;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 0.7rem;
+    border: none;
+    background-color: #FD9F9F;
+}
+
+div.g{
+    padding-top: 1.5rem;
 }

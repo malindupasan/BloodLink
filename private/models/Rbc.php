@@ -85,6 +85,22 @@
         ]);
     }
 
+    public function getbgrp($column1, $value1,$column2, $value2)
+    {
+
+        $column1 = addslashes($column1);
+        $column2 = addslashes($column2);
+
+
+        $query = "select IFNULL(SUM(amount),0) AS sum from $this->table where $column1=:value1 AND $column2=:value2 AND exp_date>CURDATE()";
+        // echo $query;
+        return $this->query($query, [
+            
+            'value1' => $value1,
+            'value2' => $value2,
+        ]);
+    }
+
     
 
   

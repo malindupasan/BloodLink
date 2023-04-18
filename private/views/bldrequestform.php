@@ -1,11 +1,13 @@
 <?php $this->view('includes/pageinit'); ?>
 
-<?php $this->view('includes/nav'); ?>
 <?php $this->view('includes/navup'); ?>
 
 <link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
 <link rel="stylesheet" href="<?=ROOT?>/css/bldreqform.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/onetimeformstyle.css">
 
+
+<?php $date=date('Y-m-d');?>
 
 <div class="section">           <!--main section except sidebar & navbar-->
         <div class="camptitle">
@@ -13,7 +15,7 @@
         </div>
 
         <div class="navlinks">
-            <a href="<?=ROOT?>/viewbldrequests"><div class="vreq activenav">
+            <a href="<?=ROOT?>/viewbldrequests"><div class="vreq">
                 <div class="cont">View Requests</div>
             </div></a>
 
@@ -23,115 +25,142 @@
             </div></a>
         <?php if($_SESSION['USER']->role=='Doctor') {?>
 
-            <a href="<?=ROOT?>/bldrequestform"><div class="sendreq">
+            <a href="<?=ROOT?>/bldrequestform"><div class="sendreq activenav">
             <div class="cont">Send Request</div>
 
             </div></a>
         <?php } ?>
             
         </div>
-        <form>
-        <div class="formarea">
-            <div class="docpart">
 
-                <div class="doc1">
-                    <div class="formcontrol ">
-                            <div class="q docnamelbl"><label for="docname">Doctor Name:</label></div>
-                            <div class="in docnamein"><input type="text" name="docname" id="docname" class="docname"readonly value="something" ?> <i class="fa-solid fa-circle-check" ></i><i class="fa-solid fa-circle-exclamation"></i></div>
-                            <div class="sma"><small>ss</small></div>
+        <div class="formbox">
+          <form method="post" class="reqsendform">
+              <div class="row">
+                  <div class="q">
+                      Doctor Name
+                  </div>
+                  <div class="colon">:</div>
+                  <input type="text" id="name" name="name" readonly value=<?= $_SESSION['USER']->name;?>></input>
+              </div>
+              <input type="hidden" name="date" value=<?=$date?>>
+              <input type="hidden" name="doctor_id" value=<?= $_SESSION['USER']->id;?>>
+              <input type="hidden" name="blood_bank_id_source" value=<?= $_SESSION['USER']->blood_bank_id;?>>
+              <input type="hidden" name="status" value=0>
 
-                    </div>
+
+
+              <div class="rows">
+                  <div class="rowshort">
+                      <div class="q">
+                          Doctor ID
+                      </div>
+                      <div class="colon">:</div>
+                      <input type="text" id="did" name="did"readonly value=<?= $_SESSION['USER']->id;?>></input>
+
+                  </div>
+
+                  <div class="rowshort">
+                      <div class="q">
+                          To
+                      </div>
+                      <div class="colon">:</div>
+                      <select id="bb" name="blood_bank_id_destination">
+                      <option value="">------------------------------------------------------------Select-----------------------------------------------------------</option>
+                      <?php foreach($rows as $row):?>
+                        <?php if($row->blood_bank_id!=$_SESSION['USER']->blood_bank_id){?>
+                            
+                            <option value=<?= $row->blood_bank_id?>><?= $row->name?></option>
+
+                        <?php }?>
+
+            
+                      <?php endforeach; ?>
+                      
+                      </select>
+
+                  </div>
+
+              </div>
+             <div class="dash">
+
+             </div>
+             <table>
+                <tr>
+                    <th>Blood Type</th>
+                    <th>Blood Group</th>
+                    <th>Amount</th>
+
+                </tr>
+                <?php if(!empty($_SESSION['cart'])){
+                    foreach($_SESSION['cart'] as $key=>$value){ ?>
+                        <tr>
+                            <td><?=$value['btype'];?></td>
+                            <td><?=$value['bgrp'];?></td>
+                            <td><input name=<?=$value['name']?> value=<?=$value['bamnt']?>></td>
+
+
+                        </tr>
+
+                    <?php }
+                }?>
+                
+             </table>
+
+             
+
+
+             <?php if(!empty($_SESSION['cart'])){ ?>
+                <div class="button sp">
+                <input type="submit" class="btns" name="sendreq" value="Send Request">
+                </div>
+                <div class="button sp">
+                <input type="submit" class="btns" name="clearall" value="Clear All">
                 </div>
 
-                <div class="doc2">
+             <?php }?>
+              
 
-                    <div class="doc21">
-                        <div class="formcontrol ">
-                                <div class="q didlbl"><label for="docid">Doctor ID:</label></div>
-                                <div class="in didin"><input type="text" name="docid" id="docid" readonly value="something" ?> <i class="fa-solid fa-circle-check" ></i><i class="fa-solid fa-circle-exclamation"></i></div>
-                                <div class="sma"><small>ss</small></div>
-
-                        </div>
-                    </div>
-
-                    <div class="doc22">
-                        <div class="formcontrol ">
-                                <div class="q bblbl"><label for="docbb">BloodBank:</label></div>
-                                <div class="in bbin"><input type="text" name="docbb" id="docbb" readonly value="something" ?> <i class="fa-solid fa-circle-check" ></i><i class="fa-solid fa-circle-exclamation"></i></div>
-                                <div class="sma"><small>ss</small></div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dashline">
-                
-            </div>
-
-            <!-- <div class="bldpart">
-
-            </div> -->
-            <div class="bbpart">
-                
-                    <div class="bb1">
-                        <div class="formcontrol ">
-                                <div class="q reqbblbl"><label for="reqbb">Req BloodBank:</label></div>
-                                <div class="in reqbbin"><input type="text" name="reqbb" id="reqbb" readonly value="something" ?> <i class="fa-solid fa-circle-check" ></i><i class="fa-solid fa-circle-exclamation"></i></div>
-                                <div class="sma"><small>ss</small></div>
-
-                        </div>
-                    </div>
-                    <div class="bb2">
-                        <div class="formcontrol ">
-                                <div class="q reqdlbl"><label for="reqdate">Req Date:</label></div>
-                                <div class="in reqdin"><input type="text" name="reqdate" id="reqdate" readonly value="something" ?> <i class="fa-solid fa-circle-check" ></i><i class="fa-solid fa-circle-exclamation"></i></div>
-                                <div class="sma"><small>ss</small></div>
-
-                        </div>
-                    </div>
-                
-            </div>
-
-            <div class="dashline">
-                
-            </div>
-
-            <div class="bldpart">
-                <div class="bld1">
-
-                    <div class="bld11">
-                        <div class="formcontrol ">
-                                <div class="q bldtlbl"><label for="bldtype">Blood Type:</label></div>
-                                <div class="in bldtin"><input type="text" name="bldtype" id="bldtype" readonly value="something" ?> <i class="fa-solid fa-circle-check" ></i><i class="fa-solid fa-circle-exclamation"></i></div>
-                                <div class="sma"><small>ss</small></div>
-
-                        </div>
-                    </div>
-
-                    <div class="bld12">
-                        <div class="formcontrol ">
-                                <div class="q bldglbl"><label for="bldgrp">Blood Group:</label></div>
-                                <div class="in bldgin"><input type="text" name="bldgrp" id="bldgrp" readonly value="something" ?> <i class="fa-solid fa-circle-check" ></i><i class="fa-solid fa-circle-exclamation"></i></div>
-                                <div class="sma"><small>ss</small></div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bld2">
-                    <div class="formcontrol ">
-                                <div class="q bldalbl"><label for="bldamnt">Amount:</label></div>
-                                <div class="in bldain"><input type="text" name="bldamnt" id="bldamnt" readonly value="something" ?> <i class="fa-solid fa-circle-check" ></i><i class="fa-solid fa-circle-exclamation"></i></div>
-                                <div class="sma"><small>ss</small></div>
-
-                        </div>
-                </div>
-            </div>
-
+              
+              
+          </form>
         </div>
-    </form>
+        <button class="Addbtn" onclick="openForm()"><i class="fas fa-plus"></i>Add
+</button>
 
+        <!-- --------------------------form popup-------------------- -->
+        <div id="myForm" class="form-popup">
+	  <form  method="post" class="form-container">
+		<h2>Enter Blood Amount</h2>
+	
+		<div class="bt">Blood Type</div><select id="bt" name="bt">
+            <option value="">-------------Select-------------</option>
+            <option value="RBC">RBC</option>
+            <option value="WBC">WBC</option>
+            <option value="Platelettes">Platelettes</option>
+            <option value="Plasma">Plasma</option>
+          
+        </select>
+	
+		<div class="bt">Blood Group</div><select id="bt" name="bg">
+            <option value="">-------------Select-------------</option>
+            <option value="Ap">A+</option>
+            <option value="An">A-</option>
+            <option value="Bp">B+</option>
+            <option value="Bn">B-</option>
+            <option value="ABp">AB+</option>
+            <option value="ABn">AB-</option>
+            <option value="Op">O+</option>
+            <option value="On">O-</option>
+
+        </select>
+
+        <input type="number" name="amnt" class="popin" placeholder="Enter Amount">
+	
+		<input type="submit" class="btn" name="addtocart">
+		<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+    </div>
+      <!-- ---------------------------form popup end----------------------- -->
         
     </div>
     
@@ -145,6 +174,16 @@
     // print($a);
 ?>
 
+ <script>
+		function openForm() {
+  document.getElementById("myForm").classList.add("show");
+}
+
+function closeForm() {
+  document.getElementById("myForm").classList.remove("show");
+}
+
+	</script>
 
 </body>
 </html>
