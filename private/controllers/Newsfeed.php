@@ -1,11 +1,13 @@
 <?php
 class Newsfeed extends Controller
 {
-    function index($id='')
+    function index()
     {
         $post=new Community_post();
-        
-        $query="SELECT community_post.title, community_post.image,community_post.date,community_post.description ,donor.name 
+        if(isset($_GET['id'])){
+            $this->view('post_details');
+        }
+        $query="SELECT  community_post.post_id,community_post.title, community_post.image,community_post.date,community_post.description ,donor.name 
         as name FROM community_post
         INNER JOIN donor ON community_post.donor_id = donor.id";
         $data1=$post->query($query);
@@ -22,7 +24,9 @@ class Newsfeed extends Controller
 
         $this->view('newsfeed',['data1'=>$data1,'data2'=>$data2,'data3'=>$data3]);
 
+       
 
     }
+
 
 }

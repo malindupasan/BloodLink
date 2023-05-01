@@ -2,7 +2,10 @@
 <title>Where to Donate?</title>
 <?php $i=0?>
 <link rel="stylesheet" href="<?= ROOT ?>/css/wheretodonate.css">
-
+<?php
+$data=$data[0];
+// print_r($data); 
+?>
 <div class="sec1">
     <h1>Become a Donor</h1>
 </div>
@@ -28,7 +31,7 @@
 
 <div class="sec4">
 
-<?php foreach($data[0] as $value):?>
+<?php foreach($data as $value):?>
             
             <?php if($i%3==0 && $i!=0) : ?>
                     </div>
@@ -40,10 +43,10 @@
     <img src="<?=ROOT?>/images/location.png" alt="">
     </div>
     <div class="info">
-        <div class="bname">Colombo Blood Bank</div>
-        <div class="baddress1">555 Elvitigala Mawatha,</div>
-        <div class="baddress2">Colombo 5</div>
-        <div class="btel">Tel : 0112848134</div>
+        <div class="bname"><?=$value->name?></div>
+        <div class="baddress1"><?=$value->house_no?> <?=$value->street?>,</div>
+        <div class="baddress2"><?=$value->city?></div>
+        <div class="btel">Tel : <?=$value->telephone?></div>
     </div>
 
 </div>

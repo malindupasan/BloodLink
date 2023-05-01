@@ -1,11 +1,11 @@
 <?php
 class Bloodbank extends Model
 {
-    protected $table = "bloodbank";
+    protected $table = "blood_bank";
 
 
 
 
-    protected $allowedColumns = ['blood_bank_id', 'name', 'telephone', 'address1', 'address2'];
+    protected $allowedColumns = ['blood_bank_id', 'name', 'city', 'street', 'house_no','telephone','latitude','longitude','admin_id'];
 
 }
