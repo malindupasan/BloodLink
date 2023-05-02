@@ -12,17 +12,17 @@ function initAutocomplete() {
     });
     
 
-    var input = document.getElementById("locationInp");
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    var input = document.getElementById("locationInp"); //r
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);//r
 
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    var autocomplete = new google.maps.places.Autocomplete(input); //r
     var marker=new google.maps.Marker({
-      draggable:true,
+      draggable:true,//false
   
       map:map
     });
-    marker.setPosition(srilanka);
-    marker.setVisible(true);
+    marker.setPosition(srilanka); //change
+    marker.setVisible(true); //after
     autocomplete.bindTo("bounds", map);
     autocomplete.setFields(['address_components','geometry','name'])
     autocomplete.addListener('place_changed', function () {
@@ -53,6 +53,7 @@ function initAutocomplete() {
           )
   
   }
+  //here
   
   document.addEventListener("DOMContentLoaded",function(event){initAutocomplete()});
   

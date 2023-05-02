@@ -18,10 +18,10 @@
     <a href="post_details?id=<?=$data1[$i]->post_id?>">
     <div class="card">
         <div class="c-sec">
-            <div class="c-sec-h"> <h1> <u><?php echo(substr($data1[$i]->title,0,30))?> </u></h1>
-          <p> <small>Posted by <b><?=$data1[$i]->name?></b> on <?=$data1[$i]->date?> </small></p> 
+            <div class="c-sec-h"> <h1> <u> <?=$data1[$i]->title?> </u></h1>
+            <small>Posted by <b><?=$data1[$i]->name?></b> on <?=$data1[$i]->date?> </small>
             </div>
-            <div class="c-sec-cont"> <p> <?php echo( substr($data1[$i]->description,0,200)."...");?></p> </div>
+            <div class="c-sec-cont"> <p> <?=$data1[$i]->description?></p> </div>
         </div>
         <div class="c-img">
             <img src=" <?=$data1[$i]->image?>" alt="">
@@ -36,10 +36,10 @@
    <?php foreach ($data2 as $d):?>
     <div class="card">
         <div class="c-sec">
-            <div class="c-sec-h"> <h1> <u> <?php echo(substr($data2[$i]->title,0,20))?> </u></h1> 
-           <p> <small>Posted by <b><?=$data2[$i]->name?></b> on <?=$data2[$i]->date?> </small></p>
+            <div class="c-sec-h"> <h1> <u> <?=$data2[$i]->title?> </u></h1>
+            <small>Posted by <b><?=$data2[$i]->name?></b> on <?=$data2[$i]->date?> </small>
             </div>
-            <div class="c-sec-cont"> <p> <?php echo( substr($data2[$i]->description,0,200)."...");?></p> </div>
+            <div class="c-sec-cont"> <p> <?=$data2[$i]->description?></p> </div>
         </div>
         <div class="c-img">
             <img src=" <?=$data2[$i]->image?>" alt="">
@@ -53,10 +53,10 @@
    <?php foreach ($data3 as $d):?>
     <div class="card">
         <div class="c-sec">
-            <div class="c-sec-h"> <h1> <u> <?php echo(substr($data3[$i]->title,0,20))?> </u></h1>
+            <div class="c-sec-h"> <h1> <u> <?=$data3[$i]->title?> </u></h1>
             <small>Posted by <b><?=$data3[$i]->name?></b> on <?=$data3[$i]->date?> </small>
             </div>
-            <div class="c-sec-cont"> <p> <?php echo( substr($data3[$i]->description,0,200)."...");?>p> </div>
+            <div class="c-sec-cont"> <p> <?=$data3[$i]->description?></p> </div>
         </div>
         <div class="c-img">
             <img src=" <?=$data3[$i]->image?>" alt="">

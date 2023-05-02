@@ -12,7 +12,6 @@
          <input type="text" value="<?=isset($_GET['find'])?$_GET['find']:''?>" name="find">   
         <button class="search-btn" type="submit">Search</button>
         </form>   
-       <a href="<?=ROOT.'/addcamp'?>"> <button  class="post-btn">Post</button></a>
        
     </div>
     </div>
@@ -23,6 +22,15 @@
     </div>
      <div class="sec3"> 
         
+    <?php  if((!$data[0])){  ?>
+       
+   
+
+        <h1>No campaigns</h1>
+
+   <?php } else { ?>
+
+
     <?php foreach($data[0] as $value):?>
         
         <?php if($i%3==0 && $i!=0) : ?>
@@ -48,7 +56,7 @@
        
         
     </div>
-
+<?php }?>
 
     <script src="<?=ROOT?>/js/campaigns.js"></script>
 </body>
