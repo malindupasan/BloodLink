@@ -1,7 +1,14 @@
 <?php $this->view("includes/navbar", $data); ?>
 <link rel="stylesheet" href="<?=ROOT?>/css/mycamprequests.css">
 <title>view requests</title>
+
+<div class="sec0">
+   <a href="<?=ROOT?>/camporgreq"> <button class="addbtn">+ Add</button> </a>
+</div>
+
 <div class="sec1">
+
+   
 <div class="table">
     <table class="table1">
         <thead>

@@ -18,6 +18,7 @@ $data = $user->where("id", $id2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1a2c8fa8df.js" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="<?=ROOT?>/css/navbar.css">
    
 </head>
 
