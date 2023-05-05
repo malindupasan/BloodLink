@@ -8,6 +8,7 @@ class Campaigns extends Controller
         if (!Auth::logged_in()) {
             $this->redirect('login');
         }
+        $flag=array(); //to change the css classes of buttons
 
 
 
@@ -15,7 +16,8 @@ class Campaigns extends Controller
         $query = "select * from blood_donation_camp where date >= :date";
         // $data = $camp->findAll();
         $date = date("Y-m-d");
-        $arr = ['date' => $date];   
+        $arr = ['date' => $date];  
+        $flag[0]=1; 
 
         if((isset($_GET['date'])&&strlen($_GET['date']))&&(isset($_GET['find'])&&strlen($_GET['find']))){
             $find = $_GET['find'] . '%';
@@ -44,6 +46,7 @@ class Campaigns extends Controller
         if (isset($_GET['prog'])) {
             
             $query = "select * from blood_donation_camp where date = :date ";
+            $flag[0]=0;
 
         }
 
@@ -52,12 +55,15 @@ class Campaigns extends Controller
             $id=AUTH::getid(); //AUTH::getNIC();
             $query = "select * from blood_donation_camp where  donor_id = :id ";
             $arr = ['id' => $id];
+            $flag[0]=2;
 
         }
         // $query = "select * from campaign where (camp_name like 'd%') &&  date >= 2023-01-10";
 
         $data = $camp->query($query,$arr);
-        $this->view('campaigns', [$data]);
+        
+        // print_r([$data]);
+        $this->view('campaigns', ['data'=>$data,'flag'=>$flag]);
 
 
     }

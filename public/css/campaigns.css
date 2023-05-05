@@ -20,12 +20,15 @@
 }
 
 .search-btn {
-    height: 1.4rem;
-    width: 5rem;
-    border-radius: 0.4rem;
+    height: 2.4rem;
+    width: 6rem;
+    background-color: #FFB4B4;
+    border-radius: 0.25rem;
     border: none;
 }
-
+.search-btn:hover{
+    background-color: #fb8e8e;
+}
 .sec1-h {
     font-size: 2rem;
     margin-left: 10rem;
@@ -65,7 +68,7 @@
     width: 12%;
     height: 3rem;
     border: none;
-    background: #FFB4B4;
+    background: #eeeaea;
     border-radius: 0.3rem;
 }
 .mycamps-btn {
@@ -76,6 +79,10 @@
     background: #eeeaea;
     border-radius: 0.3rem;
 }
+.selected{
+    background: #FFB4B4;
+}
+
 .sec3 {
     width: 100rem;
     display: flex;
@@ -153,4 +160,9 @@
     font-size: 0.8rem;
     padding-left: 0.7rem;
     /* margin-top: -10.8rem; */
+}
+.inp1{
+    height: 2.1rem;
+    width: 10rem;
+    border-radius: 0.25rem;
 }
