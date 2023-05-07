@@ -60,18 +60,12 @@ $data=$data[0];
                     </div>
                 </div>
 
-                <div class="d2">
-                    <div class="city">
-                        <label  for="city">District </label>
-                        <label class="infor" id="city" name="city">: <?= $data->district ?></label>
-                    </div>
-                </div>
-
+         
 
             </div>
 
             <div class="map">
-                <label class="loc" for="map">Location</label>
+                <label class="loc" for="map">Location :</label>
                 <label class="map-in" type="text" id="map" name="map">
             </div>
 

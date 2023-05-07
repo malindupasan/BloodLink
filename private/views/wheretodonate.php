@@ -38,21 +38,24 @@ $data=$data[0];
                     <div class="sec4"> 
             <?php endif ?>
 
-<div class="card">
+<div class="card"><a href="<?=ROOT?>/bloodbankpage/<?=$value->blood_bank_id?>" >
     <div class="loc-logo">
     <img src="<?=ROOT?>/images/location.png" alt="">
     </div>
+    </a>
     <div class="info">
         <div class="bname"><?=$value->name?></div>
         <div class="baddress1"><?=$value->house_no?> <?=$value->street?>,</div>
         <div class="baddress2"><?=$value->city?></div>
         <div class="btel">Tel : <?=$value->telephone?></div>
     </div>
-
+   
+   
 </div>
 <?php $i++; ?>
             <?php endforeach; ?>
             </div>
+            
 
 
 </div>
