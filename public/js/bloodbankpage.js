@@ -13,7 +13,7 @@ function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById("map"), {
       zoom: 12,
       center: srilanka,
-      mapTypeControl: false,
+      mapTypeControl: true,
 
     
     });
@@ -24,7 +24,7 @@ function initAutocomplete() {
 
     var autocomplete = new google.maps.places.Autocomplete(input); //r
     var marker=new google.maps.Marker({
-      draggable:true,//false
+      draggable:false,//false
   
       map:map
     });
