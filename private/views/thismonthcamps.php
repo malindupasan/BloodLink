@@ -1,9 +1,9 @@
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 
-<?php $this->view('includes/nav'); ?>
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('nav'); ?>
+<?php $this->view('navup'); ?>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/thismonthcss.css">
 
 
 <div class="section">           <!--main section except sidebar & navbar-->
@@ -124,3 +124,4 @@
 
 </body>
 </html>
+

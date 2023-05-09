@@ -10,7 +10,7 @@ class Viewdonationsrejected extends Controller
         $resultsperpage= 15;
 
         $bp = new Rawblood();
-        $data = $bp->findrejected("status",2,"blood_bank_id",$bbid);
+        $data = $bp->findrejected2("status",1,"blood_bank_id",$bbid);
 
         if($data!=NULL){
         $numofresults=count($data);
@@ -26,7 +26,7 @@ class Viewdonationsrejected extends Controller
 
         $thispagefirstres=($page-1)*$resultsperpage;
 
-        $data2= $bp->paginallrejected("status",2,"blood_bank_id",$bbid,$thispagefirstres,$resultsperpage);
+        $data2= $bp->paginallrejected2("status",1,"blood_bank_id",$bbid,$thispagefirstres,$resultsperpage);
         
 
     }

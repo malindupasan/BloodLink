@@ -65,22 +65,7 @@ body {
 
 
 
-div.exsdbar {
-            
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-left: 15rem;
-    
-    /* opacity: 50%; */
-    /* margin-left: 15rem; */
-    transition: 0.2s;
 
-   /* height: 173px;
-   
-    width: 1398px;*/
-
-}
 
 
 
@@ -215,7 +200,41 @@ button.pagebtn{
 
 
 
+ /* ----------------------search bar------------------------------- */
 
+ input{
+    width: 15rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    font-family:Poppins, FontAwesome;
+    padding-left: 1rem;
+}
+form{
+    width: 90%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: right;
+}
+
+button.reset{
+    font-family: "Poppins" !important;
+    height: 2.3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+    /* margin-right: 1rem; */
+    border: none;
+    background-color: #ff4d4d;
+    color: #ffffff;
+}
+
+div.search{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+ 
 
 
 

@@ -1,8 +1,8 @@
-<?php $this->view('includes/pageinit'); ?>
-<?php $this->view('includes/nav'); ?>
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('pageinit');?>
+<?php $this->view('nav'); ?>
+<?php $this->view('navup'); ?>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/defectbloodstyle.css">
 
 
 
@@ -28,10 +28,17 @@
             </div></a>
             </div>
         <?php }?>
-        
+        <div class="search">
+            <form>
+                <input type="text" placeholder="&#xf002; Search Lab..." class="jssearch" oninput=get_data()>
+
+            </form>
+            <a href="<?=ROOT?>/labusers"><button class="reset">Reset</button></a>
+
+        </div>
         
 
-        <div class="tbl">
+        <div class="tbl jstable">
         <table>
             <thead>
                 <tr>
@@ -117,7 +124,34 @@
     // print_r($rows);
     // print($a);
 ?>
+<script>
+    function get_data(){
+        var text = document.querySelector(".jssearch").value;
+         var form = new FormData();
 
+        form.append('text', text);
+        var ajax = new XMLHttpRequest();
+        ajax.addEventListener('readystatechange', (e) => {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                //res
+                // console.log(ajax.responseText);
+                var obj=JSON.parse(ajax.responseText);
+                console.log(obj);
+                var resultdiv=document.querySelector(".jstable");
+                var str="<table><thead><tr><th>DonorID</th><th>Date</th><th>BloodBankID</th><th></th></tr><thead>";
+                for (var i=obj.length-1;i>=0;i--){
+                    console.log(obj[i].name);
+                    str+=  "<tr class='hov'><td>" + obj[i].donname + "</td> <td>" + obj[i].date + "</td> <td>" +  obj[i].blood_bank_id + `</td> <td> <a href='http://localhost/Bloood%20Link%202/public/removedefect?id=${obj[i].defect_id}'><button class='btn'>Remove</button></td> </tr>`;      
+
+                }
+
+                resultdiv.innerHTML = str;
+            }
+        })
+        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/defectblood/index2', true);
+        ajax.send(form);
+    }
+</script>
 
 </body>
 </html>

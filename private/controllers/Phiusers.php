@@ -6,7 +6,7 @@ class Phiusers extends Controller
             $data2=array();
 
             $essentials=array();
-            $resultsperpage= 8;
+            $resultsperpage= 15;
             
             $usrs = new BLPHI();
             $data = $usrs->findAll();
@@ -59,5 +59,25 @@ class Phiusers extends Controller
          $this->view('phiusers', ['rows' => $data2,'ess' => $essentials]);
         //  $this->redirect('404');
         // $this->view('home');
+    }
+
+    function index2(){
+        if (count($_POST) > 0) {
+
+            $text = $_POST['text'];
+            $text=addslashes($text);
+            
+            
+            $usrs = new BLPHI();
+
+            $stm="select * from phi where name like '$text%'";
+
+            
+            $results=$usrs->query($stm);
+            
+            echo json_encode($results);
+            // $data = $user->query($query);
+            // echo (json_encode($data));
+             }
     }
 }

@@ -88,6 +88,56 @@ class Model extends Database
         return $this->query($query,$data);
     }
 
+    public function update1($id,$data)
+    {
+        $str="";
+        foreach($data as $key => $val){
+            if ($key == 'telephone') $str .= $key."=".$val.",";
+            else $str .= $key."='".$val."',";
+            // else $str .= $key."=:".$key.",";
+
+        }
+        // update blood_bank set name='Asith Amarasekara 123456',telephone=112233987,house_no='251',street='Frinco Wattha',city='Gampaha' where blood_bank_id =45;
+
+        $str=trim($str,",");
+        
+        $data['id']=$id;
+
+        if ($this->table == 'blood_bank')
+        {
+            $query = "update $this->table set $str where blood_bank_id =" .$id;
+        }
+        else
+        {
+            $query = "update $this->table set $str where id =" .$id;
+        }
+        //print the query
+        echo $query;
+
+
+        return $this->query($query);
+    }
+
+
+    public function update2($id,$data)
+    {
+
+       
+        $str="";
+        foreach($data as $key => $val){
+            $str .= $key."=:".$key.",";
+        }
+
+        $str=trim($str,",");
+        
+        $data['blood_bank_id']=$id;
+
+        $query = "update $this->table set $str where blood_bank_id = :blood_bank_id";
+        
+       
+        return $this->query($query,$data);
+    }
+
     public function delete($id)
     {
 

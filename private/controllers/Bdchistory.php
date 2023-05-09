@@ -46,4 +46,25 @@ class Bdchistory extends Controller
         $this->view('bdchistory',['rows'=>$data2,'ess'=>$essentials]);
        
     }
+
+    function index2(){
+        $bbid=$_SESSION['USER']->blood_bank_id;
+
+        if (count($_POST) > 0) {
+
+            $text = $_POST['text'];
+            $text=addslashes($text);
+            
+            $bdc = new BLBdc();
+            $stm="SELECT * FROM blood_donation_camp WHERE blood_bank_id=$bbid AND date<CURDATE() AND camp_name like '$text%'";
+
+
+            
+            $results=$bdc->query($stm);
+            
+            echo json_encode($results);
+            // $data = $user->query($query);
+            // echo (json_encode($data));
+             }
+    }
 }

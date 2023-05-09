@@ -1,12 +1,15 @@
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 <link rel="stylesheet" href="<?=ROOT?>/css/reportstyle.css">
 <script src="<?=ROOT?>/js/ajscriptreport.js"></script>
 
 
 <script src="<?=ROOT?>/scripts/genrep2.js"></script>  
-<button  class="subbtn sp" onclick="genPDF()">pdf</button>
+<button  class="subbtn sp" onclick="genPDF('BDC report')">pdf</button>
 
+<form>
+        <input type="hidden" placeholder="Search Lab..." class="jssearch" value=<?=$id?>>
 
+    </form>
 <div class="section" id="section">
 
 

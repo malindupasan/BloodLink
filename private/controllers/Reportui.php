@@ -167,8 +167,10 @@ class Reportui extends Controller
 
             echo json_encode($response);
         } else {
-            $this->view('reportui',['bdc'=>$bdcdata,'doc'=>$docdata,'bb'=>$bbdata,'doncount'=>$countdonation,'acccount'=>$countaccept,'rejcount'=>$countreject,'rbc'=> $rbcarray,'wbc'=>$wbcarray,'plt'=> $pltarray,'plsm'=>$plsmarray]);
+            $this->view('reportui',['bdc'=>$bdcdata,'doc'=>$docdata,'bb'=>$bbdata,'doncount'=>$countdonation,'acccount'=>$countaccept,'rejcount'=>$countreject,'rbc'=> $rbcarray,'wbc'=>$wbcarray,'plt'=> $pltarray,'plsm'=>$plsmarray,'id'=>$id]);
         }
        
     }
+
+    
 }

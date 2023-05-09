@@ -1,4 +1,4 @@
-function genPDF(){
+function genPDF(para){
     var img;
     html2canvas(document.getElementById("section")).then(
             function (canvas){
@@ -9,7 +9,7 @@ function genPDF(){
             
             
 
-            doc.save('report.pdf');
+            doc.save(para +'.pdf');
 
 });
     

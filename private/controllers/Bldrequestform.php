@@ -103,6 +103,54 @@ class Bldrequestform extends Controller
 
         }
 
+        if(isset($_GET['action']) && !empty($_SESSION['cart'])){
+            if($_GET['action']=="delete"){
+                foreach($_SESSION['cart'] as $key => $value){
+                    if($value['btype']==$_GET['bt'] && $value['bgrp']==$_GET['bg']){
+                        unset($_SESSION['cart'][$key]);
+                        echo '<script>window.location="http://localhost/Bloood%20Link%202/public/bldrequestform"</script>';
+                    }
+                }
+
+            }
+    
+
+        }
+
+        // ============================select 3 suitable blood banks=============================
+
+        $array1 = array(1, 2, 3, 4, 5);
+        $array2 = array(1, 2, 3, 4, 5);
+        $array3 = array(3, 4);
+        
+        $bbs=new BLBloodbank();
+        $q="SELECT blood_bank_id FROM blood_bank";
+        $data2=$bbs->query($q);
+        // print_r($data2);
+        // $array2 = $data2;
+        // print_r($array2);
+        if($data2!=NULL){
+            foreach($data2 as $key=>$value){
+                $bbarray[]=$value->blood_bank_id;  //to get all bb ids into array
+            }
+        }
+
+
+        // print_r($bbarray);
+        // put bbarray into all rap ran.... arrays
+        //loop session cart
+        //for each loop in cart perform sql query to get suitable bb ids and get the ids into array without objects and replace in relevant rap,ran arrays
+        //intersect remember if array is empty then $aasda=array();
+        //if intersected are >3 use lat lng method then choose 3
+
+        
+        // Get the common values using array_intersect()
+        $common_values = array_intersect($array1, $array2, $array3);
+        
+        // Output the result
+        // print_r($common_values);
+
+
         // if(count($_POST)>0){
 
 

@@ -1,10 +1,10 @@
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 <link rel="stylesheet" href="<?=ROOT?>/css/reportstyle.css">
 <script src="<?=ROOT?>/js/ajscriptreport2.js"></script>
 
 
 <script src="<?=ROOT?>/scripts/genrep2.js"></script>  
-<button  class="subbtn sp" onclick="genPDF()">pdf</button>
+<button  class="subbtn sp" onclick="genPDF('Blood Stock')">pdf</button>
 
 
 <div class="section" id="section">

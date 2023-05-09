@@ -1,7 +1,7 @@
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 
-<?php $this->view('includes/nav'); ?>
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('nav'); ?>
+<?php $this->view('navup'); ?>
 
 <link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
 
@@ -78,7 +78,7 @@
         <thead>
         <?php foreach($rows as $row):
             $cdate=date("y-m-d");?>
-            <tr>
+            <tr class="hov">
                 
 
                

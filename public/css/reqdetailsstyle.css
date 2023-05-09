@@ -52,7 +52,7 @@ div.splitright {
     /* padding-left:30rem; */
     padding-right:6rem;
 
-/*flex-direction: column;*/
+flex-direction: column;
     width: 100%;
     /* position: fixed; */
 }
@@ -170,3 +170,12 @@ button.btn1{
 div.g{
     padding-top: 1.5rem;
 }
+
+/* ------------------map------------------- */
+div.map{
+    margin-top: 2rem;
+    height: 50%;
+    width: 100%;
+    /* background-color: #FD9F9F; */
+}
+

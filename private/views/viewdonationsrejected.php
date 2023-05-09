@@ -1,9 +1,9 @@
 
 
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 
-<?php $this->view('includes/nav'); ?>
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('nav'); ?>
+<?php $this->view('navup'); ?>
 
 <link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
 
@@ -53,7 +53,7 @@
                     <td><?=$row->collected_date ?></td>
                     <td><?=$row->blood_bank_id ?></td>
                     <td><?=$row->blood_donation_camp_id ?></td>
-                    <?php if($_SESSION['USER']->role=='Doctor'){?>
+                    <?php if($_SESSION['USER']->role=='Doctor' && $row->status==2){?>
                         <td><a href="<?=ROOT?>/addtodefect?id=<?php echo $row->packet_id; ?>"><button class="btn">Add Defect</button></td>
 
                     <?php }?>

@@ -22,6 +22,10 @@
         unset($_SESSION['cart']);
 
     }
+    if(isset($_SESSION['bld'])) {
+        unset($_SESSION['bld']);
+
+    }
 
     }
 

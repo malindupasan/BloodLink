@@ -11,7 +11,7 @@ class Approval extends Controller
         // print_r($st);
 
         $arr['status']=$st;
-        $arr['phi_id']=$pid;//check!!!!
+        $arr['phi_id']=$pid;
 
         // echo "<pre>";
         // print_r($arr['nnn']);
