@@ -10,7 +10,7 @@ class Thismonthdonations extends Controller
         $data2=array();
 
         $essentials=array();
-        $resultsperpage= 8;
+        $resultsperpage= 15;
 
         $bdc=new Rawblood();
               

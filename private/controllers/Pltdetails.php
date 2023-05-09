@@ -11,7 +11,7 @@ class Pltdetails extends Controller
         }
         $data2=array();
         $essentials=array();
-        $resultsperpage= 8;
+        $resultsperpage= 15;
 
         $plt = new Platelettes();
         $data=$plt->getbs("blood_bank_id",$bbid);

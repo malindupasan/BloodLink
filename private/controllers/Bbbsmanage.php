@@ -164,4 +164,73 @@ class Bbbsmanage extends Controller
         //  $this->redirect('404');
         // $this->view('home');
     }
+
+    function index2(){
+        if (count($_POST) > 0) {
+
+            $text = $_POST['text'];
+            $text=addslashes($text);
+            
+           
+            $bb = new BLBloodbank();
+
+            $stm="select * from blood_bank where name like '$text%'";
+
+            
+            $results=$bb->query($stm);
+            
+            echo json_encode($results);
+            // $data = $user->query($query);
+            // echo (json_encode($data));
+             }
+    }
+
+    function index3(){
+        $counts=array();
+
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
+
+        $bbid=$_GET['id'];
+
+           $rbc=new Rbc();
+           $wbc=new Wbc();
+           $plt=new Platelettes();
+           $plsm=new Plasma();
+
+           $data1=$rbc->getbscount("blood_bank_id",$bbid);
+           $data2=$wbc->getbscount("blood_bank_id",$bbid);
+           $data3=$plt->getbscount("blood_bank_id",$bbid);
+           $data4=$plsm->getbscount("blood_bank_id",$bbid);
+
+           if($data1){
+            $counts['rbc']=count($data1);
+           }else{
+            $counts['rbc']=0;
+           }
+
+           if($data2){
+            $counts['wbc']=count($data2);
+           }else{
+            $counts['wbc']=0;
+           }
+
+           if($data3){
+            $counts['plt']=count($data3);
+           }else{
+            $counts['plt']=0;
+           }
+
+           if($data4){
+            $counts['plsm']=count($data4);
+           }else{
+            $counts['plsm']=0;
+           }
+
+           $this->view('bbbsmanage2', ['rows' => $counts]);
+
+    }
+
+    
 }

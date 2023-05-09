@@ -13,13 +13,15 @@ class Viewbldrequests extends Controller
 
         $breq=new BLbldreq();
 
-        $q1="SELECT blood_request.*,doctor.name,blood_bank.name FROM blood_request 
+        $q1="SELECT blood_request.*,doctor.name,blood_bank.name AS bbname FROM blood_request 
         INNER JOIN doctor ON blood_request.doctor_id=doctor.id 
         INNER JOIN blood_bank ON blood_request.blood_bank_id_source=blood_bank.blood_bank_id	
         WHERE blood_bank_id_destination=$bbid";
 
-        $data=$breq->query($q1);
+        
 
+        $data=$breq->query($q1);
+        // print_r($data);
         
         $this->view('viewbldrequests',['rows'=>$data]);
        

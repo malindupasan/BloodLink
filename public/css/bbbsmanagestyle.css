@@ -1,8 +1,3 @@
-div.sidebar {
-    width:14rem;
-    height: 100vh;
-
-}
 
 div.l1, div.l2 {
     padding-left:0.8rem
@@ -101,32 +96,8 @@ body {
 
 
 
-div.sidebar {
-    margin-left: -15rem;
-    background-color: #FD9F9F;          
-    width: 15rem;
-    height: 100vh;
-    position: fixed;
-    transition:  0.2s ;
-   /* display: flex;
-    height: 1117px;
-    width: 330px; */
 
-}
 
-div.exsdbar {
-            
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-left: 0rem;
-
-    /* margin-left: 15rem; */
-    transition:  0.2s ;
-   /* height: 173px;
-    width: 1398px;*/
-
-}
 
 div.navbar {
     display: flex;
@@ -143,58 +114,12 @@ div.section {
     align-items: center;
 }
 
-div.nleft {
-    display: flex;
-    height: 6rem;
-    align-items: center;
-}
 
-/* div.imge {
-    display: flex;
-    
-    height: 6rem;
-    width: 6rem;
-    margin-left: 1.5rem;
-}*/
-
-img.logo {
-    width: 5rem;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    align-items: center;
-}
 
 /*div.vbar {
     height: 6rem ;
 }*/
 
-div.blink   {
-    font-size: 2rem;
-    font-weight: normal;
-    font-family: "Poppins";
-    padding: 0rem;
-}
-
-div.phi {
-    margin-bottom: 10px;
-}
-
-div.nright {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-div.name {
-    margin-right: 2rem;
-    margin-bottom: 7px;
-}
-
-img.shut {
-    width: 1.5rem;
-    margin-right: 1rem;
-
-}
 
 /* div.camptitle {
     display: flex;
@@ -219,12 +144,7 @@ button.btn {
     
 }
 
-div.sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
-}
 
 div.l1 {
     margin-top: 6rem;
@@ -631,35 +551,6 @@ div.actve{
 
 }
 
-/* -----------------hide side bar------------- */
-
-label #sidebar_btn{
-    z-index: 1;
-    color: #000000;
-    position: fixed;
-    cursor: pointer;
-    margin-top: 1.9rem;
-    margin-left: 1rem;
-    font-size: 2rem;
-    
-}
-
-#check:checked ~ .sidebar{
-    margin-left: -0rem;
-    /* transform: translateX(-15rem); */
-}
-
-
-
-#check:checked ~ .exsdbar{
-    margin-left: 15rem;
-
-
-}
-
-#check:checked ~ .nleft{
-    margin-left: 4rem;
-}
 
 
 
@@ -713,3 +604,43 @@ button.sp{
 }
 
 
+div.divrel{
+    height: 2rem;
+    position: relative;
+    width: 10rem;
+    background-color: aqua;
+}
+
+div.divabs{
+    margin-top:1rem ;
+    margin-left: 1rem;
+    position: absolute;
+    width: 5rem;
+    background-color: #FD9F9F;
+    height: 5rem;
+}
+
+/* =================search============== */
+/* div.jsdiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+div.c{
+    padding: 0.5rem 0rem;
+    width: 100%;
+    height: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    transition: background-color 0.5s ease;
+
+    justify-content: center;
+}
+div.c:hover{
+    background-color: #FD9F9F;
+    color: #ffffff;
+    cursor: pointer;
+    width: 100%;
+
+}

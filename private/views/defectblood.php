@@ -1,11 +1,11 @@
 
 
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 
-<?php $this->view('includes/nav'); ?>
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('nav'); ?>
+<?php $this->view('navup'); ?>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/defectbloodstyle.css">
 
 
 
@@ -32,9 +32,16 @@
             </div>
         <?php }?>
         
-        
+        <div class="search">
+            <form>
+                <input type="text" placeholder="&#xf002; Search Lab..." class="jssearch" oninput=get_data()>
 
-        <div class="tbl">
+            </form>
+            <a href="<?=ROOT?>/labusers"><button class="reset">Reset</button></a>
+
+        </div>
+
+        <div class="tbl jstable">
         <table>
             <thead>
                 <tr>
@@ -51,8 +58,8 @@
              foreach($rows as $row):?>
                 <div class="trows">
                 <tr>
-                    <td><?=$row->doctor_id ?></td>
-                    <td><?=$row->donor_id ?></td>
+                    <td><?=$row->name ?></td>
+                    <td><?=$row->donname ?></td>
                     <td><?=$row->date ?></td>
                     <td><?=$row->blood_bank_id ?></td>
                     <td><a href="<?=ROOT?>/reportui3?id=<?php echo $row->defect_id; ?>"><button class="btn">View</button></td>
@@ -114,7 +121,35 @@
     // print_r($rows);
     // print($a);
 ?>
+<script>
+    function get_data(){
+        var text = document.querySelector(".jssearch").value;
+         var form = new FormData();
 
+        form.append('text', text);
+        var ajax = new XMLHttpRequest();
+        ajax.addEventListener('readystatechange', (e) => {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                //res
+                // console.log(ajax.responseText);
+                var obj=JSON.parse(ajax.responseText);
+                console.log(obj);
+                var resultdiv=document.querySelector(".jstable");
+                var str="<table><thead><tr><th>Doctor</th><th>Donor</th><th>Date</th><th>BloodBankID</th><th</th></tr><thead>";
+                for (var i=obj.length-1;i>=0;i--){
+                    console.log(obj[i].name);
+                    str+=  "<tr class='hov'><td>" + obj[i].name + "</td> <td>" + obj[i].donname + "</td> <td>" +  obj[i].date + "</td> <td>" + obj[i].blood_bank_id + `</td> <td> <a href='http://localhost/Bloood%20Link%202/public/reportui3?id=${obj[i].defect_id}'><button class='btn'>View</button></td> </tr>`;      
+
+                }
+
+                resultdiv.innerHTML = str;
+            }
+        })
+        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/defectblood/index2', true);
+        ajax.send(form);
+    }
+</script>
 
 </body>
 </html>
+

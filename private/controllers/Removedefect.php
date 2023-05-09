@@ -31,7 +31,7 @@ class Removedefect extends Controller
         }
 
         
-        
+        $this->view('home', ['rows' => $data[0]]);
        
     }
 }

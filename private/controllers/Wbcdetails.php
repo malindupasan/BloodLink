@@ -11,7 +11,7 @@ class Wbcdetails extends Controller
         }
         $data2=array();
         $essentials=array();
-        $resultsperpage= 8;
+        $resultsperpage= 15;
 
         $wbc = new Wbc();
         $data=$wbc->getbs("blood_bank_id",$bbid);

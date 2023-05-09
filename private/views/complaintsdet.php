@@ -1,6 +1,6 @@
-<?php $this->view('includes/pageinit'); ?>
+    <?php $this->view('pageinit'); ?>
 
-<?php $this->view('includes/navup'); ?>
+    <?php $this->view('navup'); ?>
 
     <link rel="stylesheet" href="<?=ROOT?>/css/boostyle.css">    
 

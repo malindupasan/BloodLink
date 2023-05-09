@@ -105,7 +105,7 @@ window.addEventListener("load", ()=>{
 
                   var ctx2 = document.getElementById('chartpie2').getContext('2d');
                 var datapie2 = {
-                    labels: ['Label 1', 'Label 2', 'Label 3'],
+                    labels: ['Rejects', 'Non-rejects'],
                     datasets: [{
                       data: [res.rejthisyear.rej, res.rejthisyear.nonrej],
                       backgroundColor: [
@@ -141,6 +141,51 @@ window.addEventListener("load", ()=>{
                     }
                     
                   });
+
+                  var canvas2 = document.getElementById("chart3");
+                var config2 = {
+                type: "bar",
+                data: {labels: ["HIV/AIDS","Thalasemea","Hemophilia","Dengue","Malaria","Other"],
+                        datasets: [{label:"Previous Year", 
+                                    data: [res.predefect.HIV,res.predefect.Thalasemea,res.predefect.Hemophilia,res.predefect.Dengue,res.predefect.Malaria,res.predefect.other],
+                                    backgroundColor: [
+                                        'rgba(rgba(45, 49, 250, 1))'
+                                        
+                                    ]
+                                    },
+                                    {label:"This Year", 
+                                    data: [res.defect.HIV,res.defect.Thalasemea,res.defect.Hemophilia,res.defect.Dengue,res.defect.Malaria,res.defect.other],
+                                    backgroundColor: [
+                                        'rgba(5, 19, 103, 1)'
+                                        
+                                    ]
+                                    }
+                                ]
+                        },
+                        options: {
+                            plugins:{
+                                legend:{
+                                    position:'bottom',
+                                    labels: {
+                                        font: {
+                                            size: 17
+                                        }
+                                    }
+                                    
+                                }
+                            // scales: {
+                            // xAxes: [{
+                            //     ticks: {
+                            //     fontSize: 16,
+                            //     fontWeight: 'bold'
+                            //     }
+                            // }]
+                            // }
+                        }
+                        }}
+
+
+                var barchart2= new Chart(canvas2, config2)
 
 
   

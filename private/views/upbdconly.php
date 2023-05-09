@@ -1,9 +1,9 @@
 
 
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 
-<?php $this->view('includes/nav'); ?>
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('nav'); ?>
+<?php $this->view('navup'); ?>
 
 <link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
 
@@ -36,7 +36,7 @@
                     <div class="trows">
                     <tr class="hov">
                         <td><?=$row->camp_name ?></td>
-                        <td><?=$row->street ?>, <?=$row->city ?></td>
+                        <td><?=$row->address ?></td>
                         <td><?=$row->date ?></td>
                         <td><?=$row->start_time ?></td>
                         <?php if($row->doctor_id!=NULL){?>

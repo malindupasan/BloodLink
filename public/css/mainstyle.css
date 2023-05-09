@@ -63,43 +63,9 @@ body {
 
 
 
-div.sidebar {
-    background-color: #FD9F9F;          
-    width: 15rem;
-    height: 100vh;
-    margin-left: -15rem;
-    /* transition:  0.5s; */
-    transition:  0.2s ;
 
-    /* transition-property: left; */
 
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
-   /* display: flex;
-    height: 1117px;
-    width: 330px; */
-
-}
-
-div.exsdbar {
-            
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-left: 0rem;
-    
-    /* opacity: 50%; */
-    /* margin-left: 15rem; */
-    transition: 0.2s;
-
-   /* height: 173px;
-   
-    width: 1398px;*/
-
-}
 
 div.navbar {
     display: flex;
@@ -612,35 +578,6 @@ div.actve{
 }
 
 
-/* -----------------hide side bar------------- */
-
-label #sidebar_btn{
-    z-index: 1;
-    color: #000000;
-    position: fixed;
-    cursor: pointer;
-    margin-top: 1.9rem;
-    margin-left: 1rem;
-    font-size: 2rem;
-    
-}
-
-#check:checked ~ .sidebar{
-    margin-left: 0rem;
-    /* transform: translateX(-15rem); */
-}
-
-
-
-#check:checked ~ .exsdbar{
-    margin-left: 15rem;
-
-
-}
-
-#check:checked ~ .nleft{
-    margin-left: 4rem;
-}
 
 
 
@@ -671,10 +608,7 @@ div.tocheck,div.checked,div.rejected{
     align-items: center;
 }
 
-div.activenav{
-    background-color: #fb7e7e;
-    font-size: 1.2rem;
-}
+
 
 
 
@@ -692,6 +626,11 @@ div.vreq,div.sreq,div.sendreq{
     justify-content: center;
     align-items: center;
     
+}
+
+div.activenav{
+    background-color: #fb7e7e;
+    font-size: 1.2rem;
 }
 
 div.cont{

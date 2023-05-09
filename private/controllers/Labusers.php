@@ -6,7 +6,7 @@ class Labusers extends Controller
             $data2=array();
 
             $essentials=array();
-            $resultsperpage= 8;
+            $resultsperpage= 15;
             
             $usrs = new BLLab();
             $data = $usrs->findAll();
@@ -58,5 +58,33 @@ class Labusers extends Controller
          $this->view('labusers', ['rows' => $data2,'ess' => $essentials]);
         //  $this->redirect('404');
         // $this->view('home');
+    }
+
+    function index2(){
+        if (count($_POST) > 0) {
+
+            $text = $_POST['text'];
+            $text=addslashes($text);
+            
+            // $str="mysql:host=localhost;dbname=bloodlink";
+            
+            // try{
+            //     $con= new PDO($str,"root","");
+            
+            // }catch(PDOException $e){
+            //     die($e->getmessage());
+            // }
+            // $don=new BLDonor();
+            $usrs = new BLLab();
+
+            $stm="select * from lab_staff where name like '$text%'";
+
+            
+            $results=$usrs->query($stm);
+            
+            echo json_encode($results);
+            // $data = $user->query($query);
+            // echo (json_encode($data));
+             }
     }
 }

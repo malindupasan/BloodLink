@@ -1,9 +1,9 @@
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 <link rel="stylesheet" href="<?=ROOT?>/css/reportstyle.css">
 
 
 <script src="<?=ROOT?>/scripts/genrep2.js"></script>  
-<button  class="subbtn sp" onclick="genPDF()">pdf</button>
+<button  class="subbtn sp" onclick="genPDF('Defect Details')">pdf</button>
 
 
 <div class="section" id="section">

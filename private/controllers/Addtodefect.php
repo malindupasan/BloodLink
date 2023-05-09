@@ -26,9 +26,14 @@ class Addtodefect extends Controller
             $arr['doctor_id'] = $_POST['docid'];
             $arr['donor_id'] = $_POST['donid'];
             $arr['date'] = $_POST['date'];
+            $arr['type']= $_POST['type'];
             $arr['reason'] = $_POST['reason'];
 
             $arr2['is_defect']=1;
+
+            $arr3['status']=3;
+
+            $bp->update($id,$arr3);
             $don->update($did,$arr2);
 
             $def->insert($arr);

@@ -47,8 +47,18 @@ div.in{
 
 }
 
-input{
+input,select{
     width: 80%;
+    height: 2rem;
+    padding-left: 1rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.5rem;
+    box-sizing:border-box;
+    resize: vertical;
+}
+
+select{
+    width: 10%;
     height: 2rem;
     padding-left: 1rem;
     border: 0.1rem solid #ccc;
@@ -89,6 +99,14 @@ button:hover {
 }
 
 .formcontrol.success textarea{
+    border-color: rgb(7, 250, 7);
+}
+
+.formcontrol.error select{
+    border-color: rgb(250, 7, 7);
+}
+
+.formcontrol.success select{
     border-color: rgb(7, 250, 7);
 }
 

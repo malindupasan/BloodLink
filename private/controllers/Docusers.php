@@ -6,7 +6,7 @@ class Docusers extends Controller
             $data2=array();
 
             $essentials=array();
-            $resultsperpage= 8;
+            $resultsperpage= 15;
             
             $usrs = new BLDoc();
             $data = $usrs->findAll();
@@ -61,5 +61,23 @@ class Docusers extends Controller
         // $this->view('home');
     }
 
-   
+    function index2(){
+        if (count($_POST) > 0) {
+
+            $text = $_POST['text'];
+            $text=addslashes($text);
+            
+           
+            $usrs = new BLDoc();
+
+            $stm="select * from doctor where name like '$text%'";
+
+            
+            $results=$usrs->query($stm);
+            
+            echo json_encode($results);
+            // $data = $user->query($query);
+            // echo (json_encode($data));
+             }
+    }
 }

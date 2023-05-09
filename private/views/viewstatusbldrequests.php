@@ -1,7 +1,7 @@
-<?php $this->view('includes/pageinit'); ?>
+<?php $this->view('pageinit'); ?>
 
-<?php $this->view('includes/nav'); ?>
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('nav'); ?>
+<?php $this->view('navup'); ?>
 
 <link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
 
@@ -62,7 +62,7 @@
                             }?>
                         </td>
                         
-                        <td><a  href="<?=ROOT?>/bldreqdetails?id=<?=$row->request_id?>"><button class="bdcvbtn"><i class="fas fa-eye" id="view_btn"></i></button></a></td>
+                        <td><a  href="<?=ROOT?>/viewbldreqdetails/index2?id=<?=$row->request_id?>"><button class="bdcvbtn"><i class="fas fa-eye" id="view_btn"></i></button></a></td>
 
 
                         

@@ -1,11 +1,9 @@
-<?php $this->view('includes/pageinit'); ?>
-
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('pageinit'); ?>
+<?php $this->view('navup'); ?>
 
 <link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
 <link rel="stylesheet" href="<?=ROOT?>/css/bldreqform.css">
 <link rel="stylesheet" href="<?=ROOT?>/css/onetimeformstyle.css">
-
 
 <?php $date=date('Y-m-d');?>
 
@@ -81,14 +79,15 @@
                   </div>
 
               </div>
-             <div class="dash">
 
-             </div>
+             <div class="dash"></div>
+             
              <table>
                 <tr>
                     <th>Blood Type</th>
                     <th>Blood Group</th>
                     <th>Amount</th>
+                    <th></th>
 
                 </tr>
                 <?php if(!empty($_SESSION['cart'])){
@@ -97,7 +96,7 @@
                             <td><?=$value['btype'];?></td>
                             <td><?=$value['bgrp'];?></td>
                             <td><input name=<?=$value['name']?> value=<?=$value['bamnt']?>></td>
-
+                            <td><a href="<?=ROOT?>/bldrequestform?action=delete&bt=<?=$value['btype'];?>&bg=<?=$value['bgrp'];?>">Remove</a></td>
 
                         </tr>
 
@@ -124,8 +123,7 @@
               
           </form>
         </div>
-        <button class="Addbtn" onclick="openForm()"><i class="fas fa-plus"></i>Add
-</button>
+        <button class="Addbtn" onclick="openForm()"><i class="fas fa-plus"></i>Add</button>
 
         <!-- --------------------------form popup-------------------- -->
         <div id="myForm" class="form-popup">
