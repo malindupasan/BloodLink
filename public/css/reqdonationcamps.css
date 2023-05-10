@@ -60,23 +60,26 @@
 .labels1{
     font-size: 1.5rem;
     width: 5rem;
+    position: absolute;
+
     margin-right: 9.5rem;
     
 }
 .labels2{
+
     font-size: 1.5rem;
     width: 5rem;
     margin-left: 7rem;
     
 }
 .inp1{
-    width: 65rem;
+    width: 60rem;
     height: 2rem;
     padding-left:1rem;
-
     background: #F3F3F3;
     border-radius: 10px;
     border: none;
+    
 }
 .inps{
     width: 25rem;
@@ -85,6 +88,7 @@
     background: #F3F3F3;
     border-radius: 10px;
     border: none;
+   
     
 }
 .location{
@@ -108,6 +112,91 @@
     margin-bottom: 4rem;
     border-radius: 2rem;
 }
+.form-item,
+.subform-item {
+    margin-bottom: 0.1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
+    position: relative;
+    /* color: #b1b3b5; */
+}
+
+
+
+
+.subform-item label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.subform-item input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+
+}
+.form-item i{
+    visibility: hidden;
+    top: 1.5rem;
+    right: 1rem;
+}
+.subform-item i{
+    visibility: hidden;
+    top: 1.5rem;
+    right: 1rem;
+}
+.subform-item small{
+    visibility: hidden;
+    bottom: 0;
+    left: 15rem;
+    width: 10rem;
+    /* visibility: hidden; */
+}
+
+.form-item small{
+    visibility: hidden;
+    bottom: 0;
+    left: 15rem;
+    width: 10rem;
+    /* visibility: hidden; */
+}
+.form-item.success input{
+    border-color: #2ecc71;
+}
+
+.form-item.success error{
+    border-color: #e74c3c;
+}
+
+.subform-item.success input{
+    border-color: #2ecc71;
+}
+
+.form-item.success i.fa-circle-check{
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.subform-item.success i.fa-circle-check{
+    color: #2ecc71;
+    visibility: visible;
+}
+.subform-item.error i.fa-circle-exclamation{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+
+.form-item.success error{
+    border-color: #e74c3c;
+}
+
+
+
+.subform-item.success error{
+    border-color: #e74c3c;
+}
+
 .locationinp{
     height: 2rem;
     width: 10rem;

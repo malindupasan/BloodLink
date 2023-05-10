@@ -1,8 +1,6 @@
 <?php
 
-/**
- * User model
- */
+
 
  class Rawblood extends Model
  {
@@ -250,6 +248,28 @@
 
         ]);
     }
+    public function check3years($arr)
+    {
+        $size = count($arr); //size of array
+        if ($size >= 3) {
+            for ($i = 0; $i < $size - 2; $i++) {
+                $d1 = date_create($arr[$i]);
+                $d2 = date_create($arr[$i+2]);
+               
+                // print_r ($d1);
+                // print_r ($d2);
+                
+                if (date_diff($d1,$d2)->format("%a") <= 365) {
+                    
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return false;
+        }
+
+    }
 
     public function thisyearnondefect($column1, $value1,$column2, $value2,)
     {
@@ -270,48 +290,7 @@
 
   
 
-   // protected $allowedColumns = ['fullname','email','nic','mobile','city','address','password'];
-   // protected $beforeInsert = ['hash_password'];
-
-
-//    public function validate($DATA)
-//    {
-
-//       $this->errors = array();
-
-
-
-//       if (!(filter_var($DATA["email"], FILTER_VALIDATE_EMAIL))) {
-//          $this->errors[]=("Valid email is required");
-//      }
-     
-//      if (strlen($DATA["password"]) < 8) {
-//       $this->errors[]=("Password must be at least 8 characters");
-//      }
-     
-//      if (!preg_match("/[a-z]/i", $DATA["password"])) {
-//       $this->errors[]=("Password must contain at least one letter");
-//      }
-     
-//      if (!preg_match("/[0-9]/", $DATA["password"])) {
-//       $this->errors[]=("Password must contain at least one number");
-//      }
-     
-//      if ($DATA["password"] !== $DATA["cPassword"]) {
-//       $this->errors[]=("Passwords must match");
-//      }
-//      if(count($this->errors) == 0){
-//          return true;
-//      }
-
-//       return false;
-//    }
-
-//    public function hash_password($data)
-//    {
-//       $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-//       return $data;
-//    }
+ 
 
 
   }
