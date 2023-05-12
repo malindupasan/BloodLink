@@ -1,14 +1,13 @@
 
  <?php $this->view("includes/navbar",); ?>
 
-
     <link rel="stylesheet" href="<?=ROOT?>/css/camppage.css">
     <title><?= $data['rows']->camp_name?></title>
 
     <div class="sec1">
         <h2 class="sec1-h"><?= $data['rows']->camp_name?></h2>
         <div class="div-a">
-        <?php if(($data['rows']->date)<=date("Y-m-d")):?> <a href="<?=ROOT?>/viewcampfeedback?id=<?=$data['rows']->campID?>" class="qrbtn">Feedback</a><?php endif;?>
+        <?php if(($data['rows']->date)<=date("Y-m-d")):?> <a href="<?=ROOT?>/viewcampfeedback?id=<?=$data['rows']->camp_id?>" class="qrbtn">Feedback</a><?php endif;?>
          <a href="<?=ROOT?>/campqr?id='<?=$data['rows']->camp_id?>'" class="qrbtn">GET QR</a>
         
     </div>

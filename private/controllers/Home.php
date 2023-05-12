@@ -14,6 +14,7 @@ class Home extends Controller
         $email=Auth::getemail();    
         $data = $user->where("email", $email);
 
+        // print_r($data);
         
         $this->view('home', ['rows' => $data[0]]);
        

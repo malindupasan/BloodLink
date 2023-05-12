@@ -3,7 +3,7 @@
 
 .sec0{
     height: 3rem;
-    width: 120rem;
+    width: 100%;
     margin-top: 3rem;
     display: flex;
     flex-direction: row;
@@ -83,6 +83,8 @@ div.table {
     text-justify: center;
     justify-items: center;
     border: none;
+    margin-right: 1rem;
+
 }
 .addbtn:hover{
     background-color: burlywood;

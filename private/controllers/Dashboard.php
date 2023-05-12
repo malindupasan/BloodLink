@@ -210,53 +210,53 @@ class Dashboard extends Controller
         $def=new BLDefect();
 
         
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Other' AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=0 AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['other']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='HIV/AIDS' AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=1 AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['HIV']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Thalasemea' AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=2 AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['Thalasemea']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Hemophilia' AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=3 AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['Hemophilia']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Dengue' AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=4 AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['Dengue']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Malaria' AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=5 AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['Malaria']=$data[0]->count;
 
         // ======================previous year==========================
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Other' AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=0 AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['other']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='HIV/AIDS' AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=1 AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['HIV']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Thalasemea' AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=2 AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['Thalasemea']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Hemophilia' AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=3 AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['Hemophilia']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Dengue' AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=4 AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['Dengue']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Malaria' AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=5 AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['Malaria']=$data[0]->count;
         

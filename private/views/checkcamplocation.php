@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="<?= ROOT ?>/css/reqdonationcamps.css">
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTET7frzRd7t4FvurRzw28rbqEE7_oWFU&callback=initMap&libraries=places"></script>
 <script src="http://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script defer src="<?=ROOT?>/js/reqdonationcamps.js"></script>
+<script defer src="<?=ROOT?>/js/checklocation.js"></script>
 <br>
 <h1>Check For a Location</h1>
 <br>

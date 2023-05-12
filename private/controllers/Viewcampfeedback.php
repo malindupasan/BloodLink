@@ -9,7 +9,7 @@ class Viewcampfeedback extends Controller
         }
         $campfb = new Campfeedback2();
         $id = $_GET['id'];
-        $query = "select * from campfeedback where campID =:id";
+        $query = "select * from campfeedback where campId =:id";
         $arr = ['id' => $id];
         $data = $campfb->query($query,$arr);
 
