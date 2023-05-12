@@ -115,3 +115,7 @@ h{
     justify-content: flex-start;
     align-items: center;
 }
+.map{
+    height: 40rem;
+    width: 60rem;
+}

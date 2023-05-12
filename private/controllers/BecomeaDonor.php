@@ -15,7 +15,8 @@ class BecomeaDonor extends Controller
             if($click=='wheretodonate'){
             $bloodbank = new Bloodbank();
             $query = "select * from blood_bank ";
-            $data = $bloodbank->query($query,);
+            $data = $bloodbank->query($query);
+            // print_r($data);
             $this->view('wheretodonate', [$data]);
         }
         else if($click=='amieligible'){
