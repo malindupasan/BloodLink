@@ -16,7 +16,7 @@ class Mainaccepts extends Controller
             $resultsperpage= 15;
             
             $bdc = new Bdcreq();
-            $data = $bdc->bdcwhere("status",1,"blood_bank_id",$bbid);
+            $data = $bdc->bdcwhere("status",1,"blood_bank",$bbid);
 
             if($data!=NULL){
             $numofresults=count($data);
@@ -32,7 +32,7 @@ class Mainaccepts extends Controller
 
             $thispagefirstres=($page-1)*$resultsperpage;
 
-            $data2= $bdc->paginbdcwhere("status",1,"blood_bank_id",$bbid,$thispagefirstres,$resultsperpage);
+            $data2= $bdc->paginbdcwhere("status",1,"blood_bank",$bbid,$thispagefirstres,$resultsperpage);
         }
 // ----------------------------------pagination end----------------------
         

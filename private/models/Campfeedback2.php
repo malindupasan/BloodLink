@@ -7,7 +7,7 @@ class Campfeedback2 extends Model
 
 
 
-    protected $allowedColumns = ['campId', 'name', 'feedback','rate','date'];
+    protected $allowedColumns = ['id', 'campId', 'name','feedback','rate','date'];
     
 
 

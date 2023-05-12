@@ -48,7 +48,7 @@
                 <h3 class="cheading"><?= $data[$i]->camp_name?></h3>
                 <small class="datesmall"><?= $data[$i]->date?></small>
                 <p class="desctxt">
-                <?php $marks=strlen($data[$i]->description); echo ($marks<255) ? $data[$i]->description : substr($data[$i]->description,0,250.)."...";?>          </p>
+                <?php $marks=strlen($data[$i]->description); echo ($marks<155) ? $data[$i]->description : substr($data[$i]->description,0,150.)."...";?>          </p>
 
             </div>
         </div>

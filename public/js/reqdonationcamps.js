@@ -14,7 +14,7 @@ console.log("message");
 
 
 form.addEventListener("submit", (e) => {
-    valid = false;
+    valid = true;
 
     e.preventDefault();
     inputChecker();
@@ -48,7 +48,7 @@ async function inputChecker() {
     }
     if (cityVal === "") {
         //error message
-        displayError(city, "Camp name can't be empty");
+        displayError(city, "City can't be empty");
 
     } else {
         //display success tick
@@ -56,7 +56,7 @@ async function inputChecker() {
     }
     if (housenoVal === "") {
         //error message
-        displayError(houseno, "Camp name can't be empty");
+        displayError(houseno, "House No name can't be empty");
 
     } else {
         //display success tick
@@ -64,7 +64,7 @@ async function inputChecker() {
     }
     if (streetVal === "") {
         //error message
-        displayError(street, "Camp name can't be empty");
+        displayError(street, "Street name can't be empty");
 
     } else {
         //display success tick
@@ -72,7 +72,7 @@ async function inputChecker() {
     }
     if (phoneVal === "") {
         //error message
-        displayError(phone, "Camp name can't be empty");
+        displayError(phone, "Phone No name can't be empty");
 
     } else {
         //display success tick
@@ -80,7 +80,7 @@ async function inputChecker() {
     }
     if (dateVal === "") {
         //error message
-        displayError(date, "Camp name can't be empty");
+        displayError(date, "Date name can't be empty");
 
     } else {
         //display success tick
@@ -113,6 +113,7 @@ function displayError(input, message) {
 
     f.className = "f error";
 
+
     //add error message
     small.innerText = message;
     //add error class
@@ -122,6 +123,7 @@ function displaySuccess(input) {
     const f = input.parentElement;
 
     f.className = "f success";
+
 
 
 }
@@ -187,4 +189,3 @@ function initAutocomplete() {
 //here
 
 document.addEventListener("DOMContentLoaded", function (event) { initAutocomplete() });
-

@@ -14,7 +14,7 @@ class Checklocation extends Controller
             $lat = $_GET['latitude'];
             $lng = $_GET['longitude'];
 
-            $q1 = "select  dc.latitude,dc.longitude , def.def_type from raw_blood_packet bp inner join blood_donation_camp dc on bp.blood_donation_camp_id = dc.camp_id inner join defect def on 
+            $q1 = "select  dc.latitude,dc.longitude , def.type from raw_blood_packet bp inner join blood_donation_camp dc on bp.blood_donation_camp_id = dc.camp_id inner join defect def on 
             bp.donor_id= def.donor_id where bp.status=3 ";
             $res = $def->query($q1);
             $regArr = array();
@@ -23,7 +23,7 @@ class Checklocation extends Controller
                 $regArr[] = array(
                     'latitude' => $obj->latitude,
                     'longitude' => $obj->longitude,
-                    'def_type' => $obj->def_type
+                    'type' => $obj->type
                 );
             }
             $data=$def->findBranchesWithin10Km($lat,$lng,$regArr);

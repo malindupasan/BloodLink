@@ -17,17 +17,17 @@
     <div class="sec2-1">
         <h1 class="sec2_h">Become a <br>Donor</h1>
         <p class="sec2_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem tenetur eligendi deleniti sequi! Deserunt labore tempora sit fugit voluptates similique vel ipsa reprehenderit! Suscipit voluptatibus aut impedit asperiores architecto recusandae.</p>
-        <button class="sec2_btn">Read More !</button>
+       <a href="<?=ROOT?>/becomeadonor"><button class="sec2_btn">Read More !</button></a> 
     </div>
     <div class="sec2-1">
-       <h1 class="sec2_h"> Why give Blood?</h1>
+       <h1 class="sec2_h">Organize a blood donation camp?</h1>
        <p class="sec2_p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis aut autem quam obcaecati, impedit quae voluptates doloremque pariatur qui sint. Impedit, illum ducimus mollitia veniam ab tenetur libero nam excepturi?</p>
-       <button class="sec2_btn">Read More !</button>
+      <a href="<?=ROOT?>/Viewcampreqstatus"> <button class="sec2_btn">Read More !</button></a>
     </div>
     <div class="sec2-1">
-       <h1 class="sec2_h">How donation <br> Helps</h1> 
+       <h1 class="sec2_h">Looking for a place to donate blood? </h1> 
        <p class="sec2_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam ad tempora excepturi cupiditate nam labore veniam quam praesentium! Sit nesciunt quia fugiat nisi adipisci, est neque deserunt tenetur a beatae?</p>
-       <button class="sec2_btn">Read More !</button>
+      <a href="<?=ROOT?>/campaigns"> <button class="sec2_btn">Read More !</button></a>
     </div>
 
 </div>

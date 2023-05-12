@@ -7,7 +7,7 @@ class Defect extends Model
 
 
 
-    protected $allowedColumns = ['defect_id ', 'doctor_id', 'donor_id','reason','date','def_type'];
+    protected $allowedColumns = ['defect_id ', 'doctor_id', 'donor_id','reason','date','type'];
 
    
     
@@ -22,7 +22,7 @@ class Defect extends Model
             $distance = $def->calculateDistance($cityLat, $cityLong, $branchLat, $branchLong);
             
             if($distance <= 10) {
-                $branchesWithin10Km[] = $branch['def_type'];
+                $branchesWithin10Km[] = $branch['type'];
             }
         }
         

@@ -156,7 +156,7 @@
                 resultdiv.innerHTML = str;
             }
         })
-        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/labusers/index2', true);
+        ajax.open('post', 'http://localhost:8888/Bloood%20Link%202/public/labusers/index2', true);
         ajax.send(form);
     }
 </script>
