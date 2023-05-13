@@ -116,6 +116,8 @@ h{
     align-items: center;
 }
 .map{
-    height: 40rem;
-    width: 60rem;
+    height: 45rem;
+    width: 40rem;
+    box-shadow: brown;
+    margin-bottom: 6rem;
 }
