@@ -1,10 +1,14 @@
 <?php $this->view("includes/navbar", ); ?>
 <title>Where to Donate?</title>
 <?php $i = 0 ?>
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTET7frzRd7t4FvurRzw28rbqEE7_oWFU&callback=initMap&libraries=places"></script>
+<script src="http://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <link rel="stylesheet" href="<?= ROOT ?>/css/wheretodonate.css">
 <?php
 $data = $data[0];
-// print_r($data); 
+// print_r($data[2]); 
 ?>
 <div class="sec1">
     <h1>Become a Donor</h1>
@@ -87,7 +91,7 @@ function initAutocomplete() {
   
         
 
-    locations.push({lat:parseFloat(<?= $key['latitude'] ?>), lng:parseFloat(<?= $key['longitude'] ?>)});
+    locations.push({lat:parseFloat(<?= $key->latitude ?>), lng:parseFloat(<?= $key->longitude ?>)});
     
     
     
