@@ -18,7 +18,13 @@ class AdminDonationCamps extends Controller
         $resultsperpage = 15;
 
         $usrs = new Admin_DonationCamps();
-        $data = $usrs->findAll();
+        $quarry = "SELECT blood_donation_camp.*, blood_bank.name AS blood_bank_name
+        FROM blood_donation_camp
+        LEFT JOIN blood_bank 
+        ON blood_donation_camp.blood_bank_id = blood_bank.blood_bank_id;
+        
+                    ";
+        $data = $usrs->query($quarry);
 
         if ($data != NULL) {
             $numofresults = count($data);

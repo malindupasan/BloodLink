@@ -117,10 +117,10 @@
 
             <div class="s_tag">
                 <form>
-                    <input type="text" placeholder="&#xf002; Search Doctor..." class="jssearch" oninput=get_data()>
+                    <input type="text" placeholder="&#xf002; Search Doctor..." class="jssearch inp" oninput=get_data()>
 
                 </form>
-                <a href="<?= ROOT ?>/adminstaffusers"><button class="reset">Reset</button></a>
+                <!-- <a href="<?= ROOT ?>/adminstaffusers"><button class="reset">Reset</button></a> -->
 
             </div>
 
@@ -135,61 +135,65 @@
 
                     <h2>Add Doctor</h2>
 
-                    <div class="name1">
-                        <label class="lable22" for="blood-bank-name">Name </label>
-                        <input class="Bname" type="text" id="name" name="name"><br>
-                        <small>error message</small>
+                    <div class="l2">
+                        <div class="f">
+                            <label class="lable22" for="blood-bank-name">Name </label>
+                            <input class="input qw" placeholder="Full Name" type="text" id="name" name="name"><br>
+                            <small>error message</small>
+                        </div>
                     </div>
 
                     <div class="l2">
 
-                        <div class="d3">
+                        <div class="f">
                             <label class="lable22" for="no">Email </label>
-                            <input class="d3-no" type="text" id="email" name="email"><br>
+                            <input class="input" placeholder="Email" type="text" id="email" name="email"><br>
                             <small>error message</small>
                         </div>
 
-                        <div class="d3">
+                        <div class="f">
                             <label class="lable22" for="no">NIC </label>
-                            <input class="d3-no" type="text" id="nic" name="nic"><br>
-                            <small>error message</small>
-                        </div>
-
-                    </div>
-
-                    <div class="name1">
-                        <label class="lable22" for="blood-bank-name">Street </label>
-                        <input class="Bname" type="text" id="street" name="street"><br>
-                        <small>error message</small>
-                    </div>
-
-                    <div class="l2">
-
-                        <div class="d3">
-                            <label class="lable22" for="no">House No. </label>
-                            <input class="d3-no" type="text" id="house_no" name="house_no"><br>
-                            <small>error message</small>
-                        </div>
-
-                        <div class="d3">
-                            <label class="lable22" for="no">City </label>
-                            <input class="d3-no" type="text" id="city" name="city"><br>
+                            <input class="input" placeholder="Your NIC" type="text" id="nic" name="nic"><br>
                             <small>error message</small>
                         </div>
 
                     </div>
 
                     <div class="l2">
+                        <div class="f">
+                            <label class="lable22" for="">Street </label>
+                            <input class="input qw" placeholder="Street" type="text" id="street" name="street"><br>
+                            <small>error message</small>
+                        </div>
+                    </div>
 
-                        <div class="d3 ">
+                    <div class="l2">
+
+                        <div class="f">
+                            <label class="lable22" for="">House No. </label>
+                            <input class="input" placeholder="House No" type="text" id="house_no" name="house_no"><br>
+                            <small>error message</small>
+                        </div>
+
+                        <div class="f">
+                            <label class="lable22" for="">City </label>
+                            <input class="input" placeholder="City" type="text" id="city" name="city"><br>
+                            <small>error message</small>
+                        </div>
+
+                    </div>
+
+                    <div class="l2">
+
+                        <div class="f">
                             <label class="lable22" for="street">Telephone No.</label>
-                            <input class="d4-street error" type="text" id="telephone" name="telephone">
+                            <input class="input" type="text" placeholder="Telephone Number" id="telephone" name="telephone">
                             <small>error message</small>
                         </div>
 
-                        <div class="d3">
+                        <div class="f">
                             <label class="lable22" for="street">Medical ID</label>
-                            <input class="d4-street" type="text" id="medical_id" name="medical_id"><br>
+                            <input class="input" placeholder="Medical ID" type="text" id="medical_id" name="medical_id"><br>
                             <small>error message</small>
                         </div>
 
@@ -197,9 +201,15 @@
 
                     <div class="l2">
 
-                        <div class="d3">
+                        <div class="f">
                             <label class="lable22" for="street">Blood Bank ID</label>
-                            <input class="d4-street" type="text" id="blood_bank_id " name="blood_bank_id "><br>
+                            <input class="input" placeholder="Blood Bank ID" type="text" id="blood_bank_id" name="blood_bank_id"><br>
+                            <small>error message</small>
+                        </div>
+
+                        <div class="f">
+                            <label class="lable22" for="city">Admin ID</label>
+                            <input class="input" placeholder="Admin ID" type="text" id="admin_id" name="admin_id"><br>
                             <small>error message</small>
                         </div>
 
@@ -207,15 +217,15 @@
 
                     <div class="l2">
 
-                        <div class="d3">
+                        <div class="f">
                             <label class="lable22" for="city">Password </label>
-                            <input class="d3-city" type="text" id="password" name="password"><br>
+                            <input class="input" placeholder="Password" type="password" id="password" name="password"><br>
                             <small>error message</small>
                         </div>
 
-                        <div class="d3">
+                        <div class="f">
                             <label class="lable22" for="city">Confirm Password </label>
-                            <input class="d3-city" type="text" id="password" name="password"><br>
+                            <input class="input" placeholder="Confirm Password" type="password" id="password" name="password"><br>
                             <small>error message</small>
                         </div>
 
@@ -239,7 +249,7 @@
             <table class="table1">
                 <thead>
                     <tr>
-                        
+
                         <th>Name</th>
                         <th>User NIC</th>
                         <th>Blood Bank</th>
@@ -254,7 +264,7 @@
 
                     <?php foreach ($rows as $value) : ?>
                         <tr>
-                            
+
                             <td><?= $value->name ?></td>
                             <td><?= $value->nic ?></td>
                             <td><?= $value->blood_bank_name ?></td>
@@ -280,61 +290,85 @@
                                                     <input class="Bname" type="text" id="id" name="id" value="<?= $value->id ?>" readonly><br>
                                                 </div>
 
-                                                <div class="name1">
-                                                    <label class="lable22" for="blood-bank-name">Name </label>
-                                                    <input class="Bname" type="text" id="name" name="name" value="<?= $value->name ?>"><br>
-                                                    <small>error message</small>
+
+
+                                                <div class="l2">
+                                                    <div class="f">
+                                                        <label class="lable22" for="blood-bank-name">Name </label>
+                                                        <input class="input qw" placeholder="Full Name" type="text" id="name" name="name" value="<?= $value->name ?>"><br>
+                                                        <small>error message</small>
+                                                    </div>
                                                 </div>
 
                                                 <div class="l2">
 
-                                                    <div class="d3">
+                                                    <div class="f">
                                                         <label class="lable22" for="no">Email </label>
-                                                        <input class="d3-no" type="text" id="email" name="email" value="<?= $value->email ?>"><br>
+                                                        <input class="input" placeholder="Email" type="text" id="email" name="email" value="<?= $value->email ?>"><br>
                                                         <small>error message</small>
                                                     </div>
 
-                                                    <div class="d3">
+                                                    <div class="f">
                                                         <label class="lable22" for="no">NIC </label>
-                                                        <input class="d3-no" type="text" id="nic" name="nic" value="<?= $value->nic ?>"><br>
-                                                        <small>error message</small>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="name1">
-                                                    <label class="lable22" for="blood-bank-name">Street </label>
-                                                    <input class="Bname" type="text" id="street" name="street" value="<?= $value->street ?>"><br>
-                                                    <small>error message</small>
-                                                </div>
-
-                                                <div class="l2">
-
-                                                    <div class="d3">
-                                                        <label class="lable22" for="no">House No. </label>
-                                                        <input class="d3-no" type="text" id="house_no" name="house_no" value="<?= $value->house_no ?>"><br>
-                                                        <small>error message</small>
-                                                    </div>
-
-                                                    <div class="d3">
-                                                        <label class="lable22" for="no">City </label>
-                                                        <input class="d3-no" type="text" id="city" name="city" value="<?= $value->city ?>"><br>
+                                                        <input class="input" placeholder="Your NIC" type="text" id="nic" name="nic" value="<?= $value->nic ?>"><br>
                                                         <small>error message</small>
                                                     </div>
 
                                                 </div>
 
                                                 <div class="l2">
+                                                    <div class="f">
+                                                        <label class="lable22" for="">Street </label>
+                                                        <input class="input qw" placeholder="Street" type="text" id="street" name="street" value="<?= $value->street ?>"><br>
+                                                        <small>error message</small>
+                                                    </div>
+                                                </div>
 
-                                                    <div class="d3 ">
+                                                <div class="l2">
+
+                                                    <div class="f">
+                                                        <label class="lable22" for="">House No. </label>
+                                                        <input class="input" placeholder="House No" type="text" id="house_no" name="house_no" value="<?= $value->house_no ?>"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                    <div class="f">
+                                                        <label class="lable22" for="">City </label>
+                                                        <input class="input" placeholder="City" type="text" id="city" name="city" value="<?= $value->city ?>"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="l2">
+
+                                                    <div class="f">
                                                         <label class="lable22" for="street">Telephone No.</label>
-                                                        <input class="d4-street error" type="text" id="telephone" name="telephone" value="<?= $value->telephone ?>">
+                                                        <input class="input" type="text" placeholder="Telephone Number" id="telephone" name="telephone" value="<?= $value->telephone ?>">
                                                         <small>error message</small>
                                                     </div>
 
-                                                    <div class="d3">
+                                                    <div class="f">
                                                         <label class="lable22" for="street">Blood Bank ID</label>
-                                                        <input class="d4-street" type="text" id="blood_bank_id " name="blood_bank_id" value="<?= $value->blood_bank_id ?>"><br>
+                                                        <input class="input" placeholder="Blood Bank ID" type="text" id="blood_bank_id" name="blood_bank_id" value="<?= $value->blood_bank_id ?>"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="l2">
+
+                                                    <div class="f">
+                                                        <label class="lable22" for="city">Password </label>
+                                                        <input class="input" placeholder="Password" type="password" id="password" name="password" value="<?= $value->password ?>"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                    <div class="f">
+                                                        <label class="lable22" for="city">Confirm Password </label>
+                                                        <input class="input" placeholder="Confirm Password" type="password" id="password" name="password" value="<?= $value->password ?>"><br>
                                                         <small>error message</small>
                                                     </div>
 
@@ -371,6 +405,7 @@
 
 
 
+<script src="<?= ROOT ?>/js/Admin_Add_Doctor.js"></script>
 
 
 <script>
@@ -411,14 +446,14 @@
                 console.log(obj);
                 var resultdiv = document.querySelector(".jstable");
                 if (resultdiv) { // check if the element exists
-                    var str = "<table><thead><tr><th>Medical ID</th><th>Name</th><th>User NIC</th><th>Blood Bank</th><th>Telephone</th><th>Email</th><th></th></tr><thead>";
+                    var str = "<table><thead><tr><th>Name</th><th>User NIC</th><th>Blood Bank</th><th>Telephone</th><th>Home Town</th><th>Email</th><th></th></tr><thead>";
                     for (var i = obj.length - 1; i >= 0; i--) {
                         console.log(obj[i].name);
-                        str += "<tr class='hov'><td>" + obj[i].medical_id +
-                            "</td> <td>" + obj[i].name +
+                        str += "<tr class='hov'><td>" + obj[i].name +
                             "</td> <td>" + obj[i].nic +
                             "</td> <td>" + obj[i].blood_bank_name +
                             "</td> <td>" + obj[i].telephone +
+                            "</td> <td>" + obj[i].city +
                             "</td> <td>" + obj[i].email +
                             "</td> <td>" + `<div class="edit">
                             <div class="city1">
@@ -429,44 +464,74 @@
 
                                 <div id="myForm${obj[i].id}" class="form-popup myForm1">
                                     <form method="post" class="form-container">
+                                    
 
                                         <h2>Edit Doctor</h2>
 
-                                        <div class="name1">
-                                            <label class="lable22" for="blood-bank-name">ID </label>
-                                            <input class="Bname" type="text" id="id" name="id" value="${obj[i].id}" readonly><br>
-                                        </div>
+                                                <div class="name1" hidden>
+                                                    <label class="lable22" for="blood-bank-name">ID </label>
+                                                    <input class="Bname" type="text" id="id" name="id" value="${obj[i].id}" readonly><br>
+                                                </div>
 
-                                        <div class="name1">
-                                            <label class="lable22" for="blood-bank-name">Blood Bank Name </label>
-                                            <input class="Bname" type="text" id="name" name="name" value="${obj[i].name}"><br>
-                                        </div>
+                                                <div class="name1">
+                                                    <label class="lable22" for="blood-bank-name">Name </label>
+                                                    <input class="Bname" type="text" id="name" name="name" value="${obj[i].name}"><br>
+                                                    <small>error message</small>
+                                                </div>
 
-                                        <div class="d3">
-                                            <label class="lable22" for="no">Email </label>
-                                            <input class="d3-no" type="text" id="email" name="email" value="${obj[i].email}"><br>
-                                        </div>
+                                                <div class="l2">
 
-                                        <div class="name1">
-                                            <label class="lable22" for="blood-bank-name">Telephone No. </label>
-                                            <input class="Bname" type="text" id="telephone" name="telephone" value="${obj[i].telephone}"><br>
-                                        </div>
+                                                    <div class="d3">
+                                                        <label class="lable22" for="no">Email </label>
+                                                        <input class="d3-no" type="text" id="email" name="email" value="${obj[i].email}"><br>
+                                                        <small>error message</small>
+                                                    </div>
 
+                                                    <div class="d3">
+                                                        <label class="lable22" for="no">NIC </label>
+                                                        <input class="d3-no" type="text" id="nic" name="nic" value="${obj[i].nic}"><br>
+                                                        <small>error message</small>
+                                                    </div>
 
-                                        <div class="d3">
-                                            <label class="lable22" for="no">NIC </label>
-                                            <input class="d3-no" type="text" id="nic" name="nic" value="${obj[i].nic}"><br>
-                                        </div>
+                                                </div>
 
-                                        <div class="street">
-                                            <label class="lable22" for="street">Medical ID</label>
-                                            <input class="d4-street" type="text" id="medical_id" name="medical_id" value="${obj[i].medical_id}"><br>
-                                        </div>
+                                                <div class="name1">
+                                                    <label class="lable22" for="blood-bank-name">Street </label>
+                                                    <input class="Bname" type="text" id="street" name="street" value="${obj[i].street}""><br>
+                                                    <small>error message</small>
+                                                </div>
 
-                                        <div class="street">
-                                            <label class="lable22" for="street">Blood Bank ID</label>
-                                            <input class="d4-street" type="text" id="blood_bank_id " name="blood_bank_id" value="${obj[i].blood_bank_id}"><br>
-                                        </div>
+                                                <div class="l2">
+
+                                                    <div class="d3">
+                                                        <label class="lable22" for="no">House No. </label>
+                                                        <input class="d3-no" type="text" id="house_no" name="house_no" value="${obj[i].house_no}"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                    <div class="d3">
+                                                        <label class="lable22" for="no">City </label>
+                                                        <input class="d3-no" type="text" id="city" name="city" value="${obj[i].city}"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="l2">
+
+                                                    <div class="d3 ">
+                                                        <label class="lable22" for="street">Telephone No.</label>
+                                                        <input class="d4-street error" type="text" id="telephone" name="telephone" value="${obj[i].telephone}">
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                    <div class="d3">
+                                                        <label class="lable22" for="street">Blood Bank ID</label>
+                                                        <input class="d4-street" type="text" id="blood_bank_id " name="blood_bank_id" value="${obj[i].blood_bank_id}"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                </div>
 
                                         <input name="editForm" value=1 type="hidden">
 

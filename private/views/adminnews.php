@@ -2,7 +2,6 @@
 <?php $this->view('adminnavupDashBoard'); ?>
 
 <?php $i = 0 ?>
-
 <link rel="stylesheet" href="<?= ROOT ?>/css/adminnews.css">
 
 <div class="overlay" id="overlay"></div>
@@ -87,35 +86,42 @@
 
 
                 <div id="myForm1" class="form-popup">
-                    <form method="post" class="form-container">
+                    <form method="post" class="form-container" id="add_news">
 
                         <h2>Add News</h2>
 
-                        <div class="name1">
+                        <div class="f">
                             <label class="lable22" for="blood-bank-name">Title : </label>
-                            <input class="Bname" type="text" id="title" name="title"><br>
+                            <input class="input" type="text" id="title" name="title"><br>
+                            <small>error message</small>
                         </div>
 
-                        <div class="d3">
-                            <label class="lable22" for="blood-bank-name">Description :</label>
-                            <input class="Bname" type="text" id="description" name="description"><br>
-                            <!-- <p class="des" type="input">
-                    <div class="box12">
-                    Hello World 2, Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood B Hello World 2, Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood Banks Hello Blood B
-                    </div>
-                    </p> -->
-
+                        <div class="f">
+                            <label class="lable22" for="blood-bank-name">Admin ID : </label>
+                            <input class="input" type="text" id="admin_id" name="admin_id"><br>
+                            <small>error message</small>
                         </div>
 
-                        <div class="street">
+                        <div class="f">
                             <label class="lable22" for="street">Link : </label>
-                            <input class="d4-street" type="text" id="link" name="link"><br>
+                            <input class="input" type="text" id="link" name="link"><br>
+                            <small>error message</small>
                         </div>
 
-                        <div class="d3">
-                            <label class="lable22" for="no">Image : </label>
-                            <button class="add_image" type="select">Select</button><br>
+                        <div class="f">
+                        <label class="lable22" for="street">Add Image : </label>
+                            <input type="file" name="file" id="file" class="file">
+                            <small class="ss">error message</small>
                         </div>
+
+                        <div class="f">
+                            <label class="lable22" for="blood-bank-name">Description :</label>
+                            <textarea class="input pw" id="description" name="description"></textarea><br>
+                            <small>error message</small>
+
+                        </div>
+
+
 
 
                         <div class="but2">
@@ -145,11 +151,11 @@
             <div class="">
                 <div class="nandd">
                     <div class="name1"><?= $value->title ?></div>
-                    <div class="date"><?= $value->news_id ?></div>
+                    <!-- <div class="date"><?= $value->news_id ?></div> -->
                     <p class="p12">
                         <?php
                         $text = $value->description;
-                        $limit = 190; // The maximum number of characters to show before the "Read More" link
+                        $limit = 275; // The maximum number of characters to show before the "Read More" link
                         if (strlen($text) > $limit) {
                             $text = substr($text, 0, $limit) . '... <a id="myForm" href="#" onclick="openForm(' . $value->news_id . ')">Read More</a><span id="moreText" style="display:none;">';
                         }
@@ -167,14 +173,14 @@
                 <div id="myForm<?= $value->news_id ?>" class="form-popup myForm">
                     <form method="post" class="form-container">
                         <h2><?= $value->title ?></h2>
-                        <div class="name1">
+                        <!-- <div class="name1">
                             <label class="lable22" for="blood-bank-name">News ID</label>
                             <p class="des">
                             <div class="box12">
                                 <?= $value->news_id ?>
                             </div>
                             </p>
-                        </div>
+                        </div> -->
                         <div class="map">
                             <label class="lable22" class="loc" for="map">Description</label>
                             <p class="des">
@@ -211,6 +217,7 @@
 
 
 
+<script src="<?= ROOT ?>/js/add_news.js"></script>
 
 
 
@@ -251,38 +258,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<!-- <?php
-        $text = $value->description;
-
-        $limit = 150; // The maximum number of characters to show before the "Read More" link
-
-        if (strlen($text) > $limit) {
-            $truncatedText = substr($text, 0, $limit);
-            $hiddenText = substr($text, $limit);
-            $text = $truncatedText . ' <a href="#" onclick="loadMore()">Read More</a><span id="moreText"></span>';
-        }
-
-        echo '<p>' . $text . '</p>';
-        ?>
-
-<script>
-    function loadMore() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("moreText").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "loadmore.php", true);
-        xhttp.send();
-    }
-</script> -->

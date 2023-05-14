@@ -21,7 +21,7 @@ class Camppage extends Controller
 
             // $data = $camp->where("camp_id",$id);
             
-            $this->view('camppage', ['rows' =>$reqdata[0]]);
+            $this->view('User/camppage', ['rows' =>$reqdata[0]]);
         }
         else{
             print_r($id);

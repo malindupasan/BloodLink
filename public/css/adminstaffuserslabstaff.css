@@ -567,20 +567,18 @@ div.name1 {
 
 
 
-#myForm {
+div.right #myForm {
     width: 48rem;
     height: 47rem;
-    /* padding: 2rem; */
     background-color: white;
     border: 2px solid black;
     text-align: left;
     border-radius: 0.6rem;
 }
 
-.myForm1 {
+div.right .myForm1 {
     width: 50rem;
     height: 48rem;
-    /* padding: 2rem; */
     background-color: white;
     border: 2px solid black;
     text-align: left;

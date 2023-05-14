@@ -23,7 +23,7 @@ class Contactus extends Controller
         }
 
 
-        $this->view('contactus', ['rows' => $data[0]]);
+        $this->view('User/contactus', ['rows' => $data[0]]);
        
     }
 }

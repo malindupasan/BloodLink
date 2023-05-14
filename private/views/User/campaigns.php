@@ -19,7 +19,7 @@
     </div>
     <div class="sec2">
         <button id="upcoming-btn" type="button" class="upcoming-btn <?php if($flag[0]==1) echo"selected" ?>">Upcoming</button>
-        <button id="progress-btn" class="progress-btn <?php if($flag[0]==0)echo"selected" ?>">In Progress</button>
+        <button id="progress-btn" class="progress-btn <?php if($flag[0]==0)echo"selected" ?>">Today</button>
         <button id="mycamps-btn" class="mycamps-btn <?php if($flag[0]==2)echo"selected" ?> ">MyCampaigns</button>
     </div>
      <div class="sec3"> 

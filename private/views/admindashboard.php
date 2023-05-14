@@ -148,7 +148,7 @@
                     <table class="table1">
                         <thead>
                             <tr>
-                                <th>Bank ID</th>
+                                
                                 <th>Name</th>
                                 <th>City</th>
                                 <th>Street</th>
@@ -160,7 +160,7 @@
 
                             <?php foreach ($rows8 as $value) : ?>
                                 <tr>
-                                    <td><?= $value->blood_bank_id ?></td>
+                                    
                                     <td><?= $value->name ?></a></td>
                                     <td><?= $value->city ?></td>
                                     <td><?= $value->street ?></td>
@@ -180,14 +180,14 @@
             </div>
 
             <div class="canvasdiv">
-                <h3>Blood Bank</h3>
+                <h3>Blood Donation Camps</h3>
                 <div class="table">
                     <table class="table1">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                
                                 <th>Name</th>
-                                <th>Address</th>
+                                <th>City</th>
                                 <th>Date</th>
                                 <th>Status</th>
 
@@ -196,9 +196,9 @@
                         <tbody>
                             <?php foreach ($rows9 as $value) : ?>
                                 <tr>
-                                    <td><?= $value->camp_id ?></td>
+                                    
                                     <td><?= $value->camp_name ?></td>
-                                    <td><?= $value->address ?></td>
+                                    <td><?= $value->city ?></td>
                                     <td><?= $value->date ?></td>
                                     <td>
                                         <?php

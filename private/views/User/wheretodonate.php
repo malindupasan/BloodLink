@@ -107,14 +107,6 @@ function initAutocomplete() {
 
 
 
-    // var marker = new google.maps.Marker({
-    //     draggable: true,//false
-
-    //     map: map
-    // });
-    // marker.setPosition(srilanka); //change
-    // marker.setVisible(true); //after
-    
  
 
 }

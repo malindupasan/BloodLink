@@ -15,6 +15,6 @@ class Viewcampfeedback extends Controller
 
         // print_r([$data]);
 
-        $this->view('viewcampfeedback',[$data]);
+        $this->view('User/viewcampfeedback',[$data]);
     }
 }

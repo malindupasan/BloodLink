@@ -10,7 +10,7 @@ class CampQR extends Controller
         }
         // echo $qr;
         // echo "<img src=" . ROOT . "/" . $qrcode;
-        $this->view('campqrcode');
+        $this->view('User/campqrcode');
     }
 
 }

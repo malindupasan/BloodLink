@@ -63,7 +63,7 @@ class Campaigns extends Controller
         $data = $camp->query($query,$arr);
         
         // print_r([$data]);
-        $this->view('campaigns', ['data'=>$data,'flag'=>$flag]);
+        $this->view('User/campaigns', ['data'=>$data,'flag'=>$flag]);
 
 
     }

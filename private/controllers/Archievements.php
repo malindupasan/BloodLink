@@ -31,7 +31,7 @@ class Archievements extends Controller
         // print_r($dates);
         $threetimes= $bpckt->check3years($dates); //check weather donor has donated 3 times within a year
         $data['threetimesyear']=$threetimes;
-        $this->view('archievements',$data);
+        $this->view('User/archievements',$data);
         
        
     }

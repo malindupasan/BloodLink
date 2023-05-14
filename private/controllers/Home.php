@@ -16,7 +16,7 @@ class Home extends Controller
 
         // print_r($data);
         
-        $this->view('home', ['rows' => $data[0]]);
+        $this->view('User/home', ['rows' => $data[0]]);
        
     }
 }

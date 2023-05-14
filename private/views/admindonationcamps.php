@@ -104,9 +104,11 @@
         <thead>
             <tr>
                 
-                <th>Name</th>
-                <th>Address</th>
+                <th>Name</th>                
                 <th>Date</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Assigned Blood Bank</th>
                 <th>Status</th>
                 <th></th>
             </tr>
@@ -114,10 +116,13 @@
         <tbody>
             <?php foreach ($rows as $value) : ?>
                 <tr>
-                    
+                
                     <td><?= $value->camp_name ?></td>
-                    <td><?= $value->address ?></td>
                     <td><?= $value->date ?></td>
+                    <td><?= $value->street ?></td>
+                    <td><?= $value->city ?></td>
+                    <td><?= $value->blood_bank_name ?></td>
+                    
                     <td>
                         <?php
                         $cdate = date("y-m-d");
@@ -330,7 +335,7 @@
                 }
             }
         })
-        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/admindonationcamps/index2', true);
+        ajax.open('post', '<?= ROOT ?>/admindonationcamps/index2', true);
         ajax.send(form);
     }
     

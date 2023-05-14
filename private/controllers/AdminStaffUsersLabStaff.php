@@ -29,7 +29,7 @@ class AdminStaffUsersLabStaff extends Controller
             unset($_POST['editForm']);
             $user->update1($id, $_POST);
             $this->redirect('adminstaffuserslabstaff');
-            return;
+            return; 
         } else if (count($_POST) > 0) {
             $user->insert($_POST);
             $this->redirect('adminstaffuserslabstaff');
@@ -37,7 +37,7 @@ class AdminStaffUsersLabStaff extends Controller
         }
 
         
-
+            print_r($_POST);
 
 
         $this->view('adminstaffuserslabstaff', [$data]);

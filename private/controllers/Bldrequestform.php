@@ -10,8 +10,8 @@ class Bldrequestform extends Controller
 
         if(isset($_POST['addtocart'])){
             // echo "added to cart";
-            $str1;
-            $str2;
+            $str1="";
+            $str2="";
 
             switch ($_POST['bt']) {
                 case "RBC":

@@ -17,22 +17,22 @@ class BecomeaDonor extends Controller
             $query = "select * from blood_bank ";
             $data = $bloodbank->query($query);
             // print_r($data);
-            $this->view('wheretodonate', [$data]);
+            $this->view('User/wheretodonate', [$data]);
         }
         else if($click=='amieligible'){
-            $this->view('amieligible', ['rows' => $data]);
+            $this->view('User/amieligible', ['rows' => $data]);
         }else if($click=='whendonating'){
-             $this->view('whendonating', ['rows' => $data]);
+             $this->view('User/whendonating', ['rows' => $data]);
         }else if($click=='beforedonate'){
-             $this->view('beforedonate', ['rows' => $data]);
+             $this->view('User/beforedonate', ['rows' => $data]);
         }else if($click=='afterdonate'){
-             $this->view('afterdonate', ['rows' => $data]);
+             $this->view('User/afterdonate', ['rows' => $data]);
         }else if($click=='waystodonate'){
-            $this->view('waystodonate', ['rows' => $data]);
+            $this->view('User/waystodonate', ['rows' => $data]);
         }
 
         }
-        else{$this->view('waystodonate', ['rows' => $data]);
+        else{$this->view('User/waystodonate', ['rows' => $data]);
         }
 
        

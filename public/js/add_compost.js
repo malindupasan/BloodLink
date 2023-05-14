@@ -1,9 +1,9 @@
-const form = document.getElementById('Add_compost_form');
-const id = document.getElementById('donor_id');
-const date = document.getElementById('date');
-const title = document.getElementById('title');
+const form = document.getElementById('addpic');
+
+const title = document.getElementById('cName');
 const description = document.getElementById('description');
-const file = document.getElementById('file');
+const file1 = document.getElementById('file');
+// const file = document.getElementById('file');
 
 
 var valid = true;
@@ -14,6 +14,8 @@ console.log("message");
 form.addEventListener("submit", (e) => {
     valid = true;
 
+    console.log("message2");
+    
     e.preventDefault();
     inputChecker();
     if (valid === true) {
@@ -25,31 +27,12 @@ form.addEventListener("submit", (e) => {
 async function inputChecker() {
     //values from the inputs
     // console.log("inputChecker");
-    const idVal = id.value.trim();
 
-    const dateVal = date.value.trim();
-
-    const titleVal = title.value.trim();
+    const titleVal = title.value.trim();    
     const descriptionVal = description.value.trim();
-    const fileVal = file.value.trim();
+    const file1Val = file1.value.trim();
 
 
-    if (idVal === "") {
-        //error message
-        displayError(id, "ID can't be empty");
-
-    } else {
-        //display success tick
-        displaySuccess(id);
-    }
-    if (dateVal === "") {
-        //error message
-        displayError(date, "Date can't be empty");
-
-    } else {
-        //display success tick
-        displaySuccess(date);
-    }
     if (titleVal === "") {
         //error message
         displayError(title, "Title can't be empty");
@@ -58,6 +41,7 @@ async function inputChecker() {
         //display success tick
         displaySuccess(title);
     }
+    
     if (descriptionVal === "") {
         //error message
         displayError(description, "Description can't be empty");
@@ -65,15 +49,16 @@ async function inputChecker() {
     } else {
         //display success tick
         displaySuccess(description);
-    }
-    if (fileVal === "") {
+    }   
+    
+    if (file1Val === "") {
         //error message
-        displayError(file, "Image can't be empty");
+        displayError(file1, "Image can't be empty");
 
     } else {
         //display success tick
-        displaySuccess(file);
-    }
+        displaySuccess(file1);
+    } 
 
 }
 
@@ -82,8 +67,9 @@ function displayError(input, message) {
     // console.log("message");
     const small = f.querySelector('small');
 
-    f.classname = "f error";
-
+    f.className = "form-item error";
+    // f.className = "file_form error";
+    console.log("message e");
 
     //add error message
     small.innerText = message;
@@ -92,8 +78,10 @@ function displayError(input, message) {
 }
 function displaySuccess(input) {
     const f = input.parentElement;
-
-    f.classname = "f success";
+    
+    f.className = "form-item success";
+    // f.className = "file_form success";
+    console.log("message s");
 
 
 

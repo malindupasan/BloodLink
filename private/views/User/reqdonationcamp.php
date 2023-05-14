@@ -88,7 +88,6 @@
                                                 <input type="text" class="inp1" id="p-latitude" name="latitude" hidden>
                                                 <input type="text" class="inp1" id="p-longitude" name="longitude" hidden>
                                                 <label for="cName" class="labels1">Location ( Select the Location )</label><br>
-                                                <small>error message</small>
                                                 <div class="map" id="map"></div>
                                                 
                                         </div>

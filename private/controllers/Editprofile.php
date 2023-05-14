@@ -33,7 +33,7 @@ class Editprofile extends Controller
 
         // $data=$user->where('id', 1);
         $data = $data[0];
-        $this->view('editprofile', ['rows' => $data]);
+        $this->view('User/editprofile', ['rows' => $data]);
         // $this->view('home');
     }
 }

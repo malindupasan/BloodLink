@@ -31,7 +31,7 @@ async function inputChecker() {
     const house_noval = house_no.value.trim();
     const cityval = city.value.trim();
     const streetval = street.value.trim();
-    const districtval = district.value.trim();
+    // const districtval = district.value.trim();
 
     if (nameVal === "") {
         //error message
@@ -41,14 +41,19 @@ async function inputChecker() {
         displaySuccess(name1);
     }
 
-     
+
     if (telephoneval.length !== 10 ) {
         displayError(telephone, "Enter a valid number");
     } else if (telephoneval == "") {
         displayError(telephone, "Telephone number can't be empty");
     } else {
-        displaySuccess(telephone);
+        if (telephoneval.charAt(0) !== '0') {
+            displayError(telephone, "The first digit must be 0");
+        } else {
+            displaySuccess(telephone);
+        }
     }
+    
 
 
     if (house_noval === "") {
@@ -72,25 +77,26 @@ async function inputChecker() {
     }
 
 
-    if (districtval === "") {
-        displayError(district, "District can't be empty");
-    } else if (!checkdistrict(districtval)) {
-        displayError(email, "Enter a valid name");
-    } else {
-        displaySuccess(district);
-    }
+    // if (districtval === "") {
+    //     displayError(district, "District can't be empty");
+    // } else if (!checkdistrict(districtval)) {
+    //     displayError(email, "Enter a valid name");
+    // } else {
+    //     displaySuccess(district);
+    // }
     
 }
 
-function checkdistrict(districtval) {
-    // name acn only contain letters and spaces
-    const re = /^[a-zA-Z\s]+$/;
-    if (re.test(districtval)) {
-        return true;
-    } else {
-        return false;
-    }
-}
+// function checkdistrict(districtval) {
+//     // name acn only contain letters and spaces
+//     const re = /^[a-zA-Z\s]+$/;
+//     if (re.test(districtval)) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
 
 
 function displayError(input, message) {

@@ -14,7 +14,7 @@ class Bloodbankpage extends Controller
         $qry="select * from blood_bank where blood_bank_id=:id";
         $data=$bb->query($qry,$arr);
         
-        $this->view('bloodbankpageview',[$data]);
+        $this->view('User/bloodbankpageview',[$data]);
        
     }
 }

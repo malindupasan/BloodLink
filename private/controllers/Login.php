@@ -5,7 +5,7 @@ class Login extends Controller
     {
 
         $errors = array();
-
+        $correct=1;
         if (count($_POST) > 0) {
             $docuser = new BLDoc();
             $phiuser = new BLPHI();
@@ -21,6 +21,9 @@ class Login extends Controller
                     $_SESSION['USER']->role="Donor";
                     $this->redirect('home');
                 }
+                else{
+                    $correct=0;
+                }
             }
             else if ($row = $user->where('nic', $_POST['email'])) {
                 $row = $row[0];
@@ -29,6 +32,9 @@ class Login extends Controller
                     Auth::authenticate($row);
                     $_SESSION['USER']->role="Donor";
                     $this->redirect('home');
+                }
+                else{
+                    $correct=false;
                 }
             }
 
@@ -46,8 +52,8 @@ class Login extends Controller
                      $_SESSION['USER']->role="Doctor";
 
                     $this->redirect('dashboard');
-                }else{
-                    $errors['nikn4'] = "pass 1 wrdi"; 
+                } else{
+                    $correct=false;
                 }
             } 
 
@@ -64,8 +70,8 @@ class Login extends Controller
                      $_SESSION['USER']->role="PHI";
 
                     $this->redirect('dashboard');
-                }else{
-                    $errors['nikn4'] = "pass 1 wrdi"; 
+                } else{
+                    $correct=false;
                 }
             } 
 
@@ -82,17 +88,19 @@ class Login extends Controller
                      $_SESSION['USER']->role="Lab";
 
                     $this->redirect('dashboard');
-                }else{
-                    $errors['nikn4'] = "pass 1 wrdi"; 
+                } else{
+                    $correct=0;
                 }
+            }else{
+                $correct=0;
             } 
 
-            $errors['email'] = "wrong Email or Password";
 
 
 
         }
-
-        $this->view('login');
+        $err=array();
+        $err['iscorrect']=$correct;
+        $this->view('login',['err'=>$err]);
     }
 }

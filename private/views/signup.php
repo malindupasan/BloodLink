@@ -22,6 +22,7 @@
 
             <div class="item-2">
                 <div class="Create-your-account">Create Your Account Today </div>
+                <div class="alreadyhvacc">Already have an Account? <a href="<?=ROOT?>/login">Login</a> </div>
                 <div class="getting-started">Getting started is easy</div>
             </div>
             <div class="login-form">

@@ -35,7 +35,7 @@ class CampOrgReq extends Controller
 
 
 
-        $this->view('reqdonationcamp');
+        $this->view('User/reqdonationcamp');
         
     }
 }
