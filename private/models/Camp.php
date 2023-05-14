@@ -6,11 +6,12 @@
 
 class Camp extends Model
 {
+    //since model name and table name are different
     protected $table = "blood_donation_camp";
 
 
 
-
+//these are the only columns allowed to access
     protected $allowedColumns = ['camp_id','street','house_no','city','camp_name', 'description', 'date', 'latitude','longitude', 'blood_bank_id', 'start_time', 'rating','camp_img','doctor_id','camp_name','blood_bank_id','donor_id','camp_req_id'];
     
 

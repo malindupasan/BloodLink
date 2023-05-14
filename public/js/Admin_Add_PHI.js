@@ -1,4 +1,4 @@
-const form1=document.getElementById('Add_Doc');
+const form1=document.getElementById('Add_PHI');
 
 const name1=document.getElementById('name');
 const email1=document.getElementById('email');
@@ -20,7 +20,7 @@ var valid=true;
 
 form1.addEventListener("submit",  (e) => {
 
-    valid=true;
+    valid=false;
 
     e.preventDefault();
 

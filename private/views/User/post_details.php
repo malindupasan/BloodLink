@@ -1,5 +1,6 @@
 <?php $this->view("includes/navbar");?>
 <link rel="stylesheet" href="<?=ROOT?>/css/post.css">
+<title>Community post</title>
 
 <div class="container">
     <h1><?=$data->title?></h1>

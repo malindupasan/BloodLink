@@ -44,7 +44,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminStaffUsers">
             <div class="b11">
-                <p>Add Staff Users</p>
+                <p>Staff Users</p>
             </div>
         </a>
 
@@ -59,7 +59,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminBugs">
             <div class="b11">
-                <p>Bugs</p>
+                <p>Feedbacks</p>
             </div>
         </a>
 
@@ -67,6 +67,12 @@
         <a class="a11" href="<?= ROOT ?>/AdminNews">
             <div class="b11">
                 <p>News</p>
+            </div>
+        </a>
+
+        <a class="a11" href="<?= ROOT ?>/Admin">
+            <div class="b11">
+                <p class="">Admin</p>
             </div>
         </a>
 
@@ -315,5 +321,51 @@
 
 
 
+<!-- <script src="<?= ROOT ?>/scripts/bbbsscript.js"></script> -->
 
-<script src="<?= ROOT ?>/scripts/bbbsscript.js"></script>
+<script>
+    var canvas = document.getElementById("chart");
+    var config = {
+        type: "bar",
+        data: {
+            labels: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+            datasets: [{
+                label: "RBC",
+                data: [ <?= $rows1[0]->Ap_amount ?>, <?= $rows2[0]->An_amount ?>, <?= $rows3[0]->Bp_amount ?>, <?= $rows4[0]->Bn_amount ?>, <?= $rows5[0]->ABp_amount ?>, <?= $rows6[0]->ABn_amount ?>, <?= $rows7[0]->Op_amount ?>, <?= $rows8[0]->On_amount ?>],
+                backgroundColor: [
+                    'rgba(5, 19, 103, 1)'
+
+                ]
+            }, {
+                label: "WBC",
+                data: [ <?= $rows9[0]->Ap_amount ?>, <?= $rows10[0]->An_amount ?>, <?= $rows11[0]->Bp_amount ?>, <?= $rows12[0]->Bn_amount ?>, <?= $rows13[0]->ABp_amount ?>, <?= $rows14[0]->ABn_amount ?>, <?= $rows15[0]->Op_amount ?>, <?= $rows16[0]->On_amount ?>],
+                backgroundColor: [
+                    'rgba(45, 49, 250, 1)'
+                ]
+            }, {
+                label: "Plasma",
+                data: [ <?= $rows17[0]->Ap_amount ?>, <?= $rows18[0]->An_amount ?>, <?= $rows19[0]->Bp_amount ?>, <?= $rows20[0]->Bn_amount ?>, <?= $rows21[0]->ABp_amount ?>, <?= $rows22[0]->ABn_amount ?>, <?= $rows23[0]->Op_amount ?>, <?= $rows24[0]->On_amount ?>],
+                backgroundColor: [
+                    'rgba(93, 139, 244, 1)'
+                ]
+            }, {
+                label: "Platelettes",
+                data: [ <?= $rows25[0]->Ap_amount ?>, <?= $rows26[0]->An_amount ?>, <?= $rows27[0]->Bp_amount ?>, <?= $rows28[0]->Bn_amount ?>, <?= $rows29[0]->ABp_amount ?>, <?= $rows30[0]->ABn_amount ?>, <?= $rows31[0]->Op_amount ?>, <?= $rows32[0]->On_amount ?>],
+                backgroundColor: [
+                    'rgba(0,0,0,0,1)'
+                ]
+            }]
+        }
+
+    }
+
+
+    var barchart = new Chart(canvas, config);
+
+
+
+
+
+
+
+</script>

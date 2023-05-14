@@ -1,15 +1,12 @@
-const form1=document.getElementById('Add_Doc');
+const form1=document.getElementById('Admin_Edit');
 
 const name1=document.getElementById('name');
 const email1=document.getElementById('email');
 const nic1=document.getElementById('nic');
-const telephone1=document.getElementById('telephone');
+const telephone1=document.getElementById('phone');
 const house_no1=document.getElementById('house_no');
 const city1=document.getElementById('city');
 const street1=document.getElementById('street');
-const medical_id1=document.getElementById('medical_id');
-const blood_bank_id1=document.getElementById('blood_bank_id');
-const admin_id1=document.getElementById('admin_id');
 const password=document.getElementById('password');
 const cpassword=document.getElementById('cpassword');
 
@@ -42,9 +39,6 @@ async function inputChecker() {
     const street1val = street1.value.trim();    
     const email1val=email1.value.trim();
     const nic1val=nic1.value.trim();
-    const medical_id1val=medical_id1.value.trim();
-    const blood_bank_id1val=blood_bank_id1.value.trim();
-    const admin_id1val=admin_id1.value.trim();
     const passwordval=password.value.trim();
     const cpasswordval=cpassword.value.trim();
 
@@ -82,23 +76,6 @@ async function inputChecker() {
         displaySuccess(house_no1);
     }
 
-    if (blood_bank_id1val === "") {
-        displayError(blood_bank_id1, "Blood Bank ID can't be empty");
-    }else {
-        displaySuccess(blood_bank_id1);
-    }
-
-    if (medical_id1val === "") {
-        displayError(medical_id1, "Medical ID can't be empty");
-    }else {
-        displaySuccess(medical_id1);
-    }
-
-    if (admin_id1val === "") {
-        displayError(admin_id1, "Medical ID can't be empty");
-    }else {
-        displaySuccess(admin_id1);
-    }
 
 
     if (city1val === "") {

@@ -37,7 +37,7 @@ class AdminStaffUsersLabStaff extends Controller
         }
 
         
-            print_r($_POST);
+            // print_r($user);
 
 
         $this->view('adminstaffuserslabstaff', [$data]);

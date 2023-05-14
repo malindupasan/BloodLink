@@ -8,6 +8,9 @@ class AdminStaffUsers extends Controller
     {
 
         $staff = new Admin_StaffUsers();
+        // $id = $_GET['id'];
+
+
         // $quarry = "SELECT * FROM doctor ";
         $quarry = "SELECT doctor.*, blood_bank.name AS blood_bank_name
                     FROM doctor 
@@ -39,8 +42,13 @@ class AdminStaffUsers extends Controller
             return;
         }
 
-        
 
+        // $quarry1 = "UPDATE doctor SET status = CASE
+        //             WHEN status = 1 THEN 0
+        //             WHEN status = 0 THEN 1
+        //             END
+        //             WHERE id = $id";
+        // $data1 = $staff->query($quarry1);
 
 
 

@@ -46,7 +46,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminStaffUsers">
             <div class="">
-                <p class="pp">Add Staff Users</p>
+                <p class="pp">Staff Users</p>
             </div>
         </a>
 
@@ -61,7 +61,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminBugs">
             <div class="b11">
-                <p>Bugs</p>
+                <p>Feedbacks</p>
             </div>
         </a>
 
@@ -71,6 +71,14 @@
                 <p>News</p>
             </div>
         </a>
+
+        <a class="a11" href="<?= ROOT ?>/Admin">
+            <div class="b11">
+                <p class="">Admin</p>
+            </div>
+        </a>
+
+
 
     </div>
 
@@ -131,7 +139,7 @@
         <div class="city">
 
             <div id="myForm" class="form-popup">
-                <form method="post" class="form-container">
+                <form method="post" class="form-container" id="Add_Doc">
 
                     <h2>Add Doctor</h2>
 
@@ -225,7 +233,7 @@
 
                         <div class="f">
                             <label class="lable22" for="city">Confirm Password </label>
-                            <input class="input" placeholder="Confirm Password" type="password" id="password" name="password"><br>
+                            <input class="input" placeholder="Confirm Password" type="password" id="cpassword" name="cpassword"><br>
                             <small>error message</small>
                         </div>
 
@@ -256,6 +264,7 @@
                         <th>Tel Number</th>
                         <th>Home Town</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th></th>
 
                     </tr>
@@ -271,6 +280,26 @@
                             <td><?= $value->telephone ?></td>
                             <td><?= $value->city ?></td>
                             <td><?= $value->email ?></td>
+                            <td><?= $value->status ?></td>
+                            <td>
+                                <?php
+
+                                $status = $value->status;
+
+                                if ($status = 1) { ?>
+                                    <a href="<?= ROOT ?>/adminstaffusers?id=<?= $value->id ?>" class="edit1">
+                                        <div class="enable"><?php echo "Enable"; ?>
+                                        </div>
+                                    </a>
+                                <?php } else { ?>
+                                    <a href="<?= ROOT ?>/adminstaffusers?id=<?= $value->id ?>" class="edit1">
+                                        <div class="desable"><?php echo "Desable"; ?></div>
+                                    </a>
+                                <?php }
+
+                                ?>
+
+                            </td>
                             <td>
 
                                 <div class="edit">
@@ -368,7 +397,7 @@
 
                                                     <div class="f">
                                                         <label class="lable22" for="city">Confirm Password </label>
-                                                        <input class="input" placeholder="Confirm Password" type="password" id="password" name="password" value="<?= $value->password ?>"><br>
+                                                        <input class="input" placeholder="Confirm Password" type="password" id="cpassword" name="cpassword" value="<?= $value->password ?>"><br>
                                                         <small>error message</small>
                                                     </div>
 
@@ -468,66 +497,90 @@
 
                                         <h2>Edit Doctor</h2>
 
-                                                <div class="name1" hidden>
+                                        <div class="name1" hidden>
                                                     <label class="lable22" for="blood-bank-name">ID </label>
                                                     <input class="Bname" type="text" id="id" name="id" value="${obj[i].id}" readonly><br>
                                                 </div>
 
-                                                <div class="name1">
-                                                    <label class="lable22" for="blood-bank-name">Name </label>
-                                                    <input class="Bname" type="text" id="name" name="name" value="${obj[i].name}"><br>
-                                                    <small>error message</small>
+
+
+                                                <div class="l2">
+                                                    <div class="f">
+                                                        <label class="lable22" for="blood-bank-name">Name </label>
+                                                        <input class="input qw" placeholder="Full Name" type="text" id="name" name="name" value="${obj[i].name}"><br>
+                                                        <small>error message</small>
+                                                    </div>
                                                 </div>
 
                                                 <div class="l2">
 
-                                                    <div class="d3">
+                                                    <div class="f">
                                                         <label class="lable22" for="no">Email </label>
-                                                        <input class="d3-no" type="text" id="email" name="email" value="${obj[i].email}"><br>
+                                                        <input class="input" placeholder="Email" type="text" id="email" name="email" value="${obj[i].email}"><br>
                                                         <small>error message</small>
                                                     </div>
 
-                                                    <div class="d3">
+                                                    <div class="f">
                                                         <label class="lable22" for="no">NIC </label>
-                                                        <input class="d3-no" type="text" id="nic" name="nic" value="${obj[i].nic}"><br>
-                                                        <small>error message</small>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="name1">
-                                                    <label class="lable22" for="blood-bank-name">Street </label>
-                                                    <input class="Bname" type="text" id="street" name="street" value="${obj[i].street}""><br>
-                                                    <small>error message</small>
-                                                </div>
-
-                                                <div class="l2">
-
-                                                    <div class="d3">
-                                                        <label class="lable22" for="no">House No. </label>
-                                                        <input class="d3-no" type="text" id="house_no" name="house_no" value="${obj[i].house_no}"><br>
-                                                        <small>error message</small>
-                                                    </div>
-
-                                                    <div class="d3">
-                                                        <label class="lable22" for="no">City </label>
-                                                        <input class="d3-no" type="text" id="city" name="city" value="${obj[i].city}"><br>
+                                                        <input class="input" placeholder="Your NIC" type="text" id="nic" name="nic" value="${obj[i].nic}"><br>
                                                         <small>error message</small>
                                                     </div>
 
                                                 </div>
 
                                                 <div class="l2">
+                                                    <div class="f">
+                                                        <label class="lable22" for="">Street </label>
+                                                        <input class="input qw" placeholder="Street" type="text" id="street" name="street" value="${obj[i].street}"><br>
+                                                        <small>error message</small>
+                                                    </div>
+                                                </div>
 
-                                                    <div class="d3 ">
+                                                <div class="l2">
+
+                                                    <div class="f">
+                                                        <label class="lable22" for="">House No. </label>
+                                                        <input class="input" placeholder="House No" type="text" id="house_no" name="house_no" value="${obj[i].house_no}" ><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                    <div class="f">
+                                                        <label class="lable22" for="">City </label>
+                                                        <input class="input" placeholder="City" type="text" id="city" name="city" value="${obj[i].city}"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="l2">
+
+                                                    <div class="f">
                                                         <label class="lable22" for="street">Telephone No.</label>
-                                                        <input class="d4-street error" type="text" id="telephone" name="telephone" value="${obj[i].telephone}">
+                                                        <input class="input" type="text" placeholder="Telephone Number" id="telephone" name="telephone" value="${obj[i].telephone}" >
                                                         <small>error message</small>
                                                     </div>
 
-                                                    <div class="d3">
+                                                    <div class="f">
                                                         <label class="lable22" for="street">Blood Bank ID</label>
-                                                        <input class="d4-street" type="text" id="blood_bank_id " name="blood_bank_id" value="${obj[i].blood_bank_id}"><br>
+                                                        <input class="input" placeholder="Blood Bank ID" type="text" id="blood_bank_id" name="blood_bank_id" value="${obj[i].blood_bank_id}" ><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="l2">
+
+                                                    <div class="f">
+                                                        <label class="lable22" for="city">Password </label>
+                                                        <input class="input" placeholder="Password" type="password" id="password" name="password" value="${obj[i].password}"><br>
+                                                        <small>error message</small>
+                                                    </div>
+
+                                                    <div class="f">
+                                                        <label class="lable22" for="city">Confirm Password </label>
+                                                        <input class="input" placeholder="Confirm Password" type="password" id="password" name="password" value="${obj[i].password}"><br>
                                                         <small>error message</small>
                                                     </div>
 

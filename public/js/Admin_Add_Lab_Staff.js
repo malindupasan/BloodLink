@@ -1,4 +1,4 @@
-const form1=document.getElementById('Add_Doc');
+const form1=document.getElementById('Add_Lab_Staff');
 
 const name1=document.getElementById('name');
 const email1=document.getElementById('email');

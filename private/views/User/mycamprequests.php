@@ -2,7 +2,9 @@
 <link rel="stylesheet" href="<?=ROOT?>/css/mycamprequests.css">
 <title>view requests</title>
 
+<h2 class="heading">My Camp Oganize Requests</h2>
 <div class="sec0">
+   
    <a href="<?=ROOT?>/camporgreq"> <button class="addbtn">+ Add</button> </a>
 </div>
 

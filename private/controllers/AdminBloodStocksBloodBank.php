@@ -17,109 +17,109 @@ class AdminBloodStocksBloodBank extends Controller
 
 
         // Red Blood Cells
-        $quary1 = "SELECT COALESCE(SUM(amount), 0) AS Ap_amount FROM rbc WHERE blood_group ='A+' AND blood_bank_id = $id";
+        $quary1 = "SELECT IFNULL(SUM(amount), 0) AS Ap_amount FROM rbc WHERE blood_group ='A+' AND blood_bank_id = $id";
         $data1 = $bank->query($quary1);
 
-        $quary2 = "SELECT COALESCE(SUM(amount), 0) AS An_amount FROM rbc WHERE blood_group ='A-' AND blood_bank_id = $id";
+        $quary2 = "SELECT IFNULL(SUM(amount), 0) AS An_amount FROM rbc WHERE blood_group ='A-' AND blood_bank_id = $id";
         $data2 = $bank->query($quary2);
 
-        $quary3 = "SELECT COALESCE(SUM(amount), 0) AS Bp_amount FROM rbc WHERE blood_group ='B+' AND blood_bank_id = $id";
+        $quary3 = "SELECT IFNULL(SUM(amount), 0) AS Bp_amount FROM rbc WHERE blood_group ='B+' AND blood_bank_id = $id";
         $data3 = $bank->query($quary3);
 
-        $quary4 = "SELECT COALESCE(SUM(amount), 0) AS Bn_amount FROM rbc WHERE blood_group ='B-' AND blood_bank_id = $id";
+        $quary4 = "SELECT IFNULL(SUM(amount), 0) AS Bn_amount FROM rbc WHERE blood_group ='B-' AND blood_bank_id = $id";
         $data4 = $bank->query($quary4);
 
-        $quary5 = "SELECT COALESCE(SUM(amount), 0) AS ABp_amount FROM rbc WHERE blood_group ='AB+' AND blood_bank_id = $id";
+        $quary5 = "SELECT IFNULL(SUM(amount), 0) AS ABp_amount FROM rbc WHERE blood_group ='AB+' AND blood_bank_id = $id";
         $data5 = $bank->query($quary5);
 
-        $quary6 = "SELECT COALESCE(SUM(amount), 0) AS ABn_amount FROM rbc WHERE blood_group ='AB-' AND blood_bank_id = $id";
+        $quary6 = "SELECT IFNULL(SUM(amount), 0) AS ABn_amount FROM rbc WHERE blood_group ='AB-' AND blood_bank_id = $id";
         $data6 = $bank->query($quary6);
 
-        $quary7 = "SELECT COALESCE(SUM(amount), 0) AS Op_amount FROM rbc WHERE blood_group ='O+' AND blood_bank_id = $id";
+        $quary7 = "SELECT IFNULL(SUM(amount), 0) AS Op_amount FROM rbc WHERE blood_group ='O+' AND blood_bank_id = $id";
         $data7 = $bank->query($quary7);
 
-        $quary8 = "SELECT COALESCE(SUM(amount), 0) AS On_amount FROM rbc WHERE blood_group ='O-' AND blood_bank_id = $id";
+        $quary8 = "SELECT IFNULL(SUM(amount), 0) AS On_amount FROM rbc WHERE blood_group ='O-' AND blood_bank_id = $id";
         $data8 = $bank->query($quary8);
 
 
 
         // White Blood Cells
-        $quary9 = "SELECT COALESCE(SUM(amount), 0) AS Ap_amount FROM wbc WHERE blood_group ='A+' AND blood_bank_id = $id";
+        $quary9 = "SELECT IFNULL(SUM(amount), 0) AS Ap_amount FROM wbc WHERE blood_group ='A+' AND blood_bank_id = $id";
         $data9 = $bank->query($quary9);
 
-        $quary10 = "SELECT COALESCE(SUM(amount), 0) AS An_amount FROM wbc WHERE blood_group ='A-' AND blood_bank_id = $id";
+        $quary10 = "SELECT IFNULL(SUM(amount), 0) AS An_amount FROM wbc WHERE blood_group ='A-' AND blood_bank_id = $id";
         $data10 = $bank->query($quary10);
 
-        $quary11 = "SELECT COALESCE(SUM(amount), 0) AS Bp_amount FROM wbc WHERE blood_group ='B+' AND blood_bank_id = $id";
+        $quary11 = "SELECT IFNULL(SUM(amount), 0) AS Bp_amount FROM wbc WHERE blood_group ='B+' AND blood_bank_id = $id";
         $data11 = $bank->query($quary11);
 
-        $quary12 = "SELECT COALESCE(SUM(amount), 0) AS Bn_amount FROM wbc WHERE blood_group ='B-' AND blood_bank_id = $id";
+        $quary12 = "SELECT IFNULL(SUM(amount), 0) AS Bn_amount FROM wbc WHERE blood_group ='B-' AND blood_bank_id = $id";
         $data12 = $bank->query($quary12);
 
-        $quary13 = "SELECT COALESCE(SUM(amount), 0) AS ABp_amount FROM wbc WHERE blood_group ='AB+' AND blood_bank_id = $id";
+        $quary13 = "SELECT IFNULL(SUM(amount), 0) AS ABp_amount FROM wbc WHERE blood_group ='AB+' AND blood_bank_id = $id";
         $data13 = $bank->query($quary13);
 
-        $quary14 = "SELECT COALESCE(SUM(amount), 0) AS ABn_amount FROM wbc WHERE blood_group ='AB-' AND blood_bank_id = $id";
+        $quary14 = "SELECT IFNULL(SUM(amount), 0) AS ABn_amount FROM wbc WHERE blood_group ='AB-' AND blood_bank_id = $id";
         $data14 = $bank->query($quary14);
 
-        $quary15 = "SELECT COALESCE(SUM(amount), 0) AS Op_amount FROM wbc WHERE blood_group ='O+' AND blood_bank_id = $id";
+        $quary15 = "SELECT IFNULL(SUM(amount), 0) AS Op_amount FROM wbc WHERE blood_group ='O+' AND blood_bank_id = $id";
         $data15 = $bank->query($quary15);
 
-        $quary16 = "SELECT COALESCE(SUM(amount), 0) AS On_amount FROM wbc WHERE blood_group ='O-' AND blood_bank_id = $id";
+        $quary16 = "SELECT IFNULL(SUM(amount), 0) AS On_amount FROM wbc WHERE blood_group ='O-' AND blood_bank_id = $id";
         $data16 = $bank->query($quary16);
 
 
 
         // Plasma Cells
-        $quary17 = "SELECT COALESCE(SUM(amount), 0) AS Ap_amount FROM plasma WHERE blood_group ='A+' AND blood_bank_id = $id";
+        $quary17 = "SELECT IFNULL(SUM(amount), 0) AS Ap_amount FROM plasma WHERE blood_group ='A+' AND blood_bank_id = $id";
         $data17 = $bank->query($quary17);
 
-        $quary18 = "SELECT COALESCE(SUM(amount), 0) AS An_amount FROM plasma WHERE blood_group ='A-' AND blood_bank_id = $id";
+        $quary18 = "SELECT IFNULL(SUM(amount), 0) AS An_amount FROM plasma WHERE blood_group ='A-' AND blood_bank_id = $id";
         $data18 = $bank->query($quary18);
 
-        $quary19 = "SELECT COALESCE(SUM(amount), 0) AS Bp_amount FROM plasma WHERE blood_group ='B+' AND blood_bank_id = $id";
+        $quary19 = "SELECT IFNULL(SUM(amount), 0) AS Bp_amount FROM plasma WHERE blood_group ='B+' AND blood_bank_id = $id";
         $data19 = $bank->query($quary19);
 
-        $quary20 = "SELECT COALESCE(SUM(amount), 0) AS Bn_amount FROM plasma WHERE blood_group ='B-' AND blood_bank_id = $id";
+        $quary20 = "SELECT IFNULL(SUM(amount), 0) AS Bn_amount FROM plasma WHERE blood_group ='B-' AND blood_bank_id = $id";
         $data20 = $bank->query($quary20);
 
-        $quary21 = "SELECT COALESCE(SUM(amount), 0) AS ABp_amount FROM plasma WHERE blood_group ='AB+' AND blood_bank_id = $id";
+        $quary21 = "SELECT IFNULL(SUM(amount), 0) AS ABp_amount FROM plasma WHERE blood_group ='AB+' AND blood_bank_id = $id";
         $data21 = $bank->query($quary21);
 
-        $quary22 = "SELECT COALESCE(SUM(amount), 0) AS ABn_amount FROM plasma WHERE blood_group ='AB-' AND blood_bank_id = $id";
+        $quary22 = "SELECT IFNULL(SUM(amount), 0) AS ABn_amount FROM plasma WHERE blood_group ='AB-' AND blood_bank_id = $id";
         $data22 = $bank->query($quary22);
 
-        $quary23 = "SELECT COALESCE(SUM(amount), 0) AS Op_amount FROM plasma WHERE blood_group ='O+' AND blood_bank_id = $id";
+        $quary23 = "SELECT IFNULL(SUM(amount), 0) AS Op_amount FROM plasma WHERE blood_group ='O+' AND blood_bank_id = $id";
         $data23 = $bank->query($quary23);
 
-        $quary24 = "SELECT COALESCE(SUM(amount), 0) AS On_amount FROM plasma WHERE blood_group ='O-' AND blood_bank_id = $id";
+        $quary24 = "SELECT IFNULL(SUM(amount), 0) AS On_amount FROM plasma WHERE blood_group ='O-' AND blood_bank_id = $id";
         $data24 = $bank->query($quary24);
 
 
 
         // Platelets Cells
-        $quary25 = "SELECT COALESCE(SUM(amount), 0) AS Ap_amount FROM platelets WHERE blood_group ='A+' AND blood_bank_id = $id";
+        $quary25 = "SELECT IFNULL(SUM(amount), 0) AS Ap_amount FROM platelets WHERE blood_group ='A+' AND blood_bank_id = $id";
         $data25 = $bank->query($quary25);
 
-        $quary26 = "SELECT COALESCE(SUM(amount), 0) AS An_amount FROM platelets WHERE blood_group ='A-' AND blood_bank_id = $id";
+        $quary26 = "SELECT IFNULL(SUM(amount), 0) AS An_amount FROM platelets WHERE blood_group ='A-' AND blood_bank_id = $id";
         $data26 = $bank->query($quary26);
 
-        $quary27 = "SELECT COALESCE(SUM(amount), 0) AS Bp_amount FROM platelets WHERE blood_group ='B+' AND blood_bank_id = $id";
+        $quary27 = "SELECT IFNULL(SUM(amount), 0) AS Bp_amount FROM platelets WHERE blood_group ='B+' AND blood_bank_id = $id";
         $data27 = $bank->query($quary27);
 
-        $quary28 = "SELECT COALESCE(SUM(amount), 0) AS Bn_amount FROM platelets WHERE blood_group ='B-' AND blood_bank_id = $id";
+        $quary28 = "SELECT IFNULL(SUM(amount), 0) AS Bn_amount FROM platelets WHERE blood_group ='B-' AND blood_bank_id = $id";
         $data28 = $bank->query($quary28);
 
-        $quary29 = "SELECT COALESCE(SUM(amount), 0) AS ABp_amount FROM platelets WHERE blood_group ='AB+' AND blood_bank_id = $id";
+        $quary29 = "SELECT IFNULL(SUM(amount), 0) AS ABp_amount FROM platelets WHERE blood_group ='AB+' AND blood_bank_id = $id";
         $data29 = $bank->query($quary29);
 
-        $quary30 = "SELECT COALESCE(SUM(amount), 0) AS ABn_amount FROM platelets WHERE blood_group ='AB-' AND blood_bank_id = $id";
+        $quary30 = "SELECT IFNULL(SUM(amount), 0) AS ABn_amount FROM platelets WHERE blood_group ='AB-' AND blood_bank_id = $id";
         $data30 = $bank->query($quary30);
 
-        $quary31 = "SELECT COALESCE(SUM(amount), 0) AS Op_amount FROM platelets WHERE blood_group ='O+' AND blood_bank_id = $id";
+        $quary31 = "SELECT IFNULL(SUM(amount), 0) AS Op_amount FROM platelets WHERE blood_group ='O+' AND blood_bank_id = $id";
         $data31 = $bank->query($quary31);
 
-        $quary32 = "SELECT COALESCE(SUM(amount), 0) AS On_amount FROM platelets WHERE blood_group ='O-' AND blood_bank_id = $id";
+        $quary32 = "SELECT IFNULL(SUM(amount), 0) AS On_amount FROM platelets WHERE blood_group ='O-' AND blood_bank_id = $id";
         $data32 = $bank->query($quary32);
 
         // print_r($data2);
@@ -172,3 +172,5 @@ class AdminBloodStocksBloodBank extends Controller
         ]);
     }
 }
+
+

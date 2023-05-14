@@ -30,6 +30,8 @@ class Community_posts extends Controller
                 $arr['doctor_id'] = Auth::getid();
             }
             $post->insert($arr);
+            $this->redirect('newsfeed');
+            // header("Location:community_posts");
         }
         $data = $data[0];
 
