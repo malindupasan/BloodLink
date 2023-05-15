@@ -14,7 +14,7 @@
        
     </style>
     
-    <title>Main Page(Temp)</title>
+    
 
 </head>
 <body onmouseup="mu()">

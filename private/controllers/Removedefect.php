@@ -3,6 +3,13 @@ class Removedefect extends Controller
 {
     function index($id = '')
     {
+
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
+
+        $docid=$_SESSION['USER']->id;
+
         $arr=array();
         $id=$_GET['id'];
 
@@ -13,20 +20,18 @@ class Removedefect extends Controller
         $donid=$data[0]->donor_id;
 
 
-        if(!Auth::logged_in()){
-            $this->redirect('login');
-        }
-
 
         if($id){
             
             
 
             $arr['is_defect']=0;
-            $def->deletedefect($id);
             $don->update($donid,$arr);
-
-            $this->redirect('mydefectblood');
+            $q="UPDATE defect SET doctor_id=:docid WHERE defect_id=$id";
+            $def->query($q,[
+                'docid'=>$docid,
+            ]);
+            $this->redirect('defectblood');
 
         }
 

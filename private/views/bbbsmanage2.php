@@ -1,6 +1,8 @@
 <?php $this->view('pageinit'); ?>
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>Blood Stock Manage</title>
+
 
 <style>
     input{

@@ -564,7 +564,7 @@ input[type=email] {
     border-radius: 0.6rem;
 }
 
-input[type=text],
+/* input[type=text],
 input[type=email] {
     width: 100%;
     padding: 12px 20px;
@@ -574,7 +574,7 @@ input[type=email] {
     box-sizing: border-box;
     margin-bottom: 0rem;
     background-color: #ededed;
-}
+} */
 
 
 
@@ -624,3 +624,217 @@ div.name1 {
 
 
 
+
+
+
+
+
+.f {
+    padding-bottom: 18px;
+}
+
+.input {
+    border-radius: 15px;
+
+    font-family: "Poppins";
+
+    margin-bottom: 0.1rem;
+    padding-left: 0.8rem;
+    height: 2.5rem;
+    width: 20rem;
+    border: 0.025rem solid rgb(119, 119, 119);
+    background-color: #ededed;
+}
+
+.qw{
+    width: 43rem;
+    
+}
+
+.sele{
+    height: 3rem;
+    font-size: 1rem;
+    padding-right: 1rem;
+    margin: 0rem;
+    width: 21rem;
+}
+
+.btn-div {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login-button {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background-color: #FF8080;
+    border-radius: 15px;
+    height: 55px;
+    width: 350px;
+    border: none;
+    align-self: center;
+}
+
+.getting-started {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #0c0b0b;
+}
+
+.forget-password {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 300px;
+}
+
+.item-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.small {
+    width: 15.5rem;
+}
+
+.check {
+    width: 5rem;
+    height: 2rem;
+}
+
+.f.success>input {
+    border: 0.2rem solid #4bc03c;
+}
+
+.f.error input {
+    border: 0.2rem solid #fc432e;
+}
+
+
+
+input:focus {
+    outline-color: #b1b3b5;
+}
+
+.f,
+.f12 {
+    margin-bottom: 0.1rem;
+    position: relative;
+    color: #000000;
+    height: 6rem;
+
+}
+
+.f12>i {
+    position: absolute;
+    right: -2rem;
+    top: 1.2rem;
+    visibility: hidden;
+}
+
+.f12>small {
+    position: absolute;
+    /* left: 7rem;
+    top: 2.3rem; */
+    visibility: hidden;
+}
+
+
+
+
+
+
+
+.name,
+.nic,
+.city,
+.f,
+.f12 {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+input:hover {
+    border: 0.045rem solid #001ec5;
+}
+
+#register:hover {
+    background-color: rgb(255, 255, 255);
+    color: #98C03C;
+}
+
+
+.f>small {
+    position: absolute;
+    margin-top: 0.2rem;
+    top: 4.5rem;
+    left: 0.8rem;
+    visibility: hidden;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #b1b3b5;
+    opacity: 1;
+    /* Firefox */
+}
+
+
+.f.error small,
+.f12.error small {
+    visibility: visible;
+    color: #ec4532;
+}
+
+
+@media all and (max-width: 500px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+.inp{
+    padding: 1rem;
+}
+
+
+
+
+
+.enable{
+    padding: 0.4rem;
+    background-color: #53df61;
+    border-radius: 0.6rem;
+}
+
+
+.desable{
+    padding: 0.4rem;
+    background-color: #df5353;
+    border-radius: 0.6rem;
+    color: #ffffff;
+}
+
+
+
+.status{
+    padding: 0.6rem;
+    background-color: #ffaaaa;
+    border-radius: 0.9rem;
+    border: 0.025rem solid rgb(255, 255, 255);
+}

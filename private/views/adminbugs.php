@@ -43,7 +43,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminStaffUsers">
             <div class="b11">
-                <p>Add Staff Users</p>
+                <p>Staff Users</p>
             </div>
         </a>
 
@@ -58,7 +58,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminBugs">
             <div class=" ">
-                <p class="pp">Bugs</p>
+                <p class="pp">Feedbacks</p>
             </div>
         </a>
 
@@ -69,12 +69,18 @@
             </div>
         </a>
 
+        <a class="a11" href="<?= ROOT ?>/Admin">
+            <div class="b11">
+                <p class="">Admin</p>
+            </div>
+        </a>
+
     </div>
 
     <div class="right">
 
         <div class="">
-            <h1 class="h1">Bugs</h1>
+            <h1 class="h1">Feedbacks</h1>
         </div>
 
 

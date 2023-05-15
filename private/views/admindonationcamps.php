@@ -45,7 +45,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminStaffUsers">
             <div class="b11">
-                <p>Add Staff Users</p>
+                <p>Staff Users</p>
             </div>
         </a>
 
@@ -60,7 +60,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminBugs">
             <div class="b11">
-                <p>Bugs</p>
+                <p>Feedbacks</p>
             </div>
         </a>
 
@@ -68,6 +68,12 @@
         <a class="a11" href="<?= ROOT ?>/AdminNews">
             <div class="b11">
                 <p>News</p>
+            </div>
+        </a>
+
+        <a class="a11" href="<?= ROOT ?>/Admin">
+            <div class="b11">
+                <p class="">Admin</p>
             </div>
         </a>
 
@@ -93,7 +99,7 @@
             <input type="text" placeholder="&#xf002; Search Camps..." class="jssearch" oninput=get_data()>
 
         </form>
-        <a href="<?= ROOT ?>/admindonationcamps"><button class="reset">Reset</button></a>
+        <!-- <a href="<?= ROOT ?>/admindonationcamps"><button class="reset">Reset</button></a> -->
 
     </div>
 
@@ -104,9 +110,11 @@
         <thead>
             <tr>
                 
-                <th>Name</th>
-                <th>Address</th>
+                <th>Name</th>                
                 <th>Date</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Assigned Blood Bank</th>
                 <th>Status</th>
                 <th></th>
             </tr>
@@ -114,10 +122,13 @@
         <tbody>
             <?php foreach ($rows as $value) : ?>
                 <tr>
-                    
+                
                     <td><?= $value->camp_name ?></td>
-                    <td><?= $value->address ?></td>
                     <td><?= $value->date ?></td>
+                    <td><?= $value->street ?></td>
+                    <td><?= $value->city ?></td>
+                    <td><?= $value->blood_bank_name ?></td>
+                    
                     <td>
                         <?php
                         $cdate = date("y-m-d");
@@ -185,11 +196,6 @@
                                     ?>
 
 
-
-                                    <div class="map">
-                                        <label class="lable22" class="loc" for="map">Location</label>
-                                        <input class="map-in" type="text" id="map" name="map"><br>
-                                    </div>
 
                                     <div class="name1">
                                         <label class="lable22" for="blood-bank-name">Assigned Blood Bank</label>
@@ -307,10 +313,7 @@
 
                                                 ${status1}
 
-                                                <div class="map">
-                                                    <label class="lable22" class="loc" for="map">Location</label>
-                                                    <input class="map-in" type="text" id="map" name="map"><br>
-                                                </div>
+                                                
 
                                                 <div class="name1">
                                                     <label class="lable22" for="blood-bank-name">Assigned Blood Bank</label>
@@ -330,7 +333,7 @@
                 }
             }
         })
-        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/admindonationcamps/index2', true);
+        ajax.open('post', '<?= ROOT ?>/admindonationcamps/index2', true);
         ajax.send(form);
     }
     

@@ -3,7 +3,7 @@ class Pltbldreqdetails extends Controller
 {
     function index($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="Platelette A+";
         $name="pltAp";
@@ -22,18 +22,15 @@ class Pltbldreqdetails extends Controller
         $plt=new Platelettes();
 
         $q1="SELECT * FROM platelets 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='A+'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='A+'";
 
-        $data=$plt->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
-
+        $data=$plt->query($q1,[
+            'bbid'=>$bbid,
+        ]);
+    
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -43,14 +40,7 @@ class Pltbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
-
+   
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
        
@@ -58,7 +48,7 @@ class Pltbldreqdetails extends Controller
 
     function index2($id = '')
     {        
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="Platelette A-";
         $name="pltAn";
@@ -77,18 +67,16 @@ class Pltbldreqdetails extends Controller
         $plt=new Platelettes();
 
         $q1="SELECT * FROM platelets 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='A-'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='A-'";
 
-        $data=$plt->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$plt->query($q1,[
+            'bbid'=>$bbid,
+        ]);
+   
 
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -98,13 +86,6 @@ class Pltbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
@@ -113,7 +94,7 @@ class Pltbldreqdetails extends Controller
 
     function index3($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="Platelette B+";
         $name="pltBp";
@@ -132,13 +113,12 @@ class Pltbldreqdetails extends Controller
         $plt=new Platelettes();
 
         $q1="SELECT * FROM platelets 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='B+'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='B+'";
 
-        $data=$plt->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$plt->query($q1,[
+            'bbid'=>$bbid,
+        ]);
+  
 
         if($data!=NULL){
             foreach($data as $row){
@@ -153,13 +133,6 @@ class Pltbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
@@ -168,7 +141,7 @@ class Pltbldreqdetails extends Controller
 
     function index4($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="Platelette B-";
         $name="pltBn";
@@ -187,13 +160,11 @@ class Pltbldreqdetails extends Controller
         $plt=new Platelettes();
 
         $q1="SELECT * FROM platelets 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='B-'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='B-'";
 
-        $data=$plt->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$plt->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
             foreach($data as $row){
@@ -208,14 +179,7 @@ class Pltbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
-
+  
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
        
@@ -223,7 +187,7 @@ class Pltbldreqdetails extends Controller
 
     function index5($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="Platelette AB+";
         $name="pltABp";
@@ -242,18 +206,16 @@ class Pltbldreqdetails extends Controller
         $plt=new Platelettes();
 
         $q1="SELECT * FROM platelets 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='AB+'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='AB+'";
 
-        $data=$plt->query($q1);
-        // $data=$data[0];
+        $data=$plt->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
-        // echo "<pre>";
-        // print_r($data);
 
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -263,13 +225,6 @@ class Pltbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
@@ -278,7 +233,7 @@ class Pltbldreqdetails extends Controller
 
     function index6($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="Platelette AB-";
         $name="pltABn";
@@ -297,13 +252,11 @@ class Pltbldreqdetails extends Controller
         $plt=new Platelettes();
 
         $q1="SELECT * FROM platelets 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='AB-'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='AB-'";
 
-        $data=$plt->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$plt->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
             foreach($data as $row){
@@ -318,14 +271,6 @@ class Pltbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
-
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
        
@@ -333,7 +278,7 @@ class Pltbldreqdetails extends Controller
 
     function index7($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="Platelette O+";
         $name="pltOp";
@@ -352,13 +297,12 @@ class Pltbldreqdetails extends Controller
         $plt=new Platelettes();
 
         $q1="SELECT * FROM platelets 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='O+'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='O+'";
 
-        $data=$plt->query($q1);
-        // $data=$data[0];
+        $data=$plt->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
-        // echo "<pre>";
-        // print_r($data);
 
         if($data!=NULL){
             foreach($data as $row){
@@ -373,22 +317,16 @@ class Pltbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
 
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
-       
-    }
+    } 
+    
 
     function index8($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="Platelette O-";
         $name="pltOn";
@@ -407,18 +345,15 @@ class Pltbldreqdetails extends Controller
         $plt=new Platelettes();
 
         $q1="SELECT * FROM platelets 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='O-'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='O-'";
 
-        $data=$plt->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$plt->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -427,14 +362,6 @@ class Pltbldreqdetails extends Controller
                 
             }
         }
-
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);

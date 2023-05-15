@@ -9,14 +9,14 @@ class Home extends Controller
             $this->redirect('login');
         }
 
-        $user = $this->load_model('User');
-
-        $email=Auth::getemail();    
-        $data = $user->where("email", $email);
+        $cp=new Community_post();
+        $qry="select * from community_post order by date desc limit 12";
+        $data=$cp->query($qry);
+        // $data = $user->where("email", $email);
 
         // print_r($data);
         
-        $this->view('home', ['rows' => $data[0]]);
+        $this->view('User/home', ['data'=>$data]);
        
     }
 }

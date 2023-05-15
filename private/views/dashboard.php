@@ -1,8 +1,8 @@
-
-
 <?php $this->view('pageinit'); ?>
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>Dashboard</title>
+
 
 <script src="<?=ROOT?>/scripts/genrep.js"></script>  
 <script src="<?=ROOT?>/js/ajscriptdashboard.js"></script>
@@ -11,7 +11,6 @@
 
 
         <div class="section" id="section">           <!--main section except sidebar & navbar-->
-        <link rel="stylesheet" href="<?=ROOT?>/css/bbbsmanagestyle.css">
 
             <div class="dash">
             <h2>Dashboard</h2>
@@ -48,25 +47,37 @@
 
             <?php $year=date('Y');?>
             <div class="thism">
-                <h2>This Year-<?= $year;?></h2>
+                <h2>This Year - <?php if(isset($_GET['yearval'])){
+                    echo $_GET['yearval'];
+                }else{
+                    echo $year;
+                }?> </h2>
+                <form method="get" class="yearselect">
+                    <select name="yearval" class="yearval">
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+
+                    </select>
+                    <input type="submit" name="yearvalsub" class="yearvalsub" value="Select"></input>
+                </form>
             </div>
 
             <div class="thismdet">
 
-                <a href="<?=ROOT?>/thismonthcamps"><div class="numofcamp">
+                <div class="numofcamp">
                     <div class="numofnm">Campaigns</div>
                     <div class="numofnum"><b><?= $ess['bdccountyear']?></b></div>
-                </div></a>
+                </div>
 
-                <a href="<?=ROOT?>/thismonthdonations"><div class="numofdon">
+                <div class="numofdon">
                     <div class="numofnm">Donations</div>
                     <div class="numofnum"><b><?= $ess['donationcountyear']?></b></div>
-                </div></a>
+                </div>
 
-                <a href="<?=ROOT?>/thismonthdonors"><div class="numofdonor">
+                <div class="numofdonor">
                     <div class="numofnm">Donors</div>
                     <div class="numofnum"><b><?= $ess['donorcountyear']?></b></div>
-               </div></a>
+               </div>
                 
             </div>
 
@@ -122,26 +133,8 @@
             <div class="thism">
                 <a href="<?=ROOT?>/reportui4"><button>View Report</button></a>
             </div>
-
             
 
-            <!-- <div class="repfrm">
-                <form class="form-inline"method="post" id="form" action="<?=ROOT?>/formforpdf">
-                    <div class="fromd">
-                        <label>From:</label>
-                        <input type="date" name="fromdate" id="fdate">
-                    </div>
-                    <div class="tod">
-                    <label>To:</label>
-                        <input type="date" name="todate" id="tdate">
-                    </div>
-                    <div class="searchbtn">
-                        <a href="javascript:genPDF()">genpdf</a>
-                        <button type="submit" class="subbtn">Submit</button>
-                    </div>
-                </form>
-            </div> -->
-            <!-- <button  class="subbtn sp" onclick="generatePDF()">pdf</button> -->
 
         </div>
 

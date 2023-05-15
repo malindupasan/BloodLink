@@ -34,7 +34,7 @@ class Myregisteredcamps extends Controller
 
 
 
-        $this->view('registeredcamps',['res'=>$res]);
+        $this->view('User/registeredcamps',['res'=>$res]);
 
         
 

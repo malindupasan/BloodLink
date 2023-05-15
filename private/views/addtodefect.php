@@ -2,6 +2,7 @@
     <?php $this->view('navup'); ?>
 
     <?php $date=date('Y-m-d'); ?>
+    <title>Add to Defect</title>
     
     <div class="heading">Add Defect</div>
     <link rel="stylesheet" href="<?=ROOT?>/css/addtodefectstyle.css">
@@ -24,7 +25,7 @@
         </div>
 
         
-        <div class="in"><input type="hidden" name="docid" id="docid" readonly value=<?=$_SESSION['USER']->id?> ></div>
+        <div class="in"><input type="hidden" name="labid" id="labid" readonly value=<?=$_SESSION['USER']->id?> ></div>
 
         
         <div class="formcontrol">
@@ -102,55 +103,8 @@
                 setsuccessfor(type);
             }
 
-            // if(datevalue== '') {
-            //     seterrorfor(date,'Date cannot be blank');
-            // } else if ((new Date(datevalue).getTime())<(new Date().getTime())) {
-            //     seterrorfor(date,'Enter valid date');
-            // } else {
-            //     setsuccessfor(date);
-
-            // }
-
-            // if(locvalue== '') {
-            //     seterrorfor(loc,'Location cannot be blank');
-            // } else {
-            //     setsuccessfor(loc);
-            // }
-
-            // if(descvalue== '') {
-            //     seterrorfor(desc,'Description cannot be blank');
-            // } else {
-            //     setsuccessfor(desc);
-            // }
-
-            // if(timevalue== '') {
-            //     seterrorfor(time,'Time cannot be blank');
-            // } else {
-            //     setsuccessfor(time);
-            // }
-
-            // if(bbankvalue== '') {
-            //     seterrorfor(bbank,'Bloodbank cannot be blank');
-            // } else {
-            //     setsuccessfor(bbank);
-            // }
-
-            // if(emailvalue== '') {
-            //     seterrorfor(email,'Email cannot be blank');
-            // } else if (!checkEmail(emailvalue)) {
-            //     seterrorfor(email,'Enter valid Email');
-            // }else {
-            //     setsuccessfor(email);
-            // }
-
-            // if(pnovalue== '') {
-            //     seterrorfor(pno,'PhoneNo cannot be blank');
-            // } else if (pnovalue.length!=10){
-            //     seterrorfor(pno,'Enter valid Number');
-            // }else {
-            //     setsuccessfor(pno);
-            // }
-
+           
+   
         }
 
         function seterrorfor(input,message) {
@@ -171,10 +125,7 @@
 
         }
 
-        // function checkEmail(email) {
-        //     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-        // }
-
+      
 
 
         

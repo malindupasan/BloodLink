@@ -49,7 +49,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminStaffUsers">
             <div class="b11">
-                <p>Add Staff Users</p>
+                <p>Staff Users</p>
             </div>
         </a>
 
@@ -64,7 +64,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminBugs">
             <div class="b11">
-                <p>Bugs</p>
+                <p>Feedbacks</p>
             </div>
         </a>
 
@@ -75,10 +75,20 @@
             </div>
         </a>
 
+        <a class="a11" href="<?= ROOT ?>/Admin">
+            <div class="b11">
+                <p class="">Admin</p>
+            </div>
+        </a>
+
 
     </div>
 
     <div class="right">
+
+    <div class="">
+            <h1 class="h1">Last 30 Days Report</h1>
+        </div>
         <div class="num ">
 
 
@@ -131,8 +141,12 @@
             <?php
             // Data for the pie chart
             $data1 = array(
-                "Defect Blood" => $rows3[0]->DEF,
-                "None Defect Blood" => $rows1[0]->DONA,
+                "HIV" => $rows3[0]->HIV,
+                "Dengue" => $rows11[0]->Dengue,
+                "Thalasemea" => $rows12[0]->Thalasemea,
+                "Hemophilia" => $rows13[0]->Hemophilia,
+                "Malaria" => $rows14[0]->Malaria,
+                "Other" => $rows10[0]->Other,
             );
             ?>
 
@@ -148,7 +162,7 @@
                     <table class="table1">
                         <thead>
                             <tr>
-                                <th>Bank ID</th>
+                                
                                 <th>Name</th>
                                 <th>City</th>
                                 <th>Street</th>
@@ -160,7 +174,7 @@
 
                             <?php foreach ($rows8 as $value) : ?>
                                 <tr>
-                                    <td><?= $value->blood_bank_id ?></td>
+                                    
                                     <td><?= $value->name ?></a></td>
                                     <td><?= $value->city ?></td>
                                     <td><?= $value->street ?></td>
@@ -180,14 +194,14 @@
             </div>
 
             <div class="canvasdiv">
-                <h3>Blood Bank</h3>
+                <h3>Blood Donation Camps</h3>
                 <div class="table">
                     <table class="table1">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                
                                 <th>Name</th>
-                                <th>Address</th>
+                                <th>City</th>
                                 <th>Date</th>
                                 <th>Status</th>
 
@@ -196,9 +210,9 @@
                         <tbody>
                             <?php foreach ($rows9 as $value) : ?>
                                 <tr>
-                                    <td><?= $value->camp_id ?></td>
+                                    
                                     <td><?= $value->camp_name ?></td>
-                                    <td><?= $value->address ?></td>
+                                    <td><?= $value->city ?></td>
                                     <td><?= $value->date ?></td>
                                     <td>
                                         <?php
@@ -266,12 +280,6 @@
                     '#5D8BF4',
                     '#90E0FF'
                 ],
-                borderColor: [
-                    '#051367',
-                    '#2D31FA',
-                    '#5D8BF4',
-                    '#90E0FF'
-                ],
                 borderWidth: 1
             }]
         },
@@ -310,15 +318,13 @@
             datasets: [{
                 data: Object.values(data1),
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.8)',
-                    'rgba(54, 162, 235, 0.8)',
-                    'rgba(14, 162, 035, 0.8)'
+                    '#011f4b',
+                    '#03396c',
+                    '#005b96',
+                    '#6497b1',
+                    '#b3cde0'
                 ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(14, 162, 035, 1)'
-                ],
+                
                 borderWidth: 1
             }]
         },

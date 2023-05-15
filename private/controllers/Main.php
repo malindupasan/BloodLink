@@ -6,6 +6,10 @@ class Main extends Controller
             if(!Auth::logged_in()){
             $this->redirect('adminlogin');
             }
+            if($_SESSION['USER']->role!='PHI'){
+                $this->redirect('login');
+
+            }
 
             $bbid=$_SESSION['USER']->blood_bank_id;
 
@@ -17,6 +21,15 @@ class Main extends Controller
             
             $bdc = new Bdcreq();
             $data = $bdc->bdcwhere("status",0,"blood_bank",$bbid);
+
+            if(isset($_POST['search'])){//=================================if search bar selected
+                $text=$_POST['searchval'];
+                $q1 = "select * from donation_camp_request where status=0 AND blood_bank=:bbid AND name like '$text%'";
+                $data = $bdc->query($q1,[
+                    'bbid'=>$bbid,
+                ]);
+
+            }
 
             if($data!=NULL){
             $numofresults=count($data);
@@ -33,6 +46,15 @@ class Main extends Controller
             $thispagefirstres=($page-1)*$resultsperpage;
 
             $data2= $bdc->paginbdcwhere("status",0,"blood_bank",$bbid,$thispagefirstres,$resultsperpage);
+
+            if(isset($_POST['search'])){//=================================if search bar selected
+                $text=$_POST['searchval'];
+                $q1 = "select * from donation_camp_request where status=0 AND blood_bank=:bbid AND name like '$text%' limit $thispagefirstres,$resultsperpage";
+                $data2 = $bdc->query($q1,[
+                    'bbid'=>$bbid,
+                ]);
+
+            }
         }
 // ----------------------------------pagination end----------------------
         
@@ -41,26 +63,9 @@ class Main extends Controller
             $this->redirect('login');
         }
 
-        // $bdc = $this->load_model('Bdcreq');
+        
 
-            // $arr['fullname'] = "harini silva";
-            // $arr['email'] = "hello@gmail.com";
-            // $arr['nic'] = "200016206040";
-            // $arr['mobile'] = "0703802708";
-            // $arr['city'] = "auckland";
-            // $arr['address'] = "1/90 mahiyangana road badulla";
-            // $arr['password'] = "$2y$10$.3UNYspSG3a59vZNJpqFPORLv8QUbmRKNOSkp3YDiYkhS.NdsiQ96";
-            // $arr['profile_img'] = "";
-            // $bs = new Addblood(); //model instantiated
-            // $data2 = $bs->findAll();
-
-        // $user->insert($arr);
-        // $user->delete(25);
-         //model instantiated
-
-        // $data=$user->where('id', 1);
          $this->view('main', ['rows' => $data2,'ess' => $essentials]);
-        //  $this->redirect('404');
-        // $this->view('home');
+       
     }
 }

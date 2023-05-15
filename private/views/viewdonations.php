@@ -4,8 +4,10 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>View Donations</title>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+
+<link rel="stylesheet" href="<?=ROOT?>/css/viewdonationsstyle.css">
 
 
 
@@ -31,15 +33,23 @@
             </div></a>
         </div>
 
+        <div class="search">
+            <form method="post">
+                <input type="text" placeholder="&#xf002; Search Donors..." name="searchval" class="jssearch">
+                <input type="submit" name="search" class="search" value="Search">
+
+            </form>
+
+        </div>
+
         <div class="tbl">
         <table>
             <thead>
                 <tr>
                     <th>PacketID</th>
-                    <th>DonorID</th>
+                    <th>Donor</th>
                     <th>Date Collected</th>
-                    <th>BloodBankID</th>
-                    <th>BDCampID</th>
+                    <th>Campaign</th>
                     <th></th>
 
                 </tr>
@@ -49,13 +59,12 @@
                         <div class="trows">
                         <tr class="hov">
                             <td><?=$row->packet_id ?></td>
-                            <td><?=$row->donor_id ?></td>
+                            <td><?=$row->name ?></td>
                             <td><?=$row->collected_date ?></td>
-                            <td><?=$row->blood_bank_id ?></td>
-                            <td><?=$row->blood_donation_camp_id ?></td>
+                            <td><?=$row->camp_name ?></td>
                             <td><?php           //accept/reject buttons
                                     if ($_SESSION['USER']->role=="Lab" ){  ?>
-                                        <a href="<?=ROOT?>/Checkblood?id=<?php echo $row->packet_id; ?>&stat=1"><button class="btn">Add</button></a> <a href="<?=ROOT?>/Rejectblood?id=<?php echo $row->packet_id; ?>&stat=2"><button class="btn">Reject</button></a>
+                                        <a href="<?=ROOT?>/brkbldform?id=<?php echo $row->packet_id; ?>&stat=1"><button class="btn">Add</button></a> <a href="<?=ROOT?>/addtodefect?id=<?php echo $row->packet_id; ?>&stat=3"><button class="btn">Reject</button></a>
                                 <?php } ?>
                                     
                             
@@ -128,3 +137,4 @@
 
 </body>
 </html>
+

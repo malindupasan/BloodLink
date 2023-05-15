@@ -16,21 +16,10 @@
             </div>
             <div class="campaignimg">My Defects</div>
         </div>
-        <?php if($_SESSION['USER']->role=='Doctor'){ ?>
-            <div class="navlinks">
-            <a href="<?=ROOT?>/defectblood"><div class="tocheck">
-                <div class="cont">All</div>
-            </div></a>
-
-            <a href="<?=ROOT?>/mydefectblood"><div class="checked activenav">
-            <div class="cont">My Defects</div>
-
-            </div></a>
-            </div>
-        <?php }?>
+       
         <div class="search">
             <form>
-                <input type="text" placeholder="&#xf002; Search Lab..." class="jssearch" oninput=get_data()>
+                <input type="text" placeholder="&#xf002; Search Defect..." class="jssearch" oninput=get_data()>
 
             </form>
             <a href="<?=ROOT?>/labusers"><button class="reset">Reset</button></a>
@@ -43,9 +32,9 @@
             <thead>
                 <tr>
                     
-                    <th>DonorID</th>
+                    <th>Donor</th>
                     <th>Date</th>
-                    <th>BloodBankID</th>
+                    <th>Type</th>
                     <th></th>
                     <!-- <th></th> -->
 
@@ -56,9 +45,9 @@
                 <div class="trows">
                 <tr class="hov">
                     
-                    <td><?=$row->donor_id ?></td>
+                    <td><?=$row->name ?></td>
                     <td><?=$row->date ?></td>
-                    <td><?=$row->blood_bank_id ?></td>
+                    <td><?=$row->type ?></td>
                     <td><a href="<?=ROOT?>/removedefect?id=<?php echo $row->defect_id; ?>"><button class="btn">Remove</button></td>
                     
                     
@@ -73,7 +62,7 @@
         </div>
     </div>
 
-    <?php if($rows!=NULL) {?>
+    <?php if($rows!=NULL && count($_POST)==0) {?>
 
     <div class="pagination">
             <div class="pagin">

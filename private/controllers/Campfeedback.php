@@ -18,11 +18,11 @@ class Campfeedback extends Controller
                 // print_r($_POST);
                 $_POST['date'] = date("Y-m-d");
                 $campfb->insert($_POST);
-                $this->view('thanksfeedback');
+                $this->view('User/thanksfeedback');
             }else if(count($_POST) <= 2&&isset($_POST['email'])){
                 echo "please fill all the options";
             }else{
-            $this->view('campfeedback');
+            $this->view('User/campfeedback');
             }
         }
         else{

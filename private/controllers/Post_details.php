@@ -26,7 +26,7 @@ class Post_details extends Controller
             $data=$post->query($query, $arr);
             $data=$data[0];
         }
-        $this->view('post_details', ['data'=>$data]);
+        $this->view('User/post_details', ['data'=>$data]);
 
     }
 

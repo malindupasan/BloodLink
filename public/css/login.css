@@ -99,7 +99,10 @@ input{
     padding-left: 1rem;
 }
 
-
+small{
+    color: rgb(151, 6, 6);
+    
+}
 
 
 

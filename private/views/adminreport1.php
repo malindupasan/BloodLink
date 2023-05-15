@@ -61,8 +61,12 @@
 
         <?php
         $data1 = array(
-            "Defect Blood" => $rows3[0]->DEF,
-            "None Defect Blood 1" => 5,
+            "HIV" => $rows3[0]->HIV,
+            "Dengue" => $rows16[0]->Dengue,
+            "Thalasemea" => $rows12[0]->Thalasemea,
+            "Hemophilia" => $rows13[0]->Hemophilia,
+            "Malaria" => $rows14[0]->Malaria,
+            "Other" => $rows15[0]->Other,
         );
         ?>
 
@@ -79,12 +83,12 @@
 
             <div class="b1">
                 <div class="p">Donations</div>
-                <div class="num"><?= $rows11[0]->BDC?></div>
+                <div class="num"><?= $rows11[0]->BDC ?></div>
             </div>
 
             <div class="b1">
                 <div class="p">Camps</div>
-                <div class="num"><?= $rows9[0]->BDC?></div>
+                <div class="num"><?= $rows9[0]->BDC ?></div>
             </div>
 
         </div>
@@ -202,14 +206,11 @@
             datasets: [{
                 data: Object.values(data1),
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.8)',
-                    'rgba(54, 162, 235, 0.8)',
-                    'rgba(14, 162, 035, 0.8)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(14, 162, 035, 1)'
+                    '#011f4b',
+                    '#03396c',
+                    '#005b96',
+                    '#6497b1',
+                    '#b3cde0'
                 ],
                 borderWidth: 1
             }]

@@ -14,9 +14,13 @@ class Thismonthdonors extends Controller
 
         $bdc=new Rawblood(); 
 
-        $q1="select donor.* FROM donor INNER JOIN raw_blood_packet ON donor.id=raw_blood_packet.donor_id WHERE raw_blood_packet.blood_bank_id=$bbid AND MONTH(collected_date)=$month AND YEAR(collected_date)=$year";
+        $q1="select donor.* FROM donor INNER JOIN raw_blood_packet ON donor.id=raw_blood_packet.donor_id WHERE raw_blood_packet.blood_bank_id=:bbid AND MONTH(collected_date)=:month AND YEAR(collected_date)=:year";
               
-        $data=$bdc->query($q1);
+        $data=$bdc->query($q1,[
+            'bbid'=>$bbid,
+            'month'=>$month,
+            'year'=>$year,
+        ]);
 
         if($data!=NULL){
         $numofresults=count($data);
@@ -32,12 +36,15 @@ class Thismonthdonors extends Controller
 
         $thispagefirstres=($page-1)*$resultsperpage;
 
-        $q2="select donor.* FROM donor INNER JOIN raw_blood_packet ON donor.id=raw_blood_packet.donor_id WHERE raw_blood_packet.blood_bank_id=$bbid AND MONTH(collected_date)=$month AND YEAR(collected_date)=$year limit $thispagefirstres,$resultsperpage";
+        $q2="select donor.* FROM donor INNER JOIN raw_blood_packet ON donor.id=raw_blood_packet.donor_id WHERE raw_blood_packet.blood_bank_id=:bbid AND MONTH(collected_date)=:month AND YEAR(collected_date)=:year limit $thispagefirstres,$resultsperpage";
 
 
-        $data2= $bdc->query($q2);
-        // echo "<pre>";
-        // print_r($data2);
+        $data2= $bdc->query($q2,[
+            'bbid'=>$bbid,
+            'month'=>$month,
+            'year'=>$year,
+        ]);
+       
 
     }
 
@@ -46,12 +53,6 @@ class Thismonthdonors extends Controller
             $this->redirect('login');
         }
 
-        // $user = $this->load_model('User');
-
-        // $id=Auth::getid();    
-        // $data = $user->where("id", $id);
-
-        
         $this->view('thismonthdonors',['rows'=>$data2,'ess'=>$essentials]);
        
     }

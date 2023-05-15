@@ -71,7 +71,7 @@ class Addcamp extends Controller
 
         
         // print_r($reqdata);
-        $this->view('addcamp',['reqdata'=>$reqdata]);
+        $this->view('User/addcamp',['reqdata'=>$reqdata]);
     }
 }
 

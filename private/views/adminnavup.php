@@ -40,7 +40,7 @@
             <li><a class="a" href="<?= ROOT ?>/AdminDonationCamps">Blood Donation Camps</a></li>
             <li><a class="a" href="<?= ROOT ?>/AdminStaffUsers">Staff Users</a></li>
             <li><a class="a" href="<?= ROOT ?>/AdminPublicUsers">Public Users</a></li>
-            <li><a class="a" href="<?= ROOT ?>/AdminBugs">Bugs</a></li>
+            <li><a class="a" href="<?= ROOT ?>/AdminBugs">Feedbacks</a></li>
             <li><a class="a" href="<?= ROOT ?>/AdminNews">News</a></li>
         </ul>
     </nav>

@@ -12,7 +12,6 @@
 
 
         $query = "select * from $this->table where $column1=:value1";
-        // echo $query;
         return $this->query($query, [
             
             'value1' => $value1,
@@ -27,7 +26,6 @@
 
 
         $query = "select * from $this->table where $column1=:value1 order by defect_id limit $fpage,$off";
-        // echo $query;
         return $this->query($query, [
             
             'value1' => $value1,

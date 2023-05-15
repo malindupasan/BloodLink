@@ -22,7 +22,7 @@ class Changepic extends Controller
            }
         }
 
-        $this->view('changepic', ['rows' => $data]);
+        $this->view('User/changepic', ['rows' => $data]);
     }
 
 }

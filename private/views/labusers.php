@@ -2,6 +2,7 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>Lab</title>
 
 <link rel="stylesheet" href="<?=ROOT?>/css/sysusersstyle.css">
 
@@ -156,7 +157,7 @@
                 resultdiv.innerHTML = str;
             }
         })
-        ajax.open('post', 'http://localhost:8888/Bloood%20Link%202/public/labusers/index2', true);
+        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/labusers/index2', true);
         ajax.send(form);
     }
 </script>

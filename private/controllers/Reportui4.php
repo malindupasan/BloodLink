@@ -71,8 +71,7 @@ class Reportui4 extends Controller
         $data=$def->query($q1);
         $predefarray['Malaria']=$data[0]->count;
 
-        // echo "<pre>";
-        // print_r($data1[0]->count);
+  
 
         $bdc=new BLBdc();
         $q="SELECT IFNULL(COUNT(camp_id),0) AS count FROM blood_donation_camp WHERE blood_bank_id=$bbid AND YEAR(date)=$year";
@@ -94,16 +93,11 @@ class Reportui4 extends Controller
         
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // $data = array('key1' => 'value1', 'key2' => 'value2');
-            // $data2 = array('key3' => 'value3', 'key4' => 'value4');
-            // $data3 = array('key1' => 'value1', 'key2' => 'value2');
-            // $data4 = array('key3' => 'value3', 'key4' => 'value4');
+            
 
             $response = array("defect" => $defarray,"predefect"=>$predefarray);
                 
-            // $response2 = array("data3" => $data3, "data4" => $data4);
-
-            // $full=array("res" => $response, "res2" => $response2) ;
+            
 
             echo json_encode($response);
         } else {

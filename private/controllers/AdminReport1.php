@@ -23,9 +23,7 @@ class AdminReport1 extends Controller
         $quary7 = "SELECT SUM(amount) AS PLASMA FROM plasma";
         $data7 = $num7->query($quary7);
 
-        $num3 = new Admin_Home();
-        $quary3 = "SELECT COUNT(*) AS DEF FROM defect";
-        $data3 = $num3->query($quary3);
+
 
         $num9 = new Admin_Home();
         $quary9 = "SELECT COUNT(*) AS BDC FROM blood_donation_camp WHERE date >= DATE_SUB(NOW(), INTERVAL 30 DAY)";
@@ -53,6 +51,34 @@ class AdminReport1 extends Controller
 
 
 
+        $num3 = new Admin_Home();
+        $quary3 = "SELECT COUNT(*) AS HIV FROM defect WHERE reason='HIV'";
+        $data3 = $num3->query($quary3);
+
+        $num15 = new Admin_Home();
+        $quary15 = "SELECT COUNT(*) AS Other FROM defect WHERE reason='Other'";
+        $data15 = $num15->query($quary15);
+
+        $num16 = new Admin_Home();
+        $quary16 = "SELECT COUNT(*) AS Dengue FROM defect WHERE reason='Dengue'";
+        $data16 = $num16->query($quary16);
+
+        $num12 = new Admin_Home();
+        $quary12 = "SELECT COUNT(*) AS Thalasemea FROM defect WHERE reason='Thalasemea'";
+        $data12 = $num12->query($quary12);
+
+        $num13 = new Admin_Home();
+        $quary13 = "SELECT COUNT(*) AS Hemophilia FROM defect WHERE reason='Hemophilia'";
+        $data13 = $num13->query($quary13);
+
+        $num14 = new Admin_Home();
+        $quary14 = "SELECT COUNT(*) AS Malaria FROM defect WHERE reason='Malaria'";
+        $data14 = $num14->query($quary14);
+
+
+
+
+
         $this->view('adminreport1', [
             'rows4' => $data4,
             'rows5' => $data5,
@@ -61,7 +87,12 @@ class AdminReport1 extends Controller
             'rows3' => $data3,
             'rows9' => $data9,
             'rows10' => $data10,
-            'rows11' => $data11
+            'rows11' => $data11,
+            'rows12' => $data12,
+            'rows13' => $data13,
+            'rows14' => $data14,
+            'rows15' => $data15,
+            'rows16' => $data16
         ]);
     }
 }

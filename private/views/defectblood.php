@@ -4,6 +4,8 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>Defects</title>
+
 
 <link rel="stylesheet" href="<?=ROOT?>/css/defectbloodstyle.css">
 
@@ -19,25 +21,14 @@
             </div>
             <div class="campaignimg">Defects</div>
         </div>
-        <?php if($_SESSION['USER']->role=='Doctor'){ ?>
-            <div class="navlinks">
-            <a href="<?=ROOT?>/defectblood"><div class="tocheck activenav">
-                <div class="cont">All</div>
-            </div></a>
-
-            <a href="<?=ROOT?>/mydefectblood"><div class="checked">
-            <div class="cont">My Defects</div>
-
-            </div></a>
-            </div>
-        <?php }?>
+        
         
         <div class="search">
             <form>
-                <input type="text" placeholder="&#xf002; Search Lab..." class="jssearch" oninput=get_data()>
+                <input type="text" placeholder="&#xf002; Search Defect..." class="jssearch" oninput=get_data()>
 
             </form>
-            <a href="<?=ROOT?>/labusers"><button class="reset">Reset</button></a>
+            <a href="<?=ROOT?>/defectblood"><button class="reset">Reset</button></a>
 
         </div>
 
@@ -45,10 +36,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>DoctorID</th>
-                    <th>DonorID</th>
+                    <th>Lab</th>
+                    <th>Donor</th>
                     <th>Date</th>
-                    <th>BloodBankID</th>
                     <th></th>
                     <!-- <th></th> -->
 
@@ -61,8 +51,14 @@
                     <td><?=$row->name ?></td>
                     <td><?=$row->donname ?></td>
                     <td><?=$row->date ?></td>
-                    <td><?=$row->blood_bank_id ?></td>
-                    <td><a href="<?=ROOT?>/reportui3?id=<?php echo $row->defect_id; ?>"><button class="btn">View</button></td>
+                    <td><a href="<?=ROOT?>/reportui3?id=<?php echo $row->defect_id; ?>"><button class="btn">View</button>
+                    <?php if($_SESSION['USER']->role=='Doctor' && $row->doctor_id==NULL ){ ?>
+                        <a href="<?=ROOT?>/removedefect?id=<?php echo $row->defect_id; ?>"><button class="btn">Remove</button></td>
+
+                    <?php } else if($row->doctor_id!=NULL) {
+                        echo "Removed...";
+                    }?>
+
                 </tr>
                 </div>
             <?php endforeach; } ?>
@@ -115,12 +111,7 @@
     </div><?php } ?>
 
 </div>
-<?php 
-    //   echo "<pre>";
-    //  $a=$rows[0]->id;
-    // print_r($rows);
-    // print($a);
-?>
+
 <script>
     function get_data(){
         var text = document.querySelector(".jssearch").value;
@@ -135,7 +126,7 @@
                 var obj=JSON.parse(ajax.responseText);
                 console.log(obj);
                 var resultdiv=document.querySelector(".jstable");
-                var str="<table><thead><tr><th>Doctor</th><th>Donor</th><th>Date</th><th>BloodBankID</th><th</th></tr><thead>";
+                var str="<table><thead><tr><th>Lab</th><th>Donor</th><th>Date</th><th>BloodBankID</th><th</th></tr><thead>";
                 for (var i=obj.length-1;i>=0;i--){
                     console.log(obj[i].name);
                     str+=  "<tr class='hov'><td>" + obj[i].name + "</td> <td>" + obj[i].donname + "</td> <td>" +  obj[i].date + "</td> <td>" + obj[i].blood_bank_id + `</td> <td> <a href='http://localhost/Bloood%20Link%202/public/reportui3?id=${obj[i].defect_id}'><button class='btn'>View</button></td> </tr>`;      

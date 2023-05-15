@@ -2,6 +2,8 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>RBC Requests</title>
+
 
 
 

@@ -154,8 +154,79 @@ div.table {
 /* right Side */
 .right {
     width: 85%;
-    height: 80rem;
+    height: 100rem;
     background-color: #fff;
 
 }
+
+
+
+
+
+
+.bloodtable{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 4rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

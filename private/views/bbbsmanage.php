@@ -1,6 +1,7 @@
         <?php $this->view('pageinit'); ?>
         <?php $this->view('nav'); ?>
         <?php $this->view('navup'); ?>
+        <title>Blood Stock Manage</title>
 
         <script src="<?=ROOT?>/js/ajscriptbbbs.js"></script>
 
@@ -59,9 +60,7 @@
         
 
         <div class="section">           <!--main section except sidebar & navbar-->
-            <!-- <div class="back">
-                <div class="backimg"><img class="backimg" src="back.png" ></div>
-            </div> -->
+           
             <div class="namearea">
                 <div class="nmandreq">
                     <div class="nm"><b>Blood Stock</b></div>
@@ -80,8 +79,7 @@
                 </form>
                 <a href="<?=ROOT?>/bbbsmanage"><button class="reset">Reset</button></a>
                 <div class="bblist jsdiv">
-                    <!-- <div class="c">fffff</div>
-                    <div class="c">fffff</div> -->
+                   
 
                 </div>
 
@@ -124,11 +122,9 @@
            <a href="<?=ROOT?>/reportui2"><button class="addb">View Report</button></a>
            
 
-            <!-- <div class="addb">
-                <button class="addb">Add Blood</button>
-            </div> -->
+            
         </div>
-        <?php $this->view('staff/footer'); ?>
+        <?php $this->view('footer'); ?>
 
 
 <script>
@@ -140,8 +136,7 @@
         var ajax = new XMLHttpRequest();
         ajax.addEventListener('readystatechange', (e) => {
             if (ajax.readyState == 4 && ajax.status == 200) {
-                //res
-                // console.log(ajax.responseText);
+               
                 var obj=JSON.parse(ajax.responseText);
                 console.log(obj);
                 var resultdiv=document.querySelector(".jsdiv");

@@ -2,6 +2,8 @@
 
         <?php $this->view('nav'); ?>
         <?php $this->view('navup'); ?>
+        <title>Doctor</title>
+
 
         <link rel="stylesheet" href="<?=ROOT?>/css/sysusersstyle.css">
 
@@ -29,10 +31,10 @@
 
         <div class="search">
             <form>
-                <input type="text" placeholder="&#xf002; Search Lab..." class="jssearch" oninput=get_data()>
+                <input type="text" placeholder="&#xf002; Search Doctor..." class="jssearch" oninput=get_data()>
 
             </form>
-            <a href="<?=ROOT?>/labusers"><button class="reset">Reset</button></a>
+            <a href="<?=ROOT?>/docusers"><button class="reset">Reset</button></a>
 
         </div>
         
@@ -149,7 +151,7 @@
                 resultdiv.innerHTML = str;
             }
         })
-        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/docusers/index2', true);
+        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/viewdonationschecked/index2', true);
         ajax.send(form);
     }
 </script>  

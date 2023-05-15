@@ -8,6 +8,10 @@ class Bdchistory extends Controller
         if(!Auth::logged_in()){
             $this->redirect('login');
         }
+        if($_SESSION['USER']->role=='Donor'){
+            $this->redirect('login');
+
+        }
         $bbid=$_SESSION['USER']->blood_bank_id;
 
         // ----------------------------------pagination-----------------------
@@ -17,8 +21,10 @@ class Bdchistory extends Controller
         $resultsperpage= 15;
         
         $bdc = new BLBdc();
-        $q1="SELECT * FROM blood_donation_camp WHERE blood_bank_id=$bbid AND date<CURDATE()";
-        $data = $bdc->query($q1);
+        $q1="SELECT * FROM blood_donation_camp WHERE blood_bank_id=:bbid AND date<CURDATE()";
+        $data = $bdc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
         $numofresults=count($data);
@@ -34,9 +40,11 @@ class Bdchistory extends Controller
 
         $thispagefirstres=($page-1)*$resultsperpage;
 
-        $q2="SELECT * FROM blood_donation_camp WHERE blood_bank_id=$bbid AND date<CURDATE() limit $thispagefirstres,$resultsperpage";
+        $q2="SELECT * FROM blood_donation_camp WHERE blood_bank_id=:bbid AND date<CURDATE() limit $thispagefirstres,$resultsperpage";
 
-        $data2= $bdc->query($q2);
+        $data2= $bdc->query($q2,[
+            'bbid'=>$bbid,
+        ]);
     }
 // ----------------------------------pagination end----------------------
 
@@ -56,15 +64,16 @@ class Bdchistory extends Controller
             $text=addslashes($text);
             
             $bdc = new BLBdc();
-            $stm="SELECT * FROM blood_donation_camp WHERE blood_bank_id=$bbid AND date<CURDATE() AND camp_name like '$text%'";
+            $stm="SELECT * FROM blood_donation_camp WHERE blood_bank_id=:bbid AND date<CURDATE() AND camp_name like '$text%'";
 
 
             
-            $results=$bdc->query($stm);
+            $results=$bdc->query($stm,[
+                'bbid'=>$bbid,
+            ]);
             
             echo json_encode($results);
-            // $data = $user->query($query);
-            // echo (json_encode($data));
+            
              }
     }
 }

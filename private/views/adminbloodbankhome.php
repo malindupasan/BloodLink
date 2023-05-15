@@ -1,6 +1,12 @@
 <?php $this->view('includes/pageinit'); ?>
 <?php $this->view('adminnavupDashBoard'); ?>
 
+<script src="https://kit.fontawesome.com/1a2c8fa8df.js" crossorigin="anonymous"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTET7frzRd7t4FvurRzw28rbqEE7_oWFU&callback=initMap&libraries=places"></script>
+<script src="http://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script defer src="<?= ROOT ?>/js/reqdonationcamps.js"></script>
+
 <?php $i = 0 ?>
 
 <link rel="stylesheet" href="<?= ROOT ?>/css/adminbloodbankhome.css">
@@ -44,7 +50,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminStaffUsers">
             <div class="b11">
-                <p>Add Staff Users</p>
+                <p>Staff Users</p>
             </div>
         </a>
 
@@ -59,7 +65,7 @@
 
         <a class="a11" href="<?= ROOT ?>/AdminBugs">
             <div class="b11">
-                <p>Bugs</p>
+                <p>Feedbacks</p>
             </div>
         </a>
 
@@ -67,6 +73,12 @@
         <a class="a11" href="<?= ROOT ?>/AdminNews">
             <div class="b11">
                 <p>News</p>
+            </div>
+        </a>
+
+        <a class="a11" href="<?= ROOT ?>/Admin">
+            <div class="b11">
+                <p class="">Admin</p>
             </div>
         </a>
 
@@ -133,9 +145,18 @@
                     </div>
 
                     <div class="map">
-                        <label class="loc" for="map">Location</label>
-                        <label class="map-in" type="text" id="map" name="map"><?= $rows[0]->latitude . " " . $rows[0]->longitude ?></label>
+                        <input type="text" id="locationInp" class="locationinp">
+
+                        <input type="text" class="inp1" id="p-latitude" name="latitude" hidden>
+                        <input type="text" class="inp1" id="p-longitude" name="longitude" hidden>
+
+                        <div class="map" id="map"></div>
+                        <div class="but"><a href="<?= ROOT ?>/adminbloodbankhome?id=<?= $rows[0]->blood_bank_id ?>"><button type="button" class="btn" id="addMap">Add Map</button></a></div>
+                            <!-- <button type="button" class="btn" id="addMap" href = "<?= ROOT ?>/adminbloodbankhome/addMapAndRedirectToHome">Add Map</button> -->
+                            
+                        </div>
                     </div>
+
 
 
                 </div>

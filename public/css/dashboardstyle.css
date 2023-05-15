@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     /* background-color: #ffffff; */
-    background-color: #e1dfdf;
+    background-color: #e8f7fd;
 
     font-family: "Poppins";
 }
@@ -26,6 +26,8 @@ div.section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: #b8ced8; */
+
 }
 
 
@@ -157,7 +159,7 @@ div.thism2{
     align-items: center;
 }
 
-button{
+button,.yearvalsub{
     font-family: "Poppins" !important;
     transition: background-color 0.5s ease;
 
@@ -169,6 +171,16 @@ button{
     border: none;
     cursor: pointer;
     background-color: #FD9F9F;
+}
+
+select.yearval{
+    width: 5rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+}
+
+form.yearselect{
+    padding-left: 2rem;
 }
 
 

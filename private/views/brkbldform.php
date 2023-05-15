@@ -2,6 +2,8 @@
     <?php $this->view('pageinit'); ?>
 
     <?php $this->view('navup'); ?>
+    <title>Segment Blood</title>
+
 
     <link rel="stylesheet" href="<?=ROOT?>/css/brkbldstyle.css">
    

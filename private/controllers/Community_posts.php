@@ -20,6 +20,7 @@ class Community_posts extends Controller
             }
             $arr['image'] = $_POST['image'];
             $arr['title'] = $_POST['title'];
+            $arr['date']=date('Y-m-d');
             $arr['description'] = $_POST['description'];
             if ($_SESSION['USER']->role == "Donor") {
                 $arr['donor_id'] = Auth::getid();
@@ -29,10 +30,12 @@ class Community_posts extends Controller
                 $arr['doctor_id'] = Auth::getid();
             }
             $post->insert($arr);
+            $this->redirect('newsfeed');
+            // header("Location:community_posts");
         }
         $data = $data[0];
 
-        $this->view('community_post', ['rows' => $data]);
+        $this->view('User/community_post', ['rows' => $data]);
     }
 
 }

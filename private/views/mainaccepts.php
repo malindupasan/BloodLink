@@ -4,9 +4,11 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>Bdc Accepts</title>
 
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+
+<link rel="stylesheet" href="<?=ROOT?>/css/stylemain.css">
 
 
 
@@ -32,6 +34,16 @@
 
         </div></a>
     </div>
+
+    <div class="search">
+            <form method="post">
+                <input type="text" placeholder="&#xf002; Search Donors..." name="searchval" class="jssearch">
+                <input type="submit" name="search" class="search" value="Search"></button>
+
+            </form>
+
+        </div>
+        
         <div class="tbl">
         <table>
             <thead>
@@ -147,12 +159,7 @@
 
 
 </div>
-<?php 
-    //   echo "<pre>";
-    //  $a=$rows[0]->id;
-    // print_r($rows);
-    // print($a);
-?>
+
 
 
 

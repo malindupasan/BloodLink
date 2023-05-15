@@ -9,6 +9,11 @@ class Mydefectblood extends Controller
         if(!Auth::logged_in()){
             $this->redirect('login');
         }
+
+        if($_SESSION['USER']->role!='Doctor'){
+            $this->redirect('login');
+
+        }
 // ----------------------------------pagination-----------------------
         $data2=array();
 
@@ -16,9 +21,8 @@ class Mydefectblood extends Controller
         $resultsperpage= 15;
 
         $bdc = new BLDefect();
-        $query1="select defect.*,doctor.blood_bank_id FROM defect INNER JOIN doctor ON defect.doctor_id=doctor.id where doctor.blood_bank_id=$bbid AND defect.doctor_id=$did";
+        $query1="select defect.*,doctor.blood_bank_id,donor.name FROM defect INNER JOIN doctor ON defect.doctor_id=doctor.id INNER JOIN donor ON defect.donor_id=donor.id where doctor.blood_bank_id=$bbid AND defect.doctor_id=$did AND donor.is_defect=1";
 
-        // $data = $bdc->finddefects("blood_bank_id",$bbid);
         $data=$bdc->query($query1);
 
         if($data!=NULL){
@@ -35,12 +39,11 @@ class Mydefectblood extends Controller
 
         $thispagefirstres=($page-1)*$resultsperpage;
 
-        $query2="select defect.*,doctor.blood_bank_id FROM defect INNER JOIN doctor ON defect.doctor_id=doctor.id where doctor.blood_bank_id=$bbid AND defect.doctor_id=$did order by defect.defect_id limit $thispagefirstres,$resultsperpage";
+        $query2="select defect.*,doctor.blood_bank_id,donor.name FROM defect INNER JOIN doctor ON defect.doctor_id=doctor.id INNER JOIN donor ON defect.donor_id=donor.id where doctor.blood_bank_id=$bbid AND defect.doctor_id=$did AND donor.is_defect=1 order by defect.defect_id limit $thispagefirstres,$resultsperpage";
 
 
         $data2=$bdc->query($query2);
-        // echo "<pre>";
-        // print_r($data2);
+       
         }
 // ----------------------------------pagination end----------------------
         
@@ -68,8 +71,7 @@ class Mydefectblood extends Controller
             $results=$bdc->query($stm);
             
             echo json_encode($results);
-            // $data = $user->query($query);
-            // echo (json_encode($data));
+            
              }
     }
 }

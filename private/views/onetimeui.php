@@ -4,9 +4,10 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>One Time UI</title>
 
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/onetimeuistyle.css">
 
 
 
@@ -14,7 +15,7 @@
     <div class="section">           <!--main section except sidebar & navbar-->
         <div class="camptitle">
             <div class="campaign">Add Donations</div>  
-            <div class="newbtn"><img class="onetimg" src="<?=ROOT?>/images/add-512.png"><button class="btnonet">Add</button><img class="onetimg" src="<?=ROOT?>/images/add-user.png"><button class="btnonet">Add New</button></div>
+            <div class="newbtn"><img class="onetimg" src="<?=ROOT?>/images/add-512.png"><a href="<?=ROOT?>/qrscanner?id=<?=$campid?>"><button class="btnonet">QR</button></a><img class="onetimg" src="<?=ROOT?>/images/add-user.png"><a href="<?=ROOT?>/search?id=<?=$campid?>"><button class="btnonet">Search</button></a></div>
 
         </div>
         <div class="tbl">

@@ -4,7 +4,7 @@ class Rbcbldreqdetails extends Controller
     
     function index($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
         $title="RBC A+";
         $name="rAp";
         $amnt=$_GET['amnt'];
@@ -22,18 +22,16 @@ class Rbcbldreqdetails extends Controller
         $rbc=new Rbc();
 
         $q1="SELECT * FROM rbc 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='A+'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='A+'";
 
-        $data=$rbc->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$rbc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
+       
 
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -43,14 +41,7 @@ class Rbcbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
-
+   
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
        
@@ -58,7 +49,7 @@ class Rbcbldreqdetails extends Controller
 
     function index2($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
         $title="RBC A-";
         $name="rAn";
         $amnt=$_GET['amnt'];
@@ -76,18 +67,15 @@ class Rbcbldreqdetails extends Controller
         $rbc=new Rbc();
 
         $q1="SELECT * FROM rbc 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='A-'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='A-'";
 
-        $data=$rbc->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
-
+        $data=$rbc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
+ 
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -97,13 +85,6 @@ class Rbcbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
@@ -112,7 +93,7 @@ class Rbcbldreqdetails extends Controller
 
     function index3($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
         $title="RBC B+";
         $name="rBp";
         $amnt=$_GET['amnt'];
@@ -130,18 +111,15 @@ class Rbcbldreqdetails extends Controller
         $rbc=new Rbc();
 
         $q1="SELECT * FROM rbc 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='B+'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='B+'";
 
-        $data=$rbc->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$rbc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -151,14 +129,6 @@ class Rbcbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
-
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
        
@@ -166,7 +136,7 @@ class Rbcbldreqdetails extends Controller
 
     function index4($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
         $title="RBC B-";
         $name="rBn";
         $amnt=$_GET['amnt'];
@@ -184,13 +154,11 @@ class Rbcbldreqdetails extends Controller
         $rbc=new Rbc();
 
         $q1="SELECT * FROM rbc 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='B-'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='B-'";
 
-        $data=$rbc->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$rbc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
             foreach($data as $row){
@@ -205,12 +173,6 @@ class Rbcbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
 
 
         
@@ -220,7 +182,7 @@ class Rbcbldreqdetails extends Controller
 
     function index5($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
         $title="RBC AB+";
         $name="rABp";
         $amnt=$_GET['amnt'];
@@ -238,13 +200,11 @@ class Rbcbldreqdetails extends Controller
         $rbc=new Rbc();
 
         $q1="SELECT * FROM rbc 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='AB+'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='AB+'";
 
-        $data=$rbc->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$rbc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
             foreach($data as $row){
@@ -259,22 +219,13 @@ class Rbcbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
-
-        
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
        
     }
 
     function index6($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
         $title="RBC AB-";
         $name="rABn";
         $amnt=$_GET['amnt'];
@@ -292,18 +243,16 @@ class Rbcbldreqdetails extends Controller
         $rbc=new Rbc();
 
         $q1="SELECT * FROM rbc 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='AB-'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='AB-'";
 
-        $data=$rbc->query($q1);
-        // $data=$data[0];
+        $data=$rbc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
-        // echo "<pre>";
-        // print_r($data);
 
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -313,13 +262,6 @@ class Rbcbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
@@ -328,7 +270,7 @@ class Rbcbldreqdetails extends Controller
 
     function index7($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
         $title="RBC O+";
         $name="rOp";
         $amnt=$_GET['amnt'];
@@ -346,13 +288,12 @@ class Rbcbldreqdetails extends Controller
         $rbc=new Rbc();
 
         $q1="SELECT * FROM rbc 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='O+'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='O+'";
 
-        $data=$rbc->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
+        $data=$rbc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
+ 
 
         if($data!=NULL){
             foreach($data as $row){
@@ -367,13 +308,6 @@ class Rbcbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
@@ -382,7 +316,7 @@ class Rbcbldreqdetails extends Controller
 
     function index8($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
         $title="RBC O-";
         $name="rOn";
         $amnt=$_GET['amnt'];
@@ -400,18 +334,16 @@ class Rbcbldreqdetails extends Controller
         $rbc=new Rbc();
 
         $q1="SELECT * FROM rbc 	
-        WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='O-'";
+        WHERE blood_bank_id=:bbid AND exp_date > CURDATE() AND blood_group='O-'";
 
-        $data=$rbc->query($q1);
-        // $data=$data[0];
+        $data=$rbc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
-        // echo "<pre>";
-        // print_r($data);
 
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -420,13 +352,6 @@ class Rbcbldreqdetails extends Controller
                 
             }
         }
-
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
 
 
         

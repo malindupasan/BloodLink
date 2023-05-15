@@ -4,8 +4,10 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>Checked Donatins</title>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+
+<link rel="stylesheet" href="<?=ROOT?>/css/viewdonationsstyle.css">
 
 
 
@@ -30,16 +32,23 @@
 
             </div></a>
         </div>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="&#xf002; Search Packets..." class="jssearch" oninput=get_data()>
 
-        <div class="tbl">
+            </form>
+            <a href="<?=ROOT?>/viewdonationschecked"><button class="reset">Reset</button></a>
+
+        </div>
+
+        <div class="tbl jstable">
         <table>
             <thead>
                 <tr>
                     <th>PacketID</th>
-                    <th>Amount</th>
+                    <th>Donor</th>
                     <th>Date Collected</th>
-                    <th>BloodBankID</th>
-                    <th>BDCampID</th>
+                    <th>Campaign</th>
                     <!-- <th></th> -->
 
                 </tr>
@@ -49,10 +58,9 @@
                 <div class="trows">
                 <tr class="hov">
                     <td><?=$row->packet_id ?></td>
-                    <td><?=$row->packet_id ?></td>
+                    <td><?=$row->name ?></td>
                     <td><?=$row->collected_date ?></td>
-                    <td><?=$row->blood_bank_id ?></td>
-                    <td><?=$row->blood_donation_camp_id ?></td>
+                    <td><?=$row->camp_name ?></td>
                     
                     
 
@@ -118,6 +126,34 @@
     // print($a);
 ?>
 
+<script>
+    function get_data(){
+        var text = document.querySelector(".jssearch").value;
+         var form = new FormData();
+
+        form.append('text', text);
+        var ajax = new XMLHttpRequest();
+        ajax.addEventListener('readystatechange', (e) => {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                //res
+                // console.log(ajax.responseText);
+                var obj=JSON.parse(ajax.responseText);
+                console.log(obj);
+                var resultdiv=document.querySelector(".jstable");
+                var str="<table><thead><tr><th>Packet_id</th><th>Donor</th><th>Collected Date</th><th>Camp</th></tr><thead>";
+                for (var i=obj.length-1;i>=0;i--){
+                    console.log(obj[i].name);
+                    str+=  "<tr class='hov'><td>" + obj[i].packet_id + "</td> <td>" + obj[i].name + "</td> <td>" +  obj[i].collected_date + "</td> <td>" + obj[i].camp_name +"</td> </tr>";      
+
+                }
+
+                resultdiv.innerHTML = str;
+            }
+        })
+        ajax.open('post', 'http://localhost/Bloood%20Link%202/public/viewdonationschecked/index2', true);
+        ajax.send(form);
+    }
+</script>
 
 </body>
 </html>

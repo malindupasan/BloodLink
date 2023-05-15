@@ -324,21 +324,23 @@ a {
 
 
 div.upc {
-    background: #78D669;
     border-radius: 2rem;
     padding: 5px;
+    color: #78D669;
+    font-weight: bold;
 }
 
 div.ong {
-    background: #417FDC;
     border-radius: 2rem;
     padding: 5px;
+    color: #417FDC;
 }
 
 div.clo {
-    background: #F03E3E;
     border-radius: 2rem;
     padding: 5px;
+    color: #F03E3E;
+    font-weight: bold;
 }
 
 .status-closed {

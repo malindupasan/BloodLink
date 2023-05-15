@@ -22,9 +22,37 @@ class AdminDashBoard extends Controller
         $data2 = $num2->query($quary2);
 
 
+
+
+
         $num3 = new Admin_Home();
-        $quary3 = "SELECT COUNT(*) AS DEF FROM defect";
+        $quary3 = "SELECT COUNT(*) AS HIV FROM defect WHERE reason='HIV'";
         $data3 = $num3->query($quary3);
+
+        $num10 = new Admin_Home();
+        $quary10 = "SELECT COUNT(*) AS Other FROM defect WHERE reason='Other'";
+        $data10 = $num10->query($quary10);
+
+        $num11 = new Admin_Home();
+        $quary11 = "SELECT COUNT(*) AS Dengue FROM defect WHERE reason='Dengue'";
+        $data11 = $num11->query($quary11);
+
+        $num12 = new Admin_Home();
+        $quary12 = "SELECT COUNT(*) AS Thalasemea FROM defect WHERE reason='Thalasemea'";
+        $data12 = $num12->query($quary12);
+
+        $num13 = new Admin_Home();
+        $quary13 = "SELECT COUNT(*) AS Hemophilia FROM defect WHERE reason='Hemophilia'";
+        $data13 = $num13->query($quary13);
+
+        $num14 = new Admin_Home();
+        $quary14 = "SELECT COUNT(*) AS Malaria FROM defect WHERE reason='Malaria'";
+        $data14 = $num14->query($quary14);
+
+
+
+
+
 
 
         $num4 = new Admin_Home();
@@ -65,6 +93,12 @@ class AdminDashBoard extends Controller
                                        'rows6' => $data6,
                                        'rows7' => $data7,
                                        'rows8' => $data8,
-                                       'rows9' => $data9]);
+                                       'rows9' => $data9,
+                                       'rows10' => $data10,
+                                       'rows11' => $data11,
+                                       'rows12' => $data12,
+                                       'rows13' => $data13,
+                                       'rows14' => $data14
+                                    ]);
     }
 }

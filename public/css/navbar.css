@@ -89,6 +89,7 @@ body {
 
 .sub-menu-wrapper{
     position: absolute;
+    z-index: 100;
     top:4.5rem;
     right: 1%;
     width: 17.5rem;

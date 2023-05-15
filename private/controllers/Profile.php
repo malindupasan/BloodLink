@@ -19,7 +19,7 @@ class Profile extends Controller
 
 
         
-        $this->view('profile', ['rows' => $data[0]]);
+        $this->view('User/profile', ['rows' => $data[0]]);
         
     }
 }

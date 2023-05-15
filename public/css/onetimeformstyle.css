@@ -39,6 +39,7 @@ div.row,div.rows,div.rowshort{
 div.rows,div.row{
     width: 100%;
     margin-top: 2rem;
+    gap: 1rem;
 }
 
 input{

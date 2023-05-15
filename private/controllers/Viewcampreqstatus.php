@@ -15,7 +15,7 @@ class Viewcampreqstatus extends Controller
         $data=$cmprq->query($query,$arr);
         
         // print_r([$data]);
-        $this->view('mycamprequests',[$data]);
+        $this->view('User/mycamprequests',[$data]);
 
 
     }

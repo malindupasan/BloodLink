@@ -1,12 +1,12 @@
 
-
 <?php $this->view('pageinit'); ?>
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>BDC Rejects</title>
 
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/stylemain.css">
 
 
 
@@ -14,12 +14,7 @@
     <div class="section">           <!--main section except sidebar & navbar-->
         <div class="camptitle">
             <div class="campaign">Campaigns</div>
-            <?php if ($_SESSION['USER']->role!="Admin") { ?>
-            <div class="newbtn"><button onclick="openForm()">Open Form</button></div>
 
-            <?php }?>
-            
-            
         </div>
 
         <div class="navlinks">
@@ -37,6 +32,16 @@
 
         </div></a>
     </div>
+
+    <div class="search">
+            <form method="post">
+                <input type="text" placeholder="&#xf002; Search Donors..." name="searchval" class="jssearch">
+                <input type="submit" name="search" class="search" value="Search"></button>
+
+            </form>
+
+    </div>
+    
         <div class="tbl">
         <table>
             <thead>
@@ -142,47 +147,10 @@
             </div>
     
     </div><?php } ?>
-
-    <!-- --------------------------form popup-------------------- -->
-    <div id="myForm" class="form-popup">
-  <form action="/submit-form.php" method="post" class="form-container">
-    <h2>Enter Your Information</h2>
-
-    <label for="name"><b>Name:</b></label>
-    <input type="text" placeholder="Enter Name" name="name" required>
-
-    <label for="email"><b>Email:</b></label>
-    <input type="email" placeholder="Enter Email" name="email" required>
-
-    <button type="submit" class="btn">Submit</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-  <!-- ---------------------------form popup end----------------------- -->
-
-  
+ 
 </div>
 
-    
-
-
 </div>
-<?php 
-    //   echo "<pre>";
-    //  $a=$rows[0]->id;
-    // print_r($rows);
-    // print($a);
-?>
-<script>
-    function openForm() {
-document.getElementById("myForm").classList.add("show");
-}
-
-function closeForm() {
-document.getElementById("myForm").classList.remove("show");
-}
-
-</script>
-
 
 </body>
 </html>
