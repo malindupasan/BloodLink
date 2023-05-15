@@ -8,6 +8,9 @@ class AdminAddStaffLab extends Controller
     function index()
     {
 
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $user = new Admin_AddStaffLab();
         if (count($_POST) > 0) {
             $user->insert($_POST);

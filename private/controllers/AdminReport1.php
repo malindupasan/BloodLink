@@ -6,7 +6,9 @@ class AdminReport1 extends Controller
     function index($id = '')
     {
 
-
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $num4 = new Admin_Home();
         $quary4 = "SELECT SUM(amount) AS RBC FROM rbc;";
         $data4 = $num4->query($quary4);

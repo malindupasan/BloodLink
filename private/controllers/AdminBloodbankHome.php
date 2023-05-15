@@ -6,6 +6,9 @@ class AdminBloodbankHome extends Controller
 
     function index($id = '')
     {
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $bank = new Admin_BloodbankHome();
         $id = $_GET['id'];
         $quary = "SELECT * FROM blood_bank WHERE blood_bank_id = $id";

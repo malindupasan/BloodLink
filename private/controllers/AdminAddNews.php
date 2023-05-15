@@ -6,6 +6,9 @@ class AdminAddNews extends Controller
     function index($id = '')
     {
 
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         // $news = new Admin_AddNews();
         // $quary = "SELECT * FROM news";
         // $data = $news->query($quary);

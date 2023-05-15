@@ -6,6 +6,9 @@ class AdminDashBoard extends Controller
 
     function index($id = '')
     {
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $num = new Admin_DashBoard();
         $quary = "SELECT COUNT(*) AS DON FROM donor";
         $data = $num->query($quary);

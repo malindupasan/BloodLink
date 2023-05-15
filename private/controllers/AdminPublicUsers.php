@@ -7,6 +7,9 @@ class AdminPublicUsers extends Controller
     function index()
     {
 
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $public = new Admin_PublicUsers();
         // $query = "SELECT * FROM donor ";
         $query = "SELECT donor.*, defect.reason
