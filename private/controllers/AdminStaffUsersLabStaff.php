@@ -6,6 +6,9 @@ class AdminStaffUsersLabStaff extends Controller
     function index($id = '')
     {
 
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $staff = new Admin_StaffUsers_LabStaff();
         // $quarry = "SELECT * FROM lab_staff";
         $quarry = "SELECT lab_staff.*, blood_bank.name AS blood_bank_name

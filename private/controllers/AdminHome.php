@@ -5,6 +5,9 @@ class AdminHome extends Controller
 
     function index($id = '')
     {
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $news = new Admin_Home();
         $query = "SELECT * FROM blood_bank";
         $data7 = $news->query($query);

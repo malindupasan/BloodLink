@@ -7,6 +7,10 @@ class AdminStaffUsersPHI extends Controller
     function index($id = '')
     {
 
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
+        
         $staff = new Admin_StaffUsers_PHI();
         $quarry = "SELECT * FROM phi ";
         $quarry = "SELECT phi.*, blood_bank.name AS blood_bank_name

@@ -5,6 +5,9 @@ class AdminBloodStocksBloodBank extends Controller
 
     function index($id = '')
     {
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
 
         $bank = new Admin_BloodStocksBloodBank();
         $id = $_GET['id'];

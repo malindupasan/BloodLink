@@ -7,7 +7,9 @@ class AdminDonationCamps extends Controller
 
     function index($id = '')
     {
-
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
 
         $num = new Admin_DonationCamps();
         $data = $num->findAll();

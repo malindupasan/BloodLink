@@ -4,6 +4,9 @@ class Adminlogin extends Controller
     function index($id = '')
     {
 
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $errors = array();
 
         if (count($_POST) > 0) {

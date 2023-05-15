@@ -5,6 +5,9 @@ class AdminBloodStocks extends Controller
 
     function index($id = '')
     {
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $num = new Admin_Home();
         $quary = "SELECT COUNT(*) AS DON FROM donor";
         $dat = $num->query($quary);

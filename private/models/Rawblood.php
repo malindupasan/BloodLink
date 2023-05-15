@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * User model
+ */
 
  class Rawblood extends Model
  {
@@ -19,7 +21,7 @@
         $column2 = addslashes($column2);
 
 
-        $query = "select * from $this->table where $column1=:value1 AND $column2=:value2";
+        $query = "select $this->table.*,blood_donation_camp.camp_name from $this->table INNER JOIN blood_donation_camp ON $this->table.blood_donation_camp_id=blood_donation_camp.camp_id INNER JOIN donor ON $this->table.donor_id=donor.id where $this->table.$column1=:value1 AND $this->table.$column2=:value2";
         // echo $query;
         return $this->query($query, [
             
@@ -35,7 +37,7 @@
         $column2 = addslashes($column2);
 
 
-        $query = "select * from $this->table where $column1 > :value1 AND $column2=:value2";
+        $query = "select $this->table.*,blood_donation_camp.camp_name,donor.name from $this->table INNER JOIN blood_donation_camp ON $this->table.blood_donation_camp_id=blood_donation_camp.camp_id INNER JOIN donor ON $this->table.donor_id=donor.id where $this->table.$column1 > :value1 AND $this->table.$column2=:value2";
         // echo $query;
         return $this->query($query, [
             
@@ -63,7 +65,7 @@
         $column2 = addslashes($column2);
 
 
-        $query = "select * from $this->table where $column1=:value1 AND $column2=:value2 order by collected_date limit $fpage,$off";
+        $query = "select $this->table.*,blood_donation_camp.camp_name,donor.name from $this->table INNER JOIN blood_donation_camp ON $this->table.blood_donation_camp_id=blood_donation_camp.camp_id INNER JOIN donor ON $this->table.donor_id=donor.id where $this->table.$column1=:value1 AND $this->table.$column2=:value2 order by collected_date limit $fpage,$off";
         // echo $query;
         return $this->query($query, [
             
@@ -79,7 +81,7 @@
         $column2 = addslashes($column2);
 
 
-        $query = "select * from $this->table where $column1 > :value1 AND $column2=:value2 order by collected_date limit $fpage,$off";
+        $query = "select $this->table.*,blood_donation_camp.camp_name,donor.name from $this->table INNER JOIN blood_donation_camp ON $this->table.blood_donation_camp_id=blood_donation_camp.camp_id INNER JOIN donor ON $this->table.donor_id=donor.id where $this->table.$column1 > :value1 AND $this->table.$column2=:value2 order by collected_date limit $fpage,$off";
         // echo $query;
         return $this->query($query, [
             
@@ -248,6 +250,24 @@
 
         ]);
     }
+
+    public function thisyearnondefect($column1, $value1,$column2, $value2,)
+    {
+
+        $column1 = addslashes($column1);
+        $column2 = addslashes($column2);
+
+
+        $query = "SELECT IFNULL(COUNT(packet_id),0) AS count from $this->table where $column1=:value1 AND YEAR($column2)=:value2 AND status<2";
+        // echo $query;
+        return $this->query($query, [
+            
+            'value1' => $value1,
+            'value2' => $value2,
+
+        ]);
+    }
+    
     public function check3years($arr)
     {
         $size = count($arr); //size of array
@@ -271,26 +291,12 @@
 
     }
 
-    public function thisyearnondefect($column1, $value1,$column2, $value2,)
-    {
-
-        $column1 = addslashes($column1);
-        $column2 = addslashes($column2);
-
-
-        $query = "SELECT IFNULL(COUNT(packet_id),0) AS count from $this->table where $column1=:value1 AND YEAR($column2)=:value2 AND status<2";
-        // echo $query;
-        return $this->query($query, [
-            
-            'value1' => $value1,
-            'value2' => $value2,
-
-        ]);
-    }
-
   
 
- 
+
+
+
+
 
 
   }
