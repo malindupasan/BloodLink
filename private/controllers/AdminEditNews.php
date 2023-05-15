@@ -10,7 +10,7 @@ class AdminEditNews extends Controller
         $news = new Admin_EditNews();
         $id = $_GET['id'];
         
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (count($_POST)>0)  {
 
             // $title = $_POST['title'];
             $description = $_POST['description'];
@@ -19,13 +19,18 @@ class AdminEditNews extends Controller
 
             $filename = $image->pic_validate();
                 
-                
+                // $img="image file";
                 $img = $filename;
-                
+                print($filename);
            
             // Update query
-            $query = "UPDATE news SET  news_img=$img, description='$description', link='$link' WHERE news_id='$id'";
-            $news->query($query);
+            $arr=array();
+            $arr['id']=$id;
+            $arr['img']=$img;
+            $arr['description']=$description;
+            $arr['link']=$link;
+            $query = "UPDATE news SET  news_img=:img, description=:description, link=:link WHERE news_id=:id";
+            $news->query($query,$arr);
 
             
             $this->redirect('adminnews');

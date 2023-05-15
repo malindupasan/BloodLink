@@ -52,7 +52,7 @@ class Image extends model {
                     // $newname = $rename . '.' . $extinction;
                     $filename = "images/uploads/" . 'Upload' . date('Ymd')  .$randomno. '.' . $extinction;
                 //    echo $filename ;
-                    // echo "fuck";
+                    
                     
                     move_uploaded_file($_FILES['file']['tmp_name'],$filename);
 
