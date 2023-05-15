@@ -40,5 +40,30 @@ class Viewdonationsrejected extends Controller
         $this->view('viewdonationsrejected',['rows' => $data2,'ess' => $essentials]);
        
     }
+
+    function index2($id = '')
+    {
+        $bbid=$_SESSION['USER']->blood_bank_id;
+
+        if (count($_POST) > 0) {
+
+            $text = $_POST['text'];
+            $text=addslashes($text);
+            
+           
+            $bp = new Rawblood();
+
+            $stm = "select raw_blood_packet.*,blood_donation_camp.camp_name,donor.name from raw_blood_packet INNER JOIN blood_donation_camp ON raw_blood_packet.blood_donation_camp_id=blood_donation_camp.camp_id INNER JOIN donor ON raw_blood_packet.donor_id=donor.id where raw_blood_packet.status>1 AND raw_blood_packet.blood_bank_id=:bbid AND donor.name like '$text%'";
+
+            
+            $results=$bp->query($stm,[
+                'bbid'=>$bbid,
+            ]);
+            
+            echo json_encode($results);
+           
+             }
+
+    }
 }
 ?>

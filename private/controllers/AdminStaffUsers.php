@@ -89,4 +89,34 @@ class AdminStaffUsers extends Controller
             // echo (json_encode($data));
         }
     }
+
+
+    public function updateAccStatus($id)
+    {
+        $user1 = new Admin_StaffUsers_LabStaff();
+        // retrieve the selected value from the POST parameters
+        if (isset($_POST['status'])) {
+            $selected_option = $_POST['status'];
+
+            $quarry1 = "UPDATE doctor SET status = '$selected_option' WHERE id = '$id'";
+
+            // call the model method to update the database
+            if ($user1->query($quarry1)) {
+                $res = [
+                    'statusCode' => 200,
+                    'message' => "success"
+                ];
+            } else {
+                $res = [
+                    'statusCode' => 500,
+                    'message' => "error"
+                ];
+            }
+            echo json_encode($res);
+        } else {
+            echo json_encode(['statusCode' => 500, 'message' => 'error']);
+        }
+    }
+
+    
 }

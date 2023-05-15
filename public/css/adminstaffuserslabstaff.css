@@ -811,3 +811,13 @@ input:hover {
 .inp{
     padding: 1rem;
 }
+
+
+
+.status{
+    padding: 0.6rem;
+    background-color: #ffaaaa;
+    border-radius: 0.9rem;
+    border: 0.025rem solid rgb(255, 255, 255);
+}
+

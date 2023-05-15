@@ -6,15 +6,14 @@ class Dashboard extends Controller
     function index($id = '')
     {   
         $month=date('m');
-        $year=date('Y');
+        $year=$thisyear=date('Y');
         $preyear=$year-1;
 
-        // $i=array(2,3,4);
-        // $_SESSION['bld']['rap']['accept']=1;
-
-        // $_SESSION['bld']['rap']['amnt']=$i;
-
-        // var_dump($_SESSION['bld']);
+        if(isset($_GET['yearvalsub'])){
+            $thisyear=$_GET['yearval'];
+            
+        }
+        
 
         $bbid=$_SESSION['USER']->blood_bank_id;
 
@@ -22,13 +21,17 @@ class Dashboard extends Controller
 
         // ---------------------------------blood requests------------------------------
         $bld=new BLbldreq();
-        $q1="SELECT IFNULL(COUNT(request_id),0) AS count FROM blood_request WHERE blood_bank_id_destination=$bbid AND status=0";
-        $dataa=$bld->query($q1);
+        $q1="SELECT IFNULL(COUNT(request_id),0) AS count FROM blood_request WHERE blood_bank_id_destination=:bbid AND status=0";
+        $dataa=$bld->query($q1,[
+            'bbid'=>$bbid,
+        ]);
         $essentials['bldreqavailable']=$dataa[0]->count;
 
-        $q2="SELECT IFNULL(COUNT(request_id),0) AS count FROM blood_request WHERE blood_bank_id_source=$bbid AND status=0";
+        $q2="SELECT IFNULL(COUNT(request_id),0) AS count FROM blood_request WHERE blood_bank_id_source=:bbid AND status=0";
 
-        $dataa=$bld->query($q2);
+        $dataa=$bld->query($q2,[
+            'bbid'=>$bbid,
+        ]);
         $essentials['bldreqsent']=$dataa[0]->count;
        
 
@@ -49,7 +52,7 @@ class Dashboard extends Controller
         // -------------------------------------this year--------------------------------------
         $bdc=new BLBdc();
        
-            $data=$bdc->thisyearcamps("blood_bank_id",$bbid,"date",$year);
+            $data=$bdc->thisyearcamps("blood_bank_id",$bbid,"date",$thisyear);
             if ($data!=NULL){
                 $essentials['bdccountyear']=count($data);
 
@@ -60,7 +63,7 @@ class Dashboard extends Controller
 
             $bdc=new Rawblood();
        
-            $data=$bdc->thisyeardonations("blood_bank_id",$bbid,"collected_date",$year);
+            $data=$bdc->thisyeardonations("blood_bank_id",$bbid,"collected_date",$thisyear);
             if ($data!=NULL){
                 $essentials['donationcountyear']=count($data);
     
@@ -69,7 +72,7 @@ class Dashboard extends Controller
     
             }
 
-            $data=$bdc->thisyeardonors("blood_bank_id",$bbid,"collected_date",$year);
+            $data=$bdc->thisyeardonors("blood_bank_id",$bbid,"collected_date",$thisyear);
             if ($data!=NULL){
                 $essentials['donorcountyear']=count($data);
 
@@ -139,8 +142,7 @@ class Dashboard extends Controller
             $rbcarray['Op']=$data7[0]->sum;
             $rbcarray['On']=$data8[0]->sum;
 
-        //     echo "<pre>";
-        // print_r($data1);
+        
 
         $wbc = new Wbc(); //model instantiated
         $data1=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
@@ -210,69 +212,62 @@ class Dashboard extends Controller
         $def=new BLDefect();
 
         
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=0 AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Other' AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['other']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=1 AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='HIV/AIDS' AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['HIV']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=2 AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Thalasemea' AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['Thalasemea']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=3 AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Hemophilia' AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['Hemophilia']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=4 AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Dengue' AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['Dengue']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=5 AND YEAR(defect.date)=$year";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Malaria' AND YEAR(defect.date)=$year";
         $data=$def->query($q1);
         $defarray['Malaria']=$data[0]->count;
 
         // ======================previous year==========================
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=0 AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Other' AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['other']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=1 AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='HIV/AIDS' AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['HIV']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=2 AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Thalasemea' AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['Thalasemea']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=3 AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Hemophilia' AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['Hemophilia']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=4 AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Dengue' AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['Dengue']=$data[0]->count;
 
-        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type=5 AND YEAR(defect.date)=$preyear";
+        $q1="SELECT IFNULL(COUNT(defect.donor_id),0) AS count FROM defect INNER JOIN doctor ON doctor.id=defect.doctor_id WHERE doctor.blood_bank_id=$bbid AND defect.type='Malaria' AND YEAR(defect.date)=$preyear";
         $data=$def->query($q1);
         $predefarray['Malaria']=$data[0]->count;
         
         
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // $data = array('key1' => 'value1', 'key2' => 'value2');
-            // $data2 = array('key3' => 'value3', 'key4' => 'value4');
-            // $data3 = array('key1' => 'value1', 'key2' => 'value2');
-            // $data4 = array('key3' => 'value3', 'key4' => 'value4');
-
+            
             $response = array("rbc" => $rbcarray, "wbc" => $wbcarray,"plt" => $pltarray,"plsm" => $plsmarray,'rejthismonth'=>$thismonthrej,'rejthisyear'=>$thisyearrej,"defect" => $defarray,"predefect"=>$predefarray);
                 
-            // $response2 = array("data3" => $data3, "data4" => $data4);
-
-            // $full=array("res" => $response, "res2" => $response2) ;
-
+            
             echo json_encode($response);
         } else {
             $this->view('dashboard', ['rbc' => $data1,'wbc' => $data2,'plsm' => $data3,'plt' => $data4,'ess'=>$essentials]);        

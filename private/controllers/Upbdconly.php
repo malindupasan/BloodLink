@@ -17,8 +17,11 @@ class Upbdconly extends Controller
         $resultsperpage= 15;
         
         $bdc = new BLBdc();
-        $q1="SELECT * FROM blood_donation_camp WHERE blood_bank_id=$bbid AND date>=CURDATE()";
-        $data = $bdc->query($q1);
+        $q1="SELECT * FROM blood_donation_camp WHERE blood_bank_id=:bbid AND date>=CURDATE()";
+
+        $data = $bdc->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
         $numofresults=count($data);
@@ -34,15 +37,15 @@ class Upbdconly extends Controller
 
         $thispagefirstres=($page-1)*$resultsperpage;
 
-        $q2="SELECT * FROM blood_donation_camp WHERE blood_bank_id=$bbid AND date>=CURDATE() limit $thispagefirstres,$resultsperpage";
+        $q2="SELECT * FROM blood_donation_camp WHERE blood_bank_id=:bbid AND date>=CURDATE() limit $thispagefirstres,$resultsperpage";
 
-        $data2= $bdc->query($q2);
+        $data2= $bdc->query($q2,[
+            'bbid'=>$bbid,
+        ]);
     }
 // ----------------------------------pagination end----------------------
 
-        // $bdc=new BLBdc();
-
-        // $data=$bdc->findAll();
+  
 
     
 

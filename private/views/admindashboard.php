@@ -85,6 +85,10 @@
     </div>
 
     <div class="right">
+
+    <div class="">
+            <h1 class="h1">Last 30 Days Report</h1>
+        </div>
         <div class="num ">
 
 
@@ -137,8 +141,12 @@
             <?php
             // Data for the pie chart
             $data1 = array(
-                "Defect Blood" => $rows3[0]->DEF,
-                "None Defect Blood" => $rows1[0]->DONA,
+                "HIV" => $rows3[0]->HIV,
+                "Dengue" => $rows11[0]->Dengue,
+                "Thalasemea" => $rows12[0]->Thalasemea,
+                "Hemophilia" => $rows13[0]->Hemophilia,
+                "Malaria" => $rows14[0]->Malaria,
+                "Other" => $rows10[0]->Other,
             );
             ?>
 
@@ -272,12 +280,6 @@
                     '#5D8BF4',
                     '#90E0FF'
                 ],
-                borderColor: [
-                    '#051367',
-                    '#2D31FA',
-                    '#5D8BF4',
-                    '#90E0FF'
-                ],
                 borderWidth: 1
             }]
         },
@@ -316,15 +318,13 @@
             datasets: [{
                 data: Object.values(data1),
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.8)',
-                    'rgba(54, 162, 235, 0.8)',
-                    'rgba(14, 162, 035, 0.8)'
+                    '#011f4b',
+                    '#03396c',
+                    '#005b96',
+                    '#6497b1',
+                    '#b3cde0'
                 ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(14, 162, 035, 1)'
-                ],
+                
                 borderWidth: 1
             }]
         },

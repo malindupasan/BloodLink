@@ -35,8 +35,8 @@
             <div class="rateus"><p>Rate Us Now</p></div>
            
             <div class="email">
-                <label for="name">Name</label><br>
-                <input value="<?= (!Auth::logged_in())?'': AUTH::getfullname()?>" type="text" name="name"class="emailclass" id=""><br>
+                <label for="name">Nic</label><br>
+                <input value="<?= (!Auth::logged_in())?'': AUTH::getnic()?>" type="text" name="name"class="emailclass" id=""><br>
             </div>
             <div class="feedbacksec">
                 <label for="feedback">Feedback</label><br>

@@ -4,69 +4,9 @@
 
     <?php $this->view('nav'); ?>
     <?php $this->view('navup'); ?>
-    <style>
-	/* Style the button that opens the form */
-/* button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-} */
+    <title>BDC Requests</title>
 
-/* Style the form container */
-.form-container {
-  max-width: 400px;
-  padding: 20px;
-  background-color: #f1f1f1;
-}
-
-/* Style the form input fields */
-/* input[type=text], input[type=email] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-} */
-
-/* Style the form buttons */
-/* .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-} */
-/* 
-.btn:hover {
-  opacity: 0.8;
-} */
-
-/* Style the close button */
-/* .cancel {
-  background-color: #f44336;
-} */
-
-/* Position the form popup box */
-.form-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-.form-popup.show {
-  display: block;
-}
-
-</style>
-
-    <link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/css/stylemain.css">
 
 
 
@@ -74,12 +14,7 @@
         <div class="section">           <!--main section except sidebar & navbar-->
             <div class="camptitle">
                 <div class="campaign">Campaigns</div>
-                <?php if ($_SESSION['USER']->role!="Admin") { ?>
-                <div class="newbtn"><button onclick="openForm()">Open Form</button></div>
 
-                <?php }?>
-                
-                
             </div>
 
             <div class="navlinks">
@@ -97,6 +32,15 @@
 
             </div></a>
         </div>
+        <div class="search">
+            <form method="post">
+                <input type="text" placeholder="&#xf002; Search Donors..." name="searchval" class="jssearch">
+                <input type="submit" name="search" class="search" value="Search"></button>
+
+            </form>
+
+        </div>
+
             <div class="tbl">
             <table>
                 <thead>
@@ -143,6 +87,13 @@
                         <td><?php           //accept/reject buttons
                                 if ($row->status==0 && $_SESSION['USER']->role=="PHI" ){  ?>
                                     <a href="<?=ROOT?>/approval?id=<?php echo $row->camp_request_id; ?>&stat=1"><button class="btn">Accept</button></a> <a href="<?=ROOT?>/approval?id=<?php echo $row->camp_request_id; ?>&stat=2"><button class="btn">Reject</button>
+                            <?php } ?>
+                                
+                        
+                        </td>
+                        <td><?php           //accept/reject buttons
+                                if ($row->status==0 && $_SESSION['USER']->role=="PHI" ){  ?>
+                                    <a href="<?=ROOT?>/Checkpreviouscamps?id=<?php echo $row->camp_request_id; ?>"><i class="fas fa-map-marker-alt"></i></a> 
                             <?php } ?>
                                 
                         
@@ -203,21 +154,6 @@
         
         </div><?php } ?>
 
-        <!-- --------------------------form popup-------------------- -->
-        <div id="myForm" class="form-popup">
-	  <form action="/submit-form.php" method="post" class="form-container">
-		<h2>Enter Your Information</h2>
-	
-		<label for="name"><b>Name:</b></label>
-		<input type="text" placeholder="Enter Name" name="name" required>
-	
-		<label for="email"><b>Email:</b></label>
-		<input type="email" placeholder="Enter Email" name="email" required>
-	
-		<button type="submit" class="btn">Submit</button>
-		<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-	  </form>
-      <!-- ---------------------------form popup end----------------------- -->
 
       
 	</div>
@@ -227,21 +163,9 @@
 
     </div>
     <?php 
-        //   echo "<pre>";
-        //  $a=$rows[0]->id;
-        // print_r($rows);
-        // print($a);
+        
     ?>
-    <script>
-		function openForm() {
-  document.getElementById("myForm").classList.add("show");
-}
 
-function closeForm() {
-  document.getElementById("myForm").classList.remove("show");
-}
-
-	</script>
     
     
 </body>

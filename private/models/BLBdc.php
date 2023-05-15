@@ -32,7 +32,6 @@
 
 
         $query = "select * from $this->table where $column1=:value1 AND MONTH($column2)=:value2 AND YEAR($column2)=:value3";
-        // echo $query;
         return $this->query($query, [
             
             'value1' => $value1,
@@ -50,7 +49,6 @@
 
 
         $query = "select * from $this->table where $column1=:value1 AND YEAR($column2)=:value3";
-        // echo $query;
         return $this->query($query, [
             
             'value1' => $value1,
@@ -67,7 +65,6 @@
 
 
         $query = "select * from $this->table where $column1=:value1 AND MONTH($column2)=:value2 AND YEAR($column2)=:value3 limit $fpage,$off";
-        // echo $query;
         return $this->query($query, [
             
             'value1' => $value1,

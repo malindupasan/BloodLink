@@ -2,8 +2,10 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>View Blood Request</title>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+
+<link rel="stylesheet" href="<?=ROOT?>/css/viewbldreqstyle.css">
 
 <div class="section">           <!--main section except sidebar & navbar-->
         <div class="camptitle">
@@ -56,7 +58,7 @@
                             <td>Accepted</td>
 
                         <?php }elseif($row->status==2){?>
-                            <td>Rejected</td>
+                            <td class="redtd">Rejected</td>
 
                         <?php }?>
 

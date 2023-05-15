@@ -86,8 +86,7 @@
         <div class="heading">
 
 
-            <button class="add_bank" onclick="openForm1()">Add News
-            </button>
+           
             <div class="city">
 
 
@@ -156,7 +155,7 @@
         <div class="card">
             <div class="">
                 <div class="nandd">
-                    <div class="name1"><?= $value->title ?></div>
+                    <div class="name1"><h2> News - <?= $i+1 ?></h2></div>
                     <!-- <div class="date"><?= $value->news_id ?></div> -->
                     <p class="p12">
                         <?php

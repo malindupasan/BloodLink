@@ -12,16 +12,7 @@ class Bbbsmanage extends Controller
         $bbid=$_SESSION['USER']->blood_bank_id;
 
 
-        // $bdc = $this->load_model('Bdcreq');
-
-            // $arr['fullname'] = "harini silva";
-            // $arr['email'] = "hello@gmail.com";
-            // $arr['nic'] = "200016206040";
-            // $arr['mobile'] = "0703802708";
-            // $arr['city'] = "auckland";
-            // $arr['address'] = "1/90 mahiyangana road badulla";
-            // $arr['password'] = "$2y$10$.3UNYspSG3a59vZNJpqFPORLv8QUbmRKNOSkp3YDiYkhS.NdsiQ96";
-            // $arr['profile_img'] = "";
+       
            $rbc=new Rbc();
            $wbc=new Wbc();
            $plt=new Platelettes();
@@ -77,8 +68,6 @@ class Bbbsmanage extends Controller
             $rbcarray['Op']=$dat7[0]->sum;
             $rbcarray['On']=$dat8[0]->sum;
 
-        //     echo "<pre>";
-        // print_r($data1);
 
         $wbc = new Wbc(); //model instantiated
         $dat1=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
@@ -145,7 +134,7 @@ class Bbbsmanage extends Controller
 
         echo json_encode($response);
     } else {
-        // $this->view('staff/dashboard', ['rbc' => $data1,'wbc' => $data2,'plsm' => $data3,'plt' => $data4,'ess'=>$essentials]);  
+        
         $this->view('bbbsmanage', ['rows' => $counts]);//------------------ajax end
 
     }
@@ -153,16 +142,7 @@ class Bbbsmanage extends Controller
 
 
 
-        // $user->insert($arr);
-        // $user->delete(25);
-        // $bdc = new Bdcreq(); //model instantiated
-        // $data = $bdc->findAll();
-        // echo "<pre>";
-        // print_r($data);
-
-        // $data=$user->where('id', 1);
-        //  $this->redirect('404');
-        // $this->view('home');
+       
     }
 
     function index2(){
@@ -180,8 +160,7 @@ class Bbbsmanage extends Controller
             $results=$bb->query($stm);
             
             echo json_encode($results);
-            // $data = $user->query($query);
-            // echo (json_encode($data));
+            
              }
     }
 

@@ -3,7 +3,7 @@ class Wbcbldreqdetails extends Controller
 {
     function index($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="WBC A+";
         $name="wAp";
@@ -25,15 +25,10 @@ class Wbcbldreqdetails extends Controller
         WHERE blood_bank_id=$bbid AND exp_date > CURDATE() AND blood_group='A+'";
 
         $data=$wbc->query($q1);
-        // $data=$data[0];
-
-        // echo "<pre>";
-        // print_r($data);
-
+       
         if($data!=NULL){
             foreach($data as $row){
                 if($temp<$amnt){
-                    // echo $row->final_packet_id;
                     $ids[]=$row->final_packet_id;
                     $temp+=$row->amount;
                 }else{
@@ -43,13 +38,6 @@ class Wbcbldreqdetails extends Controller
             }
         }
 
-        // echo "<pre>";
-        // print_r($ids);
-
-        // echo $remain;
-        // echo $temp;
-
-
 
         
         $this->view('rbcbldreqdetails',['rows'=>$data,'ids'=>$ids,'remain'=>$remain,'send'=>$temp,'amnt'=>$amnt,'bb'=>$bb,'ttl'=>$title,'name'=>$name,'id'=>$id]);
@@ -58,7 +46,7 @@ class Wbcbldreqdetails extends Controller
 
     function index2($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="WBC A-";
         $name="wAn";
@@ -113,7 +101,7 @@ class Wbcbldreqdetails extends Controller
 
     function index3($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="WBC B+";
         $name="wBp";
@@ -168,7 +156,7 @@ class Wbcbldreqdetails extends Controller
 
     function index4($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="WBC B-";
         $name="wBn";
@@ -223,7 +211,7 @@ class Wbcbldreqdetails extends Controller
 
     function index5($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="WBC AB+";
         $name="wABp";
@@ -278,7 +266,7 @@ class Wbcbldreqdetails extends Controller
 
     function index6($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="WBC AB-";
         $name="wABn";
@@ -333,7 +321,7 @@ class Wbcbldreqdetails extends Controller
 
     function index7($id = '')
     {
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="WBC O+";
         $name="wOp";
@@ -388,7 +376,7 @@ class Wbcbldreqdetails extends Controller
 
     function index8($id = '')
     {        
-        $id=$_GET[id];
+        $id=$_GET['id'];
 
         $title="WBC O-";
         $name="wOn";

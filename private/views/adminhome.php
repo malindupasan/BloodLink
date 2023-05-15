@@ -90,8 +90,10 @@
 
         <h1 class="h1">Blood Bank</h1>
         <div class="heading">
-            <button class="add_bank" onclick="openForm()">Add Blood Bank
-            </button>
+            <a href="<?= ROOT ?>/adminaddbloodbank"><button class="add_bank">Add Blood Bank
+                </button></a>
+            <!-- <button class="add_bank">Add Blood Bank
+            </button> -->
 
             <!-- <button class="add_bank" onclick="openForm()">Add Blood Bank
     </button> -->
@@ -104,121 +106,6 @@
                 </form>
                 <!-- <a href="<?= ROOT ?>/adminhome"><button class="reset">Reset</button></a> -->
 
-            </div>
-
-        </div>
-
-
-
-        <div class="city">
-
-            <div id="myForm" class="form-popup">
-                <form method="post" class="form-container" id="Add_BB">
-
-                    <h2>Enter Blood Bank</h2>
-
-                    <div class="l2">
-                        <div class="f">
-                            <label class="lable22" for="blood-bank-name">Blood Bank Name </label>
-                            <input class="input qw" type="text" placeholder="Full Name" name="name" id="name">
-                            <small>error message</small>
-                        </div>
-                    </div>
-
-                    <div class="l2">
-
-                        <div class="f">
-                            <label class="lable22" for="street">Telephone No.</label>
-                            <input class="input" type="text" placeholder="Telephone Number" name="telephone" id="telephone">
-                            <small>error message</small>
-                        </div>
-
-                        <div class="f">
-                            <label class="lable22" for="city">House No. </label>
-                            <input class="input" type="text" placeholder="House No" name="house_no" id="house_no">
-                            <small>error message</small>
-                        </div>
-
-                    </div>
-
-                    <div class="l2">
-
-                        <div class="f">
-                            <label class="lable22" for="city">City</label>
-                            <input class="input" type="text" placeholder="City" id="city" name="city">
-                            <small>error message</small>
-                        </div>
-
-                        <div class="f">
-                            <label class="lable22" for="city">Street </label>
-                            <input class="input" type="text" placeholder="Street" id="street" name="street">
-                            <small>error message</small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="l2">
-
-                        <div class="f">
-                            <label class="lable22" for="street">District</label>
-                            <select class="input sele" id="district" name="district">
-                                <option value="Ampara">Ampara</option>
-                                <option value="Anuradhapura">Anuradhapura</option>
-                                <option value="Badulla">Badulla</option>
-                                <option value="Batticaloa">Batticaloa</option>
-                                <option value="Colombo">Colombo</option>
-                                <option value="Galle">Galle</option>
-                                <option value="Gampaha">Gampaha</option>
-                                <option value="Hambantota">Hambantota</option>
-                                <option value="Jaffna">Jaffna</option>
-                                <option value="Kalutara">Kalutara</option>
-                                <option value="Kandy">Kandy</option>
-                                <option value="Kegalle">Kegalle</option>
-                                <option value="Kilinochchi">Kilinochchi</option>
-                                <option value="Kurunegala">Kurunegala</option>
-                                <option value="Mannar">Mannar</option>
-                                <option value="Matale">Matale</option>
-                                <option value="Matara">Matara</option>
-                                <option value="Monaragala">Monaragala</option>
-                                <option value="Mullaitivu">Mullaitivu</option>
-                                <option value="Nuwara Eliya">Nuwara Eliya</option>
-                                <option value="Polonnaruwa">Polonnaruwa</option>
-                                <option value="Puttalam">Puttalam</option>
-                                <option value="Ratnapura">Ratnapura</option>
-                                <option value="Trincomalee">Trincomalee</option>
-                                <option value="Vavuniya">Vavuniya</option>
-                            </select>
-                            <small>error message</small>
-                        </div>
-
-                        <div class="f">
-                            <label class="lable22" for="city">Province </label>
-                            <select class="input sele" id="province" name="province">
-                                <option value="Central">Central</option>
-                                <option value="Eastern">Eastern</option>
-                                <option value="Northern">Northern</option>
-                                <option value="North Central">North Central</option>
-                                <option value="North Western">North Western</option>
-                                <option value="Sabaragamuwa">Sabaragamuwa</option>
-                                <option value="Southern">Southern</option>
-                                <option value="Uva">Uva</option>
-                                <option value="Western">Western</option>
-                            </select>
-                            <small>error message</small>
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="but2">
-                        <input type="submit" class="add_bank1" name="">
-                        <!-- <button name="add"><input type="submit" class="add_bank1" name=""></button> -->
-                        <button type="button" class="add_bank1" onclick="closeForm()">Close</button>
-                    </div>
-
-                </form>
             </div>
 
         </div>
@@ -514,5 +401,4 @@
 
 
 
-<script src="<?= ROOT ?>/js/AdminAddbloodbank.js"></script>
 <script src="<?= ROOT ?>/js/AdminAddbloodbankEdit.js"></script>

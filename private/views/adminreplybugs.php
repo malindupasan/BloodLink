@@ -79,7 +79,7 @@
     <div class="right">
 
         <div class="">
-            <h1 class="h1">Reply Bugs</h1>
+            <h1 class="h1">Reply Feedbacks</h1>
         </div>
 
 
@@ -108,7 +108,7 @@
                 <form method="post" id="form">
                     <div class="name">
                         <label class="label" for="reply">Reply :</label>
-                        <input class="Bname" type="text" id="reply" name="reply">+
+                        <input class="Bname" type="text" id="reply" name="reply">
                         <!-- <textarea class="note1" placeholder="Reply . . ."></textarea> -->
                         <button class="add_bank" type="submit">Submit</button>
                     </div>

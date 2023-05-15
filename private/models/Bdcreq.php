@@ -16,7 +16,6 @@
 
 
         $query = "select * from $this->table where $column1=:value1 AND $column2=:value2";
-        // echo $query;
         return $this->query($query, [
             
             'value1' => $value1,
@@ -33,7 +32,6 @@
 
 
         $query = "select * from $this->table where $column1=:value1 AND $column2=:value2 limit $fpage,$off";
-        // echo $query;
         return $this->query($query, [
             
             'value1' => $value1,
@@ -85,50 +83,6 @@
         return $this->query($query,$data);
     }
 
-  
-
-   // protected $allowedColumns = ['fullname','email','nic','mobile','city','address','password'];
-   // protected $beforeInsert = ['hash_password'];
-
-
-//    public function validate($DATA)
-//    {
-
-//       $this->errors = array();
-
-
-
-//       if (!(filter_var($DATA["email"], FILTER_VALIDATE_EMAIL))) {
-//          $this->errors[]=("Valid email is required");
-//      }
-     
-//      if (strlen($DATA["password"]) < 8) {
-//       $this->errors[]=("Password must be at least 8 characters");
-//      }
-     
-//      if (!preg_match("/[a-z]/i", $DATA["password"])) {
-//       $this->errors[]=("Password must contain at least one letter");
-//      }
-     
-//      if (!preg_match("/[0-9]/", $DATA["password"])) {
-//       $this->errors[]=("Password must contain at least one number");
-//      }
-     
-//      if ($DATA["password"] !== $DATA["cPassword"]) {
-//       $this->errors[]=("Passwords must match");
-//      }
-//      if(count($this->errors) == 0){
-//          return true;
-//      }
-
-//       return false;
-//    }
-
-//    public function hash_password($data)
-//    {
-//       $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-//       return $data;
-//    }
 
 
   }

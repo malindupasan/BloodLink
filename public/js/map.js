@@ -1,11 +1,11 @@
 function initAutocomplete() {
     var lat = document.getElementById("lat");
     var latval = lat.value;
-    var latval = parseInt(latval);
+    var latval = parseFloat(latval);
 
     var lng = document.getElementById("lng");
     var lngval = lng.value;
-    var lngval = parseInt(lngval);
+    var lngval = parseFloat(lngval);
 
     let srilanka={lat: latval ,lng: lngval};
     // The location of Uluru

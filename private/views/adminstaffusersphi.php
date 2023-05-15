@@ -141,7 +141,7 @@
         <div class="city">
 
             <div id="myForm" class="form-popup">
-                <form method="post" class="form-container" id ="Add_PHI">
+                <form method="post" class="form-container" id="Add_PHI">
 
                     <h2>Add PHI</h2>
 
@@ -284,13 +284,14 @@
             <table class="table1">
                 <thead>
                     <tr>
-                        
+
                         <th>Name</th>
                         <th>User NIC</th>
                         <th>Blood Bank</th>
                         <th>Tel Number</th>
                         <th>Home Town</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th></th>
 
                     </tr>
@@ -299,13 +300,19 @@
 
                     <?php foreach ($data[0] as $value) : ?>
                         <tr>
-                            
+
                             <td><?= $data[0][$i]->name ?></td>
                             <td><?= $data[0][$i]->nic ?></td>
                             <td><?= $data[0][$i]->blood_bank_name ?></td>
                             <td><?= $data[0][$i]->telephone ?></td>
                             <td><?= $data[0][$i]->city ?></td>
                             <td><?= $data[0][$i]->email ?></td>
+                            <td>
+                                <select name="status" class="status" data-id="<?php echo $value->id; ?>">
+                                    <option value=1 <?php if ($value->status == 1) echo "selected" ?>>Active</option>
+                                    <option value=0 <?php if ($value->status == 0) echo "selected" ?>>Deactive</option>
+                                </select>
+                            </td>
                             <td>
 
                                 <div class="edit">
@@ -314,7 +321,7 @@
                                         </button>
 
                                         <div id="myForm<?= $value->id ?>" class="form-popup myForm1">
-                                            <form method="post" class="form-container" id ="Add_PHI">
+                                            <form method="post" class="form-container" id="Add_PHI">
 
                                                 <h2>Edit PHI</h2>
 
@@ -487,7 +494,7 @@
                     var str = "<table><thead><tr><th>Name</th><th>User NIC</th><th>Blood Bank</th><th>Telephone</th><th>Home Town</th><th>Email</th><th></th></tr><thead>";
                     for (var i = obj.length - 1; i >= 0; i--) {
                         console.log(obj[i].name);
-                        str += "<tr class='hov'><td>" + obj[i].name +                            
+                        str += "<tr class='hov'><td>" + obj[i].name +
                             "</td> <td>" + obj[i].nic +
                             "</td> <td>" + obj[i].blood_bank_name +
                             "</td> <td>" + obj[i].telephone +
@@ -615,5 +622,37 @@
         })
         ajax.open('post', '<?= ROOT ?>/adminstaffusersphi/index2', true);
         ajax.send(form);
+    }
+
+    const statuses = document.querySelectorAll('.status');
+
+    statuses.forEach(function(status) {
+        status.addEventListener('change', function() {
+            const userId = status.getAttribute("data-id");
+            sendSelectedOption(status.value, userId);
+        });
+    });
+
+    function sendSelectedOption(status, id) {
+        console.log(id);
+        console.log(status);
+        const url = `http://localhost/GP/BloodLink/public/adminstaffusersphi/updateAccStatus/${id}`;
+        const data = {
+            status: status
+        };
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            responseType: "JSON",
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+
     }
 </script>

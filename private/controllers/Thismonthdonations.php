@@ -31,8 +31,7 @@ class Thismonthdonations extends Controller
         $thispagefirstres=($page-1)*$resultsperpage;
 
         $data2= $bdc->paginthismonthdonations("blood_bank_id",$bbid,"collected_date",$month,$year,$thispagefirstres,$resultsperpage);
-        // echo "<pre>";
-        // print_r($data2);
+
 
     }
 
@@ -42,9 +41,7 @@ class Thismonthdonations extends Controller
             $this->redirect('login');
         }
 
-        // $user = $this->load_model('User');
-        // $id=Auth::getid();    
-        // $data = $user->where("id", $id);
+  
 
 
         

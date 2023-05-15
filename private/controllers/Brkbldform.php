@@ -3,19 +3,20 @@ class Brkbldform extends Controller
 {
     function index($id = '')
     {
-        $data=array();
-        $id=$_GET['id'];
-        // echo $id;
-        $dataid['id']=$id;
 
         if(!Auth::logged_in()){
             $this->redirect('login');
         }
+        
+        $data=array();
+        $id=$_GET['id'];
+        $dataid['id']=$id;
+
+        
 
         $bp = new Rawblood();
         $data=$bp->where("packet_id",$id);
-        // echo "<pre>";
-        // print_r($data);
+        
 
         $Amount=$data[0]->amount;
         $Collected_date=$data[0]->collected_date; //useful
@@ -44,7 +45,6 @@ class Brkbldform extends Controller
 
             
             $arr1['exp_date'] = $rexpdate;
-            // $arr1['final_packet_id'] = $_POST['BloodCode'];
             $arr1['amount'] = $_POST['RBCamount'];
             $arr1['blood_group'] = $_POST['BloodGroup'];
             $arr1['donor_id'] = $Donor_id; //should come from table...
@@ -53,7 +53,7 @@ class Brkbldform extends Controller
             $arr1['blood_bank_id'] =$Blood_bank_ID;
 
             $arr2['exp_date'] = $wexpdate;
-            // $arr2['final_packet_id'] = $_POST['BloodCode'];
+            
             $arr2['amount'] = $_POST['WBCamount'];
             $arr2['blood_group'] = $_POST['BloodGroup'];
             $arr2['donor_id'] = $Donor_id; //should come from table...
@@ -62,7 +62,6 @@ class Brkbldform extends Controller
             $arr2['blood_bank_id'] =$Blood_bank_ID;
 
             $arr3['exp_date'] = $pltexpdate;
-            // $arr3['final_packet_id'] = $_POST['BloodCode'];
             $arr3['amount'] = $_POST['PLTamount'];
             $arr3['blood_group'] = $_POST['BloodGroup'];
             $arr3['donor_id'] = $Donor_id; //should come from table...
@@ -71,7 +70,6 @@ class Brkbldform extends Controller
             $arr3['blood_bank_id'] =$Blood_bank_ID;
 
             $arr4['exp_date'] = $plsmexpdate;
-            // $arr4['final_packet_id'] = $_POST['BloodCode'];
             $arr4['amount'] = $_POST['PLSMamount'];
             $arr4['blood_group'] = $_POST['BloodGroup'];
             $arr4['donor_id'] = $Donor_id; //should come from table...
@@ -79,8 +77,7 @@ class Brkbldform extends Controller
             $arr4['packet_id'] = $id;
             $arr4['blood_bank_id'] =$Blood_bank_ID;
             
-            // $arr['nic'] = $_POST['nic'];
-            // $arr['bloodbank'] = $_POST['bbank'];
+            
             
 
             $rbc->insert($arr1);
@@ -88,7 +85,8 @@ class Brkbldform extends Controller
             $plt->insert($arr3);
             $plsm->insert($arr4);
 
-            
+            $arr5['status']=1;  //------------set packet status to 'checked'...
+            $bp->updateStatus($id,$arr5);
 
 
 
@@ -101,31 +99,9 @@ class Brkbldform extends Controller
         }
 
 
-        // $bdc = $this->load_model('Bdcreq');
-
-            // $arr['fullname'] = "harini silva";
-            // $arr['email'] = "hello@gmail.com";
-            // $arr['nic'] = "200016206040";
-            // $arr['mobile'] = "0703802708";
-            // $arr['city'] = "auckland";
-            // $arr['address'] = "1/90 mahiyangana road badulla";
-            // $arr['password'] = "$2y$10$.3UNYspSG3a59vZNJpqFPORLv8QUbmRKNOSkp3YDiYkhS.NdsiQ96";
-            // $arr['profile_img'] = "";
-
-
-        // $user->insert($arr);
-        // $user->delete(25);
-        // $rev = new Review(); //model instantiated
-        // $data = $rev->findAll();
-            
-        // $data=$user->where('id', 1);
          $this->view('brkbldform',['dat'=>$dataid]);
          
-        //   echo "<pre>";
-        //  $a=$rows[0]->id;
-        // print_r($rows);
-        // print($a);
-    
+        
 
     }
 }

@@ -7,12 +7,13 @@ text-decoration: underline
 
 .stats{
     height: 16rem;
-    width: 100%;
+    width: 30rem;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     justify-content: center;
-    margin-top: 7rem;
+    margin-top: 10rem;
+    margin-left: 2rem;
 }
 
 .donatedNo{
@@ -46,11 +47,23 @@ h2{
     text-shadow: 2px;
 }
 
-.box{
+.boxi{
+    height:40rem;
+    display: flex;
+    width: 35rem;
+    position: absolute;
+    left: 55rem;
     margin-top: 6rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 10px grey;
 
-    
-    
 }
 
+body{
+    /* background-color: #ff9f9f; */
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
 
+}

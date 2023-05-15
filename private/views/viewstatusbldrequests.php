@@ -2,8 +2,9 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>View Status Requests</title>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/viewbldreqstyle.css">
 
 <div class="section">           <!--main section except sidebar & navbar-->
         <div class="camptitle">

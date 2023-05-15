@@ -2,8 +2,9 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>Plasma</title>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+<link rel="stylesheet" href="<?=ROOT?>/css/btypedetailsstyle.css">
 
 
 <div class="section">           <!--main section except sidebar & navbar-->

@@ -1,6 +1,8 @@
 <?php $this->view('pageinit'); ?>
 <link rel="stylesheet" href="<?=ROOT?>/css/reportstyle.css">
 <script src="<?=ROOT?>/js/ajscriptreport.js"></script>
+<title>Report</title>
+
 
 
 <script src="<?=ROOT?>/scripts/genrep2.js"></script>  

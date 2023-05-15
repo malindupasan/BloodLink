@@ -6,7 +6,7 @@ class AdminAddBloodBank extends Controller
     function index()
     {
 
-        $user = new Admin_AddBloodBank();
+        $user = new Admin_Home();
         if (count($_POST) > 0) {
             $user->insert($_POST);
             $this->redirect('adminhome');

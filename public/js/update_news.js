@@ -1,6 +1,5 @@
 const form = document.getElementById('update_news');
 
-const title = document.getElementById('title');
 // const admin_id = document.getElementById('admin_id');
 const link = document.getElementById('link');
 const file1 = document.getElementById('file');
@@ -31,21 +30,12 @@ async function inputChecker() {
     //values from the inputs
     // console.log("inputChecker");
 
-    const titleVal = title.value.trim();    
     // const admin_idval = admin_id.value.trim(); 
     const linkval = link.value.trim(); 
     const descriptionVal = description.value.trim();
     const file1Val = file1.value.trim();
 
 
-    if (titleVal === "") {
-        //error message
-        displayError(title, "Title can't be empty");
-
-    } else {
-        //display success tick
-        displaySuccess(title);
-    }
 
     // if (admin_idval === "") {
     //     //error message

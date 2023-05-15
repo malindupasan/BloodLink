@@ -4,8 +4,10 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>Upcoming Blood Donation Campaigns</title>
 
-<link rel="stylesheet" href="<?=ROOT?>/css/mainstyle.css">
+
+<link rel="stylesheet" href="<?=ROOT?>/css/bdchistorystyle.css">
 
 
 
@@ -27,7 +29,7 @@
                     <th>Location</th>
                     <th>Date</th>
                     <th>Start Time</th>
-                    <th>DocID</th>
+                    <th>Doctor</th>
 
                 </tr>
             <thead>
@@ -36,17 +38,13 @@
                     <div class="trows">
                     <tr class="hov">
                         <td><?=$row->camp_name ?></td>
-                        <td><?=$row->address ?></td>
+                        <td><?=$row->house_no?>,<?=$row->street?>,<?=$row->city?></td>
                         <td><?=$row->date ?></td>
                         <td><?=$row->start_time ?></td>
-                        <?php if($row->doctor_id!=NULL){?>
-                            <td><?=$row->doctor_id ?></td>
-                        <?php }else{?>
-                            <?php if($_SESSION['USER']->role==PHI){?>
+                        <?php if($row->doctor_id==NULL){?>
+                            <?php if($_SESSION['USER']->role=='PHI'){?>
                                 <td><a  href="<?=ROOT?>/reqdetails?id=<?=$row->camp_id?>"><button class="btn">Assign</button></a></td>
                             <?php }?>
-                        
-
                         <?php }?>
                         
                         

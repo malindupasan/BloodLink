@@ -1,6 +1,8 @@
 <?php $this->view('includes/pageinit'); ?>
 <?php $this->view('adminnavupDashBoard'); ?>
 
+
+
 <?php $i = 0 ?>
 
 <link rel="stylesheet" href="<?= ROOT ?>/css/adminstaffuserslabstaff.css">
@@ -291,6 +293,7 @@
                         <th>Tel Number</th>
                         <th>Home Town</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th></th>
 
                     </tr>
@@ -306,6 +309,12 @@
                             <td><?= $value->telephone ?></td>
                             <td><?= $value->city ?></td>
                             <td><?= $value->email ?></td>
+                            <td>
+                                <select name="status" class="status" data-id="<?php echo $value->id; ?>">
+                                    <option value=1 <?php if ($value->status == 1) echo "selected" ?>>Active</option>
+                                    <option value=0 <?php if ($value->status == 0) echo "selected" ?>>Deactive</option>
+                                </select>
+                            </td>
                             <td>
 
                                 <div class="edit">
@@ -619,4 +628,41 @@
         ajax.open('post', '<?= ROOT ?>/adminstaffuserslabstaff/index2', true);
         ajax.send(form);
     }
+
+
+
+
+    const statuses = document.querySelectorAll('.status');
+
+    statuses.forEach(function(status) {
+        status.addEventListener('change', function() {
+            const userId = status.getAttribute("data-id");
+            sendSelectedOption(status.value, userId);
+        });
+    });
+
+    function sendSelectedOption(status, id) {
+        console.log(id);
+        console.log(status);
+        const url = `http://localhost/GP/BloodLink/public/adminstaffuserslabstaff/updateAccStatus/${id}`;
+        const data = {
+            status: status
+        };
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            responseType: "JSON",
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+
+    }
+
+
 </script>

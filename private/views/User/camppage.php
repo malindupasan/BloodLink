@@ -7,9 +7,9 @@
     <div class="sec1">
         <h2 class="sec1-h"><?= $data['rows']->camp_name?></h2>
         <div class="div-a">
-        <?php if(($data['rows']->date)<=date("Y-m-d")):?> <a href="<?=ROOT?>/viewcampfeedback?id=<?=$data['rows']->camp_id?>" class="qrbtn">Feedback</a><?php endif;?>
+     <?php if($flags['userflg']==1) :?>  <?php if(($data['rows']->date)<=date("Y-m-d")):?> <a href="<?=ROOT?>/viewcampfeedback?id=<?=$data['rows']->camp_id?>" class="qrbtn">Feedback</a><?php endif;?>
          <a href="<?=ROOT?>/campqr?id='<?=$data['rows']->camp_id?>'" class="qrbtn">GET QR</a>
-        
+        <?php endif;?>
     </div>
 </div>
 
@@ -20,7 +20,7 @@
             
             </div>
             <div class="s2Info">
-                <span class="ftext">Place : </span> <span class="vtext"><?= $data['rows']->house_no." ".$data['rows']->street." /n".$data['rows']->city ?></span> <br>
+                <span class="ftext">Place : </span> <span class="vtext"><?= $data['rows']->house_no." ".$data['rows']->street."<br>".$data['rows']->city ?></span> <br>
                 <span class="ftext">Start Time : </span> <span class="vtext"><?= $data['rows']->start_time?></span><br>
                 <span class="ftext">Date : </span><span class="vtext"><?= $data['rows']->date?></span><br>
                 <span class="ftext">BloodBank : </span><span class="vtext"><?= $data['rows']->name?></span><br>

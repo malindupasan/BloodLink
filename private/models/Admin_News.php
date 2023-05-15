@@ -8,6 +8,6 @@ class Admin_News extends Model
 {
     protected $table = "news";
 
-    protected $allowedColumns = ['news_id', 'news_img', 'title', 'description', 'link', 'admin_id'];
+    protected $allowedColumns = ['news_id', 'news_img', 'description', 'link', 'admin_id'];
    
 }

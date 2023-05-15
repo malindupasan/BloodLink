@@ -5,11 +5,10 @@ class Reportui extends Controller
     {
 
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
         $id=$_GET['id'];
-        // $id=1;
 
         $bdc=new BLBdc();
         $bb=new BLBloodbank();
@@ -36,7 +35,6 @@ class Reportui extends Controller
 
         $q3="SELECT COUNT(packet_id) AS count FROM raw_blood_packet WHERE blood_donation_camp_id=$id AND status>1";
         $countreject=$bp->query($q3);
-        // print_r($countreject);
 
         $rbc = new Rbc(); //model instantiated
         $q="SELECT IFNULL(SUM(rbc.amount),0) AS sum FROM rbc INNER JOIN raw_blood_packet ON rbc.packet_id=raw_blood_packet.packet_id WHERE raw_blood_packet.blood_donation_camp_id=$id AND rbc.blood_group='A+'";
@@ -66,9 +64,7 @@ class Reportui extends Controller
             $rbcarray['Op']=$data7[0]->sum;
             $rbcarray['On']=$data8[0]->sum;
 
-        //     echo "<pre>";
-        // print_r($data1);
-
+        
         $wbc = new Wbc(); //model instantiated
 
         $q="SELECT IFNULL(SUM(wbc.amount),0) AS sum FROM wbc INNER JOIN raw_blood_packet ON wbc.packet_id=raw_blood_packet.packet_id WHERE raw_blood_packet.blood_donation_camp_id=$id AND wbc.blood_group='A+'";
@@ -154,16 +150,11 @@ class Reportui extends Controller
 
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // $data = array('key1' => 'value1', 'key2' => 'value2');
-            // $data2 = array('key3' => 'value3', 'key4' => 'value4');
-            // $data3 = array('key1' => 'value1', 'key2' => 'value2');
-            // $data4 = array('key3' => 'value3', 'key4' => 'value4');
+           
 
             $response = array("rbc" => $rbcarray, "wbc" => $wbcarray,"plt" => $pltarray,"plsm" => $plsmarray);
                 
-            // $response2 = array("data3" => $data3, "data4" => $data4);
 
-            // $full=array("res" => $response, "res2" => $response2) ;
 
             echo json_encode($response);
         } else {

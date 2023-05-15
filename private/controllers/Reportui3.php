@@ -5,11 +5,8 @@ class Reportui3 extends Controller
     {
 
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
+      
         $id=$_GET['id'];
-        // $id=3;
         $def=new BLDefect();
         $bb=new BLBloodbank();
         $doc=new BLDoc();

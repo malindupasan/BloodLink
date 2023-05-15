@@ -12,12 +12,19 @@ class AdminEditNews extends Controller
         
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $title = $_POST['title'];
+            // $title = $_POST['title'];
             $description = $_POST['description'];
             $link = $_POST['link'];
-            
+            $image=new Image();
+
+            $filename = $image->pic_validate();
+                
+                
+                $img = $filename;
+                
+           
             // Update query
-            $query = "UPDATE news SET title='$title', description='$description', link='$link' WHERE news_id='$id'";
+            $query = "UPDATE news SET  news_img=$img, description='$description', link='$link' WHERE news_id='$id'";
             $news->query($query);
 
             

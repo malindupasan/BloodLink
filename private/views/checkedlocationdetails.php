@@ -1,7 +1,6 @@
-<?php $this->view("includes/navbar", ); ?>
-<title>Archievements</title>
+<?php $this->view("navup", ); ?>
 <link rel="stylesheet" href="<?= ROOT ?>/css/checkedlocationdetails.css">
-
+<title>check locationzssss</title>
 <?php 
 // print_r($checkedarr);
 

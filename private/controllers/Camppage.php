@@ -18,14 +18,22 @@ class Camppage extends Controller
             $arr['id'] = $id;
             $qry="select * from campDetails where camp_id = :id";
             $reqdata=$camp->query($qry,$arr);
-
+            // print_r($reqdata);
+            $orgenizer=$reqdata[0]->donor_id;
+            $currentuser=Auth::getid();
+            // print($orgenizer);
+            $flags=array();
+            $flags['userflg']=0;
+            if($orgenizer==$currentuser){
+                $flags['userflg']=1;
+            }
             // $data = $camp->where("camp_id",$id);
             
-            $this->view('User/camppage', ['rows' =>$reqdata[0]]);
+            $this->view('User/camppage', ['rows' =>$reqdata[0],'flags'=>$flags]);
         }
         else{
-            print_r($id);
-            echo "$id";
+            // print_r($id);
+            // echo "$id";
             echo "not found";
         }
         

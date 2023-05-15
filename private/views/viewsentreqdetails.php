@@ -2,6 +2,8 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>View Sent Requests</title>
+
 
 <link rel="stylesheet" href="<?=ROOT?>/css/temp.css">
 

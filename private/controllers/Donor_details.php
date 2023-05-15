@@ -3,7 +3,10 @@ class Donor_details extends Controller
 {
     public function index()
     {
+        $date=date('Y-m-d');
+        $bbid=$_SESSION['USER']->blood_bank_id;
         $id = 1;
+        $campid=$_GET['campid'];
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
@@ -38,11 +41,22 @@ class Donor_details extends Controller
         if (isset($_POST['accept']) > 0) {
             $blood_packet = new Rawblood();
             $arr['donor_id'] = $id;
-            $blood_bank_id = $arr['blood_bank_id'] = 2;
-            $blood_donation_camp_id = $arr['blood_donation_camp_id'] = 1;
+            $blood_bank_id = $arr['blood_bank_id'] = $bbid;
+            $blood_donation_camp_id = $arr['blood_donation_camp_id'] = $campid;
+            $arr['amount']=450;
+            $arr['collected_date']=$date;
             $blood_packet->insert($arr);
+
+            $q="UPDATE donor SET last_donated=CURDATE() where id=$id"; //update last donated date
+            $don=new User();
+            $don->query($q);
+
+            $this->redirect('viewdonations');
+
         }
-        $this->view('donor_details', ['data' => $data, 'check' => $check,'eligible'=>$eligible]);
+        $this->view('donor_details', ['data' => $data, 'check' => $check,'eligible'=>$eligible,'campid'=>$campid]);
     }
+
+
 
 }

@@ -55,21 +55,14 @@ class Checklocation extends Controller
 
             }
 
-            $this->view('checkedlocationdetails',['checkedarr'=>$checkedarr]);
-            // $this->redirect('checklocation');
-           
-                
+            $this->view('checkedlocationdetails2',['checkedarr'=>$checkedarr]);
             
-            
-           
-            // print_r($data);
-            // print_r($checkedarr);
 
         }
 
 
 
         else
-        $this->view('checkcamplocation');
+        $this->view('checkcamplocation2');
     }
 }

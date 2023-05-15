@@ -14,7 +14,7 @@
             <h1 class="cont-donate">Donate Blood To <br> Save Life</h1>
 
         </div>
-        <div class="newscontainer">
+        <!-- <div class="newscontainer">
             <h2 class="newshead">These people are looking for your help !</h3>
                 <?php foreach ($data as $key): ?>
                     <a class="carda" href="<?= ROOT ?>/post_details?id=<?= $key->post_id ?>">
@@ -31,7 +31,7 @@
                     </a>
                 <?php endforeach; ?>
 
-        </div>
+        </div> -->
 
 
     </div>

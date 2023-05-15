@@ -5,11 +5,6 @@ class Reportui2 extends Controller
     {
 
 
-        // if(!Auth::logged_in()){
-        //     $this->redirect('login');
-        // }
-        // $id=$_GET['id'];
-        // $id=1;
 
         $bdc=new BLBdc();
         $bb=new BLBloodbank();
@@ -33,7 +28,6 @@ class Reportui2 extends Controller
 
         $q3="SELECT COUNT(packet_id) AS count FROM raw_blood_packet WHERE blood_bank_id=$bbid AND status>1";
         $countreject=$bp->query($q3);
-        // print_r($countreject);
         $rbc = new Rbc(); //model instantiated
         $data1=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
         $data2=$rbc->getbgrp("blood_bank_id",$bbid,"blood_group","A-");
@@ -53,8 +47,7 @@ class Reportui2 extends Controller
         $rbcarray['Op']=$data7[0]->sum;
         $rbcarray['On']=$data8[0]->sum;
 
-    //     echo "<pre>";
-    // print_r($data1);
+
 
         $wbc = new Wbc(); //model instantiated
         $data1=$wbc->getbgrp("blood_bank_id",$bbid,"blood_group","A+");
@@ -117,16 +110,11 @@ class Reportui2 extends Controller
 
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // $data = array('key1' => 'value1', 'key2' => 'value2');
-            // $data2 = array('key3' => 'value3', 'key4' => 'value4');
-            // $data3 = array('key1' => 'value1', 'key2' => 'value2');
-            // $data4 = array('key3' => 'value3', 'key4' => 'value4');
+           
 
             $response = array("rbc" => $rbcarray, "wbc" => $wbcarray,"plt" => $pltarray,"plsm" => $plsmarray);
                 
-            // $response2 = array("data3" => $data3, "data4" => $data4);
-
-            // $full=array("res" => $response, "res2" => $response2) ;
+            
 
             echo json_encode($response);
         } else {

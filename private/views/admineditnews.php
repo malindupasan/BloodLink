@@ -88,14 +88,10 @@
         <?php foreach ($rows as $value) : ?>
 
             <div class="form-add">
-                <form method="post" id="update_news">
+                <form method="post" id="update_news" enctype="multipart/form-data">
 
 
-                    <div class="f">
-                        <label class="lable22" for="blood-bank-name">Title :</label>
-                        <input class="input" type="text" id="title" name="title" value="<?= $value->title ?>"><br>
-                        <small>error message</small>
-                    </div>
+                  
 
                     <div class="f">
                         <label class="lable22" for="blood-bank-name">Description :</label>

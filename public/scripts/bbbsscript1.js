@@ -3,7 +3,7 @@ var res;
 window.addEventListener("load", ()=>{
     
     var ajax = new XMLHttpRequest();
-    ajax.open('POST', 'http://localhost/GP/BloodLink/public/adminbloodstocks', true);
+    ajax.open('POST', 'http://localhost:8888/Bloood%20Link%202/public/AdminBloodStocks', true);
   
     ajax.send();
   

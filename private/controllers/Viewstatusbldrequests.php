@@ -14,9 +14,11 @@ class Viewstatusbldrequests extends Controller
         $q1="SELECT blood_request.*,blood_bank.name,doctor.name as docname FROM blood_request  
         INNER JOIN blood_bank ON blood_request.blood_bank_id_destination=blood_bank.blood_bank_id
         INNER JOIN doctor ON blood_request.doctor_id=doctor.id
-        WHERE blood_bank_id_source=$bbid";
+        WHERE blood_bank_id_source=:bbid";
 
-        $data=$breq->query($q1);
+        $data=$breq->query($q1,[
+            'bbid'=>$bbid,
+        ]);
 
         if($data!=NULL){
             $numofresults=count($data);
@@ -35,9 +37,11 @@ class Viewstatusbldrequests extends Controller
             $q2="SELECT blood_request.*,blood_bank.name,doctor.name as docname FROM blood_request  
         INNER JOIN blood_bank ON blood_request.blood_bank_id_destination=blood_bank.blood_bank_id
         INNER JOIN doctor ON blood_request.doctor_id=doctor.id
-        WHERE blood_bank_id_source=$bbid limit $thispagefirstres,$resultsperpage";
+        WHERE blood_bank_id_source=:bbid limit $thispagefirstres,$resultsperpage";
 
-            $data2=$breq->query($q2);
+            $data2=$breq->query($q2,[
+                'bbid'=>$bbid,
+            ]);
 
         }
         // --------------------------------
@@ -46,18 +50,7 @@ class Viewstatusbldrequests extends Controller
             $this->redirect('login');
         }
 
-        // $breq=new BLbldreq();
-
-        
-
-        // $q1="SELECT blood_request.*,blood_bank.name,doctor.name as docname FROM blood_request  
-        //     INNER JOIN blood_bank ON blood_request.blood_bank_id_destination=blood_bank.blood_bank_id
-        //     INNER JOIN doctor ON blood_request.doctor_id=doctor.id
-        //     WHERE blood_bank_id_source=$bbid";
-
-        // $data=$breq->query($q1);
-
-        // print_r($data[0]->docname);
+       
 
         
         $this->view('viewstatusbldrequests',['rows'=>$data2,'ess'=>$essentials]);

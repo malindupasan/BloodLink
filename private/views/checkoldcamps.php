@@ -1,5 +1,4 @@
 <?php $this->view('includes/navbar'); ?>
-<link rel="stylesheet" href="<?=ROOT?>/css/checkcamplocation.css">
 <title>check location</title>
 <link rel="stylesheet" href="<?= ROOT ?>/css/checkoldcamps.css">
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTET7frzRd7t4FvurRzw28rbqEE7_oWFU&callback=initMap&libraries=places"></script>

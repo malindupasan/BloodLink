@@ -1,6 +1,8 @@
 <?php $this->view('pageinit'); ?>
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>History</title>
+
 
 <link rel="stylesheet" href="<?=ROOT?>/css/bdchistorystyle.css">
 
@@ -13,7 +15,7 @@
 
         <div class="search">
             <form>
-                <input type="text" placeholder="&#xf002; Search Lab..." class="jssearch" oninput=get_data()>
+                <input type="text" placeholder="&#xf002; Search Camps..." class="jssearch" oninput=get_data()>
             </form>
             <a href="<?=ROOT?>/bdchistory"><button class="reset">Reset</button></a>
 
@@ -36,7 +38,7 @@
                     <div class="trows">
                     <tr class="hov">
                         <td><?=$row->camp_name ?></td>
-                        <td><?=$row->address ?></td>
+                        <td><?=$row->house_no?>,<?=$row->street?>,<?=$row->city?></td>
                         <td><?=$row->date ?></td>
                         <td><?=$row->start_time ?></td>                      
                         <td><a href="<?=ROOT?>/reqdetails?id=<?=$row->camp_id?>"><button class="bdcvbtn"><i class="fas fa-eye" id="view_btn"></i></button></a></td>

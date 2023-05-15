@@ -14,16 +14,16 @@ class Viewbldreqdetails extends Controller
         $breq=new BLbldreq();
 
         $q1="SELECT * FROM blood_request 	
-        WHERE request_id=$id";
+        WHERE request_id=:id";
 
-        $data=$breq->query($q1);
+        $data=$breq->query($q1,[
+            'id'=>$id,
+        ]);
         $data=$data[0];
 
-        // echo "<pre>";
-        // print_r($data);
-
+    
         
-        $this->view('staff/viewbldreqdetails',['rows'=>$data,'id'=>$id]);
+        $this->view('viewbldreqdetails',['rows'=>$data,'id'=>$id]);
        
     }
 
@@ -40,13 +40,14 @@ class Viewbldreqdetails extends Controller
         $breq=new BLbldreq();
 
         $q1="SELECT * FROM blood_request 	
-        WHERE request_id=$id";
+        WHERE request_id=:id";
 
-        $data=$breq->query($q1);
+        $data=$breq->query($q1,[
+            'id'=>$id
+        ]);
         $data=$data[0];
 
-        // echo "<pre>";
-        // print_r($data);
+     
 
         
         $this->view('viewsentreqdetails',['rows'=>$data,'id'=>$id]);

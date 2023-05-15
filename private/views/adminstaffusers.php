@@ -280,25 +280,12 @@
                             <td><?= $value->telephone ?></td>
                             <td><?= $value->city ?></td>
                             <td><?= $value->email ?></td>
-                            <td><?= $value->status ?></td>
+                            
                             <td>
-                                <?php
-
-                                $status = $value->status;
-
-                                if ($status = 1) { ?>
-                                    <a href="<?= ROOT ?>/adminstaffusers?id=<?= $value->id ?>" class="edit1">
-                                        <div class="enable"><?php echo "Enable"; ?>
-                                        </div>
-                                    </a>
-                                <?php } else { ?>
-                                    <a href="<?= ROOT ?>/adminstaffusers?id=<?= $value->id ?>" class="edit1">
-                                        <div class="desable"><?php echo "Desable"; ?></div>
-                                    </a>
-                                <?php }
-
-                                ?>
-
+                                <select name="status" class="status" data-id="<?php echo $value->id; ?>">
+                                    <option value=1 <?php if ($value->status == 1) echo "selected" ?>>Active</option>
+                                    <option value=0 <?php if ($value->status == 0) echo "selected" ?>>Deactive</option>
+                                </select>
                             </td>
                             <td>
 
@@ -333,13 +320,13 @@
 
                                                     <div class="f">
                                                         <label class="lable22" for="no">Email </label>
-                                                        <input class="input" placeholder="Email" type="text" id="email" name="email" value="<?= $value->email ?>"><br>
+                                                        <input class="input" placeholder="Email" type="text" id="email" name="email" value="<?= $value->email ?>" readonly><br>
                                                         <small>error message</small>
                                                     </div>
 
                                                     <div class="f">
                                                         <label class="lable22" for="no">NIC </label>
-                                                        <input class="input" placeholder="Your NIC" type="text" id="nic" name="nic" value="<?= $value->nic ?>"><br>
+                                                        <input class="input" placeholder="Your NIC" type="text" id="nic" name="nic" value="<?= $value->nic ?>" readonly><br>
                                                         <small>error message</small>
                                                     </div>
 
@@ -391,13 +378,13 @@
 
                                                     <div class="f">
                                                         <label class="lable22" for="city">Password </label>
-                                                        <input class="input" placeholder="Password" type="password" id="password" name="password" value="<?= $value->password ?>"><br>
+                                                        <input class="input" placeholder="Password" type="text" id="password" name="password" value="<?= $value->password ?>"><br>
                                                         <small>error message</small>
                                                     </div>
 
                                                     <div class="f">
                                                         <label class="lable22" for="city">Confirm Password </label>
-                                                        <input class="input" placeholder="Confirm Password" type="password" id="cpassword" name="cpassword" value="<?= $value->password ?>"><br>
+                                                        <input class="input" placeholder="Confirm Password" type="text" id="cpassword" name="cpassword" value="<?= $value->password ?>"><br>
                                                         <small>error message</small>
                                                     </div>
 
@@ -611,29 +598,35 @@
 
 
 
-    // function get_data() {
-    //     var text = document.querySelector(".jssearch").value;
-    //     var form = new FormData();
+    const statuses = document.querySelectorAll('.status');
 
-    //     form.append('text', text);
-    //     var ajax = new XMLHttpRequest();
-    //     ajax.addEventListener('readystatechange', (e) => {
-    //         if (ajax.readyState == 4 && ajax.status == 200) {
-    //             //res
-    //             // console.log(ajax.responseText);
-    //             var obj = JSON.parse(ajax.responseText);
-    //             console.log(obj);
-    //             var resultdiv = document.querySelector(".jstable");
-    //             var str = "<table><thead><tr><th>Medical ID</th><th>Name</th><th>NIC</th><th>Telephone</th><th>Email</th></tr><thead>";
-    //             for (var i = obj.length - 1; i >= 0; i--) {
-    //                 // console.log(obj[i].name);
-    //                 str += "<tr class='hov'><td>" + obj[i].medical_id + "</td> <td>" + obj[i].name + "</td> <td>" + obj[i].nic + "</td> <td>" + obj[i].telephone + "</td> <td>" + obj[i].email + "</td>  </tr>";
-    //             }
+    statuses.forEach(function(status) {
+        status.addEventListener('change', function() {
+            const userId = status.getAttribute("data-id");
+            sendSelectedOption(status.value, userId);
+        });
+    });
 
-    //             resultdiv.innerHTML = str;
-    //         }
-    //     })
-    //     ajax.open('post', 'http://localhost/BloodLink/public/adminstaffusers/index1', true);
-    //     ajax.send(form);
-    // }
+    function sendSelectedOption(status, id) {
+        console.log(id);
+        console.log(status);
+        const url = `http://localhost/GP/BloodLink/public/adminstaffusers/updateAccStatus/${id}`;
+        const data = {
+            status: status
+        };
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            responseType: "JSON",
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+
+    }
 </script>

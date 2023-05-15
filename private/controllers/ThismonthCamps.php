@@ -3,6 +3,10 @@ class Thismonthcamps extends Controller
 {
     function index($id = '')
     {   
+        if(!Auth::logged_in()){
+            $this->redirect('login');
+        }
+        
         $month=date('m');
         $year=date('Y');
         $bbid=$_SESSION['USER']->blood_bank_id;
@@ -31,15 +35,12 @@ class Thismonthcamps extends Controller
         $thispagefirstres=($page-1)*$resultsperpage;
 
         $data2= $bdc->paginthismonthcamps("blood_bank_id",$bbid,"date",$month,$year,$thispagefirstres,$resultsperpage);
-        // echo "<pre>";
-        // print_r($data2);
+    
 
     }
 
 
-        if(!Auth::logged_in()){
-            $this->redirect('login');
-        }
+        
 
         
 

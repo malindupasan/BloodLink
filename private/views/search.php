@@ -1,9 +1,15 @@
-<?php $this->view('includes/navup'); ?>
+<?php $this->view('pageinit'); ?>
+
+<?php $this->view('navup'); ?>
+
+<title>Search</title>
+
 
 <link rel="stylesheet" href="<?=ROOT?>/css/search.css">
+
 <div class="main">
 <div id="cover">
-  <form method="get" action="">
+  <form method="post" action="">
     <div class="tb">
       <div class="td"><input type="text" placeholder="Search" required name="donor"></div>
       <div class="td" id="s-cover">
@@ -15,9 +21,10 @@
     </div>
   </form>
 </div>
+
 <?php if ($data):?>
 <div class="container">
-<a href="search"><button class="btn large" name="accept" >Back to search</button></a>
+<!-- <a href="search"><button class="btn large" name="accept" >Back to search</button></a> -->
     <div class="card">
 
         <div class='top'>
@@ -25,34 +32,18 @@
         </div>
         <div class='bottom'>
             <h1><?=$data->name?></h1>
-            <?php if(isset($data->guest_id)):?>
-                <small><b>Guest Donor</b></small>
-            <!-- <?php if($eligible=='0'): ?>
-                <small class='error'><i class="fa-solid fa-circle-exclamation"></i> Has donated blood less than 3 months ago.</small>
-            <?php endif; ?> -->
-            <br>
-            <div class="details">
-                <p>ID: <?=$data->guest_id?></p>
-                <p>Last donated date: <?=$data->last_donated?></p>
-                <p>NIC: <?=$data->nic?></p>
-            </div>
-            <?php endif;?>
-            <?php if(!isset($data->guest_id)):?>
             <small><?=$data->city?></small>
-            <!-- <?php if($eligible=='0'): ?>
-                <small class='error'><i class="fa-solid fa-circle-exclamation"></i> Has donated blood less than 3 months ago.</small>
-            <?php endif; ?> -->
             <br>
             <div class="details">
                 <p>Age: <?=$data->age?></p>
                 <p>Email: <?=$data->email?></p>
                 <p>NIC: <?=$data->nic?></p>
             </div>
-            <?php endif;?>
         </div>
     </div>
 </div>
 <?php endif?>
+<!-- ================================================reminder to use if(is_registered==0) to show details of nonreg users================================ -->
 <?php if ($data=='0'):?>
     <p class="error">User with the NIC doesn't exist!<p>
     <form method="post" class="register">

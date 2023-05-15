@@ -98,9 +98,12 @@ class Sendaccept extends Controller
             unset($_SESSION['bld']);
         }
 
-        $q1="UPDATE blood_request SET status=2, respond_doc_id=$did WHERE request_id=$id";
+        $q1="UPDATE blood_request SET status=2, respond_doc_id=:did WHERE request_id=:id";
         $bldreq=new BLbldreq();
-        $bldreq->query($q1);
+        $bldreq->query($q1,[
+            'did'=>$did,
+            'id'=>$id
+        ]);
 
         // redirect('viewbldreqdetails');
         $this->redirect('viewbldrequests');
@@ -124,8 +127,11 @@ class Sendaccept extends Controller
         foreach($rbcarr as $key => $value){
             if(isset($_SESSION['bld'][$value]['accept'])){
                 foreach($_SESSION['bld'][$value]['items'] as $k => $v){
-                    $q1="UPDATE rbc SET blood_bank_id=$bbid WHERE final_packet_id=$v";
-                    $rbc->query($q1);
+                    $q1="UPDATE rbc SET blood_bank_id=:bbid WHERE final_packet_id=:v";
+                    $rbc->query($q1,[
+                        'bbid'=>$bbid,
+                        'v'=>$v
+                    ]);
                 }
             }
         }
@@ -134,8 +140,11 @@ class Sendaccept extends Controller
         foreach($wbcarr as $key => $value){
             if(isset($_SESSION['bld'][$value]['accept'])){
                 foreach($_SESSION['bld'][$value]['items'] as $k => $v){
-                    $q1="UPDATE wbc SET blood_bank_id=$bbid WHERE final_packet_id=$v";
-                    $wbc->query($q1);
+                    $q1="UPDATE wbc SET blood_bank_id=:bbid WHERE final_packet_id=:v";
+                    $wbc->query($q1,[
+                        'bbid'=>$bbid,
+                        'v'=>$v,
+                    ]);
                 }
             }
         }
@@ -144,8 +153,11 @@ class Sendaccept extends Controller
         foreach($pltarr as $key => $value){
             if(isset($_SESSION['bld'][$value]['accept'])){
                 foreach($_SESSION['bld'][$value]['items'] as $k => $v){
-                    $q1="UPDATE platelets SET blood_bank_id=$bbid WHERE final_packet_id=$v";
-                    $plt->query($q1);
+                    $q1="UPDATE platelets SET blood_bank_id=:bbid WHERE final_packet_id=:v";
+                    $plt->query($q1,[
+                        'bbid'=>$bbid,
+                        'v'=>$v,
+                    ]);
                 }
             }
         }
@@ -154,8 +166,11 @@ class Sendaccept extends Controller
         foreach($plsmarr as $key => $value){
             if(isset($_SESSION['bld'][$value]['accept'])){
                 foreach($_SESSION['bld'][$value]['items'] as $k => $v){
-                    $q1="UPDATE plasma SET blood_bank_id=$bbid WHERE final_packet_id=$v";
-                    $plsm->query($q1);
+                    $q1="UPDATE plasma SET blood_bank_id=:bbid WHERE final_packet_id=:v";
+                    $plsm->query($q1,[
+                        'bbid'=>$bbid,
+                        'v'=>$v,
+                    ]);
                 }
             }
         }
@@ -165,9 +180,12 @@ class Sendaccept extends Controller
 
 
             unset($_SESSION['bld']);
-            $q1="UPDATE blood_request SET status=1, respond_doc_id=$did WHERE request_id=$id";
+            $q1="UPDATE blood_request SET status=1, respond_doc_id=:did WHERE request_id=:id";
             $bldreq=new BLbldreq();
-            $bldreq->query($q1);
+            $bldreq->query($q1,[
+                'did'=>$did,
+                'id'=>$id,
+            ]);
 
         // $q1="UPDATE blood_request SET status=2, respond_doc_id=$did WHERE request_id=$id";
         // $bldreq=new BLbldreq();

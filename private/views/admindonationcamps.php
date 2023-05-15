@@ -99,7 +99,7 @@
             <input type="text" placeholder="&#xf002; Search Camps..." class="jssearch" oninput=get_data()>
 
         </form>
-        <a href="<?= ROOT ?>/admindonationcamps"><button class="reset">Reset</button></a>
+        <!-- <a href="<?= ROOT ?>/admindonationcamps"><button class="reset">Reset</button></a> -->
 
     </div>
 
@@ -196,11 +196,6 @@
                                     ?>
 
 
-
-                                    <div class="map">
-                                        <label class="lable22" class="loc" for="map">Location</label>
-                                        <input class="map-in" type="text" id="map" name="map"><br>
-                                    </div>
 
                                     <div class="name1">
                                         <label class="lable22" for="blood-bank-name">Assigned Blood Bank</label>
@@ -318,10 +313,7 @@
 
                                                 ${status1}
 
-                                                <div class="map">
-                                                    <label class="lable22" class="loc" for="map">Location</label>
-                                                    <input class="map-in" type="text" id="map" name="map"><br>
-                                                </div>
+                                                
 
                                                 <div class="name1">
                                                     <label class="lable22" for="blood-bank-name">Assigned Blood Bank</label>

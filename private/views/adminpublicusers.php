@@ -93,7 +93,7 @@
                 <input type="text" placeholder="&#xf002; Search Donor..." class="jssearch" oninput=get_data()>
 
             </form>
-            <a href="<?= ROOT ?>/adminpublicusers"><button class="reset">Reset</button></a>
+            <!-- <a href="<?= ROOT ?>/adminpublicusers"><button class="reset">Reset</button></a> -->
 
         </div>
 

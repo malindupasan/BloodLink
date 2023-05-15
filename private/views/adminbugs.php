@@ -80,7 +80,7 @@
     <div class="right">
 
         <div class="">
-            <h1 class="h1">Bugs</h1>
+            <h1 class="h1">Feedbacks</h1>
         </div>
 
 

@@ -2,6 +2,8 @@
 
 <?php $this->view('nav'); ?>
 <?php $this->view('navup'); ?>
+<title>This Month</title>
+
 
 <link rel="stylesheet" href="<?=ROOT?>/css/thismonthcss.css">
 
