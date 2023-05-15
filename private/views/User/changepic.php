@@ -39,7 +39,7 @@
 
     </div>
 
-    <script src="http://localhost:8888/Bloood%20Link%202/public/js/change_pic.js"></script>
+    <script src="<?=ROOT?>/js/change_pic.js"></script>
 </body>
 
 
